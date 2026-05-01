@@ -1,0 +1,429 @@
+{
+  "project": "C:\\Users\\Administrator\\Documents\\HFSS Sim\\UWB_CH9_Diamond_CP_Array_D44_FOV.aedt",
+  "design": "Array4_Diamond_D44_FOV",
+  "sources": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "available_frequencies_ghz": [
+    7.738,
+    7.9855,
+    8.233
+  ],
+  "evaluated_frequencies_ghz": [
+    7.738,
+    7.9855,
+    8.233
+  ],
+  "fov_by_freq": {
+    "7.738000GHz": {
+      "P1_only": {
+        "freq_ghz": 7.738,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -2.8049165758884236,
+        "gain_max_dbi": 2.763942819840122,
+        "gain_ripple_db": 5.568859395728546,
+        "gain_min_point": {
+          "theta_deg": 355.0,
+          "phi_deg": 45.0,
+          "gain_dbi": -2.8049165758884236
+        },
+        "gain_max_point": {
+          "theta_deg": 310.0,
+          "phi_deg": 70.0,
+          "gain_dbi": 2.763942819840122
+        }
+      },
+      "P2_only": {
+        "freq_ghz": 7.738,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -6.745535282045127,
+        "gain_max_dbi": 2.8788752894193257,
+        "gain_ripple_db": 9.624410571464452,
+        "gain_min_point": {
+          "theta_deg": 239.99999999999997,
+          "phi_deg": 90.0,
+          "gain_dbi": -6.745535282045127
+        },
+        "gain_max_point": {
+          "theta_deg": 300.0,
+          "phi_deg": 45.0,
+          "gain_dbi": 2.8788752894193257
+        }
+      },
+      "P3_only": {
+        "freq_ghz": 7.738,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -2.8686520388487313,
+        "gain_max_dbi": 2.7000409775122964,
+        "gain_ripple_db": 5.568693016361028,
+        "gain_min_point": {
+          "theta_deg": 10.0,
+          "phi_deg": 45.0,
+          "gain_dbi": -2.8686520388487313
+        },
+        "gain_max_point": {
+          "theta_deg": 59.99999999999999,
+          "phi_deg": 50.0,
+          "gain_dbi": 2.7000409775122964
+        }
+      },
+      "P4_only": {
+        "freq_ghz": 7.738,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -6.864467711827561,
+        "gain_max_dbi": 2.632345975442977,
+        "gain_ripple_db": 9.496813687270539,
+        "gain_min_point": {
+          "theta_deg": 119.99999999999999,
+          "phi_deg": 90.0,
+          "gain_dbi": -6.864467711827561
+        },
+        "gain_max_point": {
+          "theta_deg": 59.99999999999999,
+          "phi_deg": 45.0,
+          "gain_dbi": 2.632345975442977
+        }
+      },
+      "equal_phase_all_ports": {
+        "freq_ghz": 7.738,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -27.563253001250768,
+        "gain_max_dbi": 2.4902278055569846,
+        "gain_ripple_db": 30.05348080680775,
+        "gain_min_point": {
+          "theta_deg": 0.0,
+          "phi_deg": 45.0,
+          "gain_dbi": -27.563253001250768
+        },
+        "gain_max_point": {
+          "theta_deg": 315.0,
+          "phi_deg": 90.0,
+          "gain_dbi": 2.4902278055569846
+        }
+      },
+      "coverage_envelope_best_port": {
+        "freq_ghz": 7.738,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -2.067366467132038,
+        "gain_max_dbi": 2.8788752894193257,
+        "gain_ripple_db": 4.946241756551364,
+        "gain_min_point": {
+          "theta_deg": 0.0,
+          "phi_deg": 55.0,
+          "gain_dbi": -2.067366467132038
+        },
+        "gain_max_point": {
+          "theta_deg": 300.0,
+          "phi_deg": 45.0,
+          "gain_dbi": 2.8788752894193257
+        }
+      }
+    },
+    "7.985500GHz": {
+      "P1_only": {
+        "freq_ghz": 7.9855,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -2.921540999265999,
+        "gain_max_dbi": 3.0570637935128615,
+        "gain_ripple_db": 5.97860479277886,
+        "gain_min_point": {
+          "theta_deg": 355.0,
+          "phi_deg": 45.0,
+          "gain_dbi": -2.921540999265999
+        },
+        "gain_max_point": {
+          "theta_deg": 305.0,
+          "phi_deg": 59.99999999999999,
+          "gain_dbi": 3.0570637935128615
+        }
+      },
+      "P2_only": {
+        "freq_ghz": 7.9855,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -6.926897073539386,
+        "gain_max_dbi": 3.3171265539909474,
+        "gain_ripple_db": 10.244023627530334,
+        "gain_min_point": {
+          "theta_deg": 234.99999999999997,
+          "phi_deg": 90.0,
+          "gain_dbi": -6.926897073539386
+        },
+        "gain_max_point": {
+          "theta_deg": 300.0,
+          "phi_deg": 45.0,
+          "gain_dbi": 3.3171265539909474
+        }
+      },
+      "P3_only": {
+        "freq_ghz": 7.9855,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -2.9880693776056804,
+        "gain_max_dbi": 3.100951197076908,
+        "gain_ripple_db": 6.089020574682588,
+        "gain_min_point": {
+          "theta_deg": 5.0,
+          "phi_deg": 45.0,
+          "gain_dbi": -2.9880693776056804
+        },
+        "gain_max_point": {
+          "theta_deg": 59.99999999999999,
+          "phi_deg": 45.0,
+          "gain_dbi": 3.100951197076908
+        }
+      },
+      "P4_only": {
+        "freq_ghz": 7.9855,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -7.018432634419564,
+        "gain_max_dbi": 3.0453513337274876,
+        "gain_ripple_db": 10.063783968147051,
+        "gain_min_point": {
+          "theta_deg": 125.00000000000001,
+          "phi_deg": 90.0,
+          "gain_dbi": -7.018432634419564
+        },
+        "gain_max_point": {
+          "theta_deg": 59.99999999999999,
+          "phi_deg": 45.0,
+          "gain_dbi": 3.0453513337274876
+        }
+      },
+      "equal_phase_all_ports": {
+        "freq_ghz": 7.9855,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -27.052403049305063,
+        "gain_max_dbi": 2.794405807295523,
+        "gain_ripple_db": 29.846808856600585,
+        "gain_min_point": {
+          "theta_deg": 360.0,
+          "phi_deg": 50.0,
+          "gain_dbi": -27.052403049305063
+        },
+        "gain_max_point": {
+          "theta_deg": 315.0,
+          "phi_deg": 90.0,
+          "gain_dbi": 2.794405807295523
+        }
+      },
+      "coverage_envelope_best_port": {
+        "freq_ghz": 7.9855,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -2.2155656510563673,
+        "gain_max_dbi": 3.3171265539909474,
+        "gain_ripple_db": 5.532692205047315,
+        "gain_min_point": {
+          "theta_deg": 360.0,
+          "phi_deg": 65.0,
+          "gain_dbi": -2.2155656510563673
+        },
+        "gain_max_point": {
+          "theta_deg": 300.0,
+          "phi_deg": 45.0,
+          "gain_dbi": 3.3171265539909474
+        }
+      }
+    },
+    "8.233000GHz": {
+      "P1_only": {
+        "freq_ghz": 8.233,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -2.9792205738059527,
+        "gain_max_dbi": 3.32826469937661,
+        "gain_ripple_db": 6.307485273182563,
+        "gain_min_point": {
+          "theta_deg": 355.0,
+          "phi_deg": 45.0,
+          "gain_dbi": -2.9792205738059527
+        },
+        "gain_max_point": {
+          "theta_deg": 300.0,
+          "phi_deg": 45.0,
+          "gain_dbi": 3.32826469937661
+        }
+      },
+      "P2_only": {
+        "freq_ghz": 8.233,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -7.484255086813963,
+        "gain_max_dbi": 3.674708848579758,
+        "gain_ripple_db": 11.158963935393722,
+        "gain_min_point": {
+          "theta_deg": 234.99999999999997,
+          "phi_deg": 90.0,
+          "gain_dbi": -7.484255086813963
+        },
+        "gain_max_point": {
+          "theta_deg": 300.0,
+          "phi_deg": 45.0,
+          "gain_dbi": 3.674708848579758
+        }
+      },
+      "P3_only": {
+        "freq_ghz": 8.233,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -3.0518591153085395,
+        "gain_max_dbi": 3.44395937387497,
+        "gain_ripple_db": 6.49581848918351,
+        "gain_min_point": {
+          "theta_deg": 5.0,
+          "phi_deg": 45.0,
+          "gain_dbi": -3.0518591153085395
+        },
+        "gain_max_point": {
+          "theta_deg": 55.0,
+          "phi_deg": 45.0,
+          "gain_dbi": 3.44395937387497
+        }
+      },
+      "P4_only": {
+        "freq_ghz": 8.233,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -7.644094008408782,
+        "gain_max_dbi": 3.3817164348075375,
+        "gain_ripple_db": 11.025810443216319,
+        "gain_min_point": {
+          "theta_deg": 130.0,
+          "phi_deg": 90.0,
+          "gain_dbi": -7.644094008408782
+        },
+        "gain_max_point": {
+          "theta_deg": 55.0,
+          "phi_deg": 45.0,
+          "gain_dbi": 3.3817164348075375
+        }
+      },
+      "equal_phase_all_ports": {
+        "freq_ghz": 8.233,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -26.501993423685587,
+        "gain_max_dbi": 3.0958615164926737,
+        "gain_ripple_db": 29.59785494017826,
+        "gain_min_point": {
+          "theta_deg": 0.0,
+          "phi_deg": 55.0,
+          "gain_dbi": -26.501993423685587
+        },
+        "gain_max_point": {
+          "theta_deg": 315.0,
+          "phi_deg": 90.0,
+          "gain_dbi": 3.0958615164926737
+        }
+      },
+      "coverage_envelope_best_port": {
+        "freq_ghz": 8.233,
+        "fov": "Theta 0-360 deg, Phi 45-90 deg",
+        "sample_count": 730,
+        "gain_min_dbi": -2.3117080064201265,
+        "gain_max_dbi": 3.674708848579758,
+        "gain_ripple_db": 5.986416854999884,
+        "gain_min_point": {
+          "theta_deg": 360.0,
+          "phi_deg": 80.0,
+          "gain_dbi": -2.3117080064201265
+        },
+        "gain_max_point": {
+          "theta_deg": 300.0,
+          "phi_deg": 45.0,
+          "gain_dbi": 3.674708848579758
+        }
+      }
+    }
+  },
+  "s_parameters": [
+    {
+      "freq_ghz": 7.738,
+      "self_terms_db": {
+        "dB(S(P4:1,P4:1))": -4.789040689071669,
+        "dB(S(P3:1,P3:1))": -4.402695252532853,
+        "dB(S(P2:1,P2:1))": -5.015850650235391,
+        "dB(S(P1:1,P1:1))": -5.0584957010851825
+      },
+      "coupling_terms_db": {
+        "dB(S(P4:1,P3:1))": -13.808338265233333,
+        "dB(S(P4:1,P2:1))": -20.877680695956688,
+        "dB(S(P4:1,P1:1))": -13.46513124731385,
+        "dB(S(P3:1,P4:1))": -13.808338265233333,
+        "dB(S(P3:1,P2:1))": -13.761292240109565,
+        "dB(S(P3:1,P1:1))": -20.940223470678315,
+        "dB(S(P2:1,P4:1))": -20.877680695956688,
+        "dB(S(P2:1,P3:1))": -13.761292240109565,
+        "dB(S(P2:1,P1:1))": -13.413649414904608,
+        "dB(S(P1:1,P4:1))": -13.46513124731385,
+        "dB(S(P1:1,P3:1))": -20.940223470678315,
+        "dB(S(P1:1,P2:1))": -13.413649414904608
+      },
+      "worst_return_db": -4.402695252532853,
+      "worst_coupling_db": -13.413649414904608
+    },
+    {
+      "freq_ghz": 7.9855,
+      "self_terms_db": {
+        "dB(S(P4:1,P4:1))": -3.7895985879120553,
+        "dB(S(P3:1,P3:1))": -3.484006030732419,
+        "dB(S(P2:1,P2:1))": -3.9596474639384587,
+        "dB(S(P1:1,P1:1))": -3.9947234894472254
+      },
+      "coupling_terms_db": {
+        "dB(S(P4:1,P3:1))": -14.830561411471287,
+        "dB(S(P4:1,P2:1))": -21.271863402168787,
+        "dB(S(P4:1,P1:1))": -14.463600116922613,
+        "dB(S(P3:1,P4:1))": -14.830561411471287,
+        "dB(S(P3:1,P2:1))": -14.780824148172691,
+        "dB(S(P3:1,P1:1))": -21.332476221507164,
+        "dB(S(P2:1,P4:1))": -21.271863402168787,
+        "dB(S(P2:1,P3:1))": -14.780824148172693,
+        "dB(S(P2:1,P1:1))": -14.40089847473102,
+        "dB(S(P1:1,P4:1))": -14.463600116922613,
+        "dB(S(P1:1,P3:1))": -21.332476221507175,
+        "dB(S(P1:1,P2:1))": -14.400898474731022
+      },
+      "worst_return_db": -3.484006030732419,
+      "worst_coupling_db": -14.40089847473102
+    },
+    {
+      "freq_ghz": 8.233,
+      "self_terms_db": {
+        "dB(S(P4:1,P4:1))": -3.0310310395468303,
+        "dB(S(P3:1,P3:1))": -2.7817714906749185,
+        "dB(S(P2:1,P2:1))": -3.1576123168742516,
+        "dB(S(P1:1,P1:1))": -3.1865805928926596
+      },
+      "coupling_terms_db": {
+        "dB(S(P4:1,P3:1))": -16.0063824854035,
+        "dB(S(P4:1,P2:1))": -21.94358693305945,
+        "dB(S(P4:1,P1:1))": -15.618503474469334,
+        "dB(S(P3:1,P4:1))": -16.0063824854035,
+        "dB(S(P3:1,P2:1))": -15.954993461952913,
+        "dB(S(P3:1,P1:1))": -21.999955718787767,
+        "dB(S(P2:1,P4:1))": -21.94358693305945,
+        "dB(S(P2:1,P3:1))": -15.954993461952913,
+        "dB(S(P2:1,P1:1))": -15.545418716891854,
+        "dB(S(P1:1,P4:1))": -15.618503474469334,
+        "dB(S(P1:1,P3:1))": -21.999955718787767,
+        "dB(S(P1:1,P2:1))": -15.545418716891854
+      },
+      "worst_return_db": -2.7817714906749185,
+      "worst_coupling_db": -15.545418716891854
+    }
+  ]
+}

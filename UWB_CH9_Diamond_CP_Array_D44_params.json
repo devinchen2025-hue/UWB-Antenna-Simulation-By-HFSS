@@ -1,0 +1,68 @@
+{
+  "project": "C:\\Users\\Administrator\\Documents\\HFSS Sim\\UWB_CH9_Diamond_CP_Array_D44.aedt",
+  "design": "Array4_Diamond_D44",
+  "model": "D44 circular PCB variant with four microstrip-fed UWB planar monopole elements in a diamond layout.",
+  "pcb_constraint": "Circular PCB, diameter 44 mm.",
+  "element_centers_mm": {
+    "E1": [
+      12.020815,
+      0.0
+    ],
+    "E2": [
+      0.0,
+      12.020815
+    ],
+    "E3": [
+      -12.020815,
+      0.0
+    ],
+    "E4": [
+      -0.0,
+      -12.020815
+    ]
+  },
+  "nearest_neighbor_spacing_mm": 17.0,
+  "ports": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "limitations": [
+    "D44 constrained optimization model. Final compliance requires completed HFSS solve and numerical optimization.",
+    "PEC metallization is used for faster first-pass simulation.",
+    "This topology is optimized first for S-parameters under the 44 mm circular PCB constraint; CP and far-field metrics require a dedicated CP radiator/feed network."
+  ],
+  "parameters": {
+    "freq_center_ghz": 8.0,
+    "freq_start_ghz": 7.5,
+    "freq_stop_ghz": 8.5,
+    "freq_step_ghz": 0.02,
+    "target_start_ghz": 7.738,
+    "target_stop_ghz": 8.233,
+    "wide_start_ghz": 7.7,
+    "wide_stop_ghz": 8.3,
+    "element_spacing_mm": 17.0,
+    "board_diameter_mm": 44.0,
+    "flat_port_edges_enabled": 1.0,
+    "substrate_h_mm": 0.508,
+    "copper_t_mm": 0.035,
+    "epsr": 3.48,
+    "tan_delta": 0.0037,
+    "disc_radius_mm": 3.8,
+    "feed_w_mm": 1.5,
+    "partial_ground_w_mm": 10.0,
+    "partial_ground_gap_mm": 2.0,
+    "edge_clearance_mm": 0.8,
+    "port_width_factor": 2.0,
+    "meander_enabled": 0.0,
+    "meander_offset_mm": 4.0,
+    "meander_u1_mm": 3.6,
+    "meander_u2_mm": 6.2,
+    "iso_vias_enabled": 0.0,
+    "ebg_via_radius_mm": 0.16,
+    "ebg_pitch_mm": 2.0,
+    "ebg_ring_radius_mm": 7.2,
+    "air_frequency_ghz": 7.0
+  }
+}

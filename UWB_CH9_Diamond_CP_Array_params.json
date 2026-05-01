@@ -1,0 +1,65 @@
+{
+  "project": "C:\\Users\\Administrator\\Documents\\HFSS Sim\\UWB_CH9_Diamond_CP_Array.aedt",
+  "design": "Array4_Diamond_CP_Patch",
+  "model": "Four microstrip-fed UWB planar monopole elements in a diamond layout.",
+  "element_centers_mm": {
+    "E1": [
+      12.020815,
+      0.0
+    ],
+    "E2": [
+      0.0,
+      12.020815
+    ],
+    "E3": [
+      -12.020815,
+      0.0
+    ],
+    "E4": [
+      -0.0,
+      -12.020815
+    ]
+  },
+  "nearest_neighbor_spacing_mm": 17.0,
+  "ports": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "limitations": [
+    "Initial synthesis model. Final compliance requires completed HFSS solve and numerical optimization.",
+    "PEC metallization is used for faster first-pass simulation.",
+    "The current fast-tuning topology is optimized first for S-parameters and isolation; circular-polarization and far-field metrics must be verified on the full-field solve."
+  ],
+  "parameters": {
+    "freq_center_ghz": 8.0,
+    "freq_start_ghz": 7.5,
+    "freq_stop_ghz": 8.5,
+    "freq_step_ghz": 0.02,
+    "target_start_ghz": 7.738,
+    "target_stop_ghz": 8.233,
+    "element_spacing_mm": 17.0,
+    "board_side_mm": 70.0,
+    "substrate_h_mm": 0.508,
+    "copper_t_mm": 0.035,
+    "epsr": 3.48,
+    "tan_delta": 0.0037,
+    "patch_l_mm": 10.55,
+    "corner_cut_mm": 0.92,
+    "disc_radius_mm": 3.8,
+    "feed_w_mm": 2.3,
+    "inset_depth_mm": 3.1,
+    "notch_gap_mm": 0.28,
+    "partial_ground_w_mm": 10.0,
+    "partial_ground_gap_mm": 0.3,
+    "iso_vias_enabled": 0.0,
+    "iso_walls_enabled": 0.0,
+    "iso_wall_len_mm": 7.2,
+    "iso_wall_start_mm": 0.8,
+    "ebg_via_radius_mm": 0.16,
+    "ebg_pitch_mm": 3.0,
+    "ebg_ring_radius_mm": 8.1,
+    "air_frequency_ghz": 7.0
+  }
+}

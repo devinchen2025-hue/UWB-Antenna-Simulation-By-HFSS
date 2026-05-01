@@ -1,0 +1,292 @@
+{
+  "project": "C:\\Users\\Administrator\\Documents\\HFSS Sim\\UWB_CH9_Diamond_CP_Array.aedt",
+  "design": "Array4_Diamond_CP_Patch",
+  "s_parameters": {
+    "frequencies_ghz": [
+      7.5,
+      7.52,
+      7.54,
+      7.56,
+      7.58,
+      7.6,
+      7.62,
+      7.64,
+      7.66,
+      7.68,
+      7.7,
+      7.72,
+      7.74,
+      7.76,
+      7.78,
+      7.8,
+      7.82,
+      7.84,
+      7.86,
+      7.88,
+      7.9,
+      7.92,
+      7.94,
+      7.96,
+      7.98,
+      8.0,
+      8.02,
+      8.04,
+      8.06,
+      8.08,
+      8.1,
+      8.12,
+      8.14,
+      8.16,
+      8.18,
+      8.2,
+      8.22,
+      8.24,
+      8.26,
+      8.28,
+      8.3,
+      8.32,
+      8.34,
+      8.36,
+      8.38,
+      8.4,
+      8.42,
+      8.44,
+      8.46,
+      8.48,
+      8.5
+    ],
+    "target_indices": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40
+    ],
+    "ch9_indices": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36
+    ],
+    "expressions": [
+      "dB(S(P1:1,P1:1))",
+      "dB(S(P3:1,P3:1))",
+      "dB(S(P2:1,P2:1))",
+      "dB(S(P4:1,P4:1))",
+      "dB(S(P1:1,P3:1))",
+      "dB(S(P1:1,P2:1))",
+      "dB(S(P1:1,P4:1))",
+      "dB(S(P3:1,P1:1))",
+      "dB(S(P3:1,P2:1))",
+      "dB(S(P3:1,P4:1))",
+      "dB(S(P2:1,P1:1))",
+      "dB(S(P2:1,P3:1))",
+      "dB(S(P2:1,P4:1))",
+      "dB(S(P4:1,P1:1))",
+      "dB(S(P4:1,P3:1))",
+      "dB(S(P4:1,P2:1))"
+    ],
+    "self_terms": [
+      "dB(S(P1:1,P1:1))",
+      "dB(S(P3:1,P3:1))",
+      "dB(S(P2:1,P2:1))",
+      "dB(S(P4:1,P4:1))"
+    ],
+    "coupling_terms": [
+      "dB(S(P1:1,P3:1))",
+      "dB(S(P1:1,P2:1))",
+      "dB(S(P1:1,P4:1))",
+      "dB(S(P3:1,P1:1))",
+      "dB(S(P3:1,P2:1))",
+      "dB(S(P3:1,P4:1))",
+      "dB(S(P2:1,P1:1))",
+      "dB(S(P2:1,P3:1))",
+      "dB(S(P2:1,P4:1))",
+      "dB(S(P4:1,P1:1))",
+      "dB(S(P4:1,P3:1))",
+      "dB(S(P4:1,P2:1))"
+    ],
+    "self_worst_db": {
+      "dB(S(P1:1,P1:1))": -10.422695060556173,
+      "dB(S(P3:1,P3:1))": -10.64152102141584,
+      "dB(S(P2:1,P2:1))": -10.404809625004257,
+      "dB(S(P4:1,P4:1))": -10.464769569724092
+    },
+    "ch9_self_worst_db": {
+      "dB(S(P1:1,P1:1))": -11.564865667544337,
+      "dB(S(P3:1,P3:1))": -11.689965030324016,
+      "dB(S(P2:1,P2:1))": -11.67508340393445,
+      "dB(S(P4:1,P4:1))": -11.4050285847314
+    },
+    "coupling_worst_db": {
+      "dB(S(P1:1,P3:1))": -23.507801980830067,
+      "dB(S(P1:1,P2:1))": -19.31748009289748,
+      "dB(S(P1:1,P4:1))": -19.11822675370085,
+      "dB(S(P3:1,P1:1))": -23.507801980830084,
+      "dB(S(P3:1,P2:1))": -19.13845566309262,
+      "dB(S(P3:1,P4:1))": -19.191305240392396,
+      "dB(S(P2:1,P1:1))": -19.31748009289757,
+      "dB(S(P2:1,P3:1))": -19.138455663092614,
+      "dB(S(P2:1,P4:1))": -23.55349844252613,
+      "dB(S(P4:1,P1:1))": -19.11822675370085,
+      "dB(S(P4:1,P3:1))": -19.191305240392392,
+      "dB(S(P4:1,P2:1))": -23.55349844252612
+    },
+    "worst_return_expr": "dB(S(P2:1,P2:1))",
+    "worst_return_db": -10.404809625004257,
+    "ch9_worst_return_expr": "dB(S(P4:1,P4:1))",
+    "ch9_worst_return_db": -11.4050285847314,
+    "worst_coupling_expr": "dB(S(P1:1,P4:1))",
+    "worst_coupling_db": -19.11822675370085,
+    "isolation_db": 19.11822675370085
+  },
+  "group_delay_proxy": {
+    "note": "Proxy computed from unwrapped mutual-coupling Sij phase; not a substitute for a two-antenna time-domain fidelity setup.",
+    "per_term": {
+      "S(P1:1,P3:1)": {
+        "min_ps": 540.5014295458769,
+        "max_ps": 651.9676765205182,
+        "max_abs_ps": 651.9676765205182
+      },
+      "S(P1:1,P2:1)": {
+        "min_ps": 423.41448979745144,
+        "max_ps": 571.5372003646028,
+        "max_abs_ps": 571.5372003646028
+      },
+      "S(P1:1,P4:1)": {
+        "min_ps": 425.31125713676755,
+        "max_ps": 572.6545658597021,
+        "max_abs_ps": 572.6545658597021
+      },
+      "S(P3:1,P1:1)": {
+        "min_ps": 540.5014295458653,
+        "max_ps": 651.9676765205149,
+        "max_abs_ps": 651.9676765205149
+      },
+      "S(P3:1,P2:1)": {
+        "min_ps": 424.9565995158511,
+        "max_ps": 573.2365293653259,
+        "max_abs_ps": 573.2365293653259
+      },
+      "S(P3:1,P4:1)": {
+        "min_ps": 424.70569652160725,
+        "max_ps": 574.9185883489879,
+        "max_abs_ps": 574.9185883489879
+      },
+      "S(P2:1,P1:1)": {
+        "min_ps": 423.41448979745724,
+        "max_ps": 571.5372003645936,
+        "max_abs_ps": 571.5372003645936
+      },
+      "S(P2:1,P3:1)": {
+        "min_ps": 424.9565995158494,
+        "max_ps": 573.2365293653207,
+        "max_abs_ps": 573.2365293653207
+      },
+      "S(P2:1,P4:1)": {
+        "min_ps": 540.3667757268644,
+        "max_ps": 652.0348053242491,
+        "max_abs_ps": 652.0348053242491
+      },
+      "S(P4:1,P1:1)": {
+        "min_ps": 425.3112571367717,
+        "max_ps": 572.6545658596709,
+        "max_abs_ps": 572.6545658596709
+      },
+      "S(P4:1,P3:1)": {
+        "min_ps": 424.70569652160725,
+        "max_ps": 574.9185883489895,
+        "max_abs_ps": 574.9185883489895
+      },
+      "S(P4:1,P2:1)": {
+        "min_ps": 540.3667757268677,
+        "max_ps": 652.0348053242615,
+        "max_abs_ps": 652.0348053242615
+      }
+    },
+    "worst_term": "S(P4:1,P2:1)",
+    "worst_max_abs_ps": 652.0348053242615
+  },
+  "farfield_summary": {
+    "note": "Far-field values use the default HFSS source context on Upper_Hemisphere_5deg; dedicated per-port or phased-combined source contexts are still required for final antenna-pattern signoff.",
+    "samples": {
+      "7.740000GHz": {
+        "Freq_GHz": "7.740000",
+        "GainTotal_min_dBi": "-31.787845",
+        "GainTotal_max_dBi": "4.763404",
+        "GainTotal_ripple_dB": "36.551249",
+        "RealizedGainTotal_min_dBi": "-33.360296",
+        "RealizedGainTotal_max_dBi": "3.190953",
+        "AxialRatioValue_min": "1.038718",
+        "AxialRatioValue_max": "4114.148987"
+      },
+      "8.000000GHz": {
+        "Freq_GHz": "8.000000",
+        "GainTotal_min_dBi": "-28.196101",
+        "GainTotal_max_dBi": "5.169916",
+        "GainTotal_ripple_dB": "33.366017",
+        "RealizedGainTotal_min_dBi": "-29.306205",
+        "RealizedGainTotal_max_dBi": "4.059812",
+        "AxialRatioValue_min": "1.051865",
+        "AxialRatioValue_max": "32443.826221"
+      },
+      "8.240000GHz": {
+        "Freq_GHz": "8.240000",
+        "GainTotal_min_dBi": "-29.049768",
+        "GainTotal_max_dBi": "5.328598",
+        "GainTotal_ripple_dB": "34.378366",
+        "RealizedGainTotal_min_dBi": "-29.893755",
+        "RealizedGainTotal_max_dBi": "4.484611",
+        "AxialRatioValue_min": "1.127533",
+        "AxialRatioValue_max": "57440.347473"
+      }
+    }
+  }
+}

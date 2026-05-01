@@ -1,0 +1,21 @@
+# HFSS/PyAEDT generated result folders
+*.aedtresults/
+*.pyaedt/
+
+# AEDT lock files
+*.aedt.lock
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Local logs and temporary files
+*.log
+*.tmp
+batch.log
+hfss_tune_*.log
+hfss_analyze_*.log
+python-*-install*.log
+
+# Local installers
+python-*.exe

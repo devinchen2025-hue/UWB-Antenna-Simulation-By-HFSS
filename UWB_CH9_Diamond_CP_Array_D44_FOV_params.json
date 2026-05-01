@@ -1,0 +1,62 @@
+{
+  "project": "C:\\Users\\Administrator\\Documents\\HFSS Sim\\UWB_CH9_Diamond_CP_Array_D44_FOV.aedt",
+  "design": "Array4_Diamond_D44_FOV",
+  "model": "D44 FOV variant with four top-loaded vertical monopole elements in a diamond layout.",
+  "pcb_constraint": "Circular PCB, diameter 44 mm.",
+  "fov_target": "Theta 0-360 deg, Phi 45-90 deg, GainTotal min >= -5 dBi, donut-like pattern.",
+  "element_centers_mm": {
+    "E1": [
+      12.020815,
+      0.0
+    ],
+    "E2": [
+      0.0,
+      12.020815
+    ],
+    "E3": [
+      -12.020815,
+      0.0
+    ],
+    "E4": [
+      -0.0,
+      -12.020815
+    ]
+  },
+  "nearest_neighbor_spacing_mm": 17.0,
+  "ports": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "parameters": {
+    "freq_center_ghz": 8.0,
+    "freq_start_ghz": 7.7,
+    "freq_stop_ghz": 8.3,
+    "freq_step_ghz": 0.02,
+    "target_start_ghz": 7.738,
+    "target_stop_ghz": 8.233,
+    "element_spacing_mm": 17.0,
+    "board_diameter_mm": 44.0,
+    "substrate_h_mm": 0.508,
+    "copper_t_mm": 0.035,
+    "epsr": 3.48,
+    "tan_delta": 0.0037,
+    "ground_radius_mm": 13.0,
+    "monopole_height_mm": 8.6,
+    "monopole_radius_mm": 0.28,
+    "top_hat_radius_mm": 1.55,
+    "feed_pad_radius_mm": 0.85,
+    "port_width_mm": 1.0,
+    "parasitic_sleeve_enabled": 0.0,
+    "sleeve_radius_mm": 1.15,
+    "sleeve_height_mm": 4.2,
+    "sleeve_wire_radius_mm": 0.12,
+    "air_frequency_ghz": 7.0
+  },
+  "notes": [
+    "This variant prioritizes upper-horizon FOV coverage and donut-shaped radiation.",
+    "Each element is a lumped-port-fed vertical monopole with a small capacitive top hat.",
+    "For PDOA receive operation, inspect per-port patterns and the four-port coverage envelope rather than only equal-phase combined excitation."
+  ]
+}
