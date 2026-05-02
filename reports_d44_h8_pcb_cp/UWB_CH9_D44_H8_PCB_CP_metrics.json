@@ -1,5 +1,5 @@
 {
-  "project": "C:\\Users\\Administrator\\Documents\\HFSS Sim\\UWB_CH9_Diamond_CP_Array_D44_H8_PCB_CP.aedt",
+  "project": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\UWB_CH9_Diamond_CP_Array_D44_H8_PCB_CP.aedt",
   "design": "Array4_Diamond_D44_H8_PCB_CP",
   "sources": [
     "P1",
@@ -23,36 +23,36 @@
         "freq_ghz": 7.738,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -13.041565314528311,
-        "gain_max_dbi": 6.167095514005052,
-        "gain_ripple_db": 19.20866082853336,
+        "gain_min_dbi": -12.65184257426473,
+        "gain_max_dbi": 6.383229475585164,
+        "gain_ripple_db": 19.035072049849894,
         "gain_min_point": {
-          "theta": 119.99999999999999,
-          "phi": 59.99999999999999,
-          "gain": -13.041565314528311,
-          "axial_ratio": 2.7104632796264103
+          "theta": 190.0,
+          "phi": 45.0,
+          "gain": -12.65184257426473,
+          "axial_ratio": 3.0276347697691315
         },
         "gain_max_point": {
           "theta": 14.999999999999998,
           "phi": 45.0,
-          "gain": 6.167095514005052,
-          "axial_ratio": 9.897375143718838
+          "gain": 6.383229475585164,
+          "axial_ratio": 5.740186125743999
         },
-        "axial_ratio_min_db": 1.1242972739556125,
-        "axial_ratio_max_db": 13810.608425188855,
+        "axial_ratio_min_db": 1.055830375633692,
+        "axial_ratio_max_db": 2414.4568466531555,
         "axial_ratio_min_point": {
-          "theta": 245.00000000000003,
-          "phi": 59.99999999999999,
-          "gain": -7.731750006396943,
-          "axial_ratio": 1.1242972739556125
+          "theta": 95.0,
+          "phi": 70.0,
+          "gain": -5.535367516865447,
+          "axial_ratio": 1.055830375633692
         },
         "axial_ratio_max_point": {
-          "theta": 260.0,
-          "phi": 70.0,
-          "gain": -7.383207452169874,
-          "axial_ratio": 13810.608425188855
+          "theta": 59.99999999999999,
+          "phi": 45.0,
+          "gain": -0.11531496658957416,
+          "axial_ratio": 2414.4568466531555
         },
-        "cp_coverage_percent": 14.10958904109589,
+        "cp_coverage_percent": 29.726027397260275,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -60,36 +60,36 @@
         "freq_ghz": 7.738,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -20.13459508850744,
-        "gain_max_dbi": 6.961418926900942,
-        "gain_ripple_db": 27.09601401540838,
+        "gain_min_dbi": -22.173966985262695,
+        "gain_max_dbi": 7.144246337799835,
+        "gain_ripple_db": 29.31821332306253,
         "gain_min_point": {
-          "theta": 195.0,
-          "phi": 85.0,
-          "gain": -20.13459508850744,
-          "axial_ratio": 5.320082157986053
+          "theta": 190.0,
+          "phi": 75.0,
+          "gain": -22.173966985262695,
+          "axial_ratio": 1412.008940749475
         },
         "gain_max_point": {
           "theta": 25.0,
-          "phi": 80.0,
-          "gain": 6.961418926900942,
-          "axial_ratio": 11.90708943087789
+          "phi": 75.0,
+          "gain": 7.144246337799835,
+          "axial_ratio": 6.439253279794517
         },
-        "axial_ratio_min_db": 1.0839103478836667,
-        "axial_ratio_max_db": 1535.4608879011114,
+        "axial_ratio_min_db": 1.1587569752553595,
+        "axial_ratio_max_db": 7873.184962435898,
         "axial_ratio_min_point": {
-          "theta": 119.99999999999999,
+          "theta": 125.00000000000001,
           "phi": 50.0,
-          "gain": -10.285157545184614,
-          "axial_ratio": 1.0839103478836667
+          "gain": -12.424756284374839,
+          "axial_ratio": 1.1587569752553595
         },
         "axial_ratio_max_point": {
-          "theta": 160.0,
-          "phi": 85.0,
-          "gain": -3.158446191294846,
-          "axial_ratio": 1535.4608879011114
+          "theta": 155.0,
+          "phi": 90.0,
+          "gain": -4.390225333797853,
+          "axial_ratio": 7873.184962435898
         },
-        "cp_coverage_percent": 9.58904109589041,
+        "cp_coverage_percent": 10.684931506849315,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -97,36 +97,36 @@
         "freq_ghz": 7.738,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -13.557539477380192,
-        "gain_max_dbi": 6.343391440649423,
-        "gain_ripple_db": 19.900930918029616,
+        "gain_min_dbi": -13.626899676989506,
+        "gain_max_dbi": 6.2298420404963215,
+        "gain_ripple_db": 19.85674171748583,
         "gain_min_point": {
-          "theta": 239.99999999999997,
+          "theta": 234.99999999999997,
           "phi": 59.99999999999999,
-          "gain": -13.557539477380192,
-          "axial_ratio": 2.925180064046675
+          "gain": -13.626899676989506,
+          "axial_ratio": 4.487651928789211
         },
         "gain_max_point": {
           "theta": 345.0,
           "phi": 45.0,
-          "gain": 6.343391440649423,
-          "axial_ratio": 16.48506556858187
+          "gain": 6.2298420404963215,
+          "axial_ratio": 10.99676955855046
         },
-        "axial_ratio_min_db": 1.2296713150594352,
-        "axial_ratio_max_db": 1783.170673948966,
+        "axial_ratio_min_db": 1.2670130369302155,
+        "axial_ratio_max_db": 817.3845179279658,
         "axial_ratio_min_point": {
-          "theta": 115.0,
+          "theta": 119.99999999999999,
           "phi": 59.99999999999999,
-          "gain": -7.477788365479462,
-          "axial_ratio": 1.2296713150594352
+          "gain": -6.3035071649328165,
+          "axial_ratio": 1.2670130369302155
         },
         "axial_ratio_max_point": {
-          "theta": 250.00000000000003,
-          "phi": 55.0,
-          "gain": -12.151371744575714,
-          "axial_ratio": 1783.170673948966
+          "theta": 330.0,
+          "phi": 45.0,
+          "gain": 5.516751604346418,
+          "axial_ratio": 817.3845179279658
         },
-        "cp_coverage_percent": 9.863013698630137,
+        "cp_coverage_percent": 18.21917808219178,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -134,36 +134,36 @@
         "freq_ghz": 7.738,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -19.772838413787436,
-        "gain_max_dbi": 6.972599650118838,
-        "gain_ripple_db": 26.745438063906274,
+        "gain_min_dbi": -20.458966116718365,
+        "gain_max_dbi": 7.173472706139883,
+        "gain_ripple_db": 27.632438822858248,
         "gain_min_point": {
           "theta": 170.0,
           "phi": 90.0,
-          "gain": -19.772838413787436,
-          "axial_ratio": 2.435407930757752
+          "gain": -20.458966116718365,
+          "axial_ratio": 1.555528909128741
         },
         "gain_max_point": {
           "theta": 335.0,
           "phi": 80.0,
-          "gain": 6.972599650118838,
-          "axial_ratio": 7.369374669385421
+          "gain": 7.173472706139883,
+          "axial_ratio": 7.697148458661914
         },
-        "axial_ratio_min_db": 1.1253544821069912,
-        "axial_ratio_max_db": 10020.567604326705,
+        "axial_ratio_min_db": 1.1572543136351976,
+        "axial_ratio_max_db": 6326.84275035878,
         "axial_ratio_min_point": {
-          "theta": 234.99999999999997,
+          "theta": 230.0,
           "phi": 59.99999999999999,
-          "gain": -8.80422156775877,
-          "axial_ratio": 1.1253544821069912
+          "gain": -9.759649677444632,
+          "axial_ratio": 1.1572543136351976
         },
         "axial_ratio_max_point": {
-          "theta": 215.0,
-          "phi": 70.0,
-          "gain": -6.033049473092652,
-          "axial_ratio": 10020.567604326705
+          "theta": 100.0,
+          "phi": 50.0,
+          "gain": -2.9129462239053887,
+          "axial_ratio": 6326.84275035878
         },
-        "cp_coverage_percent": 12.32876712328767,
+        "cp_coverage_percent": 9.58904109589041,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -171,36 +171,36 @@
         "freq_ghz": 7.738,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -18.11723814407051,
-        "gain_max_dbi": 7.040428836465242,
-        "gain_ripple_db": 25.15766698053575,
+        "gain_min_dbi": -17.892086901402134,
+        "gain_max_dbi": 6.668335908418398,
+        "gain_ripple_db": 24.560422809820533,
         "gain_min_point": {
           "theta": 220.0,
           "phi": 80.0,
-          "gain": -18.11723814407051,
-          "axial_ratio": 15.162135441916263
+          "gain": -17.892086901402134,
+          "axial_ratio": 4.2496757106683525
         },
         "gain_max_point": {
           "theta": 350.0,
           "phi": 50.0,
-          "gain": 7.040428836465242,
-          "axial_ratio": 1.8916861570776808
+          "gain": 6.668335908418398,
+          "axial_ratio": 2.047275472154348
         },
-        "axial_ratio_min_db": 1.062100225603944,
-        "axial_ratio_max_db": 1756.5468041938632,
+        "axial_ratio_min_db": 1.04495258004209,
+        "axial_ratio_max_db": 484.8807843477162,
         "axial_ratio_min_point": {
-          "theta": 315.0,
-          "phi": 50.0,
-          "gain": 1.086818802633973,
-          "axial_ratio": 1.062100225603944
+          "theta": 200.0,
+          "phi": 90.0,
+          "gain": -7.605890848612816,
+          "axial_ratio": 1.04495258004209
         },
         "axial_ratio_max_point": {
-          "theta": 145.0,
+          "theta": 59.99999999999999,
           "phi": 50.0,
-          "gain": -5.9522187172089405,
-          "axial_ratio": 1756.5468041938632
+          "gain": -2.1121190789255277,
+          "axial_ratio": 484.8807843477162
         },
-        "cp_coverage_percent": 65.06849315068493,
+        "cp_coverage_percent": 64.93150684931507,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -208,36 +208,36 @@
         "freq_ghz": 7.738,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -7.12397955787003,
-        "gain_max_dbi": 6.972599650118838,
-        "gain_ripple_db": 14.096579207988867,
+        "gain_min_dbi": -7.9923488256122885,
+        "gain_max_dbi": 7.173472706139883,
+        "gain_ripple_db": 15.165821531752172,
         "gain_min_point": {
           "theta": 180.0,
-          "phi": 70.0,
-          "gain": -7.12397955787003,
-          "axial_ratio": 20.214817235381147
+          "phi": 50.0,
+          "gain": -7.9923488256122885,
+          "axial_ratio": 5.638204263872702
         },
         "gain_max_point": {
           "theta": 335.0,
           "phi": 80.0,
-          "gain": 6.972599650118838,
-          "axial_ratio": 7.369374669385421
+          "gain": 7.173472706139883,
+          "axial_ratio": 7.697148458661914
         },
-        "axial_ratio_min_db": 1.9479848427565711,
-        "axial_ratio_max_db": 1535.4608879011114,
+        "axial_ratio_min_db": 1.6023378042358487,
+        "axial_ratio_max_db": 7873.184962435898,
         "axial_ratio_min_point": {
-          "theta": 125.00000000000001,
-          "phi": 75.0,
-          "gain": -2.8122516960214505,
-          "axial_ratio": 1.9479848427565711
+          "theta": 285.0,
+          "phi": 45.0,
+          "gain": -0.6347197782907015,
+          "axial_ratio": 1.6023378042358487
         },
         "axial_ratio_max_point": {
-          "theta": 160.0,
-          "phi": 85.0,
-          "gain": -3.158446191294846,
-          "axial_ratio": 1535.4608879011114
+          "theta": 155.0,
+          "phi": 90.0,
+          "gain": -4.390225333797853,
+          "axial_ratio": 7873.184962435898
         },
-        "cp_coverage_percent": 11.095890410958905,
+        "cp_coverage_percent": 13.150684931506849,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -245,36 +245,36 @@
         "freq_ghz": 7.738,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -19.772838413787436,
-        "gain_max_dbi": 6.972599650118838,
-        "gain_ripple_db": 26.745438063906274,
+        "gain_min_dbi": -20.458966116718365,
+        "gain_max_dbi": 6.861646552209685,
+        "gain_ripple_db": 27.32061266892805,
         "gain_min_point": {
           "theta": 170.0,
           "phi": 90.0,
-          "gain": -19.772838413787436,
-          "axial_ratio": 2.435407930757752
+          "gain": -20.458966116718365,
+          "axial_ratio": 1.555528909128741
         },
         "gain_max_point": {
-          "theta": 335.0,
-          "phi": 80.0,
-          "gain": 6.972599650118838,
-          "axial_ratio": 7.369374669385421
-        },
-        "axial_ratio_min_db": 1.4235878984845651,
-        "axial_ratio_max_db": 9.538119403707835,
-        "axial_ratio_min_point": {
-          "theta": 239.99999999999997,
+          "theta": 29.999999999999996,
           "phi": 59.99999999999999,
-          "gain": -6.922438800537403,
-          "axial_ratio": 1.4235878984845651
+          "gain": 6.861646552209685,
+          "axial_ratio": 4.608375567509349
+        },
+        "axial_ratio_min_db": 1.055830375633692,
+        "axial_ratio_max_db": 14.538236885331012,
+        "axial_ratio_min_point": {
+          "theta": 95.0,
+          "phi": 70.0,
+          "gain": -5.535367516865447,
+          "axial_ratio": 1.055830375633692
         },
         "axial_ratio_max_point": {
-          "theta": 180.0,
-          "phi": 85.0,
-          "gain": -7.295715847822444,
-          "axial_ratio": 9.538119403707835
+          "theta": 200.0,
+          "phi": 70.0,
+          "gain": -10.651639123662399,
+          "axial_ratio": 14.538236885331012
         },
-        "cp_coverage_percent": 29.45205479452055,
+        "cp_coverage_percent": 48.082191780821915,
         "meets_gain": false,
         "meets_cp": false
       }
@@ -284,36 +284,36 @@
         "freq_ghz": 7.9855,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -12.619793194612235,
-        "gain_max_dbi": 7.275478730373221,
-        "gain_ripple_db": 19.895271924985458,
+        "gain_min_dbi": -11.450415699605848,
+        "gain_max_dbi": 7.3730658890565435,
+        "gain_ripple_db": 18.823481588662393,
         "gain_min_point": {
-          "theta": 119.99999999999999,
-          "phi": 59.99999999999999,
-          "gain": -12.619793194612235,
-          "axial_ratio": 4.766105971820936
+          "theta": 190.0,
+          "phi": 45.0,
+          "gain": -11.450415699605848,
+          "axial_ratio": 3.3505061272287118
         },
         "gain_max_point": {
           "theta": 10.0,
           "phi": 45.0,
-          "gain": 7.275478730373221,
-          "axial_ratio": 23.327182934471505
+          "gain": 7.3730658890565435,
+          "axial_ratio": 14.004949478911833
         },
-        "axial_ratio_min_db": 1.178579490469184,
-        "axial_ratio_max_db": 18262.41127844239,
+        "axial_ratio_min_db": 1.0045346813905995,
+        "axial_ratio_max_db": 15126.795277585803,
         "axial_ratio_min_point": {
-          "theta": 245.00000000000003,
-          "phi": 65.0,
-          "gain": -9.707237175217232,
-          "axial_ratio": 1.178579490469184
+          "theta": 105.0,
+          "phi": 75.0,
+          "gain": -7.80358942671589,
+          "axial_ratio": 1.0045346813905995
         },
         "axial_ratio_max_point": {
-          "theta": 75.0,
-          "phi": 50.0,
-          "gain": -3.945354980343869,
-          "axial_ratio": 18262.41127844239
+          "theta": 50.0,
+          "phi": 55.0,
+          "gain": 1.5213869923117436,
+          "axial_ratio": 15126.795277585803
         },
-        "cp_coverage_percent": 12.602739726027398,
+        "cp_coverage_percent": 20.410958904109588,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -321,36 +321,36 @@
         "freq_ghz": 7.9855,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -18.67521279213507,
-        "gain_max_dbi": 7.7274678479132,
-        "gain_ripple_db": 26.40268064004827,
+        "gain_min_dbi": -22.884268434165147,
+        "gain_max_dbi": 7.713906211062245,
+        "gain_ripple_db": 30.59817464522739,
         "gain_min_point": {
-          "theta": 195.0,
-          "phi": 85.0,
-          "gain": -18.67521279213507,
-          "axial_ratio": 28.349438501008162
+          "theta": 190.0,
+          "phi": 75.0,
+          "gain": -22.884268434165147,
+          "axial_ratio": 1.294412903386506
         },
         "gain_max_point": {
           "theta": 14.999999999999998,
           "phi": 85.0,
-          "gain": 7.7274678479132,
-          "axial_ratio": 73.92351792742362
+          "gain": 7.713906211062245,
+          "axial_ratio": 23.858457088407096
         },
-        "axial_ratio_min_db": 1.1760542739096898,
-        "axial_ratio_max_db": 11888.239597273512,
+        "axial_ratio_min_db": 1.294412903386506,
+        "axial_ratio_max_db": 4161.535095185958,
         "axial_ratio_min_point": {
-          "theta": 195.0,
-          "phi": 65.0,
-          "gain": -14.693026458268854,
-          "axial_ratio": 1.1760542739096898
+          "theta": 190.0,
+          "phi": 75.0,
+          "gain": -22.884268434165147,
+          "axial_ratio": 1.294412903386506
         },
         "axial_ratio_max_point": {
-          "theta": 320.0,
-          "phi": 70.0,
-          "gain": 3.398531267436191,
-          "axial_ratio": 11888.239597273512
+          "theta": 200.0,
+          "phi": 50.0,
+          "gain": -11.397267263395674,
+          "axial_ratio": 4161.535095185958
         },
-        "cp_coverage_percent": 3.5616438356164384,
+        "cp_coverage_percent": 3.835616438356164,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -358,36 +358,36 @@
         "freq_ghz": 7.9855,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -13.034897890702183,
-        "gain_max_dbi": 7.438293435238156,
-        "gain_ripple_db": 20.473191325940338,
+        "gain_min_dbi": -13.391898989971093,
+        "gain_max_dbi": 7.236157580401288,
+        "gain_ripple_db": 20.62805657037238,
         "gain_min_point": {
-          "theta": 239.99999999999997,
+          "theta": 234.99999999999997,
           "phi": 59.99999999999999,
-          "gain": -13.034897890702183,
-          "axial_ratio": 5.153666485225536
+          "gain": -13.391898989971093,
+          "axial_ratio": 10.468003674744587
         },
         "gain_max_point": {
           "theta": 350.0,
           "phi": 45.0,
-          "gain": 7.438293435238156,
-          "axial_ratio": 76.08679526300044
+          "gain": 7.236157580401288,
+          "axial_ratio": 54.11078668033119
         },
-        "axial_ratio_min_db": 1.3081131161572876,
-        "axial_ratio_max_db": 11998.58259572784,
+        "axial_ratio_min_db": 1.1805467617147571,
+        "axial_ratio_max_db": 1744.6230064733616,
         "axial_ratio_min_point": {
-          "theta": 115.0,
+          "theta": 119.99999999999999,
           "phi": 65.0,
-          "gain": -9.247281901999674,
-          "axial_ratio": 1.3081131161572876
+          "gain": -7.801932455237953,
+          "axial_ratio": 1.1805467617147571
         },
         "axial_ratio_max_point": {
-          "theta": 35.0,
-          "phi": 65.0,
-          "gain": 4.4034441958557995,
-          "axial_ratio": 11998.58259572784
+          "theta": 325.0,
+          "phi": 70.0,
+          "gain": 4.481423842126788,
+          "axial_ratio": 1744.6230064733616
         },
-        "cp_coverage_percent": 9.863013698630137,
+        "cp_coverage_percent": 16.575342465753426,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -395,36 +395,36 @@
         "freq_ghz": 7.9855,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -19.261003498622717,
-        "gain_max_dbi": 7.710629191925906,
-        "gain_ripple_db": 26.971632690548624,
+        "gain_min_dbi": -20.815272341390376,
+        "gain_max_dbi": 7.731424994403144,
+        "gain_ripple_db": 28.54669733579352,
         "gain_min_point": {
           "theta": 165.0,
           "phi": 85.0,
-          "gain": -19.261003498622717,
-          "axial_ratio": 57.226083727686756
+          "gain": -20.815272341390376,
+          "axial_ratio": 2.356542966778698
         },
         "gain_max_point": {
           "theta": 345.0,
           "phi": 90.0,
-          "gain": 7.710629191925906,
-          "axial_ratio": 28.495591626427103
+          "gain": 7.731424994403144,
+          "axial_ratio": 30.49017753508169
         },
-        "axial_ratio_min_db": 1.1715559342761965,
-        "axial_ratio_max_db": 9499.698164098498,
+        "axial_ratio_min_db": 1.4062306853293798,
+        "axial_ratio_max_db": 49885.10704835193,
         "axial_ratio_min_point": {
-          "theta": 165.0,
-          "phi": 65.0,
-          "gain": -15.31916943692562,
-          "axial_ratio": 1.1715559342761965
+          "theta": 225.0,
+          "phi": 50.0,
+          "gain": -12.170414014826703,
+          "axial_ratio": 1.4062306853293798
         },
         "axial_ratio_max_point": {
-          "theta": 285.0,
+          "theta": 55.0,
           "phi": 85.0,
-          "gain": 2.013648383038934,
-          "axial_ratio": 9499.698164098498
+          "gain": 2.415927110623272,
+          "axial_ratio": 49885.10704835193
         },
-        "cp_coverage_percent": 4.931506849315069,
+        "cp_coverage_percent": 5.068493150684931,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -432,36 +432,36 @@
         "freq_ghz": 7.9855,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -20.757636468461584,
-        "gain_max_dbi": 9.349166966617032,
-        "gain_ripple_db": 30.106803435078618,
+        "gain_min_dbi": -19.769838106024384,
+        "gain_max_dbi": 9.138535406798873,
+        "gain_ripple_db": 28.908373512823257,
         "gain_min_point": {
-          "theta": 275.0,
+          "theta": 270.0,
           "phi": 45.0,
-          "gain": -20.757636468461584,
-          "axial_ratio": 21.76524218209003
+          "gain": -19.769838106024384,
+          "axial_ratio": 4.354591133004119
         },
         "gain_max_point": {
           "theta": 350.0,
           "phi": 45.0,
-          "gain": 9.349166966617032,
-          "axial_ratio": 1.73620102902209
+          "gain": 9.138535406798873,
+          "axial_ratio": 1.7689408395373034
         },
-        "axial_ratio_min_db": 1.0793756810924227,
-        "axial_ratio_max_db": 604.9094432859687,
+        "axial_ratio_min_db": 1.044308210532706,
+        "axial_ratio_max_db": 339.0243693371751,
         "axial_ratio_min_point": {
-          "theta": 35.0,
-          "phi": 50.0,
-          "gain": -4.413699216606079,
-          "axial_ratio": 1.0793756810924227
+          "theta": 210.0,
+          "phi": 85.0,
+          "gain": -13.020230265687783,
+          "axial_ratio": 1.044308210532706
         },
         "axial_ratio_max_point": {
-          "theta": 230.0,
+          "theta": 145.0,
           "phi": 59.99999999999999,
-          "gain": -10.533130048705202,
-          "axial_ratio": 604.9094432859687
+          "gain": -7.062558797495696,
+          "axial_ratio": 339.0243693371751
         },
-        "cp_coverage_percent": 63.15068493150685,
+        "cp_coverage_percent": 63.56164383561644,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -469,36 +469,36 @@
         "freq_ghz": 7.9855,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -6.339005419392566,
-        "gain_max_dbi": 7.7274678479132,
-        "gain_ripple_db": 14.066473267305767,
+        "gain_min_dbi": -6.929670318314489,
+        "gain_max_dbi": 7.731424994403144,
+        "gain_ripple_db": 14.661095312717634,
         "gain_min_point": {
-          "theta": 105.0,
-          "phi": 45.0,
-          "gain": -6.339005419392566,
-          "axial_ratio": 9.461095860412962
+          "theta": 180.0,
+          "phi": 65.0,
+          "gain": -6.929670318314489,
+          "axial_ratio": 8.424104848711465
         },
         "gain_max_point": {
-          "theta": 14.999999999999998,
-          "phi": 85.0,
-          "gain": 7.7274678479132,
-          "axial_ratio": 73.92351792742362
+          "theta": 345.0,
+          "phi": 90.0,
+          "gain": 7.731424994403144,
+          "axial_ratio": 30.49017753508169
         },
-        "axial_ratio_min_db": 2.648811514479962,
-        "axial_ratio_max_db": 9499.698164098498,
+        "axial_ratio_min_db": 2.1303511577713965,
+        "axial_ratio_max_db": 12146.501341002342,
         "axial_ratio_min_point": {
-          "theta": 125.00000000000001,
-          "phi": 70.0,
-          "gain": -3.4652918855321864,
-          "axial_ratio": 2.648811514479962
+          "theta": 230.0,
+          "phi": 45.0,
+          "gain": -3.8069741412718887,
+          "axial_ratio": 2.1303511577713965
         },
         "axial_ratio_max_point": {
-          "theta": 285.0,
+          "theta": 250.00000000000003,
           "phi": 85.0,
-          "gain": 2.013648383038934,
-          "axial_ratio": 9499.698164098498
+          "gain": -4.037503953665162,
+          "axial_ratio": 12146.501341002342
         },
-        "cp_coverage_percent": 1.7808219178082192,
+        "cp_coverage_percent": 5.616438356164384,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -506,36 +506,36 @@
         "freq_ghz": 7.9855,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -18.921776519716797,
-        "gain_max_dbi": 7.162324716702658,
-        "gain_ripple_db": 26.084101236419457,
+        "gain_min_dbi": -22.884268434165147,
+        "gain_max_dbi": 7.28720402922212,
+        "gain_ripple_db": 30.171472463387268,
         "gain_min_point": {
-          "theta": 165.0,
-          "phi": 80.0,
-          "gain": -18.921776519716797,
-          "axial_ratio": 3.4866997823860784
+          "theta": 190.0,
+          "phi": 75.0,
+          "gain": -22.884268434165147,
+          "axial_ratio": 1.294412903386506
         },
         "gain_max_point": {
-          "theta": 330.0,
-          "phi": 75.0,
-          "gain": 7.162324716702658,
-          "axial_ratio": 16.71230983798197
+          "theta": 5.0,
+          "phi": 45.0,
+          "gain": 7.28720402922212,
+          "axial_ratio": 12.118675512479342
         },
-        "axial_ratio_min_db": 1.1715559342761965,
-        "axial_ratio_max_db": 37.75734844471014,
+        "axial_ratio_min_db": 1.0045346813905995,
+        "axial_ratio_max_db": 23.981943733181318,
         "axial_ratio_min_point": {
-          "theta": 165.0,
-          "phi": 65.0,
-          "gain": -15.31916943692562,
-          "axial_ratio": 1.1715559342761965
+          "theta": 105.0,
+          "phi": 75.0,
+          "gain": -7.80358942671589,
+          "axial_ratio": 1.0045346813905995
         },
         "axial_ratio_max_point": {
-          "theta": 210.0,
-          "phi": 90.0,
-          "gain": -6.791001317311341,
-          "axial_ratio": 37.75734844471014
+          "theta": 155.0,
+          "phi": 85.0,
+          "gain": -6.164779710988722,
+          "axial_ratio": 23.981943733181318
         },
-        "cp_coverage_percent": 23.424657534246574,
+        "cp_coverage_percent": 33.42465753424658,
         "meets_gain": false,
         "meets_cp": false
       }
@@ -545,36 +545,36 @@
         "freq_ghz": 8.233,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -12.151972210478256,
-        "gain_max_dbi": 7.532102794856258,
-        "gain_ripple_db": 19.684075005334513,
+        "gain_min_dbi": -11.071551886206832,
+        "gain_max_dbi": 7.550739670061955,
+        "gain_ripple_db": 18.622291556268788,
         "gain_min_point": {
-          "theta": 125.00000000000001,
-          "phi": 59.99999999999999,
-          "gain": -12.151972210478256,
-          "axial_ratio": 4.870914573722038
+          "theta": 250.00000000000003,
+          "phi": 70.0,
+          "gain": -11.071551886206832,
+          "axial_ratio": 2.1199191756612956
         },
         "gain_max_point": {
           "theta": 5.0,
           "phi": 45.0,
-          "gain": 7.532102794856258,
-          "axial_ratio": 29.965304075999047
+          "gain": 7.550739670061955,
+          "axial_ratio": 21.690822648297722
         },
-        "axial_ratio_min_db": 1.0917960886430569,
-        "axial_ratio_max_db": 3517.447228696982,
+        "axial_ratio_min_db": 1.0358154025108772,
+        "axial_ratio_max_db": 28806.32159860148,
         "axial_ratio_min_point": {
-          "theta": 95.0,
-          "phi": 70.0,
-          "gain": -10.479090289674875,
-          "axial_ratio": 1.0917960886430569
+          "theta": 110.0,
+          "phi": 85.0,
+          "gain": -8.37714603031914,
+          "axial_ratio": 1.0358154025108772
         },
         "axial_ratio_max_point": {
-          "theta": 295.0,
-          "phi": 65.0,
-          "gain": -0.47042582081882417,
-          "axial_ratio": 3517.447228696982
+          "theta": 265.0,
+          "phi": 85.0,
+          "gain": -7.615759707420632,
+          "axial_ratio": 28806.32159860148
         },
-        "cp_coverage_percent": 18.356164383561644,
+        "cp_coverage_percent": 22.73972602739726,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -582,36 +582,36 @@
         "freq_ghz": 8.233,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -15.647274242087754,
-        "gain_max_dbi": 7.753336488530548,
-        "gain_ripple_db": 23.4006107306183,
+        "gain_min_dbi": -25.416114948152728,
+        "gain_max_dbi": 7.638250000880715,
+        "gain_ripple_db": 33.05436494903344,
         "gain_min_point": {
           "theta": 195.0,
-          "phi": 90.0,
-          "gain": -15.647274242087754,
-          "axial_ratio": 4.5879724579657655
+          "phi": 70.0,
+          "gain": -25.416114948152728,
+          "axial_ratio": 3.538772963331267
         },
         "gain_max_point": {
           "theta": 10.0,
-          "phi": 90.0,
-          "gain": 7.753336488530548,
-          "axial_ratio": 246.37738457293747
+          "phi": 85.0,
+          "gain": 7.638250000880715,
+          "axial_ratio": 153.72978196488276
         },
-        "axial_ratio_min_db": 1.5309253232565736,
-        "axial_ratio_max_db": 27642.783301807816,
+        "axial_ratio_min_db": 1.5555969886737953,
+        "axial_ratio_max_db": 11133.3159735911,
         "axial_ratio_min_point": {
-          "theta": 200.0,
-          "phi": 55.0,
-          "gain": -10.334557153957213,
-          "axial_ratio": 1.5309253232565736
+          "theta": 105.0,
+          "phi": 45.0,
+          "gain": -5.698098248385594,
+          "axial_ratio": 1.5555969886737953
         },
         "axial_ratio_max_point": {
-          "theta": 295.0,
-          "phi": 90.0,
-          "gain": 1.5588491818378925,
-          "axial_ratio": 27642.783301807816
+          "theta": 20.0,
+          "phi": 80.0,
+          "gain": 7.417840070190342,
+          "axial_ratio": 11133.3159735911
         },
-        "cp_coverage_percent": 4.52054794520548,
+        "cp_coverage_percent": 8.082191780821917,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -619,36 +619,36 @@
         "freq_ghz": 8.233,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -12.523696358401079,
-        "gain_max_dbi": 7.684517511585092,
-        "gain_ripple_db": 20.20821386998617,
+        "gain_min_dbi": -12.426671001993753,
+        "gain_max_dbi": 7.373961099260759,
+        "gain_ripple_db": 19.800632101254514,
         "gain_min_point": {
-          "theta": 239.99999999999997,
+          "theta": 234.99999999999997,
           "phi": 65.0,
-          "gain": -12.523696358401079,
-          "axial_ratio": 2.423435579613852
+          "gain": -12.426671001993753,
+          "axial_ratio": 4.5319006463801585
         },
         "gain_max_point": {
           "theta": 355.0,
           "phi": 45.0,
-          "gain": 7.684517511585092,
-          "axial_ratio": 948.6807608258146
+          "gain": 7.373961099260759,
+          "axial_ratio": 154.0908680645519
         },
-        "axial_ratio_min_db": 1.029386072788827,
-        "axial_ratio_max_db": 16371.613849424743,
+        "axial_ratio_min_db": 1.048611376602852,
+        "axial_ratio_max_db": 1990.6991810389366,
         "axial_ratio_min_point": {
           "theta": 250.00000000000003,
-          "phi": 75.0,
-          "gain": -11.58547397684277,
-          "axial_ratio": 1.029386072788827
+          "phi": 85.0,
+          "gain": -10.343596310201246,
+          "axial_ratio": 1.048611376602852
         },
         "axial_ratio_max_point": {
-          "theta": 10.0,
-          "phi": 55.0,
-          "gain": 7.205108592127493,
-          "axial_ratio": 16371.613849424743
+          "theta": 355.0,
+          "phi": 80.0,
+          "gain": 7.2393543049691464,
+          "axial_ratio": 1990.6991810389366
         },
-        "cp_coverage_percent": 16.986301369863014,
+        "cp_coverage_percent": 21.232876712328768,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -656,36 +656,36 @@
         "freq_ghz": 8.233,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -16.45755504341315,
-        "gain_max_dbi": 7.72290442848885,
-        "gain_ripple_db": 24.180459471902,
+        "gain_min_dbi": -24.774041673133226,
+        "gain_max_dbi": 7.633084009569525,
+        "gain_ripple_db": 32.40712568270275,
         "gain_min_point": {
           "theta": 165.0,
           "phi": 85.0,
-          "gain": -16.45755504341315,
-          "axial_ratio": 29.045311081965384
+          "gain": -24.774041673133226,
+          "axial_ratio": 4.118873612655339
         },
         "gain_max_point": {
           "theta": 350.0,
           "phi": 90.0,
-          "gain": 7.72290442848885,
-          "axial_ratio": 72.56278192661586
+          "gain": 7.633084009569525,
+          "axial_ratio": 106.39611684472517
         },
-        "axial_ratio_min_db": 1.6318048434968504,
-        "axial_ratio_max_db": 67135.69962753526,
+        "axial_ratio_min_db": 1.6811925671470425,
+        "axial_ratio_max_db": 3993.8642222606168,
         "axial_ratio_min_point": {
           "theta": 165.0,
-          "phi": 65.0,
-          "gain": -13.573146602581081,
-          "axial_ratio": 1.6318048434968504
+          "phi": 80.0,
+          "gain": -22.70008386368339,
+          "axial_ratio": 1.6811925671470425
         },
         "axial_ratio_max_point": {
-          "theta": 320.0,
+          "theta": 50.0,
           "phi": 80.0,
-          "gain": 5.882419838162971,
-          "axial_ratio": 67135.69962753526
+          "gain": 4.153254586208019,
+          "axial_ratio": 3993.8642222606168
         },
-        "cp_coverage_percent": 5.205479452054795,
+        "cp_coverage_percent": 10.136986301369863,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -693,36 +693,36 @@
         "freq_ghz": 8.233,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -22.20397594614555,
-        "gain_max_dbi": 10.170568960100093,
-        "gain_ripple_db": 32.374544906245646,
+        "gain_min_dbi": -21.242940107679257,
+        "gain_max_dbi": 10.015170941536171,
+        "gain_ripple_db": 31.25811104921543,
         "gain_min_point": {
           "theta": 45.0,
           "phi": 50.0,
-          "gain": -22.20397594614555,
-          "axial_ratio": 5.739816290706171
+          "gain": -21.242940107679257,
+          "axial_ratio": 7.633038232658824
         },
         "gain_max_point": {
           "theta": 350.0,
           "phi": 45.0,
-          "gain": 10.170568960100093,
-          "axial_ratio": 1.6922008548530914
+          "gain": 10.015170941536171,
+          "axial_ratio": 1.7035701274227177
         },
-        "axial_ratio_min_db": 1.194520007638269,
-        "axial_ratio_max_db": 979.1852518470406,
+        "axial_ratio_min_db": 1.15903117433547,
+        "axial_ratio_max_db": 9531.47116079764,
         "axial_ratio_min_point": {
           "theta": 105.0,
           "phi": 45.0,
-          "gain": -6.6016122575072185,
-          "axial_ratio": 1.194520007638269
+          "gain": -6.064731899160907,
+          "axial_ratio": 1.15903117433547
         },
         "axial_ratio_max_point": {
-          "theta": 285.0,
-          "phi": 55.0,
-          "gain": -8.096854486589557,
-          "axial_ratio": 979.1852518470406
+          "theta": 70.0,
+          "phi": 65.0,
+          "gain": -1.9907035960430441,
+          "axial_ratio": 9531.47116079764
         },
-        "cp_coverage_percent": 60.273972602739725,
+        "cp_coverage_percent": 60.0,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -730,36 +730,36 @@
         "freq_ghz": 8.233,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -7.069341497635289,
-        "gain_max_dbi": 7.753336488530548,
-        "gain_ripple_db": 14.822677986165836,
+        "gain_min_dbi": -6.198014800175507,
+        "gain_max_dbi": 7.638250000880715,
+        "gain_ripple_db": 13.836264801056222,
         "gain_min_point": {
           "theta": 110.0,
           "phi": 45.0,
-          "gain": -7.069341497635289,
-          "axial_ratio": 4.235201531938456
+          "gain": -6.198014800175507,
+          "axial_ratio": 2.8705637917500537
         },
         "gain_max_point": {
           "theta": 10.0,
-          "phi": 90.0,
-          "gain": 7.753336488530548,
-          "axial_ratio": 246.37738457293747
+          "phi": 85.0,
+          "gain": 7.638250000880715,
+          "axial_ratio": 153.72978196488276
         },
-        "axial_ratio_min_db": 2.4114246208890404,
-        "axial_ratio_max_db": 67135.69962753526,
+        "axial_ratio_min_db": 1.5555969886737953,
+        "axial_ratio_max_db": 11133.3159735911,
         "axial_ratio_min_point": {
-          "theta": 95.0,
-          "phi": 50.0,
-          "gain": -4.382683748565931,
-          "axial_ratio": 2.4114246208890404
+          "theta": 105.0,
+          "phi": 45.0,
+          "gain": -5.698098248385594,
+          "axial_ratio": 1.5555969886737953
         },
         "axial_ratio_max_point": {
-          "theta": 320.0,
+          "theta": 20.0,
           "phi": 80.0,
-          "gain": 5.882419838162971,
-          "axial_ratio": 67135.69962753526
+          "gain": 7.417840070190342,
+          "axial_ratio": 11133.3159735911
         },
-        "cp_coverage_percent": 4.657534246575342,
+        "cp_coverage_percent": 11.780821917808218,
         "meets_gain": false,
         "meets_cp": false
       },
@@ -767,36 +767,36 @@
         "freq_ghz": 8.233,
         "fov": "Theta 0-360 deg, Phi 45-90 deg",
         "sample_count": 730,
-        "gain_min_dbi": -16.323321424796088,
-        "gain_max_dbi": 7.496745722960316,
-        "gain_ripple_db": 23.820067147756404,
+        "gain_min_dbi": -25.416114948152728,
+        "gain_max_dbi": 7.550739670061955,
+        "gain_ripple_db": 32.96685461821468,
         "gain_min_point": {
-          "theta": 165.0,
-          "phi": 90.0,
-          "gain": -16.323321424796088,
-          "axial_ratio": 3.7951708760045757
+          "theta": 195.0,
+          "phi": 70.0,
+          "gain": -25.416114948152728,
+          "axial_ratio": 3.538772963331267
         },
         "gain_max_point": {
           "theta": 5.0,
-          "phi": 55.0,
-          "gain": 7.496745722960316,
-          "axial_ratio": 29.092614223157057
+          "phi": 45.0,
+          "gain": 7.550739670061955,
+          "axial_ratio": 21.690822648297722
         },
-        "axial_ratio_min_db": 1.029386072788827,
-        "axial_ratio_max_db": 57.527875327368015,
+        "axial_ratio_min_db": 1.0358154025108772,
+        "axial_ratio_max_db": 32.093545149937974,
         "axial_ratio_min_point": {
-          "theta": 250.00000000000003,
-          "phi": 75.0,
-          "gain": -11.58547397684277,
-          "axial_ratio": 1.029386072788827
+          "theta": 110.0,
+          "phi": 85.0,
+          "gain": -8.37714603031914,
+          "axial_ratio": 1.0358154025108772
         },
         "axial_ratio_max_point": {
-          "theta": 320.0,
+          "theta": 315.0,
           "phi": 70.0,
-          "gain": 4.246522532288328,
-          "axial_ratio": 57.527875327368015
+          "gain": 3.5229275183202557,
+          "axial_ratio": 32.093545149937974
         },
-        "cp_coverage_percent": 32.87671232876713,
+        "cp_coverage_percent": 38.9041095890411,
         "meets_gain": false,
         "meets_cp": false
       }
@@ -813,29 +813,29 @@
       8.233
     ],
     "self_worst_db": {
-      "dB(S(P4:1,P4:1))": -9.304763117371218,
-      "dB(S(P2:1,P2:1))": -9.57098287837701,
-      "dB(S(P3:1,P3:1))": -9.268663209591226,
-      "dB(S(P1:1,P1:1))": -9.387964620959243
+      "dB(S(P4:1,P4:1))": -9.832541964059395,
+      "dB(S(P1:1,P1:1))": -10.593018677306883,
+      "dB(S(P3:1,P3:1))": -9.884786095457159,
+      "dB(S(P2:1,P2:1))": -10.007584363104847
     },
     "coupling_worst_db": {
-      "dB(S(P4:1,P2:1))": -17.11395365492785,
-      "dB(S(P4:1,P3:1))": -17.775745027819617,
-      "dB(S(P4:1,P1:1))": -17.667540426824203,
-      "dB(S(P2:1,P4:1))": -17.11395365492786,
-      "dB(S(P2:1,P3:1))": -17.78625153858976,
-      "dB(S(P2:1,P1:1))": -17.65629995289414,
-      "dB(S(P3:1,P4:1))": -17.775745027819617,
-      "dB(S(P3:1,P2:1))": -17.78625153858976,
-      "dB(S(P3:1,P1:1))": -17.445089805706036,
-      "dB(S(P1:1,P4:1))": -17.667540426824203,
-      "dB(S(P1:1,P2:1))": -17.65629995289414,
-      "dB(S(P1:1,P3:1))": -17.44508980570603
+      "dB(S(P4:1,P1:1))": -18.36347363220057,
+      "dB(S(P4:1,P3:1))": -18.472050700667324,
+      "dB(S(P4:1,P2:1))": -17.384352474619845,
+      "dB(S(P1:1,P4:1))": -18.363473632200563,
+      "dB(S(P1:1,P3:1))": -17.494328096318913,
+      "dB(S(P1:1,P2:1))": -18.022358207964754,
+      "dB(S(P3:1,P4:1))": -18.472050700667324,
+      "dB(S(P3:1,P1:1))": -17.494328096318917,
+      "dB(S(P3:1,P2:1))": -18.025422623853085,
+      "dB(S(P2:1,P4:1))": -17.384352474619845,
+      "dB(S(P2:1,P1:1))": -18.022358207964754,
+      "dB(S(P2:1,P3:1))": -18.02542262385309
     },
-    "worst_return_expr": "dB(S(P3:1,P3:1))",
-    "worst_return_db": -9.268663209591226,
+    "worst_return_expr": "dB(S(P4:1,P4:1))",
+    "worst_return_db": -9.832541964059395,
     "worst_coupling_expr": "dB(S(P4:1,P2:1))",
-    "worst_coupling_db": -17.11395365492785,
-    "isolation_db": 17.11395365492785
+    "worst_coupling_db": -17.384352474619845,
+    "isolation_db": 17.384352474619845
   }
 }

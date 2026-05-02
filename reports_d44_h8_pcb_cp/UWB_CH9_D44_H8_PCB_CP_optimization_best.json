@@ -1,0 +1,79 @@
+{
+  "candidate": "combo_patch9_corner084_slot11",
+  "parameters": {
+    "freq_center_ghz": 8.0,
+    "freq_start_ghz": 7.7,
+    "freq_stop_ghz": 8.3,
+    "freq_step_ghz": 0.02,
+    "target_start_ghz": 7.738,
+    "target_stop_ghz": 8.233,
+    "element_spacing_mm": 17.0,
+    "board_diameter_mm": 44.0,
+    "total_height_limit_mm": 8.0,
+    "substrate_h_mm": 2.0,
+    "copper_t_mm": 0.035,
+    "epsr": 3.48,
+    "tan_delta": 0.0037,
+    "ground_radius_mm": 21.4,
+    "patch_side_mm": 9.0,
+    "corner_cut_mm": 0.84,
+    "feed_offset_u_mm": 2.74,
+    "feed_offset_v_mm": 0.0,
+    "feed_pad_radius_mm": 0.45,
+    "port_width_mm": 0.75,
+    "via_antipad_radius_mm": 0.9,
+    "isolation_slot_enabled": 1.0,
+    "isolation_slot_length_mm": 11.0,
+    "isolation_slot_width_mm": 0.45,
+    "isolation_slot_inner_mm": 3.2,
+    "air_frequency_ghz": 7.0,
+    "cp_axial_ratio_target_db": 3.0,
+    "fov_min_gain_target_dbi": -5.0
+  },
+  "rationale": "Final selected single-feed PCB candidate: stronger modal split plus aggressive ground decoupling slot.",
+  "s_parameters": {
+    "frequencies_ghz": [
+      7.738,
+      7.9855,
+      8.233
+    ],
+    "target_band_ghz": [
+      7.738,
+      8.233
+    ],
+    "self_worst_db": {
+      "dB(S(P4:1,P4:1))": -9.832541964059395,
+      "dB(S(P1:1,P1:1))": -10.593018677306883,
+      "dB(S(P3:1,P3:1))": -9.884786095457159,
+      "dB(S(P2:1,P2:1))": -10.007584363104847
+    },
+    "coupling_worst_db": {
+      "dB(S(P4:1,P1:1))": -18.36347363220057,
+      "dB(S(P4:1,P3:1))": -18.472050700667324,
+      "dB(S(P4:1,P2:1))": -17.384352474619845,
+      "dB(S(P1:1,P4:1))": -18.363473632200563,
+      "dB(S(P1:1,P3:1))": -17.494328096318913,
+      "dB(S(P1:1,P2:1))": -18.022358207964754,
+      "dB(S(P3:1,P4:1))": -18.472050700667324,
+      "dB(S(P3:1,P1:1))": -17.494328096318917,
+      "dB(S(P3:1,P2:1))": -18.025422623853085,
+      "dB(S(P2:1,P4:1))": -17.384352474619845,
+      "dB(S(P2:1,P1:1))": -18.022358207964754,
+      "dB(S(P2:1,P3:1))": -18.02542262385309
+    },
+    "worst_return_expr": "dB(S(P4:1,P4:1))",
+    "worst_return_db": -9.832541964059395,
+    "worst_coupling_expr": "dB(S(P4:1,P2:1))",
+    "worst_coupling_db": -17.384352474619845,
+    "isolation_db": 17.384352474619845
+  },
+  "fov_summary": {
+    "coverage_envelope_gain_min_dbi": -7.9923488256122885,
+    "cp_qualified_ar_max_db": 32.093545149937974,
+    "cp_qualified_gain_min_dbi": -25.416114948152728,
+    "cp_qualified_coverage_min_percent": 33.42465753424658,
+    "sequential_gain_min_dbi": -21.242940107679257,
+    "sequential_cp_coverage_min_percent": 60.0
+  },
+  "meets_all_targets": false
+}
