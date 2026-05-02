@@ -1,0 +1,6 @@
+phase,best_candidate,substrate_h_mm,patch_side_mm,feed_offset_u_mm,corner_cut_mm,port_width_mm,feed_pad_radius_mm,worst_return_db,isolation_db,note
+initial,1,2.0,9.4,1.85,0.72,0.75,0.45,-1.505930,18.784255,Initial low-profile single-feed CP patch candidate.
+coarse,3,2.0,8.8,2.75,0.64,0.75,0.45,-7.005643,17.387794,Best coarse sweep point.
+refined,2,2.0,8.9,2.70,0.62,0.75,0.45,-8.885319,17.302373,Best local sweep point before fine feed-position tuning.
+fine,3,2.0,8.91,2.68,0.62,0.75,0.45,-9.268663,17.113954,Best overall quick-sweep candidate used for the final AEDT model.
+feed_equivalent,2,2.0,8.91,2.68,0.62,0.50,0.45,-9.074802,17.228848,Port-width and feed-pad tuning did not improve the fine candidate.

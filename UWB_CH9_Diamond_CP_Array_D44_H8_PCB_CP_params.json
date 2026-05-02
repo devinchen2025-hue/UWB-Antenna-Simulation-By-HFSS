@@ -1,0 +1,74 @@
+{
+  "project": "C:\\Users\\Administrator\\Documents\\HFSS Sim\\UWB_CH9_Diamond_CP_Array_D44_H8_PCB_CP.aedt",
+  "design": "Array4_Diamond_D44_H8_PCB_CP",
+  "model": "D44 H<=8 mm PCB-printable circular-polarization candidate using four single-feed corner-truncated square patches.",
+  "pcb_constraint": "Circular PCB, diameter 44 mm.",
+  "height_constraint": "PCB + copper height 2.070 mm <= 8.0 mm.",
+  "manufacturing_intent": [
+    "No vertical monopole, top hat, or post-loaded radiator is required.",
+    "The antenna is intended as a standard double-sided PCB: top CP patches, bottom ground, and probe/lumped feed locations.",
+    "The starting stackup uses 2.0 mm RO4350B-like material for more bandwidth while staying far below the 8 mm envelope.",
+    "The default patch/feed dimensions are the best quick-sweep S-parameter candidate found in this branch."
+  ],
+  "cp_target": "AxialRatioValue <= 3 dB in the selected FOV and CH9 frequencies.",
+  "fov_target": "Theta 0-360 deg, Phi 45-90 deg, GainTotal min >= -5 dBi.",
+  "element_centers_mm": {
+    "E1": [
+      12.020815,
+      0.0
+    ],
+    "E2": [
+      0.0,
+      12.020815
+    ],
+    "E3": [
+      -12.020815,
+      0.0
+    ],
+    "E4": [
+      -0.0,
+      -12.020815
+    ]
+  },
+  "nearest_neighbor_spacing_mm": 17.0,
+  "ports": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "source_guidance": [
+    "Inspect per-port source contexts for PDOA receive operation.",
+    "Use sequential quadrature all-port excitation only as an array CP sanity check, not as the PDOA single-channel coverage signoff."
+  ],
+  "parameters": {
+    "freq_center_ghz": 8.0,
+    "freq_start_ghz": 7.7,
+    "freq_stop_ghz": 8.3,
+    "freq_step_ghz": 0.02,
+    "target_start_ghz": 7.738,
+    "target_stop_ghz": 8.233,
+    "element_spacing_mm": 17.0,
+    "board_diameter_mm": 44.0,
+    "total_height_limit_mm": 8.0,
+    "substrate_h_mm": 2.0,
+    "copper_t_mm": 0.035,
+    "epsr": 3.48,
+    "tan_delta": 0.0037,
+    "ground_radius_mm": 21.4,
+    "patch_side_mm": 8.91,
+    "corner_cut_mm": 0.62,
+    "feed_offset_u_mm": 2.68,
+    "feed_offset_v_mm": 0.0,
+    "feed_pad_radius_mm": 0.45,
+    "port_width_mm": 0.75,
+    "via_antipad_radius_mm": 0.9,
+    "isolation_slot_enabled": 1.0,
+    "isolation_slot_length_mm": 8.0,
+    "isolation_slot_width_mm": 0.35,
+    "isolation_slot_inner_mm": 3.2,
+    "air_frequency_ghz": 7.0,
+    "cp_axial_ratio_target_db": 3.0,
+    "fov_min_gain_target_dbi": -5.0
+  }
+}

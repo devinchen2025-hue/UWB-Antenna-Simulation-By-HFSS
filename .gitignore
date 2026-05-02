@@ -4,6 +4,7 @@
 
 # AEDT lock files
 *.aedt.lock
+*.previous.aedt
 
 # Python caches
 __pycache__/
