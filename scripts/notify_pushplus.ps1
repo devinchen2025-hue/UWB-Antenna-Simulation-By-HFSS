@@ -12,13 +12,29 @@ param(
     [ValidateSet("html", "json", "cloudMonitor", "jenkins", "route")]
     [string]$Template = "html",
 
-    [string]$ApiUrl = "https://pushplus.hxtrip.com/send"
+    [string]$ApiUrl = "https://www.pushplus.plus/send"
 )
 
 $ErrorActionPreference = "Stop"
 
 if ([string]::IsNullOrWhiteSpace($Token)) {
+    $Token = [Environment]::GetEnvironmentVariable("PUSHPLUS_TOKEN", "User")
+}
+
+if ([string]::IsNullOrWhiteSpace($Token)) {
+    $Token = [Environment]::GetEnvironmentVariable("PUSHPLUS_TOKEN", "Machine")
+}
+
+if ([string]::IsNullOrWhiteSpace($Token)) {
     throw "Missing PushPlus token. Set it with: setx PUSHPLUS_TOKEN `"your-token`""
+}
+
+if ([string]::IsNullOrWhiteSpace($Topic)) {
+    $Topic = [Environment]::GetEnvironmentVariable("PUSHPLUS_TOPIC", "User")
+}
+
+if ([string]::IsNullOrWhiteSpace($Topic)) {
+    $Topic = [Environment]::GetEnvironmentVariable("PUSHPLUS_TOPIC", "Machine")
 }
 
 $payload = [ordered]@{
