@@ -1,0 +1,148 @@
+{
+  "candidate": "dualfeed_feed_3p3",
+  "topology": "dualfeed",
+  "rationale": "Fine sweep just inside the 3.4 mm best point.",
+  "parameters": {
+    "patch_side_mm": 9.15,
+    "corner_cut_mm": 0.0,
+    "feed_offset_u_mm": 3.3,
+    "feed_pad_radius_mm": 0.42,
+    "port_width_mm": 0.7,
+    "isolation_slot_length_mm": 10.0,
+    "isolation_slot_width_mm": 0.42
+  },
+  "s_parameters": {
+    "frequencies_ghz": [
+      7.738,
+      7.9855,
+      8.233
+    ],
+    "target_band_ghz": [
+      7.738,
+      8.233
+    ],
+    "self_worst_db": {
+      "dB(S(P4A:1,P4A:1))": -9.09622574823088,
+      "dB(S(P2B:1,P2B:1))": -9.584225342726048,
+      "dB(S(P4B:1,P4B:1))": -9.00436545156166,
+      "dB(S(P1B:1,P1B:1))": -9.628246772263063,
+      "dB(S(P2A:1,P2A:1))": -8.819054011230444,
+      "dB(S(P3B:1,P3B:1))": -9.406268107373082,
+      "dB(S(P1A:1,P1A:1))": -8.589452138822097,
+      "dB(S(P3A:1,P3A:1))": -8.574199254669459
+    },
+    "coupling_worst_db": {
+      "dB(S(P4A:1,P2B:1))": -30.960182929641526,
+      "dB(S(P4A:1,P4B:1))": -13.13975923601011,
+      "dB(S(P4A:1,P1B:1))": -19.686475581369795,
+      "dB(S(P4A:1,P2A:1))": -16.285786739609154,
+      "dB(S(P4A:1,P3B:1))": -18.639720155773027,
+      "dB(S(P4A:1,P1A:1))": -17.93621045234229,
+      "dB(S(P4A:1,P3A:1))": -17.697232261831168,
+      "dB(S(P2B:1,P4A:1))": -30.96018292964153,
+      "dB(S(P2B:1,P4B:1))": -19.48306032933874,
+      "dB(S(P2B:1,P1B:1))": -21.866911866865898,
+      "dB(S(P2B:1,P2A:1))": -12.5894661959166,
+      "dB(S(P2B:1,P3B:1))": -21.710219234310944,
+      "dB(S(P2B:1,P1A:1))": -19.673975417307588,
+      "dB(S(P2B:1,P3A:1))": -18.581581326821418,
+      "dB(S(P4B:1,P4A:1))": -13.13975923601011,
+      "dB(S(P4B:1,P2B:1))": -19.483060329338752,
+      "dB(S(P4B:1,P1B:1))": -21.681217479294258,
+      "dB(S(P4B:1,P2A:1))": -30.434735278806798,
+      "dB(S(P4B:1,P3B:1))": -21.637127684777468,
+      "dB(S(P4B:1,P1A:1))": -18.544940387147356,
+      "dB(S(P4B:1,P3A:1))": -19.616233904666924,
+      "dB(S(P1B:1,P4A:1))": -19.6864755813698,
+      "dB(S(P1B:1,P2B:1))": -21.866911866865912,
+      "dB(S(P1B:1,P4B:1))": -21.681217479294254,
+      "dB(S(P1B:1,P2A:1))": -18.619906584143564,
+      "dB(S(P1B:1,P3B:1))": -19.40245415368646,
+      "dB(S(P1B:1,P1A:1))": -12.44240143416318,
+      "dB(S(P1B:1,P3A:1))": -30.571810736244736,
+      "dB(S(P2A:1,P4A:1))": -16.285786739609158,
+      "dB(S(P2A:1,P2B:1))": -12.5894661959166,
+      "dB(S(P2A:1,P4B:1))": -30.43473527880679,
+      "dB(S(P2A:1,P1B:1))": -18.619906584143543,
+      "dB(S(P2A:1,P3B:1))": -19.882453918303305,
+      "dB(S(P2A:1,P1A:1))": -17.77467186299942,
+      "dB(S(P2A:1,P3A:1))": -17.737911801635992,
+      "dB(S(P3B:1,P4A:1))": -18.639720155773027,
+      "dB(S(P3B:1,P2B:1))": -21.710219234310948,
+      "dB(S(P3B:1,P4B:1))": -21.637127684777468,
+      "dB(S(P3B:1,P1B:1))": -19.40245415368646,
+      "dB(S(P3B:1,P2A:1))": -19.88245391830332,
+      "dB(S(P3B:1,P1A:1))": -29.75263424906414,
+      "dB(S(P3B:1,P3A:1))": -13.015385389644369,
+      "dB(S(P1A:1,P4A:1))": -17.93621045234229,
+      "dB(S(P1A:1,P2B:1))": -19.673975417307503,
+      "dB(S(P1A:1,P4B:1))": -18.544940387147356,
+      "dB(S(P1A:1,P1B:1))": -12.44240143416318,
+      "dB(S(P1A:1,P2A:1))": -17.77467186299942,
+      "dB(S(P1A:1,P3B:1))": -29.752634249064137,
+      "dB(S(P1A:1,P3A:1))": -16.217464977236318,
+      "dB(S(P3A:1,P4A:1))": -17.69723226183116,
+      "dB(S(P3A:1,P2B:1))": -18.58158132682141,
+      "dB(S(P3A:1,P4B:1))": -19.616233904666842,
+      "dB(S(P3A:1,P1B:1))": -30.57181073624474,
+      "dB(S(P3A:1,P2A:1))": -17.737911801635992,
+      "dB(S(P3A:1,P3B:1))": -13.015385389644365,
+      "dB(S(P3A:1,P1A:1))": -16.217464977236315
+    },
+    "worst_return_expr": "dB(S(P3A:1,P3A:1))",
+    "worst_return_db": -8.574199254669459,
+    "worst_coupling_expr": "dB(S(P1B:1,P1A:1))",
+    "worst_coupling_db": -12.44240143416318,
+    "isolation_db": 12.44240143416318
+  },
+  "fov_summary": {
+    "coverage_envelope_gain_min_dbi": -7.988855543732325,
+    "cp_qualified_ar_max_db": 10.154359246002427,
+    "cp_qualified_gain_min_dbi": -19.54893980610065,
+    "cp_qualified_coverage_min_percent": 48.63013698630137,
+    "quadrature_cases": {
+      "sequential_quadrature_all_ports": {
+        "gain_min_dbi": -12.719189026586593,
+        "axial_ratio_max_db": 43306.39372636527,
+        "cp_coverage_min_percent": 47.80821917808219
+      },
+      "E1_dualfeed_quadrature": {
+        "gain_min_dbi": -14.806583686604732,
+        "axial_ratio_max_db": 2145.7464348366348,
+        "cp_coverage_min_percent": 75.47945205479452
+      },
+      "E2_dualfeed_quadrature": {
+        "gain_min_dbi": -11.080353363014943,
+        "axial_ratio_max_db": 5781.428643695758,
+        "cp_coverage_min_percent": 55.75342465753425
+      },
+      "E3_dualfeed_quadrature": {
+        "gain_min_dbi": -14.531648483450235,
+        "axial_ratio_max_db": 1440.5193378697945,
+        "cp_coverage_min_percent": 76.02739726027397
+      },
+      "E4_dualfeed_quadrature": {
+        "gain_min_dbi": -11.335624561086297,
+        "axial_ratio_max_db": 41614.181627778555,
+        "cp_coverage_min_percent": 60.68493150684932
+      },
+      "dualfeed_array_quadrature": {
+        "gain_min_dbi": -21.39285851466976,
+        "axial_ratio_max_db": 8733.552862560478,
+        "cp_coverage_min_percent": 59.178082191780824
+      }
+    }
+  },
+  "optimized_source_balance": {
+    "amp_b": 1.0,
+    "phase_b_deg": -105.0,
+    "gain_min_dbi": -14.716519497674712,
+    "axial_ratio_max_db": 1046.4016379894726,
+    "cp_coverage_min_percent": 29.863013698630137,
+    "score": 2092.187450481195
+  },
+  "meets_s_targets": false,
+  "meets_fov_targets": false,
+  "meets_balanced_cp_target": false,
+  "meets_all_targets": false
+}

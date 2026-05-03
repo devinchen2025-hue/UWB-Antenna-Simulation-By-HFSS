@@ -13,24 +13,24 @@
 
 ## 核心指标
 
-- 最差回波损耗：`-4.20 dB`，表达式 `dB(S(P2A:1,P2A:1))`
-- 最差耦合：`-16.46 dB`，表达式 `dB(S(P2A:1,P4A:1))`
-- 对应隔离度：`16.46 dB`
-- 最佳端口覆盖包络最小增益：`-6.10 dBi`
-- CP 合格包络最大轴比：`13.36 dB`
-- CP 合格包络最小增益：`-11.65 dBi`
-- CP 覆盖率最小值：`47.1%`
+- 最差回波损耗：`-8.57 dB`，表达式 `dB(S(P3A:1,P3A:1))`
+- 最差耦合：`-12.44 dB`，表达式 `dB(S(P1B:1,P1A:1))`
+- 对应隔离度：`12.44 dB`
+- 最佳端口覆盖包络最小增益：`-7.99 dBi`
+- CP 合格包络最大轴比：`10.15 dB`
+- CP 合格包络最小增益：`-19.55 dBi`
+- CP 覆盖率最小值：`48.6%`
 
 ## 关键激励场景
 
 | 场景 | 最小增益 | 最大轴比 | CP 覆盖率最小值 |
 | --- | ---: | ---: | ---: |
-| sequential_quadrature_all_ports | -12.47 dBi | 1658.61 dB | 48.1% |
-| E1_dualfeed_quadrature | -13.23 dBi | 925.47 dB | 75.9% |
-| E2_dualfeed_quadrature | -11.86 dBi | 10419.13 dB | 63.2% |
-| E3_dualfeed_quadrature | -14.18 dBi | 1228.30 dB | 74.7% |
-| E4_dualfeed_quadrature | -11.68 dBi | 654.72 dB | 64.9% |
-| dualfeed_array_quadrature | -21.23 dBi | 4269.26 dB | 62.7% |
+| sequential_quadrature_all_ports | -12.72 dBi | 43306.39 dB | 47.8% |
+| E1_dualfeed_quadrature | -14.81 dBi | 2145.75 dB | 75.5% |
+| E2_dualfeed_quadrature | -11.08 dBi | 5781.43 dB | 55.8% |
+| E3_dualfeed_quadrature | -14.53 dBi | 1440.52 dB | 76.0% |
+| E4_dualfeed_quadrature | -11.34 dBi | 41614.18 dB | 60.7% |
+| dualfeed_array_quadrature | -21.39 dBi | 8733.55 dB | 59.2% |
 
 ## 结论
 

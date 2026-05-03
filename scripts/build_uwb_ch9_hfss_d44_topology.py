@@ -246,12 +246,14 @@ def add_dualfeed_element(hfss: Hfss, tag: str, center: tuple[float, float], angl
         patch_points(*center, angle, params["patch_side_mm"], 0.0, h),
     )
     metals.append(patch.name)
-    f = params["feed_offset_u_mm"]
-    metals += add_lumped_feed(hfss, f"P{tag[-1]}A", center, angle, f, 0.0, h, 0.0, params)
-    metals += add_lumped_feed(hfss, f"P{tag[-1]}B", center, angle, 0.0, f, h, 0.0, params)
+    f_a = params.get("feed_offset_a_mm", params["feed_offset_u_mm"])
+    f_b = params.get("feed_offset_b_mm", params["feed_offset_u_mm"])
+    metals += add_lumped_feed(hfss, f"P{tag[-1]}A", center, angle, f_a, 0.0, h, 0.0, params)
+    metals += add_lumped_feed(hfss, f"P{tag[-1]}B", center, angle, 0.0, f_b, h, 0.0, params)
     if hybrid_traces:
         w = params.get("hybrid_trace_width_mm", 0.32)
         gap = params.get("hybrid_trace_gap_mm", 0.55)
+        f = max(f_a, f_b)
         # Printable trace placeholders for later layout; sources remain the two hybrid output nodes.
         for suffix, u0, u1, v0, v1 in [
             ("trace_a", -f - gap, f, -w / 2, w / 2),
@@ -376,7 +378,15 @@ def create_reports(hfss: Hfss, setup_name: str, sweep_name: str, plot_prefix: st
             print(f"Far-field report creation deferred for {expression}: {exc}", flush=True)
 
 
-def build_project(topology: str, analyze: bool = False, non_graphical: bool = False, quick: bool = False, band_samples: bool = False, sparam_only: bool = False) -> Path:
+def build_project(
+    topology: str,
+    analyze: bool = False,
+    non_graphical: bool = False,
+    quick: bool = False,
+    band_samples: bool = False,
+    sparam_only: bool = False,
+    return_hfss: bool = False,
+):
     spec = TOPOLOGIES[topology]
     params = topology_params(topology)
     validate_params(params)
@@ -516,6 +526,8 @@ def build_project(topology: str, analyze: bool = False, non_graphical: bool = Fa
         ok = hfss.analyze_setup(setup.name, cores=4, tasks=4, blocking=True)
         print(f"Analyze result: {ok}", flush=True)
         hfss.save_project()
+    if return_hfss:
+        return paths["project"], hfss
     hfss.release_desktop(close_projects=False, close_desktop=non_graphical)
     return paths["project"]
 
