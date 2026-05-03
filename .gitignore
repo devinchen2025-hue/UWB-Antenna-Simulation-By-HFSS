@@ -18,5 +18,10 @@ hfss_tune_*.log
 hfss_analyze_*.log
 python-*-install*.log
 
+# Local notification secrets
+.env
+.env.*
+*.secret.ps1
+
 # Local installers
 python-*.exe
