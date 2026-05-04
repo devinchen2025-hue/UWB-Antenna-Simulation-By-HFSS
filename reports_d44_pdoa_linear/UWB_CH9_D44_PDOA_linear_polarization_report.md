@@ -58,3 +58,11 @@
 - 汇总 CSV: `D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_pdoa_linear\UWB_CH9_D44_PDOA_linear_polarization_summary.csv`
 - 指标 JSON: `D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_pdoa_linear\UWB_CH9_D44_PDOA_linear_polarization_metrics.json`
 - 中文报告: `D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_pdoa_linear\UWB_CH9_D44_PDOA_linear_polarization_report.md`
+
+## 鉴角曲线对比图
+
+- 总览拼图: `D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_pdoa_linear\plots\pdoa_linear_polarization_comparison_panel.png`
+- 中心频点 A 馈 E1-E3 基线: `D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_pdoa_linear\plots\center_best_a_feed_e1_e3_phi90.png`
+- 中心频点双馈合成 E1-E3 基线: `D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_pdoa_linear\plots\center_dualfeed_e1_e3_phi75.png`
+- 低频点 B 馈 E1-E2 敏感基线: `D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_pdoa_linear\plots\worst_sensitive_b_feed_e1_e2_phi45.png`
+- 图片说明: `D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_pdoa_linear\plots\UWB_CH9_D44_PDOA_linear_polarization_plot_manifest.md`
