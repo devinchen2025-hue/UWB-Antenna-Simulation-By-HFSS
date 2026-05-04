@@ -147,6 +147,29 @@ TOPOLOGIES = {
             "isolation_slot_width_mm": 0.42,
         },
     },
+    "dualpol": {
+        "label": "DUALPOL_XY",
+        "design": "Array4_Diamond_D44_DualPolarized_XY",
+        "description": "Dual-polarized square patches with independent global X/Y ports for polarization-diverse PDOA reception.",
+        "kind": "dualpol",
+        "params": {
+            "patch_side_mm": 9.15,
+            "corner_cut_mm": 0.0,
+            "feed_offset_u_mm": 3.40,
+            "feed_offset_v_mm": 0.0,
+            "feed_pad_radius_mm": 0.32,
+            "port_width_mm": 0.50,
+            "microstrip_feed_enabled": 0.0,
+            "neutralization_branch_enabled": 0.0,
+            "local_dgs_enabled": 0.0,
+            "weak_coupling_open_line_enabled": 0.0,
+            "via_fence_enabled": 0.0,
+            "isolation_slot_enabled": 1.0,
+            "isolation_slot_length_mm": 10.0,
+            "isolation_slot_width_mm": 0.42,
+            "isolation_slot_inner_mm": 3.20,
+        },
+    },
     "slotcoupled": {
         "label": "SLOTCOUPLED_CP",
         "design": "Array4_Diamond_D44_SlotCoupled_CP",
@@ -713,6 +736,8 @@ def build_project(
             metal_names.extend(add_dualfeed_element(hfss, tag, (cx, cy), angle, params))
         elif kind == "hybrid":
             metal_names.extend(add_dualfeed_element(hfss, tag, (cx, cy), angle, params, hybrid_traces=True))
+        elif kind == "dualpol":
+            metal_names.extend(add_dualfeed_element(hfss, tag, (cx, cy), 0.0, params))
         elif kind == "slotcoupled":
             metals, slots = add_slotcoupled_element(hfss, tag, (cx, cy), angle, params)
             metal_names.extend(metals)
@@ -806,7 +831,7 @@ def build_project(
         "model": spec["description"],
         "pcb_constraint": "Circular PCB, diameter 44 mm.",
         "height_constraint": f"PCB + copper/topology height {total_height:.3f} mm <= {params['total_height_limit_mm']} mm.",
-        "cp_target": "AxialRatioValue <= 3 dB in the selected FOV and CH9 frequencies.",
+        "cp_target": "Dual-polarized topology treats axial ratio as a derived digital-combining reference, not the primary target." if topology == "dualpol" else "AxialRatioValue <= 3 dB in the selected FOV and CH9 frequencies.",
         "fov_target": "Theta 0-360 deg, Phi 45-90 deg, GainTotal min >= -5 dBi.",
         "source_guidance": source_guidance(topology),
         "parameters": params,
@@ -826,6 +851,12 @@ def build_project(
 
 
 def source_guidance(topology: str) -> list[str]:
+    if topology == "dualpol":
+        return [
+            "A feeds are aligned to the global X-polarized channel and B feeds are aligned to the global Y-polarized channel.",
+            "Do not apply a fixed 90 degree hybrid for signoff; use independent X/Y receiver channels or digital polarization combining.",
+            "Evaluate linear incident polarizations 0/45/90/135 deg and use vector calibration to reduce PDOA curve drift.",
+        ]
     if topology in {"dualfeed", "hybrid"}:
         guidance = [
             "A/B feeds on each patch are intended for 90 degree quadrature excitation.",
