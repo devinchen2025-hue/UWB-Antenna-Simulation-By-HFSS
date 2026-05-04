@@ -33,6 +33,7 @@ BASE_PARAMS = {
     "feed_pad_radius_mm": 0.45,
     "port_width_mm": 0.75,
     "microstrip_feed_enabled": 0.0,
+    "microstrip_feed_offset_mm": 0.0,
     "microstrip_feedline_length_mm": 2.0,
     "microstrip_feedline_width_mm": 0.60,
     "microstrip_match_length_mm": 0.85,
@@ -79,6 +80,7 @@ TOPOLOGIES = {
             "feed_pad_radius_mm": 0.42,
             "port_width_mm": 0.70,
             "microstrip_feed_enabled": 0.0,
+            "microstrip_feed_offset_mm": 0.0,
             "microstrip_feedline_length_mm": 2.0,
             "microstrip_feedline_width_mm": 0.60,
             "microstrip_match_length_mm": 0.85,
@@ -112,6 +114,7 @@ TOPOLOGIES = {
             "hybrid_trace_width_mm": 0.32,
             "hybrid_trace_gap_mm": 0.55,
             "microstrip_feed_enabled": 0.0,
+            "microstrip_feed_offset_mm": 0.0,
             "microstrip_feedline_length_mm": 2.0,
             "microstrip_feedline_width_mm": 0.60,
             "microstrip_match_length_mm": 0.85,
@@ -328,6 +331,7 @@ def add_microstrip_edge_feed(
     stub_len = params.get("microstrip_stub_length_mm", 0.0)
     stub_w = params.get("microstrip_stub_width_mm", 0.24)
     stub_offset = min(params.get("microstrip_stub_offset_mm", 0.75), max(0.15, line_len - 0.1))
+    feed_shift = params.get("microstrip_feed_offset_mm", 0.0)
     overlap = 0.08
     metals = []
 
@@ -336,19 +340,19 @@ def add_microstrip_edge_feed(
         metals.append(sheet.name)
 
     if axis == "u":
-        add_rect("edge_match_section", edge - overlap, edge + match_len, -match_w / 2.0, match_w / 2.0)
-        add_rect("edge_feedline", edge + match_len - overlap, edge + line_len, -line_w / 2.0, line_w / 2.0)
+        add_rect("edge_match_section", edge - overlap, edge + match_len, feed_shift - match_w / 2.0, feed_shift + match_w / 2.0)
+        add_rect("edge_feedline", edge + match_len - overlap, edge + line_len, feed_shift - line_w / 2.0, feed_shift + line_w / 2.0)
         if stub_len > 1e-9:
             stub_u = edge + stub_offset
-            add_rect("open_stub", stub_u - stub_w / 2.0, stub_u + stub_w / 2.0, line_w / 2.0 - overlap, line_w / 2.0 + stub_len)
-        metals += add_lumped_feed(hfss, name, center, angle_deg, edge + line_len, 0.0, h, 0.0, params, pad=False)
+            add_rect("open_stub", stub_u - stub_w / 2.0, stub_u + stub_w / 2.0, feed_shift + line_w / 2.0 - overlap, feed_shift + line_w / 2.0 + stub_len)
+        metals += add_lumped_feed(hfss, name, center, angle_deg, edge + line_len, feed_shift, h, 0.0, params, pad=False)
     elif axis == "v":
-        add_rect("edge_match_section", -match_w / 2.0, match_w / 2.0, edge - overlap, edge + match_len)
-        add_rect("edge_feedline", -line_w / 2.0, line_w / 2.0, edge + match_len - overlap, edge + line_len)
+        add_rect("edge_match_section", feed_shift - match_w / 2.0, feed_shift + match_w / 2.0, edge - overlap, edge + match_len)
+        add_rect("edge_feedline", feed_shift - line_w / 2.0, feed_shift + line_w / 2.0, edge + match_len - overlap, edge + line_len)
         if stub_len > 1e-9:
             stub_v = edge + stub_offset
-            add_rect("open_stub", line_w / 2.0 - overlap, line_w / 2.0 + stub_len, stub_v - stub_w / 2.0, stub_v + stub_w / 2.0)
-        metals += add_lumped_feed(hfss, name, center, angle_deg, 0.0, edge + line_len, h, 0.0, params, pad=False)
+            add_rect("open_stub", feed_shift + line_w / 2.0 - overlap, feed_shift + line_w / 2.0 + stub_len, stub_v - stub_w / 2.0, stub_v + stub_w / 2.0)
+        metals += add_lumped_feed(hfss, name, center, angle_deg, feed_shift, edge + line_len, h, 0.0, params, pad=False)
     else:
         raise ValueError(f"Unsupported feed axis {axis}")
     return metals
@@ -480,6 +484,7 @@ def validate_params(params: dict) -> None:
             params.get("neutralization_branch_length_mm", 0.0),
             params.get("neutralization_branch_offset_mm", 0.0),
             params.get("microstrip_stub_offset_mm", 0.0) + params.get("microstrip_stub_length_mm", 0.0),
+            abs(params.get("microstrip_feed_offset_mm", 0.0)) + params.get("microstrip_feedline_width_mm", 0.0) / 2.0,
         )
         if center_radius + math.sqrt(2.0) * network_corner > board_radius - 0.2:
             raise ValueError("Microstrip matching network too close to board edge")

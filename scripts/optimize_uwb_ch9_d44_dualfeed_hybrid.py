@@ -43,6 +43,7 @@ def base_params(topology: str) -> dict[str, Any]:
 
 STRUCTURE_PARAM_KEYS = [
     "microstrip_feed_enabled",
+    "microstrip_feed_offset_mm",
     "microstrip_feedline_length_mm",
     "microstrip_feedline_width_mm",
     "microstrip_match_length_mm",
@@ -67,6 +68,7 @@ def network_extra(
     *,
     line_len: float = 2.0,
     line_width: float = 0.60,
+    feed_offset: float = 0.0,
     match_len: float = 0.85,
     match_width: float = 0.42,
     stub_len: float = 0.0,
@@ -85,6 +87,7 @@ def network_extra(
 ) -> dict[str, float]:
     return {
         "microstrip_feed_enabled": 1.0,
+        "microstrip_feed_offset_mm": feed_offset,
         "microstrip_feedline_length_mm": line_len,
         "microstrip_feedline_width_mm": line_width,
         "microstrip_match_length_mm": match_len,
@@ -427,6 +430,96 @@ def generate_candidates() -> list[Candidate]:
             trace_gap=0.64,
             extra=network_extra(line_len=1.85, line_width=0.62, match_len=0.78, match_width=0.44, hybrid_match_len=0.98, hybrid_match_width=0.46),
         ),
+        make_candidate(
+            "dualfeed",
+            "link_p9p05_shift0p25_dgs0p65_stub1p05",
+            9.05,
+            3.25,
+            "贴片略缩小，微带馈线沿边缘偏移 0.25 mm，DGS offset=0.65 mm，支节 1.05 mm，用于验证低扰动馈入联动。",
+            port_width=0.58,
+            extra=network_extra(line_len=1.80, line_width=0.58, feed_offset=0.25, match_len=0.78, match_width=0.40, stub_len=1.05, dgs=True, dgs_len=3.4, dgs_width=0.18, dgs_offset=0.65),
+        ),
+        make_candidate(
+            "dualfeed",
+            "link_p9p05_shift0p50_dgs0p75_stub1p10",
+            9.05,
+            3.25,
+            "贴片略缩小，馈线偏移 0.50 mm，保持上一轮最优 DGS 位置附近，检查馈入偏移对回波的补偿。",
+            port_width=0.58,
+            extra=network_extra(line_len=1.80, line_width=0.58, feed_offset=0.50, match_len=0.78, match_width=0.40, stub_len=1.10, dgs=True, dgs_len=3.4, dgs_width=0.18, dgs_offset=0.75),
+        ),
+        make_candidate(
+            "dualfeed",
+            "link_p9p15_shift0p25_dgs0p55_stub1p10",
+            9.15,
+            3.30,
+            "保持当前贴片边长，DGS 更靠近中心侧到 0.55 mm，测试更强地电流切断是否改善隔离。",
+            port_width=0.58,
+            extra=network_extra(line_len=1.80, line_width=0.58, feed_offset=0.25, match_len=0.78, match_width=0.40, stub_len=1.10, dgs=True, dgs_len=3.4, dgs_width=0.18, dgs_offset=0.55),
+        ),
+        make_candidate(
+            "dualfeed",
+            "link_p9p15_shift0p50_dgs0p75_stub1p20",
+            9.15,
+            3.30,
+            "保持当前贴片边长，馈线偏移 0.50 mm，支节增至 1.20 mm，围绕上一轮最优 DGS 点继续细扫。",
+            port_width=0.58,
+            extra=network_extra(line_len=1.80, line_width=0.58, feed_offset=0.50, match_len=0.78, match_width=0.40, stub_len=1.20, dgs=True, dgs_len=3.6, dgs_width=0.18, dgs_offset=0.75),
+        ),
+        make_candidate(
+            "dualfeed",
+            "link_p9p25_shift0p25_dgs0p85_stub1p10",
+            9.25,
+            3.35,
+            "贴片略放大，馈线偏移 0.25 mm，DGS 外移到 0.85 mm，观察谐振下移后的匹配恢复。",
+            port_width=0.58,
+            extra=network_extra(line_len=1.80, line_width=0.58, feed_offset=0.25, match_len=0.80, match_width=0.40, stub_len=1.10, dgs=True, dgs_len=3.6, dgs_width=0.18, dgs_offset=0.85),
+        ),
+        make_candidate(
+            "dualfeed",
+            "link_p9p25_shift0p50_dgs0p65_stub1p25",
+            9.25,
+            3.35,
+            "贴片略放大，馈线偏移 0.50 mm，支节 1.25 mm，测试较长支节与内侧 DGS 的组合。",
+            port_width=0.58,
+            extra=network_extra(line_len=1.80, line_width=0.58, feed_offset=0.50, match_len=0.80, match_width=0.40, stub_len=1.25, dgs=True, dgs_len=3.6, dgs_width=0.18, dgs_offset=0.65),
+        ),
+        make_candidate(
+            "dualfeed",
+            "link_p9p35_shift0p25_dgs0p75_stub1p15",
+            9.35,
+            3.40,
+            "贴片继续放大，馈线偏移 0.25 mm，DGS offset=0.75 mm，支节 1.15 mm，检查谐振频移趋势。",
+            port_width=0.58,
+            extra=network_extra(line_len=1.75, line_width=0.58, feed_offset=0.25, match_len=0.78, match_width=0.40, stub_len=1.15, dgs=True, dgs_len=3.8, dgs_width=0.18, dgs_offset=0.75),
+        ),
+        make_candidate(
+            "dualfeed",
+            "link_p9p35_shift0p50_dgs0p95_stub1p25",
+            9.35,
+            3.40,
+            "贴片继续放大，馈线偏移 0.50 mm，DGS 外移至 0.95 mm，验证较弱 DGS 与长支节组合。",
+            port_width=0.58,
+            extra=network_extra(line_len=1.75, line_width=0.58, feed_offset=0.50, match_len=0.78, match_width=0.40, stub_len=1.25, dgs=True, dgs_len=3.8, dgs_width=0.18, dgs_offset=0.95),
+        ),
+        make_candidate(
+            "dualfeed",
+            "link_p9p45_shift0p25_dgs0p75_stub1p05",
+            9.45,
+            3.45,
+            "贴片最大化到可用板边界附近，馈线偏移 0.25 mm，较短支节用于避免过度容性加载。",
+            port_width=0.58,
+            extra=network_extra(line_len=1.70, line_width=0.58, feed_offset=0.25, match_len=0.75, match_width=0.40, stub_len=1.05, dgs=True, dgs_len=3.8, dgs_width=0.18, dgs_offset=0.75),
+        ),
+        make_candidate(
+            "dualfeed",
+            "link_p9p45_shift0p50_dgs0p85_stub1p20",
+            9.45,
+            3.45,
+            "贴片最大化到可用板边界附近，馈线偏移 0.50 mm，并用 DGS 0.85 mm 与 1.20 mm 支节做联合补偿。",
+            port_width=0.58,
+            extra=network_extra(line_len=1.70, line_width=0.58, feed_offset=0.50, match_len=0.75, match_width=0.40, stub_len=1.20, dgs=True, dgs_len=3.8, dgs_width=0.18, dgs_offset=0.85),
+        ),
     ]
     return [candidate for candidate in candidates if is_valid(candidate)]
 
@@ -471,8 +564,23 @@ def s_score(s: dict) -> float:
 def append_csv(path: Path, row: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     exists = path.exists()
+    if exists:
+        with path.open(newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            existing_fields = reader.fieldnames or []
+            existing_rows = list(reader)
+        fieldnames = existing_fields + [key for key in row if key not in existing_fields]
+        if fieldnames != existing_fields:
+            with path.open("w", newline="", encoding="utf-8") as f:
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                writer.writeheader()
+                writer.writerows(existing_rows)
+                writer.writerow(row)
+            return
+    else:
+        fieldnames = list(row)
     with path.open("a", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=list(row))
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
         if not exists:
             writer.writeheader()
         writer.writerow(row)
@@ -487,7 +595,7 @@ def run_sparam_candidate(index: int, candidate: Candidate) -> dict:
         non_graphical=True,
         quick=True,
         band_samples=True,
-        sparam_only=False,
+        sparam_only=True,
         return_hfss=True,
     )
     try:
@@ -745,11 +853,11 @@ def write_report(best: dict) -> None:
         "",
         "## 本轮细扫范围",
         "",
-        "- 隔离枝节长度：`0.65 / 1.05 / 1.35 mm`，并与 `1.10 mm` 开路支节组合验证。",
-        "- DGS 位置：`0.75 / 1.25 mm`，用于判断局部地电流切断位置对 S 参数的影响。",
-        "- 90 度混合器输出段宽度：`0.28 / 0.32 / 0.40 / 0.46 mm`。",
+        "- 上一轮：隔离枝节长度 `0.65 / 1.05 / 1.35 mm`，DGS 位置 `0.75 / 1.25 mm`，90 度混合器输出段宽度 `0.28 / 0.32 / 0.40 / 0.46 mm`。",
+        "- 本轮：新增真实微带馈线边缘馈入偏移 `0.25 / 0.50 mm`，并联动贴片边长 `9.05 / 9.15 / 9.25 / 9.35 / 9.45 mm`。",
+        "- 本轮：围绕 `DGS offset 0.55-0.95 mm` 与开路支节 `1.05-1.25 mm` 做组合筛选，重点观察匹配接近 `-10 dB` 时隔离度是否还能保持。",
         "- 源幅相平衡：B 端幅度 `0.90-1.10`、相位 `-120 deg` 到 `-75 deg`，围绕上一轮 `-105 deg` 做细扫。",
-        "- `dualfeed_fine_branch_len1p35_dgs_o0p85` 在 AEDT 保存/求解阶段卡住，已停止该单个组合候选，未纳入排名。",
+        "- `dualfeed_fine_branch_len1p35_dgs_o0p85` 在 AEDT 保存/求解阶段卡住，已停止该单个组合候选，未纳入排名；本轮 Full 远场重评估在源幅相后半段超时，报告保留上一轮完整 FOV 指标并更新 S 参数筛选结论。",
         "",
         "## 最佳候选",
         "",
@@ -840,9 +948,10 @@ def write_report(best: dict) -> None:
             "",
             f"- 本轮是否完全达标：`{'是' if best.get('meets_all_targets') else '否'}`。",
             f"- 当前主要瓶颈：最差回波损耗为 `{fmt(s.get('worst_return_db'))} dB`，隔离度为 `{fmt(s.get('isolation_db'))} dB`，CP 合格包络最大轴比为 `{fmt(f.get('cp_qualified_ar_max_db'))} dB`。",
-            "- 真实结构细扫中，`dualfeed_fine_dgs_o0p75` 是当前最佳：DGS 位置内移到 0.75 mm 后，最差 Sii 提升到约 `-7.35 dB`，但隔离度仍只有约 `10.48 dB`。",
+            "- 真实结构联动细扫中，`dualfeed_link_p9p25_shift0p50_dgs0p65_stub1p25` 的综合评分最低：最差 Sii 约 `-9.76 dB`，已经接近 `-10 dB` 目标，但隔离度下降到约 `5.23 dB`。",
+            "- 同类趋势中，`patch_side=9.35 mm / feed_offset=0.50 mm / DGS offset=0.95 mm / stub=1.25 mm` 可得到约 `-9.79 dB` 的最差 Sii，但隔离度进一步降至约 `4.75 dB`。",
             "- 源幅相细扫把最佳平衡点更新为 `amp_b=0.95 / phase_b=-97.5 deg`，轴比相对上一轮明显下降，但仍未接近 `3 dB` 圆极化目标。",
-            "- 下一轮建议：暂停端口间直连式隔离枝节，优先沿 `DGS offset 0.55-0.95 mm`、开路支节 `1.05-1.35 mm` 和贴片边长/馈入位置联动方向继续细扫；混合器输出段宽度单独细扫未显示突破。",
+            "- 下一轮建议：保留 `patch_side=9.25-9.35 mm / feed_offset=0.50 mm / stub=1.20-1.30 mm` 的匹配方向，同时必须引入非直连式隔离方案，例如弱耦合开路隔离线、接地过孔栅栏或重新分离 A/B 馈线出口，否则匹配接近目标时隔离会塌陷。",
             "",
             "## 输出文件",
             "",
