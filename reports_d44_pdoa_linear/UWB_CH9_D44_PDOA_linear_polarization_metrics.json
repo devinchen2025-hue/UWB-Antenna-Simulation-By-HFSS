@@ -1,0 +1,331 @@
+{
+  "linear_polarizations_deg": [
+    0.0,
+    45.0,
+    90.0,
+    135.0
+  ],
+  "phi_cuts_deg": [
+    45.0,
+    60.0,
+    75.0,
+    90.0
+  ],
+  "mag_valid_floor_rel_db": -35.0,
+  "channel_sets": {
+    "A_feed_only": {
+      "E1": [
+        {
+          "source": "P1A",
+          "weight_real": 1.0,
+          "weight_imag": 0.0
+        }
+      ],
+      "E2": [
+        {
+          "source": "P2A",
+          "weight_real": 1.0,
+          "weight_imag": 0.0
+        }
+      ],
+      "E3": [
+        {
+          "source": "P3A",
+          "weight_real": 1.0,
+          "weight_imag": 0.0
+        }
+      ],
+      "E4": [
+        {
+          "source": "P4A",
+          "weight_real": 1.0,
+          "weight_imag": 0.0
+        }
+      ]
+    },
+    "B_feed_only": {
+      "E1": [
+        {
+          "source": "P1B",
+          "weight_real": 1.0,
+          "weight_imag": 0.0
+        }
+      ],
+      "E2": [
+        {
+          "source": "P2B",
+          "weight_real": 1.0,
+          "weight_imag": 0.0
+        }
+      ],
+      "E3": [
+        {
+          "source": "P3B",
+          "weight_real": 1.0,
+          "weight_imag": 0.0
+        }
+      ],
+      "E4": [
+        {
+          "source": "P4B",
+          "weight_real": 1.0,
+          "weight_imag": 0.0
+        }
+      ]
+    },
+    "dualfeed_quadrature_minus90": {
+      "E1": [
+        {
+          "source": "P1A",
+          "weight_real": 1.0,
+          "weight_imag": 0.0
+        },
+        {
+          "source": "P1B",
+          "weight_real": 6.123233995736766e-17,
+          "weight_imag": -1.0
+        }
+      ],
+      "E2": [
+        {
+          "source": "P2A",
+          "weight_real": 1.0,
+          "weight_imag": 0.0
+        },
+        {
+          "source": "P2B",
+          "weight_real": 6.123233995736766e-17,
+          "weight_imag": -1.0
+        }
+      ],
+      "E3": [
+        {
+          "source": "P3A",
+          "weight_real": 1.0,
+          "weight_imag": 0.0
+        },
+        {
+          "source": "P3B",
+          "weight_real": 6.123233995736766e-17,
+          "weight_imag": -1.0
+        }
+      ],
+      "E4": [
+        {
+          "source": "P4A",
+          "weight_real": 1.0,
+          "weight_imag": 0.0
+        },
+        {
+          "source": "P4B",
+          "weight_real": 6.123233995736766e-17,
+          "weight_imag": -1.0
+        }
+      ]
+    }
+  },
+  "curve_count": 864,
+  "worst_max_bias": {
+    "freq_ghz": 7.738,
+    "phi_deg": 45.0,
+    "linear_pol_deg": 90.0,
+    "channel_set": "B_feed_only",
+    "baseline": "E1-E2",
+    "valid_percent": 100.0,
+    "pdoa_span_deg": 60.15375594268369,
+    "monotonic_segment_percent": 58.333333333333336,
+    "rms_bias_vs_pol0_deg": 156.48098084333165,
+    "max_abs_bias_vs_pol0_deg": 179.9962329090837,
+    "min_pair_mag_rel_db": -17.35643856568434
+  },
+  "worst_rms_bias": {
+    "freq_ghz": 7.738,
+    "phi_deg": 45.0,
+    "linear_pol_deg": 90.0,
+    "channel_set": "B_feed_only",
+    "baseline": "E3-E4",
+    "valid_percent": 100.0,
+    "pdoa_span_deg": 44.31877434155038,
+    "monotonic_segment_percent": 61.111111111111114,
+    "rms_bias_vs_pol0_deg": 159.97605341575382,
+    "max_abs_bias_vs_pol0_deg": 179.17722041878955,
+    "min_pair_mag_rel_db": -17.11744060801735
+  },
+  "polarization_summary": {
+    "0deg": {
+      "curve_count": 216,
+      "valid_percent_avg": 99.4482496194825,
+      "monotonic_segment_percent_avg": 68.7577401247708,
+      "rms_bias_vs_pol0_deg_avg": 0.0,
+      "max_abs_bias_vs_pol0_deg_max": 0.0
+    },
+    "45deg": {
+      "curve_count": 216,
+      "valid_percent_avg": 98.8140537798072,
+      "monotonic_segment_percent_avg": 68.4053624854789,
+      "rms_bias_vs_pol0_deg_avg": 68.88566568909572,
+      "max_abs_bias_vs_pol0_deg_max": 179.95958686395613
+    },
+    "90deg": {
+      "curve_count": 216,
+      "valid_percent_avg": 99.21993911719939,
+      "monotonic_segment_percent_avg": 68.65716730269803,
+      "rms_bias_vs_pol0_deg_avg": 92.28637526477134,
+      "max_abs_bias_vs_pol0_deg_max": 179.9962329090837
+    },
+    "135deg": {
+      "curve_count": 216,
+      "valid_percent_avg": 99.7019279553526,
+      "monotonic_segment_percent_avg": 69.4899732599866,
+      "rms_bias_vs_pol0_deg_avg": 57.11220458451684,
+      "max_abs_bias_vs_pol0_deg_max": 179.9832981770604
+    }
+  },
+  "best_monotonic_candidates": [
+    {
+      "freq_ghz": 7.9855,
+      "phi_deg": 90.0,
+      "linear_pol_deg": 0.0,
+      "channel_set": "A_feed_only",
+      "baseline": "E1-E3",
+      "valid_percent": 100.0,
+      "pdoa_span_deg": 720.0000000000001,
+      "monotonic_segment_percent": 100.0,
+      "rms_bias_vs_pol0_deg": 0.0,
+      "max_abs_bias_vs_pol0_deg": 0.0,
+      "min_pair_mag_rel_db": -19.020078604999956
+    },
+    {
+      "freq_ghz": 7.738,
+      "phi_deg": 90.0,
+      "linear_pol_deg": 0.0,
+      "channel_set": "A_feed_only",
+      "baseline": "E1-E3",
+      "valid_percent": 100.0,
+      "pdoa_span_deg": 720.0,
+      "monotonic_segment_percent": 100.0,
+      "rms_bias_vs_pol0_deg": 0.0,
+      "max_abs_bias_vs_pol0_deg": 0.0,
+      "min_pair_mag_rel_db": -26.481526409990277
+    },
+    {
+      "freq_ghz": 7.738,
+      "phi_deg": 75.0,
+      "linear_pol_deg": 0.0,
+      "channel_set": "dualfeed_quadrature_minus90",
+      "baseline": "E1-E3",
+      "valid_percent": 100.0,
+      "pdoa_span_deg": 720.0,
+      "monotonic_segment_percent": 100.0,
+      "rms_bias_vs_pol0_deg": 0.0,
+      "max_abs_bias_vs_pol0_deg": 0.0,
+      "min_pair_mag_rel_db": -13.955298116431852
+    },
+    {
+      "freq_ghz": 7.738,
+      "phi_deg": 90.0,
+      "linear_pol_deg": 0.0,
+      "channel_set": "dualfeed_quadrature_minus90",
+      "baseline": "E1-E3",
+      "valid_percent": 100.0,
+      "pdoa_span_deg": 720.0,
+      "monotonic_segment_percent": 100.0,
+      "rms_bias_vs_pol0_deg": 0.0,
+      "max_abs_bias_vs_pol0_deg": 0.0,
+      "min_pair_mag_rel_db": -14.284844758958375
+    },
+    {
+      "freq_ghz": 7.9855,
+      "phi_deg": 75.0,
+      "linear_pol_deg": 0.0,
+      "channel_set": "dualfeed_quadrature_minus90",
+      "baseline": "E1-E3",
+      "valid_percent": 100.0,
+      "pdoa_span_deg": 720.0,
+      "monotonic_segment_percent": 100.0,
+      "rms_bias_vs_pol0_deg": 0.0,
+      "max_abs_bias_vs_pol0_deg": 0.0,
+      "min_pair_mag_rel_db": -13.653583699374321
+    },
+    {
+      "freq_ghz": 7.9855,
+      "phi_deg": 90.0,
+      "linear_pol_deg": 0.0,
+      "channel_set": "dualfeed_quadrature_minus90",
+      "baseline": "E1-E3",
+      "valid_percent": 100.0,
+      "pdoa_span_deg": 720.0,
+      "monotonic_segment_percent": 100.0,
+      "rms_bias_vs_pol0_deg": 0.0,
+      "max_abs_bias_vs_pol0_deg": 0.0,
+      "min_pair_mag_rel_db": -13.575912259115825
+    },
+    {
+      "freq_ghz": 8.233,
+      "phi_deg": 75.0,
+      "linear_pol_deg": 0.0,
+      "channel_set": "dualfeed_quadrature_minus90",
+      "baseline": "E1-E3",
+      "valid_percent": 100.0,
+      "pdoa_span_deg": 720.0,
+      "monotonic_segment_percent": 100.0,
+      "rms_bias_vs_pol0_deg": 0.0,
+      "max_abs_bias_vs_pol0_deg": 0.0,
+      "min_pair_mag_rel_db": -14.674599553352234
+    },
+    {
+      "freq_ghz": 8.233,
+      "phi_deg": 90.0,
+      "linear_pol_deg": 135.0,
+      "channel_set": "dualfeed_quadrature_minus90",
+      "baseline": "E1-E3",
+      "valid_percent": 100.0,
+      "pdoa_span_deg": 720.0,
+      "monotonic_segment_percent": 100.0,
+      "rms_bias_vs_pol0_deg": 18.804854401371735,
+      "max_abs_bias_vs_pol0_deg": 50.9751011131203,
+      "min_pair_mag_rel_db": -21.700624320985085
+    }
+  ],
+  "project": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\UWB_CH9_Diamond_CP_Array_D44_DUALFEED_CP.aedt",
+  "design": "Array4_Diamond_D44_DualFeed_CP",
+  "solution": "Setup_CH9 : Sweep_CH9",
+  "sphere": "Upper_Hemisphere_5deg",
+  "sources": [
+    "P1A",
+    "P1B",
+    "P2A",
+    "P2B",
+    "P3A",
+    "P3B",
+    "P4A",
+    "P4B"
+  ],
+  "available_frequencies_ghz": [
+    7.738,
+    7.9855,
+    8.233
+  ],
+  "evaluated_frequencies_ghz": [
+    7.738,
+    7.9855,
+    8.233
+  ],
+  "method": {
+    "field_expressions": [
+      "re(rETheta)",
+      "im(rETheta)",
+      "re(rEPhi)",
+      "im(rEPhi)"
+    ],
+    "linear_projection": "V = Etheta*cos(psi) + Ephi*sin(psi)",
+    "pdoa": "angle(V_left) - angle(V_right)",
+    "polarization_scope": "linear only: 0/45/90/135 deg"
+  },
+  "files": {
+    "curves_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_pdoa_linear\\UWB_CH9_D44_PDOA_linear_polarization_curves.csv",
+    "summary_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_pdoa_linear\\UWB_CH9_D44_PDOA_linear_polarization_summary.csv",
+    "metrics_json": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_pdoa_linear\\UWB_CH9_D44_PDOA_linear_polarization_metrics.json",
+    "report_md": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_pdoa_linear\\UWB_CH9_D44_PDOA_linear_polarization_report.md"
+  }
+}
