@@ -45,6 +45,17 @@ BASE_PARAMS = {
     "neutralization_branch_length_mm": 1.15,
     "neutralization_branch_width_mm": 0.18,
     "neutralization_branch_offset_mm": 1.15,
+    "weak_coupling_open_line_enabled": 0.0,
+    "weak_coupling_open_line_length_mm": 2.20,
+    "weak_coupling_open_line_width_mm": 0.12,
+    "weak_coupling_open_line_offset_mm": 1.65,
+    "weak_coupling_open_line_gap_mm": 0.08,
+    "via_fence_enabled": 0.0,
+    "via_fence_count": 3.0,
+    "via_fence_radius_mm": 0.10,
+    "via_fence_pitch_mm": 0.55,
+    "via_fence_edge_offset_mm": 0.45,
+    "via_fence_center_mm": 3.30,
     "local_dgs_enabled": 0.0,
     "local_dgs_length_mm": 4.8,
     "local_dgs_width_mm": 0.28,
@@ -380,6 +391,91 @@ def add_neutralization_branch(hfss: Hfss, tag: str, center: tuple[float, float],
     return metals
 
 
+def rotated_rectangle_points(
+    cx: float,
+    cy: float,
+    element_angle_deg: float,
+    center_u: float,
+    center_v: float,
+    rect_angle_deg: float,
+    length: float,
+    width: float,
+    z: float,
+) -> list[list[float]]:
+    rect_angle = math.radians(rect_angle_deg)
+    ca = math.cos(rect_angle)
+    sa = math.sin(rect_angle)
+    pts = []
+    for du, dv in [
+        (-length / 2.0, -width / 2.0),
+        (length / 2.0, -width / 2.0),
+        (length / 2.0, width / 2.0),
+        (-length / 2.0, width / 2.0),
+    ]:
+        u = center_u + du * ca - dv * sa
+        v = center_v + du * sa + dv * ca
+        pts.append(local_to_global(cx, cy, element_angle_deg, u, v, z))
+    return pts
+
+
+def add_weak_coupling_open_line(hfss: Hfss, tag: str, center: tuple[float, float], angle_deg: float, params: dict) -> list[str]:
+    if params.get("weak_coupling_open_line_enabled", 0.0) < 0.5:
+        return []
+    h = params["substrate_h_mm"]
+    length = params["weak_coupling_open_line_length_mm"]
+    width = params["weak_coupling_open_line_width_mm"]
+    offset = params.get("weak_coupling_open_line_offset_mm", params["feed_offset_u_mm"] / 2.0)
+    gap = max(params.get("weak_coupling_open_line_gap_mm", 0.08), 0.02)
+    pts = rotated_rectangle_points(
+        *center,
+        angle_deg,
+        offset,
+        offset,
+        -45.0,
+        length,
+        width,
+        h + gap,
+    )
+    line = polygon_sheet(hfss, f"{tag}_ab_weak_coupling_open_line", pts, "copper")
+    return [line.name]
+
+
+def add_via_fence(hfss: Hfss, tag: str, center: tuple[float, float], angle_deg: float, params: dict) -> None:
+    if params.get("via_fence_enabled", 0.0) < 0.5:
+        return
+    h = params["substrate_h_mm"]
+    edge = params["patch_side_mm"] / 2.0
+    count = max(1, int(round(params.get("via_fence_count", 3.0))))
+    radius = params.get("via_fence_radius_mm", 0.10)
+    pitch = params.get("via_fence_pitch_mm", 0.55)
+    edge_offset = params.get("via_fence_edge_offset_mm", 0.45)
+    center_pos = params.get("via_fence_center_mm", params["feed_offset_u_mm"])
+    max_pos = edge - radius - 0.20
+    local_positions = []
+    for idx in range(count):
+        pos = center_pos + (idx - (count - 1) / 2.0) * pitch
+        if 0.40 <= pos <= max_pos:
+            local_positions.append(pos)
+    if not local_positions:
+        local_positions = [min(max(center_pos, 0.40), max_pos)]
+    fence_u = edge + edge_offset
+    for idx, pos in enumerate(local_positions, start=1):
+        for suffix, u, v in [
+            ("u_edge", fence_u, pos),
+            ("v_edge", pos, fence_u),
+        ]:
+            origin = local_to_global(*center, angle_deg, u, v, 0.0)
+            hfss.modeler.create_cylinder(
+                "Z",
+                origin,
+                radius,
+                h,
+                num_sides=16,
+                name=f"{tag}_ab_via_fence_{suffix}_{idx}",
+                material="copper",
+            )
+
+
 def add_dualfeed_element(hfss: Hfss, tag: str, center: tuple[float, float], angle: float, params: dict, hybrid_traces: bool = False) -> list[str]:
     metals = []
     h = params["substrate_h_mm"]
@@ -398,6 +494,8 @@ def add_dualfeed_element(hfss: Hfss, tag: str, center: tuple[float, float], angl
     else:
         metals += add_lumped_feed(hfss, f"P{tag[-1]}A", center, angle, f_a, 0.0, h, 0.0, params)
         metals += add_lumped_feed(hfss, f"P{tag[-1]}B", center, angle, 0.0, f_b, h, 0.0, params)
+        metals += add_weak_coupling_open_line(hfss, tag, center, angle, params)
+        add_via_fence(hfss, tag, center, angle, params)
     if hybrid_traces and params.get("microstrip_feed_enabled", 0.0) < 0.5:
         w = params.get("hybrid_trace_width_mm", 0.32)
         gap = params.get("hybrid_trace_gap_mm", 0.55)
@@ -466,6 +564,11 @@ def validate_params(params: dict) -> None:
     top_height = params["substrate_h_mm"] + 2.0 * params["copper_t_mm"] + params.get("air_gap_mm", 0.0)
     if params.get("parasitic_side_mm"):
         top_height += params["copper_t_mm"]
+    if params.get("weak_coupling_open_line_enabled", 0.0) >= 0.5:
+        top_height = max(
+            top_height,
+            params["substrate_h_mm"] + params.get("weak_coupling_open_line_gap_mm", 0.08) + params["copper_t_mm"],
+        )
     if top_height > params["total_height_limit_mm"]:
         raise ValueError(f"Total height {top_height:.3f} mm exceeds {params['total_height_limit_mm']:.3f} mm")
     if params["ground_radius_mm"] > params["board_diameter_mm"] / 2.0:
@@ -475,6 +578,29 @@ def validate_params(params: dict) -> None:
     max_side = max(params["patch_side_mm"], params.get("parasitic_side_mm", params["patch_side_mm"]))
     if center_radius + max_side / math.sqrt(2.0) > board_radius - 0.25:
         raise ValueError("Patch corner too close to board edge")
+    if params.get("weak_coupling_open_line_enabled", 0.0) >= 0.5:
+        line_len = params.get("weak_coupling_open_line_length_mm", 0.0)
+        line_w = params.get("weak_coupling_open_line_width_mm", 0.0)
+        line_offset = params.get("weak_coupling_open_line_offset_mm", params["feed_offset_u_mm"] / 2.0)
+        if line_len <= 0.0 or line_w <= 0.0:
+            raise ValueError("Weak coupling open line length and width must be positive")
+        half_extent = (line_len + line_w) / (2.0 * math.sqrt(2.0))
+        half_patch = params["patch_side_mm"] / 2.0
+        if line_offset - half_extent < -half_patch + 0.20 or line_offset + half_extent > half_patch - 0.20:
+            raise ValueError("Weak coupling open line must stay above the patch interior")
+    if params.get("via_fence_enabled", 0.0) >= 0.5:
+        radius = params.get("via_fence_radius_mm", 0.0)
+        count = max(1, int(round(params.get("via_fence_count", 1.0))))
+        pitch = params.get("via_fence_pitch_mm", 0.0)
+        edge_offset = params.get("via_fence_edge_offset_mm", 0.0)
+        center_pos = params.get("via_fence_center_mm", params["feed_offset_u_mm"])
+        if radius <= 0.0 or pitch <= 0.0 or edge_offset <= radius:
+            raise ValueError("Via fence radius, pitch, and edge offset must be positive")
+        max_leg_pos = center_pos + (count - 1) * pitch / 2.0 + radius
+        edge = params["patch_side_mm"] / 2.0
+        fence_corner = math.hypot(edge + edge_offset + radius, min(max_leg_pos, edge) + radius)
+        if center_radius + fence_corner > board_radius - 0.15:
+            raise ValueError("Via fence too close to board edge")
     if params.get("microstrip_feed_enabled", 0.0) >= 0.5:
         line_len = params.get("microstrip_feedline_length_mm", 0.0)
         if line_len <= 0.15:
@@ -667,6 +793,11 @@ def build_project(
     total_height = params["substrate_h_mm"] + 2.0 * params["copper_t_mm"] + params.get("air_gap_mm", 0.0)
     if params.get("parasitic_side_mm"):
         total_height += params["copper_t_mm"]
+    if params.get("weak_coupling_open_line_enabled", 0.0) >= 0.5:
+        total_height = max(
+            total_height,
+            params["substrate_h_mm"] + params.get("weak_coupling_open_line_gap_mm", 0.08) + params["copper_t_mm"],
+        )
     notes = {
         "project": str(paths["project"]),
         "design": hfss.design_name,
@@ -703,6 +834,10 @@ def source_guidance(topology: str) -> list[str]:
         params = topology_params(topology)
         if params.get("microstrip_feed_enabled", 0.0) >= 0.5:
             guidance.append("The feed is upgraded to edge microstrip matching sections with optional A/B neutralization and local DGS tuning.")
+        if params.get("weak_coupling_open_line_enabled", 0.0) >= 0.5:
+            guidance.append("A floating A/B weak-coupling open line is enabled above each patch for isolation tuning.")
+        if params.get("via_fence_enabled", 0.0) >= 0.5:
+            guidance.append("Grounded via fences are enabled outside the A/B feed quadrant of each patch.")
         elif topology == "hybrid":
             guidance.append("The hybrid topology includes printable branch trace placeholders; final layout needs a controlled-impedance network extraction.")
         return guidance
