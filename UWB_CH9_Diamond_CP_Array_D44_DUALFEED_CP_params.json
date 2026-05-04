@@ -10,8 +10,7 @@
   "fov_target": "Theta 0-360 deg, Phi 45-90 deg, GainTotal min >= -5 dBi.",
   "source_guidance": [
     "A/B feeds on each patch are intended for 90 degree quadrature excitation.",
-    "Use per-element quadrature source cases for CP checks.",
-    "The hybrid topology includes printable branch trace placeholders; final layout needs a controlled-impedance network extraction."
+    "Use per-element quadrature source cases for CP checks."
   ],
   "parameters": {
     "freq_center_ghz": 8.0,
@@ -34,6 +33,23 @@
     "feed_offset_v_mm": 0.0,
     "feed_pad_radius_mm": 0.42,
     "port_width_mm": 0.7,
+    "microstrip_feed_enabled": 0.0,
+    "microstrip_feedline_length_mm": 2.0,
+    "microstrip_feedline_width_mm": 0.6,
+    "microstrip_match_length_mm": 0.85,
+    "microstrip_match_width_mm": 0.42,
+    "microstrip_stub_length_mm": 0.0,
+    "microstrip_stub_width_mm": 0.24,
+    "microstrip_stub_offset_mm": 0.75,
+    "neutralization_branch_enabled": 0.0,
+    "neutralization_branch_width_mm": 0.18,
+    "neutralization_branch_offset_mm": 1.15,
+    "local_dgs_enabled": 0.0,
+    "local_dgs_length_mm": 4.8,
+    "local_dgs_width_mm": 0.28,
+    "local_dgs_offset_mm": 1.15,
+    "hybrid_output_match_length_mm": 0.95,
+    "hybrid_output_match_width_mm": 0.4,
     "isolation_slot_enabled": 1.0,
     "isolation_slot_length_mm": 10.0,
     "isolation_slot_width_mm": 0.42,

@@ -32,6 +32,23 @@ BASE_PARAMS = {
     "feed_offset_v_mm": 0.0,
     "feed_pad_radius_mm": 0.45,
     "port_width_mm": 0.75,
+    "microstrip_feed_enabled": 0.0,
+    "microstrip_feedline_length_mm": 2.0,
+    "microstrip_feedline_width_mm": 0.60,
+    "microstrip_match_length_mm": 0.85,
+    "microstrip_match_width_mm": 0.42,
+    "microstrip_stub_length_mm": 0.0,
+    "microstrip_stub_width_mm": 0.24,
+    "microstrip_stub_offset_mm": 0.75,
+    "neutralization_branch_enabled": 0.0,
+    "neutralization_branch_width_mm": 0.18,
+    "neutralization_branch_offset_mm": 1.15,
+    "local_dgs_enabled": 0.0,
+    "local_dgs_length_mm": 4.8,
+    "local_dgs_width_mm": 0.28,
+    "local_dgs_offset_mm": 1.15,
+    "hybrid_output_match_length_mm": 0.95,
+    "hybrid_output_match_width_mm": 0.40,
     "isolation_slot_enabled": 1.0,
     "isolation_slot_length_mm": 11.0,
     "isolation_slot_width_mm": 0.45,
@@ -60,6 +77,21 @@ TOPOLOGIES = {
             "feed_offset_u_mm": 2.45,
             "feed_pad_radius_mm": 0.42,
             "port_width_mm": 0.70,
+            "microstrip_feed_enabled": 0.0,
+            "microstrip_feedline_length_mm": 2.0,
+            "microstrip_feedline_width_mm": 0.60,
+            "microstrip_match_length_mm": 0.85,
+            "microstrip_match_width_mm": 0.42,
+            "microstrip_stub_length_mm": 0.0,
+            "microstrip_stub_width_mm": 0.24,
+            "microstrip_stub_offset_mm": 0.75,
+            "neutralization_branch_enabled": 0.0,
+            "neutralization_branch_width_mm": 0.18,
+            "neutralization_branch_offset_mm": 1.15,
+            "local_dgs_enabled": 0.0,
+            "local_dgs_length_mm": 4.8,
+            "local_dgs_width_mm": 0.28,
+            "local_dgs_offset_mm": 1.15,
             "isolation_slot_length_mm": 10.0,
             "isolation_slot_width_mm": 0.42,
         },
@@ -77,6 +109,23 @@ TOPOLOGIES = {
             "port_width_mm": 0.70,
             "hybrid_trace_width_mm": 0.32,
             "hybrid_trace_gap_mm": 0.55,
+            "microstrip_feed_enabled": 0.0,
+            "microstrip_feedline_length_mm": 2.0,
+            "microstrip_feedline_width_mm": 0.60,
+            "microstrip_match_length_mm": 0.85,
+            "microstrip_match_width_mm": 0.42,
+            "microstrip_stub_length_mm": 0.0,
+            "microstrip_stub_width_mm": 0.24,
+            "microstrip_stub_offset_mm": 0.75,
+            "neutralization_branch_enabled": 0.0,
+            "neutralization_branch_width_mm": 0.18,
+            "neutralization_branch_offset_mm": 1.15,
+            "local_dgs_enabled": 0.0,
+            "local_dgs_length_mm": 4.8,
+            "local_dgs_width_mm": 0.28,
+            "local_dgs_offset_mm": 1.15,
+            "hybrid_output_match_length_mm": 0.95,
+            "hybrid_output_match_width_mm": 0.40,
             "isolation_slot_length_mm": 10.0,
             "isolation_slot_width_mm": 0.42,
         },
@@ -237,6 +286,91 @@ def add_isolation_slot_sheets(hfss: Hfss, params: dict) -> list[str]:
     return names
 
 
+def add_local_dgs_slots(hfss: Hfss, params: dict) -> list[str]:
+    if params.get("local_dgs_enabled", 0.0) < 0.5:
+        return []
+    names = []
+    center_radius = params["element_spacing_mm"] / math.sqrt(2.0)
+    length = params["local_dgs_length_mm"]
+    width = params["local_dgs_width_mm"]
+    offset = params["local_dgs_offset_mm"]
+    for tag, angle in ELEMENTS:
+        cx = center_radius * math.cos(math.radians(angle))
+        cy = center_radius * math.sin(math.radians(angle))
+        slot_a = rectangle_points(cx, cy, angle, offset - width / 2.0, offset + width / 2.0, -length / 2.0, length / 2.0, 0.0)
+        slot_b = rectangle_points(cx, cy, angle, -length / 2.0, length / 2.0, offset - width / 2.0, offset + width / 2.0, 0.0)
+        names.append(polygon_sheet(hfss, f"{tag}_local_dgs_u_slot", slot_a, "vacuum").name)
+        names.append(polygon_sheet(hfss, f"{tag}_local_dgs_v_slot", slot_b, "vacuum").name)
+    return names
+
+
+def add_microstrip_edge_feed(
+    hfss: Hfss,
+    name: str,
+    center: tuple[float, float],
+    angle_deg: float,
+    axis: str,
+    params: dict,
+    hybrid_outputs: bool = False,
+) -> list[str]:
+    h = params["substrate_h_mm"]
+    side = params["patch_side_mm"]
+    edge = side / 2.0
+    line_len = params["microstrip_feedline_length_mm"]
+    line_w = params["microstrip_feedline_width_mm"]
+    match_len_key = "hybrid_output_match_length_mm" if hybrid_outputs else "microstrip_match_length_mm"
+    match_width_key = "hybrid_output_match_width_mm" if hybrid_outputs else "microstrip_match_width_mm"
+    match_len = min(params.get(match_len_key, params["microstrip_match_length_mm"]), max(0.15, line_len - 0.1))
+    match_w = params.get(match_width_key, params["microstrip_match_width_mm"])
+    stub_len = params.get("microstrip_stub_length_mm", 0.0)
+    stub_w = params.get("microstrip_stub_width_mm", 0.24)
+    stub_offset = min(params.get("microstrip_stub_offset_mm", 0.75), max(0.15, line_len - 0.1))
+    overlap = 0.08
+    metals = []
+
+    def add_rect(suffix: str, u0: float, u1: float, v0: float, v1: float) -> None:
+        sheet = polygon_sheet(hfss, f"{name}_{suffix}", rectangle_points(*center, angle_deg, u0, u1, v0, v1, h), "copper")
+        metals.append(sheet.name)
+
+    if axis == "u":
+        add_rect("edge_match_section", edge - overlap, edge + match_len, -match_w / 2.0, match_w / 2.0)
+        add_rect("edge_feedline", edge + match_len - overlap, edge + line_len, -line_w / 2.0, line_w / 2.0)
+        if stub_len > 1e-9:
+            stub_u = edge + stub_offset
+            add_rect("open_stub", stub_u - stub_w / 2.0, stub_u + stub_w / 2.0, line_w / 2.0 - overlap, line_w / 2.0 + stub_len)
+        metals += add_lumped_feed(hfss, name, center, angle_deg, edge + line_len, 0.0, h, 0.0, params, pad=False)
+    elif axis == "v":
+        add_rect("edge_match_section", -match_w / 2.0, match_w / 2.0, edge - overlap, edge + match_len)
+        add_rect("edge_feedline", -line_w / 2.0, line_w / 2.0, edge + match_len - overlap, edge + line_len)
+        if stub_len > 1e-9:
+            stub_v = edge + stub_offset
+            add_rect("open_stub", line_w / 2.0 - overlap, line_w / 2.0 + stub_len, stub_v - stub_w / 2.0, stub_v + stub_w / 2.0)
+        metals += add_lumped_feed(hfss, name, center, angle_deg, 0.0, edge + line_len, h, 0.0, params, pad=False)
+    else:
+        raise ValueError(f"Unsupported feed axis {axis}")
+    return metals
+
+
+def add_neutralization_branch(hfss: Hfss, tag: str, center: tuple[float, float], angle_deg: float, params: dict) -> list[str]:
+    if params.get("neutralization_branch_enabled", 0.0) < 0.5:
+        return []
+    h = params["substrate_h_mm"]
+    edge = params["patch_side_mm"] / 2.0
+    line_len = params["microstrip_feedline_length_mm"]
+    line_w = params["microstrip_feedline_width_mm"]
+    width = params["neutralization_branch_width_mm"]
+    offset = min(params["neutralization_branch_offset_mm"], max(0.2, line_len - 0.15))
+    anchor = edge + offset
+    metals = []
+    for suffix, u0, u1, v0, v1 in [
+        ("neutralization_u_leg", anchor - width / 2.0, anchor + width / 2.0, -line_w / 2.0, anchor + width / 2.0),
+        ("neutralization_v_leg", -line_w / 2.0, anchor + width / 2.0, anchor - width / 2.0, anchor + width / 2.0),
+    ]:
+        sheet = polygon_sheet(hfss, f"{tag}_{suffix}", rectangle_points(*center, angle_deg, u0, u1, v0, v1, h), "copper")
+        metals.append(sheet.name)
+    return metals
+
+
 def add_dualfeed_element(hfss: Hfss, tag: str, center: tuple[float, float], angle: float, params: dict, hybrid_traces: bool = False) -> list[str]:
     metals = []
     h = params["substrate_h_mm"]
@@ -248,9 +382,14 @@ def add_dualfeed_element(hfss: Hfss, tag: str, center: tuple[float, float], angl
     metals.append(patch.name)
     f_a = params.get("feed_offset_a_mm", params["feed_offset_u_mm"])
     f_b = params.get("feed_offset_b_mm", params["feed_offset_u_mm"])
-    metals += add_lumped_feed(hfss, f"P{tag[-1]}A", center, angle, f_a, 0.0, h, 0.0, params)
-    metals += add_lumped_feed(hfss, f"P{tag[-1]}B", center, angle, 0.0, f_b, h, 0.0, params)
-    if hybrid_traces:
+    if params.get("microstrip_feed_enabled", 0.0) >= 0.5:
+        metals += add_microstrip_edge_feed(hfss, f"P{tag[-1]}A", center, angle, "u", params, hybrid_outputs=hybrid_traces)
+        metals += add_microstrip_edge_feed(hfss, f"P{tag[-1]}B", center, angle, "v", params, hybrid_outputs=hybrid_traces)
+        metals += add_neutralization_branch(hfss, tag, center, angle, params)
+    else:
+        metals += add_lumped_feed(hfss, f"P{tag[-1]}A", center, angle, f_a, 0.0, h, 0.0, params)
+        metals += add_lumped_feed(hfss, f"P{tag[-1]}B", center, angle, 0.0, f_b, h, 0.0, params)
+    if hybrid_traces and params.get("microstrip_feed_enabled", 0.0) < 0.5:
         w = params.get("hybrid_trace_width_mm", 0.32)
         gap = params.get("hybrid_trace_gap_mm", 0.55)
         f = max(f_a, f_b)
@@ -327,6 +466,17 @@ def validate_params(params: dict) -> None:
     max_side = max(params["patch_side_mm"], params.get("parasitic_side_mm", params["patch_side_mm"]))
     if center_radius + max_side / math.sqrt(2.0) > board_radius - 0.25:
         raise ValueError("Patch corner too close to board edge")
+    if params.get("microstrip_feed_enabled", 0.0) >= 0.5:
+        line_len = params.get("microstrip_feedline_length_mm", 0.0)
+        if line_len <= 0.15:
+            raise ValueError("Microstrip feedline length must be positive")
+        network_corner = params["patch_side_mm"] / 2.0 + max(
+            line_len,
+            params.get("neutralization_branch_offset_mm", 0.0),
+            params.get("microstrip_stub_offset_mm", 0.0) + params.get("microstrip_stub_length_mm", 0.0),
+        )
+        if center_radius + math.sqrt(2.0) * network_corner > board_radius - 0.2:
+            raise ValueError("Microstrip matching network too close to board edge")
 
 
 def clean_outputs(paths: dict[str, Path]) -> None:
@@ -415,6 +565,7 @@ def build_project(
     ground = hfss.modeler.create_circle("XY", [0, 0, 0], params["ground_radius_mm"], num_sides=128, name=f"{spec['label']}_bottom_ground", material="copper")
     metal_names = [ground.name]
     slot_names = add_isolation_slot_sheets(hfss, params)
+    slot_names.extend(add_local_dgs_slots(hfss, params))
     print("Stage: substrate, ground, and isolation slots created", flush=True)
 
     kind = spec["kind"]
@@ -534,11 +685,16 @@ def build_project(
 
 def source_guidance(topology: str) -> list[str]:
     if topology in {"dualfeed", "hybrid"}:
-        return [
+        guidance = [
             "A/B feeds on each patch are intended for 90 degree quadrature excitation.",
             "Use per-element quadrature source cases for CP checks.",
-            "The hybrid topology includes printable branch trace placeholders; final layout needs a controlled-impedance network extraction.",
         ]
+        params = topology_params(topology)
+        if params.get("microstrip_feed_enabled", 0.0) >= 0.5:
+            guidance.append("The feed is upgraded to edge microstrip matching sections with optional A/B neutralization and local DGS tuning.")
+        elif topology == "hybrid":
+            guidance.append("The hybrid topology includes printable branch trace placeholders; final layout needs a controlled-impedance network extraction.")
+        return guidance
     if topology == "slotcoupled":
         return [
             "Ports feed underside microstrip lines through aperture slots in the ground plane.",

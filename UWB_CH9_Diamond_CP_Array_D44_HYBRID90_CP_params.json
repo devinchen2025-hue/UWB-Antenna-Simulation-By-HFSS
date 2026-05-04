@@ -11,7 +11,7 @@
   "source_guidance": [
     "A/B feeds on each patch are intended for 90 degree quadrature excitation.",
     "Use per-element quadrature source cases for CP checks.",
-    "The hybrid topology includes printable branch trace placeholders; final layout needs a controlled-impedance network extraction."
+    "The feed is upgraded to edge microstrip matching sections with optional A/B neutralization and local DGS tuning."
   ],
   "parameters": {
     "freq_center_ghz": 8.0,
@@ -30,10 +30,27 @@
     "ground_radius_mm": 21.4,
     "patch_side_mm": 9.15,
     "corner_cut_mm": 0.0,
-    "feed_offset_u_mm": 2.45,
+    "feed_offset_u_mm": 3.3,
     "feed_offset_v_mm": 0.0,
     "feed_pad_radius_mm": 0.42,
-    "port_width_mm": 0.7,
+    "port_width_mm": 0.5,
+    "microstrip_feed_enabled": 1.0,
+    "microstrip_feedline_length_mm": 1.75,
+    "microstrip_feedline_width_mm": 0.5,
+    "microstrip_match_length_mm": 0.7,
+    "microstrip_match_width_mm": 0.34,
+    "microstrip_stub_length_mm": 0.0,
+    "microstrip_stub_width_mm": 0.24,
+    "microstrip_stub_offset_mm": 0.75,
+    "neutralization_branch_enabled": 0.0,
+    "neutralization_branch_width_mm": 0.18,
+    "neutralization_branch_offset_mm": 1.15,
+    "local_dgs_enabled": 0.0,
+    "local_dgs_length_mm": 4.8,
+    "local_dgs_width_mm": 0.28,
+    "local_dgs_offset_mm": 1.15,
+    "hybrid_output_match_length_mm": 0.9,
+    "hybrid_output_match_width_mm": 0.3,
     "isolation_slot_enabled": 1.0,
     "isolation_slot_length_mm": 10.0,
     "isolation_slot_width_mm": 0.42,
@@ -41,7 +58,7 @@
     "air_frequency_ghz": 7.0,
     "cp_axial_ratio_target_db": 3.0,
     "fov_min_gain_target_dbi": -5.0,
-    "hybrid_trace_width_mm": 0.32,
-    "hybrid_trace_gap_mm": 0.55
+    "hybrid_trace_width_mm": 0.3,
+    "hybrid_trace_gap_mm": 0.75
   }
 }

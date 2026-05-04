@@ -7,6 +7,7 @@ import math
 import time
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
 from ansys.aedt.core import Hfss
 
@@ -31,13 +32,74 @@ AR_TARGET_DB = 3.0
 class Candidate:
     name: str
     topology: str
-    params: dict[str, float]
+    params: dict[str, Any]
     rationale: str
 
 
-def base_params(topology: str) -> dict[str, float]:
+def base_params(topology: str) -> dict[str, Any]:
     params = dict(builder.TOPOLOGIES[topology]["params"])
     return params
+
+
+STRUCTURE_PARAM_KEYS = [
+    "microstrip_feed_enabled",
+    "microstrip_feedline_length_mm",
+    "microstrip_feedline_width_mm",
+    "microstrip_match_length_mm",
+    "microstrip_match_width_mm",
+    "microstrip_stub_length_mm",
+    "microstrip_stub_width_mm",
+    "microstrip_stub_offset_mm",
+    "neutralization_branch_enabled",
+    "neutralization_branch_width_mm",
+    "neutralization_branch_offset_mm",
+    "local_dgs_enabled",
+    "local_dgs_length_mm",
+    "local_dgs_width_mm",
+    "local_dgs_offset_mm",
+    "hybrid_output_match_length_mm",
+    "hybrid_output_match_width_mm",
+]
+
+
+def network_extra(
+    *,
+    line_len: float = 2.0,
+    line_width: float = 0.60,
+    match_len: float = 0.85,
+    match_width: float = 0.42,
+    stub_len: float = 0.0,
+    stub_width: float = 0.24,
+    stub_offset: float = 0.75,
+    branch: bool = False,
+    branch_width: float = 0.18,
+    branch_offset: float = 1.15,
+    dgs: bool = False,
+    dgs_len: float = 4.8,
+    dgs_width: float = 0.28,
+    dgs_offset: float = 1.15,
+    hybrid_match_len: float | None = None,
+    hybrid_match_width: float | None = None,
+) -> dict[str, float]:
+    return {
+        "microstrip_feed_enabled": 1.0,
+        "microstrip_feedline_length_mm": line_len,
+        "microstrip_feedline_width_mm": line_width,
+        "microstrip_match_length_mm": match_len,
+        "microstrip_match_width_mm": match_width,
+        "microstrip_stub_length_mm": stub_len,
+        "microstrip_stub_width_mm": stub_width,
+        "microstrip_stub_offset_mm": stub_offset,
+        "neutralization_branch_enabled": 1.0 if branch else 0.0,
+        "neutralization_branch_width_mm": branch_width,
+        "neutralization_branch_offset_mm": branch_offset,
+        "local_dgs_enabled": 1.0 if dgs else 0.0,
+        "local_dgs_length_mm": dgs_len,
+        "local_dgs_width_mm": dgs_width,
+        "local_dgs_offset_mm": dgs_offset,
+        "hybrid_output_match_length_mm": hybrid_match_len if hybrid_match_len is not None else match_len,
+        "hybrid_output_match_width_mm": hybrid_match_width if hybrid_match_width is not None else match_width,
+    }
 
 
 def make_candidate(
@@ -55,6 +117,7 @@ def make_candidate(
     slot_width: float = 0.42,
     trace_width: float | None = None,
     trace_gap: float | None = None,
+    extra: dict[str, Any] | None = None,
 ) -> Candidate:
     params = base_params(topology)
     params.update(
@@ -75,35 +138,171 @@ def make_candidate(
         params["hybrid_trace_width_mm"] = trace_width
     if trace_gap is not None:
         params["hybrid_trace_gap_mm"] = trace_gap
+    if extra:
+        params.update(extra)
     return Candidate(name=f"{topology}_{name}", topology=topology, params=params, rationale=rationale)
 
 
 def generate_candidates() -> list[Candidate]:
     candidates = [
-        make_candidate("dualfeed", "baseline", 9.15, 2.45, "上一轮双馈正交贴片拓扑基线。"),
-        make_candidate("hybrid", "baseline", 9.15, 2.45, "上一轮 90 度混合网络拓扑基线。"),
-        make_candidate("dualfeed", "feed_1p6", 9.15, 1.60, "双馈点向内移动，测试较低输入阻抗区域。"),
-        make_candidate("dualfeed", "feed_3p4", 9.15, 3.40, "双馈点向外移动，测试较高输入阻抗区域。"),
-        make_candidate("dualfeed", "feed_3p2", 9.15, 3.20, "在基线和 3.4 mm 最佳点之间做中间值扫描。"),
-        make_candidate("dualfeed", "feed_3p3", 9.15, 3.30, "在 3.4 mm 最佳馈点附近略向内微调。"),
-        make_candidate("dualfeed", "feed_3p4_wide_port", 9.15, 3.40, "保持最佳馈点，增大局部馈电电容。", port_width=1.05, pad=0.55),
-        make_candidate("dualfeed", "feed_3p4_narrow_port", 9.15, 3.40, "保持最佳馈点，减小端口宽度和馈电焊盘电容。", port_width=0.45, pad=0.35),
-        make_candidate("dualfeed", "feed_3p6", 9.15, 3.60, "沿回波改善趋势继续向外移动馈点。"),
-        make_candidate("dualfeed", "feed_3p8", 9.15, 3.80, "继续向贴片边缘移动馈点以尝试匹配。"),
-        make_candidate("dualfeed", "patch_9p7_feed_3p4", 9.70, 3.40, "增大贴片降低谐振点，同时馈点外移。"),
-        make_candidate("dualfeed", "patch_10p0_feed_3p5", 10.00, 3.50, "按 RO4350B 上 CH9 频段半波贴片估算进行测试。"),
-        make_candidate("dualfeed", "patch_10p4_feed_3p9", 10.40, 3.90, "更激进地增大贴片并靠近边缘馈电以降低谐振点。"),
-        make_candidate("dualfeed", "patch_10p8_feed_4p2", 10.80, 4.20, "利用剩余板边距测试更大的谐振贴片。"),
-        make_candidate("dualfeed", "wide_port", 10.00, 3.50, "增大局部馈电电容和端口宽度。", port_width=1.05, pad=0.55),
-        make_candidate("dualfeed", "narrow_port", 10.00, 3.50, "减小局部馈电电容和端口扰动。", port_width=0.45, pad=0.35),
-        make_candidate("dualfeed", "asym_feed_a3p7_b3p1", 10.00, 3.40, "打破 A/B 馈点对称性，用于模式和阻抗平衡。", feed_a=3.70, feed_b=3.10),
-        make_candidate("dualfeed", "short_slots", 10.00, 3.50, "缩短隔离槽，检查隔离槽是否劣化匹配。", slot_len=7.0, slot_width=0.32),
-        make_candidate("dualfeed", "long_slots", 10.00, 3.50, "加长隔离槽以增强耦合控制。", slot_len=12.0, slot_width=0.42),
-        make_candidate("hybrid", "patch_9p7_feed_3p4", 9.70, 3.40, "混合网络布局下测试更大贴片和外移馈点。", trace_width=0.36, trace_gap=0.65),
-        make_candidate("hybrid", "patch_10p0_feed_3p5", 10.00, 3.50, "混合网络布局下测试半波贴片估算尺寸。", trace_width=0.36, trace_gap=0.65),
-        make_candidate("hybrid", "patch_10p4_feed_3p9", 10.40, 3.90, "混合网络布局下测试更大谐振贴片。", trace_width=0.34, trace_gap=0.70),
-        make_candidate("hybrid", "wide_port", 10.00, 3.50, "混合网络布局下测试更宽馈线和端口。", port_width=1.05, pad=0.55, trace_width=0.40, trace_gap=0.70),
-        make_candidate("hybrid", "asym_feed_a3p7_b3p1", 10.00, 3.40, "混合网络布局下测试非对称输出馈点。", feed_a=3.70, feed_b=3.10, trace_width=0.36, trace_gap=0.65),
+        make_candidate("dualfeed", "probe_reference_3p3", 9.15, 3.30, "上一轮最佳探针/焊盘双馈结果，作为本轮真实馈电网络对照。"),
+        make_candidate(
+            "dualfeed",
+            "edge_match_l1p8_w0p55",
+            9.15,
+            3.30,
+            "把双馈端口升级为边缘微带馈线，采用较短匹配段以改善端口回波。",
+            port_width=0.55,
+            extra=network_extra(line_len=1.80, line_width=0.55, match_len=0.70, match_width=0.38),
+        ),
+        make_candidate(
+            "dualfeed",
+            "edge_match_l2p1_w0p65",
+            9.15,
+            3.30,
+            "扫描更长、更宽的可调微带馈线，检查输入阻抗向 50 欧姆移动的趋势。",
+            port_width=0.65,
+            extra=network_extra(line_len=2.10, line_width=0.65, match_len=0.95, match_width=0.44),
+        ),
+        make_candidate(
+            "dualfeed",
+            "edge_stub_0p75",
+            9.15,
+            3.30,
+            "在边缘微带馈线上加入短开路支节，用支节电纳补偿端口匹配。",
+            port_width=0.60,
+            extra=network_extra(line_len=1.95, line_width=0.60, match_len=0.85, match_width=0.42, stub_len=0.75),
+        ),
+        make_candidate(
+            "dualfeed",
+            "edge_stub_1p10",
+            9.15,
+            3.30,
+            "延长开路匹配支节，观察支节电纳增强后的 Sii 与隔离变化。",
+            port_width=0.60,
+            extra=network_extra(line_len=1.95, line_width=0.60, match_len=0.85, match_width=0.42, stub_len=1.10),
+        ),
+        make_candidate(
+            "dualfeed",
+            "branch_w0p16_o0p85",
+            9.15,
+            3.30,
+            "在 A/B 双馈端口之间加入高阻微带隔离枝节，尝试抵消同贴片双端口耦合。",
+            port_width=0.58,
+            extra=network_extra(line_len=1.85, line_width=0.58, match_len=0.80, match_width=0.40, branch=True, branch_width=0.16, branch_offset=0.85),
+        ),
+        make_candidate(
+            "dualfeed",
+            "branch_dgs_len4p4",
+            9.15,
+            3.30,
+            "组合端口间微带隔离枝节与局部缺陷地槽，同时压制近场耦合和地电流绕射。",
+            port_width=0.58,
+            extra=network_extra(
+                line_len=1.85,
+                line_width=0.58,
+                match_len=0.80,
+                match_width=0.40,
+                branch=True,
+                branch_width=0.16,
+                branch_offset=0.85,
+                dgs=True,
+                dgs_len=4.4,
+                dgs_width=0.24,
+                dgs_offset=1.05,
+            ),
+        ),
+        make_candidate(
+            "dualfeed",
+            "patch9p45_branch_dgs",
+            9.45,
+            3.35,
+            "在真实微带隔离结构上略增大贴片边长，补偿边缘馈电带来的谐振上移。",
+            port_width=0.58,
+            extra=network_extra(
+                line_len=1.75,
+                line_width=0.58,
+                match_len=0.75,
+                match_width=0.40,
+                branch=True,
+                branch_width=0.16,
+                branch_offset=0.80,
+                dgs=True,
+                dgs_len=4.2,
+                dgs_width=0.24,
+                dgs_offset=1.00,
+            ),
+        ),
+        make_candidate(
+            "hybrid",
+            "output_match_l1p8",
+            9.15,
+            3.30,
+            "90 度混合器输出端改为可调微带匹配段，输出段宽度独立于端口宽度。",
+            port_width=0.58,
+            trace_width=0.36,
+            trace_gap=0.65,
+            extra=network_extra(line_len=1.80, line_width=0.58, match_len=0.75, match_width=0.40, hybrid_match_len=0.95, hybrid_match_width=0.36),
+        ),
+        make_candidate(
+            "hybrid",
+            "output_stub_branch",
+            9.15,
+            3.30,
+            "在混合器输出匹配段上加入开路支节和 A/B 端口间隔离枝节，兼顾幅相平衡与隔离。",
+            port_width=0.58,
+            trace_width=0.34,
+            trace_gap=0.70,
+            extra=network_extra(
+                line_len=1.85,
+                line_width=0.58,
+                match_len=0.75,
+                match_width=0.40,
+                stub_len=0.65,
+                branch=True,
+                branch_width=0.14,
+                branch_offset=0.80,
+                hybrid_match_len=0.95,
+                hybrid_match_width=0.34,
+            ),
+        ),
+        make_candidate(
+            "hybrid",
+            "output_branch_dgs",
+            9.35,
+            3.35,
+            "混合器输出匹配段、端口间隔离枝节和局部 DGS 组合扫描，并略增大贴片边长。",
+            port_width=0.58,
+            trace_width=0.34,
+            trace_gap=0.70,
+            extra=network_extra(
+                line_len=1.75,
+                line_width=0.58,
+                match_len=0.70,
+                match_width=0.38,
+                stub_len=0.55,
+                branch=True,
+                branch_width=0.14,
+                branch_offset=0.75,
+                dgs=True,
+                dgs_len=4.0,
+                dgs_width=0.22,
+                dgs_offset=0.95,
+                hybrid_match_len=0.90,
+                hybrid_match_width=0.34,
+            ),
+        ),
+        make_candidate(
+            "hybrid",
+            "narrow_output_match",
+            9.15,
+            3.30,
+            "收窄 90 度混合器输出匹配段，测试较高特性阻抗输出线对幅相平衡的影响。",
+            port_width=0.50,
+            trace_width=0.30,
+            trace_gap=0.75,
+            extra=network_extra(line_len=1.75, line_width=0.50, match_len=0.70, match_width=0.34, hybrid_match_len=0.90, hybrid_match_width=0.30),
+        ),
     ]
     return [candidate for candidate in candidates if is_valid(candidate)]
 
@@ -193,6 +392,8 @@ def run_sparam_candidate(index: int, candidate: Candidate) -> dict:
         "isolation_slot_length_mm": candidate.params.get("isolation_slot_length_mm"),
         "isolation_slot_width_mm": candidate.params.get("isolation_slot_width_mm"),
     }
+    for key in STRUCTURE_PARAM_KEYS:
+        row[key] = candidate.params.get(key, "")
     append_csv(HISTORY_CSV, row)
     print(json.dumps(row, indent=2), flush=True)
     return row
@@ -380,13 +581,36 @@ def top_history_rows(limit: int = 10) -> list[dict]:
     return sorted(rows, key=lambda r: float(r.get("score") or 1e9))[:limit]
 
 
+def csv_float(row: dict, key: str, default: float = 0.0) -> float:
+    try:
+        return float(row.get(key) or default)
+    except (TypeError, ValueError):
+        return default
+
+
+def best_real_structure_row() -> dict:
+    if not HISTORY_CSV.exists():
+        return {}
+    with HISTORY_CSV.open(newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    real_rows = [
+        row
+        for row in rows
+        if csv_float(row, "microstrip_feed_enabled") >= 0.5
+        or csv_float(row, "neutralization_branch_enabled") >= 0.5
+        or csv_float(row, "local_dgs_enabled") >= 0.5
+    ]
+    return min(real_rows, key=lambda r: csv_float(r, "score", 1e9)) if real_rows else {}
+
+
 def write_report(best: dict) -> None:
     s = best.get("s_parameters", {})
     f = best.get("fov_summary", {})
     b = best.get("optimized_source_balance", {})
     params = best.get("parameters", {})
+    best_real = best_real_structure_row()
     lines = [
-        "# D44 双馈正交贴片 / 90 度混合网络优化报告",
+        "# D44 双馈正交贴片 / 90 度混合网络真实匹配结构优化报告",
         "",
         "## 设计目标",
         "",
@@ -401,6 +625,7 @@ def write_report(best: dict) -> None:
         f"- 拓扑类型：`{best.get('topology')}`",
         f"- 选择原因：{best.get('rationale')}",
         f"- 是否满足全部目标：`{'是' if best.get('meets_all_targets') else '否'}`",
+        "- 本轮新增结构：边缘微带馈线/匹配段、开路匹配支节、端口间微带隔离枝节、局部缺陷地槽，以及混合器输出端独立匹配宽度。",
         "",
         "## 几何参数",
         "",
@@ -416,6 +641,7 @@ def write_report(best: dict) -> None:
         "hybrid_trace_gap_mm",
         "isolation_slot_length_mm",
         "isolation_slot_width_mm",
+        *STRUCTURE_PARAM_KEYS,
     ]:
         if key in params:
             lines.append(f"- `{key}`: `{fmt(params[key], 3)}`")
@@ -440,6 +666,30 @@ def write_report(best: dict) -> None:
             f"- 平衡阵列最大轴比：`{fmt(b.get('axial_ratio_max_db'))} dB`",
             f"- 平衡阵列最小 CP 覆盖率：`{fmt(b.get('cp_coverage_min_percent'), 1)}%`",
             "",
+            "## 最佳真实匹配/隔离结构候选",
+            "",
+        ]
+    )
+    if best_real:
+        lines.extend(
+            [
+                f"- 候选名称：`{best_real.get('candidate')}`",
+                f"- 拓扑类型：`{best_real.get('topology')}`",
+                f"- 评分：`{fmt(csv_float(best_real, 'score'))}`",
+                f"- 最差回波损耗：`{fmt(csv_float(best_real, 'worst_return_db'))} dB`",
+                f"- 隔离度：`{fmt(csv_float(best_real, 'isolation_db'))} dB`",
+                f"- 微带馈电网络：`{'启用' if csv_float(best_real, 'microstrip_feed_enabled') >= 0.5 else '未启用'}`",
+                f"- 端口间隔离枝节：`{'启用' if csv_float(best_real, 'neutralization_branch_enabled') >= 0.5 else '未启用'}`",
+                f"- 局部 DGS：`{'启用' if csv_float(best_real, 'local_dgs_enabled') >= 0.5 else '未启用'}`",
+                f"- 说明：{best_real.get('rationale', '')}",
+                "- 结论：当前真实结构候选尚未超过探针/焊盘参考解，说明引入网络后需要重新做贴片边长、馈入位置和特性阻抗的联合细扫。",
+            ]
+        )
+    else:
+        lines.append("- 尚无启用真实匹配/隔离结构的候选记录。")
+    lines.extend(
+        [
+            "",
             "## S 参数筛选排名",
             "",
             "| 排名 | 候选 | 拓扑 | 评分 | 最差 Sii | 隔离度 | 说明 |",
@@ -458,7 +708,7 @@ def write_report(best: dict) -> None:
             "",
             f"- 本轮是否完全达标：`{'是' if best.get('meets_all_targets') else '否'}`。",
             f"- 当前主要瓶颈：最差回波损耗为 `{fmt(s.get('worst_return_db'))} dB`，隔离度为 `{fmt(s.get('isolation_db'))} dB`，CP 合格包络最大轴比为 `{fmt(f.get('cp_qualified_ar_max_db'))} dB`。",
-            "- 下一轮建议：优先加入真实匹配/隔离结构，例如双馈端口间微带隔离枝节、局部缺陷地结构、90 度混合器输出端匹配段，或将双馈端口从简单探针/焊盘过渡升级为可调微带网络。",
+            "- 本轮已经把建议中的真实匹配/隔离结构参数化并纳入快速筛选；若仍未完全达标，下一轮应围绕最佳候选继续细扫隔离枝节长度、DGS 位置、混合器输出段宽度和源幅相平衡。",
             "",
             "## 输出文件",
             "",
