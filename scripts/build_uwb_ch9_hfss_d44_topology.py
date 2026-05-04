@@ -41,6 +41,7 @@ BASE_PARAMS = {
     "microstrip_stub_width_mm": 0.24,
     "microstrip_stub_offset_mm": 0.75,
     "neutralization_branch_enabled": 0.0,
+    "neutralization_branch_length_mm": 1.15,
     "neutralization_branch_width_mm": 0.18,
     "neutralization_branch_offset_mm": 1.15,
     "local_dgs_enabled": 0.0,
@@ -86,6 +87,7 @@ TOPOLOGIES = {
             "microstrip_stub_width_mm": 0.24,
             "microstrip_stub_offset_mm": 0.75,
             "neutralization_branch_enabled": 0.0,
+            "neutralization_branch_length_mm": 1.15,
             "neutralization_branch_width_mm": 0.18,
             "neutralization_branch_offset_mm": 1.15,
             "local_dgs_enabled": 0.0,
@@ -118,6 +120,7 @@ TOPOLOGIES = {
             "microstrip_stub_width_mm": 0.24,
             "microstrip_stub_offset_mm": 0.75,
             "neutralization_branch_enabled": 0.0,
+            "neutralization_branch_length_mm": 1.15,
             "neutralization_branch_width_mm": 0.18,
             "neutralization_branch_offset_mm": 1.15,
             "local_dgs_enabled": 0.0,
@@ -360,11 +363,13 @@ def add_neutralization_branch(hfss: Hfss, tag: str, center: tuple[float, float],
     line_w = params["microstrip_feedline_width_mm"]
     width = params["neutralization_branch_width_mm"]
     offset = min(params["neutralization_branch_offset_mm"], max(0.2, line_len - 0.15))
+    length = min(params.get("neutralization_branch_length_mm", offset), max(0.2, line_len - 0.15))
     anchor = edge + offset
+    corner = edge + length
     metals = []
     for suffix, u0, u1, v0, v1 in [
-        ("neutralization_u_leg", anchor - width / 2.0, anchor + width / 2.0, -line_w / 2.0, anchor + width / 2.0),
-        ("neutralization_v_leg", -line_w / 2.0, anchor + width / 2.0, anchor - width / 2.0, anchor + width / 2.0),
+        ("neutralization_u_leg", anchor - width / 2.0, anchor + width / 2.0, -line_w / 2.0, corner + width / 2.0),
+        ("neutralization_v_leg", -line_w / 2.0, anchor + width / 2.0, corner - width / 2.0, corner + width / 2.0),
     ]:
         sheet = polygon_sheet(hfss, f"{tag}_{suffix}", rectangle_points(*center, angle_deg, u0, u1, v0, v1, h), "copper")
         metals.append(sheet.name)
@@ -472,6 +477,7 @@ def validate_params(params: dict) -> None:
             raise ValueError("Microstrip feedline length must be positive")
         network_corner = params["patch_side_mm"] / 2.0 + max(
             line_len,
+            params.get("neutralization_branch_length_mm", 0.0),
             params.get("neutralization_branch_offset_mm", 0.0),
             params.get("microstrip_stub_offset_mm", 0.0) + params.get("microstrip_stub_length_mm", 0.0),
         )

@@ -42,6 +42,7 @@
     "microstrip_stub_width_mm": 0.24,
     "microstrip_stub_offset_mm": 0.75,
     "neutralization_branch_enabled": 0.0,
+    "neutralization_branch_length_mm": 1.15,
     "neutralization_branch_width_mm": 0.18,
     "neutralization_branch_offset_mm": 1.15,
     "local_dgs_enabled": 0.0,
