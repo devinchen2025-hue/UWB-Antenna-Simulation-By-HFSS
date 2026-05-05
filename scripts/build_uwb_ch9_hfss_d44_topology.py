@@ -159,9 +159,23 @@ TOPOLOGIES = {
             "feed_offset_v_mm": 0.0,
             "feed_pad_radius_mm": 0.28,
             "port_width_mm": 0.50,
-            "microstrip_feed_enabled": 0.0,
+            "microstrip_feed_enabled": 1.0,
+            "microstrip_feed_offset_mm": 0.0,
+            "microstrip_feedline_length_mm": 1.70,
+            "microstrip_feedline_width_mm": 0.58,
+            "microstrip_match_length_mm": 0.75,
+            "microstrip_match_width_mm": 0.40,
+            "microstrip_stub_length_mm": 0.0,
+            "microstrip_stub_width_mm": 0.24,
+            "microstrip_stub_offset_mm": 0.60,
             "neutralization_branch_enabled": 0.0,
+            "neutralization_branch_length_mm": 0.85,
+            "neutralization_branch_width_mm": 0.12,
+            "neutralization_branch_offset_mm": 0.65,
             "local_dgs_enabled": 0.0,
+            "local_dgs_length_mm": 3.6,
+            "local_dgs_width_mm": 0.18,
+            "local_dgs_offset_mm": 0.75,
             "weak_coupling_open_line_enabled": 0.0,
             "via_fence_enabled": 0.0,
             "isolation_slot_enabled": 1.0,
@@ -852,11 +866,17 @@ def build_project(
 
 def source_guidance(topology: str) -> list[str]:
     if topology == "dualpol":
-        return [
+        guidance = [
             "A feeds are aligned to the global X-polarized channel and B feeds are aligned to the global Y-polarized channel.",
             "Do not apply a fixed 90 degree hybrid for signoff; use independent X/Y receiver channels or digital polarization combining.",
             "Evaluate linear incident polarizations 0/45/90/135 deg and use vector calibration to reduce PDOA curve drift.",
         ]
+        params = topology_params(topology)
+        if params.get("microstrip_feed_enabled", 0.0) >= 0.5:
+            guidance.append("The dual-polarized feed uses equal-length edge microstrip transitions with tunable matching sections.")
+        if params.get("neutralization_branch_enabled", 0.0) >= 0.5:
+            guidance.append("Same-element X/Y neutralization branches are enabled and should be co-tuned with receiver calibration.")
+        return guidance
     if topology in {"dualfeed", "hybrid"}:
         guidance = [
             "A/B feeds on each patch are intended for 90 degree quadrature excitation.",
