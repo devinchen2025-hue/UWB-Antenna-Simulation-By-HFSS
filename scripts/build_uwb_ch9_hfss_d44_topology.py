@@ -65,6 +65,13 @@ BASE_PARAMS = {
     "local_dgs_offset_mm": 1.15,
     "hybrid_output_match_length_mm": 0.95,
     "hybrid_output_match_width_mm": 0.40,
+    "dualpol_parasitic_enabled": 0.0,
+    "parasitic_side_mm": 0.0,
+    "parasitic_corner_cut_mm": 0.0,
+    "parasitic_rotation_deg": 0.0,
+    "parasitic_offset_u_mm": 0.0,
+    "parasitic_offset_v_mm": 0.0,
+    "air_gap_mm": 0.0,
     "isolation_slot_enabled": 1.0,
     "isolation_slot_length_mm": 11.0,
     "isolation_slot_width_mm": 0.45,
@@ -182,6 +189,13 @@ TOPOLOGIES = {
             "local_dgs_length_mm": 3.6,
             "local_dgs_width_mm": 0.18,
             "local_dgs_offset_mm": 0.75,
+            "dualpol_parasitic_enabled": 1.0,
+            "parasitic_side_mm": 9.75,
+            "parasitic_corner_cut_mm": 0.0,
+            "parasitic_rotation_deg": 0.0,
+            "parasitic_offset_u_mm": 0.0,
+            "parasitic_offset_v_mm": 0.0,
+            "air_gap_mm": 1.20,
             "weak_coupling_open_line_enabled": 0.0,
             "via_fence_enabled": 0.0,
             "isolation_slot_enabled": 1.0,
@@ -237,6 +251,15 @@ def topology_paths(topology: str) -> dict[str, Path]:
         "results": ROOT / f"UWB_CH9_Diamond_CP_Array_D44_{label}.aedtresults",
         "pyaedt": ROOT / f"UWB_CH9_Diamond_CP_Array_D44_{label}.pyaedt",
     }
+
+
+def has_stacked_parasitic(params: dict) -> bool:
+    side = params.get("parasitic_side_mm", 0.0)
+    if side <= 0.0:
+        return False
+    if "dualpol_parasitic_enabled" in params:
+        return params.get("dualpol_parasitic_enabled", 0.0) >= 0.5
+    return True
 
 
 def topology_params(topology: str) -> dict:
@@ -575,6 +598,29 @@ def add_dualfeed_element(hfss: Hfss, tag: str, center: tuple[float, float], angl
         patch_points(*center, angle, params["patch_side_mm"], 0.0, h),
     )
     metals.append(patch.name)
+    if has_stacked_parasitic(params):
+        parasitic_z = h + params.get("air_gap_mm", 0.0)
+        parasitic_offset = local_to_global(
+            center[0],
+            center[1],
+            angle,
+            params.get("parasitic_offset_u_mm", 0.0),
+            params.get("parasitic_offset_v_mm", 0.0),
+            parasitic_z,
+        )
+        parasitic = polygon_sheet(
+            hfss,
+            f"{tag}_dualpol_stacked_parasitic_patch",
+            patch_points(
+                parasitic_offset[0],
+                parasitic_offset[1],
+                angle + params.get("parasitic_rotation_deg", 0.0),
+                params["parasitic_side_mm"],
+                params.get("parasitic_corner_cut_mm", 0.0),
+                parasitic_z,
+            ),
+        )
+        metals.append(parasitic.name)
     f_a = params.get("feed_offset_a_mm", params["feed_offset_u_mm"])
     f_b = params.get("feed_offset_b_mm", params["feed_offset_u_mm"])
     if params.get("microstrip_feed_enabled", 0.0) >= 0.5:
@@ -653,8 +699,10 @@ def add_slotcoupled_element(hfss: Hfss, tag: str, center: tuple[float, float], a
 
 
 def validate_params(params: dict) -> None:
-    top_height = params["substrate_h_mm"] + 2.0 * params["copper_t_mm"] + params.get("air_gap_mm", 0.0)
-    if params.get("parasitic_side_mm"):
+    stacked_parasitic = has_stacked_parasitic(params)
+    top_height = params["substrate_h_mm"] + 2.0 * params["copper_t_mm"]
+    if stacked_parasitic:
+        top_height += params.get("air_gap_mm", 0.0)
         top_height += params["copper_t_mm"]
     if params.get("weak_coupling_open_line_enabled", 0.0) >= 0.5:
         top_height = max(
@@ -667,7 +715,7 @@ def validate_params(params: dict) -> None:
         raise ValueError("Ground radius must stay inside board")
     board_radius = params["board_diameter_mm"] / 2.0
     center_radius = params["element_spacing_mm"] / math.sqrt(2.0)
-    max_side = max(params["patch_side_mm"], params.get("parasitic_side_mm", params["patch_side_mm"]))
+    max_side = max(params["patch_side_mm"], params.get("parasitic_side_mm", params["patch_side_mm"]) if stacked_parasitic else params["patch_side_mm"])
     if center_radius + max_side / math.sqrt(2.0) > board_radius - 0.25:
         raise ValueError("Patch corner too close to board edge")
     if params.get("weak_coupling_open_line_enabled", 0.0) >= 0.5:
@@ -885,8 +933,9 @@ def build_project(
         create_reports(hfss, setup.name, sweep.name, spec["label"])
     print("Stage: setup, sweep, and reports created", flush=True)
 
-    total_height = params["substrate_h_mm"] + 2.0 * params["copper_t_mm"] + params.get("air_gap_mm", 0.0)
-    if params.get("parasitic_side_mm"):
+    total_height = params["substrate_h_mm"] + 2.0 * params["copper_t_mm"]
+    if has_stacked_parasitic(params):
+        total_height += params.get("air_gap_mm", 0.0)
         total_height += params["copper_t_mm"]
     if params.get("weak_coupling_open_line_enabled", 0.0) >= 0.5:
         total_height = max(
@@ -934,6 +983,8 @@ def source_guidance(topology: str) -> list[str]:
             guidance.append("The edge feedlines are mirrored by element position to improve array pattern symmetry.")
         if params.get("neutralization_branch_enabled", 0.0) >= 0.5:
             guidance.append("Same-element X/Y neutralization branches are enabled and should be co-tuned with receiver calibration.")
+        if params.get("dualpol_parasitic_enabled", 0.0) >= 0.5:
+            guidance.append("A stacked parasitic patch is enabled above each dual-polarized driven patch to decouple feed layout from the radiating aperture.")
         return guidance
     if topology in {"dualfeed", "hybrid"}:
         guidance = [

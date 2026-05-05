@@ -1,0 +1,2126 @@
+{
+  "targets": {
+    "return_target_db": -10.0,
+    "xy_isolation_target_db": 15.0,
+    "same_feed_isolation_target_db": 16.0,
+    "return_balance_target_db": 0.5,
+    "xy_mag_balance_target_db": 2.0,
+    "xy_phase_spread_target_deg": 30.0,
+    "pdoa_rms_target_deg": 10.0,
+    "pdoa_max_target_deg": 20.0,
+    "pattern_symmetry_target_db": 3.0,
+    "phase_center_rms_target_deg": 20.0
+  },
+  "candidate_count": 10,
+  "sparam_top": [
+    {
+      "index": "2",
+      "candidate": "stack_p9p55_gap0p80",
+      "stacked_enabled": "True",
+      "elapsed_s": "79.708082",
+      "rationale": "小型寄生贴片和低空气间隙，优先观察回波是否过度劣化。",
+      "worst_return_db": "-7.691201",
+      "isolation_db": "10.377620",
+      "worst_return_expr": "dB(S(P4A:1,P4A:1))",
+      "worst_coupling_expr": "dB(S(P3B:1,P3A:1))",
+      "x_return_worst_db": "-7.691201",
+      "y_return_worst_db": "-7.704486",
+      "xy_return_balance_db": "0.013285",
+      "same_element_xy_isolation_db": "10.377620",
+      "same_feed_inter_element_isolation_db": "15.474931",
+      "patch_side_mm": "9.250000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "1.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "1.000000",
+      "parasitic_side_mm": "9.550000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "0.800000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "41.632431"
+    },
+    {
+      "index": "1",
+      "candidate": "mirror_patch9p25_reference",
+      "stacked_enabled": "False",
+      "elapsed_s": "81.371823",
+      "rationale": "上一轮镜像边馈最优候选，不加叠层寄生贴片，用作本轮硬件基线。",
+      "worst_return_db": "-7.816776",
+      "isolation_db": "9.576869",
+      "worst_return_expr": "dB(S(P3A:1,P3A:1))",
+      "worst_coupling_expr": "dB(S(P1A:1,P1B:1))",
+      "x_return_worst_db": "-7.816776",
+      "y_return_worst_db": "-8.100212",
+      "xy_return_balance_db": "0.283437",
+      "same_element_xy_isolation_db": "9.576869",
+      "same_feed_inter_element_isolation_db": "15.281649",
+      "patch_side_mm": "9.250000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "1.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "0.000000",
+      "parasitic_side_mm": "0.000000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "0.000000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "46.018151"
+    },
+    {
+      "index": "8",
+      "candidate": "stack_drive9p15_par9p75_gap1p20",
+      "stacked_enabled": "True",
+      "elapsed_s": "77.392747",
+      "rationale": "缩小下层驱动贴片、保持中等寄生贴片，弱化下层边馈加载。",
+      "worst_return_db": "-6.380632",
+      "isolation_db": "10.386764",
+      "worst_return_expr": "dB(S(P2B:1,P2B:1))",
+      "worst_coupling_expr": "dB(S(P1B:1,P1A:1))",
+      "x_return_worst_db": "-6.818128",
+      "y_return_worst_db": "-6.380632",
+      "xy_return_balance_db": "0.437496",
+      "same_element_xy_isolation_db": "10.386764",
+      "same_feed_inter_element_isolation_db": "14.481868",
+      "patch_side_mm": "9.150000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "1.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "1.000000",
+      "parasitic_side_mm": "9.750000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "1.200000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "54.057389"
+    },
+    {
+      "index": "3",
+      "candidate": "stack_p9p75_gap1p20",
+      "stacked_enabled": "True",
+      "elapsed_s": "77.343632",
+      "rationale": "中等寄生贴片和 1.20 mm 空气层，尝试让辐射孔径主导方向图。",
+      "worst_return_db": "-5.757128",
+      "isolation_db": "10.009989",
+      "worst_return_expr": "dB(S(P2B:1,P2B:1))",
+      "worst_coupling_expr": "dB(S(P3A:1,P3B:1))",
+      "x_return_worst_db": "-5.770538",
+      "y_return_worst_db": "-5.757128",
+      "xy_return_balance_db": "0.013410",
+      "same_element_xy_isolation_db": "10.009989",
+      "same_feed_inter_element_isolation_db": "14.469244",
+      "patch_side_mm": "9.250000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "1.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "1.000000",
+      "parasitic_side_mm": "9.750000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "1.200000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "60.954544"
+    },
+    {
+      "index": "10",
+      "candidate": "stack_p9p75_gap1p20_wide_out",
+      "stacked_enabled": "True",
+      "elapsed_s": "75.304082",
+      "rationale": "叠层结构配略宽输出变换段，尝试恢复叠层加载后的端口匹配。",
+      "worst_return_db": "-5.401156",
+      "isolation_db": "10.340812",
+      "worst_return_expr": "dB(S(P3A:1,P3A:1))",
+      "worst_coupling_expr": "dB(S(P1B:1,P1A:1))",
+      "x_return_worst_db": "-5.401156",
+      "y_return_worst_db": "-5.410618",
+      "xy_return_balance_db": "0.009462",
+      "same_element_xy_isolation_db": "10.340812",
+      "same_feed_inter_element_isolation_db": "14.381680",
+      "patch_side_mm": "9.250000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "1.000000",
+      "microstrip_feedline_length_mm": "1.850000",
+      "microstrip_feedline_width_mm": "0.600000",
+      "microstrip_match_length_mm": "0.520000",
+      "microstrip_match_width_mm": "0.360000",
+      "microstrip_transform2_length_mm": "0.620000",
+      "microstrip_transform2_width_mm": "0.540000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "1.000000",
+      "parasitic_side_mm": "9.750000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "1.200000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "62.323330"
+    },
+    {
+      "index": "6",
+      "candidate": "stack_p9p75_gap1p20_offu0p15",
+      "stacked_enabled": "True",
+      "elapsed_s": "74.581693",
+      "rationale": "寄生贴片沿本地 u 方向轻微偏移，用于补偿边馈相位中心偏移。",
+      "worst_return_db": "-5.320736",
+      "isolation_db": "10.428331",
+      "worst_return_expr": "dB(S(P2B:1,P2B:1))",
+      "worst_coupling_expr": "dB(S(P1B:1,P1A:1))",
+      "x_return_worst_db": "-5.600350",
+      "y_return_worst_db": "-5.320736",
+      "xy_return_balance_db": "0.279614",
+      "same_element_xy_isolation_db": "10.428331",
+      "same_feed_inter_element_isolation_db": "14.404665",
+      "patch_side_mm": "9.250000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "1.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "1.000000",
+      "parasitic_side_mm": "9.750000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.150000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "1.200000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "62.483128"
+    },
+    {
+      "index": "7",
+      "candidate": "stack_p9p75_gap1p20_offv0p15",
+      "stacked_enabled": "True",
+      "elapsed_s": "87.334045",
+      "rationale": "寄生贴片沿本地 v 方向轻微偏移，用于补偿正交端口相位中心不一致。",
+      "worst_return_db": "-5.516116",
+      "isolation_db": "9.872432",
+      "worst_return_expr": "dB(S(P2B:1,P2B:1))",
+      "worst_coupling_expr": "dB(S(P1A:1,P1B:1))",
+      "x_return_worst_db": "-5.606902",
+      "y_return_worst_db": "-5.516116",
+      "xy_return_balance_db": "0.090786",
+      "same_element_xy_isolation_db": "9.872432",
+      "same_feed_inter_element_isolation_db": "14.432870",
+      "patch_side_mm": "9.250000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "1.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "1.000000",
+      "parasitic_side_mm": "9.750000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.150000",
+      "air_gap_mm": "1.200000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "63.643177"
+    },
+    {
+      "index": "4",
+      "candidate": "stack_p9p95_gap1p60",
+      "stacked_enabled": "True",
+      "elapsed_s": "90.548442",
+      "rationale": "较大寄生贴片和更高空气层，用于降低馈线近场对主辐射孔径的影响。",
+      "worst_return_db": "-5.152738",
+      "isolation_db": "10.593421",
+      "worst_return_expr": "dB(S(P1A:1,P1A:1))",
+      "worst_coupling_expr": "dB(S(P1A:1,P1B:1))",
+      "x_return_worst_db": "-5.152738",
+      "y_return_worst_db": "-5.154892",
+      "xy_return_balance_db": "0.002155",
+      "same_element_xy_isolation_db": "10.593421",
+      "same_feed_inter_element_isolation_db": "13.737374",
+      "patch_side_mm": "9.250000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "1.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "1.000000",
+      "parasitic_side_mm": "9.950000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "1.600000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "64.336243"
+    },
+    {
+      "index": "5",
+      "candidate": "stack_p9p75_gap1p20_rot45",
+      "stacked_enabled": "True",
+      "elapsed_s": "75.369638",
+      "rationale": "寄生贴片旋转 45 deg，测试对 X/Y 双极化方向图对称性的影响。",
+      "worst_return_db": "-5.449958",
+      "isolation_db": "9.716402",
+      "worst_return_expr": "dB(S(P4B:1,P4B:1))",
+      "worst_coupling_expr": "dB(S(P1B:1,P1A:1))",
+      "x_return_worst_db": "-5.597521",
+      "y_return_worst_db": "-5.449958",
+      "xy_return_balance_db": "0.147564",
+      "same_element_xy_isolation_db": "9.716402",
+      "same_feed_inter_element_isolation_db": "14.438737",
+      "patch_side_mm": "9.250000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "1.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "1.000000",
+      "parasitic_side_mm": "9.750000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "45.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "1.200000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "64.940856"
+    },
+    {
+      "index": "9",
+      "candidate": "stack_drive9p35_par9p95_gap1p20",
+      "stacked_enabled": "True",
+      "elapsed_s": "75.455262",
+      "rationale": "放大下层驱动贴片并配较大寄生片，检查谐振下移后的匹配空间。",
+      "worst_return_db": "-4.529965",
+      "isolation_db": "10.431047",
+      "worst_return_expr": "dB(S(P3A:1,P3A:1))",
+      "worst_coupling_expr": "dB(S(P1A:1,P1B:1))",
+      "x_return_worst_db": "-4.529965",
+      "y_return_worst_db": "-4.663713",
+      "xy_return_balance_db": "0.133748",
+      "same_element_xy_isolation_db": "10.431047",
+      "same_feed_inter_element_isolation_db": "13.926646",
+      "patch_side_mm": "9.350000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "1.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "1.000000",
+      "parasitic_side_mm": "9.950000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "1.200000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "69.751754"
+    }
+  ],
+  "full_validation": [
+    {
+      "candidate": "stack_p9p55_gap0p80",
+      "stacked_enabled": true,
+      "elapsed_s": 117.2569408416748,
+      "rationale": "小型寄生贴片和低空气间隙，优先观察回波是否过度劣化。",
+      "parameters": {
+        "patch_side_mm": 9.25,
+        "corner_cut_mm": 0.0,
+        "feed_offset_u_mm": 3.4,
+        "feed_offset_v_mm": 0.0,
+        "feed_pad_radius_mm": 0.28,
+        "port_width_mm": 0.5,
+        "microstrip_feed_enabled": 1.0,
+        "microstrip_feed_offset_mm": 0.0,
+        "microstrip_feedline_length_mm": 1.78,
+        "microstrip_feedline_width_mm": 0.58,
+        "microstrip_match_length_mm": 0.48,
+        "microstrip_match_width_mm": 0.34,
+        "microstrip_transform2_length_mm": 0.55,
+        "microstrip_transform2_width_mm": 0.5,
+        "microstrip_stub_length_mm": 0.0,
+        "microstrip_stub_width_mm": 0.24,
+        "microstrip_stub_offset_mm": 0.6,
+        "microstrip_feed_mirror_enabled": 1.0,
+        "neutralization_branch_enabled": 0.0,
+        "neutralization_branch_length_mm": 0.85,
+        "neutralization_branch_width_mm": 0.12,
+        "neutralization_branch_offset_mm": 0.65,
+        "local_dgs_enabled": 0.0,
+        "local_dgs_length_mm": 3.6,
+        "local_dgs_width_mm": 0.18,
+        "local_dgs_offset_mm": 0.75,
+        "dualpol_parasitic_enabled": 1.0,
+        "parasitic_side_mm": 9.55,
+        "parasitic_corner_cut_mm": 0.0,
+        "parasitic_rotation_deg": 0.0,
+        "parasitic_offset_u_mm": 0.0,
+        "parasitic_offset_v_mm": 0.0,
+        "air_gap_mm": 0.8,
+        "weak_coupling_open_line_enabled": 0.0,
+        "via_fence_enabled": 0.0,
+        "isolation_slot_enabled": 1.0,
+        "isolation_slot_length_mm": 10.0,
+        "isolation_slot_width_mm": 0.42,
+        "isolation_slot_inner_mm": 3.2
+      },
+      "worst_return_db": -6.157381034212344,
+      "isolation_db": 10.156919357879213,
+      "x_return_worst_db": -6.157381034212344,
+      "y_return_worst_db": -6.271188058235165,
+      "xy_return_balance_db": 0.11380702402282061,
+      "same_element_xy_isolation_db": 10.156919357879213,
+      "same_feed_inter_element_isolation_db": 14.952465379584474,
+      "dualpol_vector_avg_rms_bias_deg": 87.29019353074546,
+      "dualpol_vector_p95_rms_bias_deg": 150.80906830811776,
+      "dualpol_vector_max_abs_bias_deg": 179.99793177189844,
+      "calibrated_avg_rms_bias_deg": 51.34376556944338,
+      "calibrated_p95_rms_bias_deg": 81.23875671228069,
+      "calibrated_max_abs_bias_deg": 179.95143147379565,
+      "calibrated_avg_valid_percent": 100.0,
+      "calibration_quality": {
+        "7.738000GHz": {
+          "1": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.32808484165284374,
+            "condition_number": 1.4158629377619558,
+            "matrix": [
+              [
+                {
+                  "re": -0.05427959786531806,
+                  "im": -0.5907885845933536
+                },
+                {
+                  "re": -0.5639848801675119,
+                  "im": 0.5815276091237106
+                }
+              ],
+              [
+                {
+                  "re": 0.34147967801079704,
+                  "im": -0.6123346733356726
+                },
+                {
+                  "re": 0.3020163960374807,
+                  "im": -0.28554287002793527
+                }
+              ]
+            ]
+          },
+          "2": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.36436173521521176,
+            "condition_number": 1.302552578815993,
+            "matrix": [
+              [
+                {
+                  "re": -0.08002739719092232,
+                  "im": -0.3003036672437945
+                },
+                {
+                  "re": 0.04031487682972974,
+                  "im": 0.7670370607089136
+                }
+              ],
+              [
+                {
+                  "re": -0.32340647102327535,
+                  "im": -0.7763488297839647
+                },
+                {
+                  "re": 0.1680378409854376,
+                  "im": -0.36441630864304775
+                }
+              ]
+            ]
+          },
+          "3": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.3824122630633185,
+            "condition_number": 1.4717231848211887,
+            "matrix": [
+              [
+                {
+                  "re": -0.3571790197968029,
+                  "im": -0.25200095671836953
+                },
+                {
+                  "re": 0.7248434162899358,
+                  "im": -0.17728714662275802
+                }
+              ],
+              [
+                {
+                  "re": 0.7689708611180348,
+                  "im": -0.13254707096090235
+                },
+                {
+                  "re": 0.357874196209103,
+                  "im": -0.04422833990451275
+                }
+              ]
+            ]
+          },
+          "4": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.46010731005250466,
+            "condition_number": 1.204427836418705,
+            "matrix": [
+              [
+                {
+                  "re": 0.2555822927595568,
+                  "im": 0.2113382656444925
+                },
+                {
+                  "re": -0.532234046728546,
+                  "im": -0.46017194888983337
+                }
+              ],
+              [
+                {
+                  "re": -0.49622013651683267,
+                  "im": -0.4871619200943117
+                },
+                {
+                  "re": -0.29467366210638274,
+                  "im": -0.09580418926979967
+                }
+              ]
+            ]
+          }
+        },
+        "7.985500GHz": {
+          "1": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.3401275087651719,
+            "condition_number": 1.4099228314912065,
+            "matrix": [
+              [
+                {
+                  "re": 0.09164031987707111,
+                  "im": -0.5640188438726425
+                },
+                {
+                  "re": -0.7680822987459951,
+                  "im": 0.3244001678506322
+                }
+              ],
+              [
+                {
+                  "re": 0.5082643446179888,
+                  "im": -0.4871085185115783
+                },
+                {
+                  "re": 0.35880381735530786,
+                  "im": -0.0844312220587719
+                }
+              ]
+            ]
+          },
+          "2": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.3669439801151259,
+            "condition_number": 1.2591930987697777,
+            "matrix": [
+              [
+                {
+                  "re": -0.04101486730065902,
+                  "im": -0.3398009307118192
+                },
+                {
+                  "re": -0.2305225531826014,
+                  "im": 0.7140366964208944
+                }
+              ],
+              [
+                {
+                  "re": -0.07851030661265512,
+                  "im": -0.7966272134793715
+                },
+                {
+                  "re": 0.3200557245515315,
+                  "im": -0.31025708734735363
+                }
+              ]
+            ]
+          },
+          "3": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.3913400350765616,
+            "condition_number": 1.3958145698991475,
+            "matrix": [
+              [
+                {
+                  "re": -0.24691807156494258,
+                  "im": -0.37177588929511196
+                },
+                {
+                  "re": 0.715593122051244,
+                  "im": 0.13196235806824513
+                }
+              ],
+              [
+                {
+                  "re": 0.7545902461948069,
+                  "im": 0.11362479202914921
+                },
+                {
+                  "re": 0.3485542142865586,
+                  "im": 0.03126756794538649
+                }
+              ]
+            ]
+          },
+          "4": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.48906282432457604,
+            "condition_number": 1.2103380877723273,
+            "matrix": [
+              [
+                {
+                  "re": 0.13820409968518152,
+                  "im": 0.2995131950775665
+                },
+                {
+                  "re": -0.3102068576510202,
+                  "im": -0.5699924845780111
+                }
+              ],
+              [
+                {
+                  "re": -0.28176921577672587,
+                  "im": -0.6130215176346301
+                },
+                {
+                  "re": -0.2272098260249995,
+                  "im": -0.16081826413220296
+                }
+              ]
+            ]
+          }
+        },
+        "8.233000GHz": {
+          "1": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.3518439510307943,
+            "condition_number": 1.3340392995767405,
+            "matrix": [
+              [
+                {
+                  "re": 0.20151072114781882,
+                  "im": -0.49532558360629614
+                },
+                {
+                  "re": -0.8260063953651429,
+                  "im": 0.08431407900958512
+                }
+              ],
+              [
+                {
+                  "re": 0.6166012285449514,
+                  "im": -0.3225447141208386
+                },
+                {
+                  "re": 0.3345254604722354,
+                  "im": 0.10756503953232757
+                }
+              ]
+            ]
+          },
+          "2": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.3618953644199119,
+            "condition_number": 1.2157519734270104,
+            "matrix": [
+              [
+                {
+                  "re": 0.02922186901527437,
+                  "im": -0.34009810785623795
+                },
+                {
+                  "re": -0.4659747767734225,
+                  "im": 0.5960998425798232
+                }
+              ],
+              [
+                {
+                  "re": 0.16527500461915956,
+                  "im": -0.7660103112323079
+                },
+                {
+                  "re": 0.4127145745320749,
+                  "im": -0.19065437535156454
+                }
+              ]
+            ]
+          },
+          "3": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.3952312760832627,
+            "condition_number": 1.2678399729071281,
+            "matrix": [
+              [
+                {
+                  "re": -0.13003068310274893,
+                  "im": -0.4533100334694387
+                },
+                {
+                  "re": 0.6069636939400461,
+                  "im": 0.36829967512256695
+                }
+              ],
+              [
+                {
+                  "re": 0.6492367313023891,
+                  "im": 0.3355155693997405
+                },
+                {
+                  "re": 0.3487352913988862,
+                  "im": 0.05860102228789671
+                }
+              ]
+            ]
+          },
+          "4": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.499926738286394,
+            "condition_number": 1.2570535633176134,
+            "matrix": [
+              [
+                {
+                  "re": 0.035459226715954355,
+                  "im": 0.3496458006596253
+                },
+                {
+                  "re": -0.15062056504210944,
+                  "im": -0.5807562162977996
+                }
+              ],
+              [
+                {
+                  "re": -0.10461388276208994,
+                  "im": -0.6772601818801266
+                },
+                {
+                  "re": -0.1452579733745229,
+                  "im": -0.19845778107275516
+                }
+              ]
+            ]
+          }
+        }
+      },
+      "xy_mag_imbalance_mean_abs_db": 3.5004644634123503,
+      "xy_mag_imbalance_rms_db": 5.268081346726065,
+      "xy_mag_imbalance_max_abs_db": 44.1316771614622,
+      "xy_phase_spread_mean_abs_deg": 64.28040540588839,
+      "xy_phase_spread_rms_deg": 74.89755705319129,
+      "xy_phase_spread_max_abs_deg": 179.98912632362408,
+      "pattern_symmetry_sample_count": 33288,
+      "pattern_symmetry_mean_abs_db": 10.628422155414395,
+      "pattern_symmetry_rms_db": 11.735322594300126,
+      "pattern_symmetry_max_abs_db": 34.06868195652243,
+      "phase_center_sample_count": 21024,
+      "phase_center_raw_rms_deg": 131.29346766049613,
+      "phase_center_raw_p95_deg": 249.93588092884704,
+      "phase_center_calibrated_rms_deg": 124.73641351632797,
+      "phase_center_calibrated_p95_deg": 247.22576833642074,
+      "phase_center_calibrated_max_abs_deg": 544.7098431325564,
+      "phase_center_delta_mag_mean_mm": 12.126914789923847,
+      "phase_center_delta_mag_max_mm": 18.78693451988072,
+      "sparam_score": 56.05142417773624,
+      "full_score": 224.17096877670625,
+      "meets_s": false,
+      "meets_balance": false,
+      "meets_calibrated_pdoa": false,
+      "meets_pattern_symmetry": false,
+      "meets_phase_center": false,
+      "meets_all": false
+    },
+    {
+      "candidate": "stack_drive9p15_par9p75_gap1p20",
+      "stacked_enabled": true,
+      "elapsed_s": 118.744145154953,
+      "rationale": "缩小下层驱动贴片、保持中等寄生贴片，弱化下层边馈加载。",
+      "parameters": {
+        "patch_side_mm": 9.15,
+        "corner_cut_mm": 0.0,
+        "feed_offset_u_mm": 3.4,
+        "feed_offset_v_mm": 0.0,
+        "feed_pad_radius_mm": 0.28,
+        "port_width_mm": 0.5,
+        "microstrip_feed_enabled": 1.0,
+        "microstrip_feed_offset_mm": 0.0,
+        "microstrip_feedline_length_mm": 1.78,
+        "microstrip_feedline_width_mm": 0.58,
+        "microstrip_match_length_mm": 0.48,
+        "microstrip_match_width_mm": 0.34,
+        "microstrip_transform2_length_mm": 0.55,
+        "microstrip_transform2_width_mm": 0.5,
+        "microstrip_stub_length_mm": 0.0,
+        "microstrip_stub_width_mm": 0.24,
+        "microstrip_stub_offset_mm": 0.6,
+        "microstrip_feed_mirror_enabled": 1.0,
+        "neutralization_branch_enabled": 0.0,
+        "neutralization_branch_length_mm": 0.85,
+        "neutralization_branch_width_mm": 0.12,
+        "neutralization_branch_offset_mm": 0.65,
+        "local_dgs_enabled": 0.0,
+        "local_dgs_length_mm": 3.6,
+        "local_dgs_width_mm": 0.18,
+        "local_dgs_offset_mm": 0.75,
+        "dualpol_parasitic_enabled": 1.0,
+        "parasitic_side_mm": 9.75,
+        "parasitic_corner_cut_mm": 0.0,
+        "parasitic_rotation_deg": 0.0,
+        "parasitic_offset_u_mm": 0.0,
+        "parasitic_offset_v_mm": 0.0,
+        "air_gap_mm": 1.2,
+        "weak_coupling_open_line_enabled": 0.0,
+        "via_fence_enabled": 0.0,
+        "isolation_slot_enabled": 1.0,
+        "isolation_slot_length_mm": 10.0,
+        "isolation_slot_width_mm": 0.42,
+        "isolation_slot_inner_mm": 3.2
+      },
+      "worst_return_db": -6.3806319695856315,
+      "isolation_db": 10.386763746619668,
+      "x_return_worst_db": -6.818127897398431,
+      "y_return_worst_db": -6.3806319695856315,
+      "xy_return_balance_db": 0.4374959278127992,
+      "same_element_xy_isolation_db": 10.386763746619668,
+      "same_feed_inter_element_isolation_db": 14.481868129108811,
+      "dualpol_vector_avg_rms_bias_deg": 88.39827358035055,
+      "dualpol_vector_p95_rms_bias_deg": 152.50169864928142,
+      "dualpol_vector_max_abs_bias_deg": 179.99566113979733,
+      "calibrated_avg_rms_bias_deg": 52.06470624725422,
+      "calibrated_p95_rms_bias_deg": 82.28742662366925,
+      "calibrated_max_abs_bias_deg": 179.93784427819213,
+      "calibrated_avg_valid_percent": 100.0,
+      "calibration_quality": {
+        "7.738000GHz": {
+          "1": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.3261833918279808,
+            "condition_number": 1.3984386488654152,
+            "matrix": [
+              [
+                {
+                  "re": -0.04988197027480822,
+                  "im": -0.5876113246914929
+                },
+                {
+                  "re": -0.565092221969608,
+                  "im": 0.5744606904797657
+                }
+              ],
+              [
+                {
+                  "re": 0.3288313341045177,
+                  "im": -0.6251465587291196
+                },
+                {
+                  "re": 0.2989668918373696,
+                  "im": -0.2818816756555928
+                }
+              ]
+            ]
+          },
+          "2": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.36595598592800466,
+            "condition_number": 1.3088057591282272,
+            "matrix": [
+              [
+                {
+                  "re": -0.0885332073316406,
+                  "im": -0.2855164685617346
+                },
+                {
+                  "re": 0.027580042453860004,
+                  "im": 0.7674439559764235
+                }
+              ],
+              [
+                {
+                  "re": -0.30278919560839457,
+                  "im": -0.7832621752549928
+                },
+                {
+                  "re": 0.19671874597361624,
+                  "im": -0.3609509910617022
+                }
+              ]
+            ]
+          },
+          "3": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.39087585690763976,
+            "condition_number": 1.4979455293393178,
+            "matrix": [
+              [
+                {
+                  "re": -0.3503422313857754,
+                  "im": -0.25004880603446306
+                },
+                {
+                  "re": 0.7260603599331341,
+                  "im": -0.17655488193241187
+                }
+              ],
+              [
+                {
+                  "re": 0.7673471190208597,
+                  "im": -0.10930023891338325
+                },
+                {
+                  "re": 0.350562711560197,
+                  "im": -0.015591819846958233
+                }
+              ]
+            ]
+          },
+          "4": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.45563114362805923,
+            "condition_number": 1.205772315377671,
+            "matrix": [
+              [
+                {
+                  "re": 0.26080149367250427,
+                  "im": 0.22843674948356862
+                },
+                {
+                  "re": -0.4804492529696266,
+                  "im": -0.5050409914667182
+                }
+              ],
+              [
+                {
+                  "re": -0.4961131975456548,
+                  "im": -0.5006151595165782
+                },
+                {
+                  "re": -0.2887313059167647,
+                  "im": -0.12524364657237802
+                }
+              ]
+            ]
+          }
+        },
+        "7.985500GHz": {
+          "1": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.33676983149056683,
+            "condition_number": 1.4013468812033516,
+            "matrix": [
+              [
+                {
+                  "re": 0.09044809069020658,
+                  "im": -0.5602626120171085
+                },
+                {
+                  "re": -0.7702766625472729,
+                  "im": 0.31493284670357774
+                }
+              ],
+              [
+                {
+                  "re": 0.4894826014848671,
+                  "im": -0.5186352585691705
+                },
+                {
+                  "re": 0.3494172463608638,
+                  "im": -0.09341474706912473
+                }
+              ]
+            ]
+          },
+          "2": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.37057505821346776,
+            "condition_number": 1.2824628375247462,
+            "matrix": [
+              [
+                {
+                  "re": -0.048259428333121086,
+                  "im": -0.3263262903718265
+                },
+                {
+                  "re": -0.2308102503616395,
+                  "im": 0.7112527596381695
+                }
+              ],
+              [
+                {
+                  "re": -0.06680411538833997,
+                  "im": -0.7970715348319765
+                },
+                {
+                  "re": 0.3438819453024137,
+                  "im": -0.3045101171993335
+                }
+              ]
+            ]
+          },
+          "3": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.39951614922955075,
+            "condition_number": 1.4218196509994931,
+            "matrix": [
+              [
+                {
+                  "re": -0.24448175202245612,
+                  "im": -0.3611202324670726
+                },
+                {
+                  "re": 0.7128138182182727,
+                  "im": 0.11928952358572373
+                }
+              ],
+              [
+                {
+                  "re": 0.7533001675121576,
+                  "im": 0.13330639085826212
+                },
+                {
+                  "re": 0.3329129547577574,
+                  "im": 0.05402457711997363
+                }
+              ]
+            ]
+          },
+          "4": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.48458238528707326,
+            "condition_number": 1.2202356764139604,
+            "matrix": [
+              [
+                {
+                  "re": 0.1401943602240264,
+                  "im": 0.3113750884075713
+                },
+                {
+                  "re": -0.23940030405067214,
+                  "im": -0.6054357073944514
+                }
+              ],
+              [
+                {
+                  "re": -0.2825702103518051,
+                  "im": -0.6211551555895569
+                },
+                {
+                  "re": -0.2067567427235698,
+                  "im": -0.18648188026359955
+                }
+              ]
+            ]
+          }
+        },
+        "8.233000GHz": {
+          "1": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.3493980628890222,
+            "condition_number": 1.3304713866114917,
+            "matrix": [
+              [
+                {
+                  "re": 0.2029237362406583,
+                  "im": -0.4895755158737491
+                },
+                {
+                  "re": -0.8278331904112575,
+                  "im": 0.06395428181500358
+                }
+              ],
+              [
+                {
+                  "re": 0.6063893331542725,
+                  "im": -0.36185426559300227
+                },
+                {
+                  "re": 0.32968756328793264,
+                  "im": 0.09129816148500053
+                }
+              ]
+            ]
+          },
+          "2": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.3645741879801613,
+            "condition_number": 1.2468450707203358,
+            "matrix": [
+              [
+                {
+                  "re": 0.021086102854405795,
+                  "im": -0.330016551163587
+                },
+                {
+                  "re": -0.4577726429352677,
+                  "im": 0.5983187879840592
+                }
+              ],
+              [
+                {
+                  "re": 0.16358802065279843,
+                  "im": -0.7683266235091746
+                },
+                {
+                  "re": 0.4298379958636821,
+                  "im": -0.18611318074940741
+                }
+              ]
+            ]
+          },
+          "3": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.40219238026953685,
+            "condition_number": 1.293398155500241,
+            "matrix": [
+              [
+                {
+                  "re": -0.1303661952554269,
+                  "im": -0.43762622629002207
+                },
+                {
+                  "re": 0.6041913981299974,
+                  "im": 0.3531751278933473
+                }
+              ],
+              [
+                {
+                  "re": 0.6547378062984209,
+                  "im": 0.35280456166054863
+                },
+                {
+                  "re": 0.3285193383917876,
+                  "im": 0.07613369503523301
+                }
+              ]
+            ]
+          },
+          "4": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.4953871468889376,
+            "condition_number": 1.255861246689982,
+            "matrix": [
+              [
+                {
+                  "re": 0.03824445418138955,
+                  "im": 0.35451442789058374
+                },
+                {
+                  "re": -0.07772534227037309,
+                  "im": -0.6043194153248282
+                }
+              ],
+              [
+                {
+                  "re": -0.10292527722276756,
+                  "im": -0.6804952036586969
+                },
+                {
+                  "re": -0.11864924684145906,
+                  "im": -0.2162873522011663
+                }
+              ]
+            ]
+          }
+        }
+      },
+      "xy_mag_imbalance_mean_abs_db": 3.533832379900277,
+      "xy_mag_imbalance_rms_db": 5.3007896946884046,
+      "xy_mag_imbalance_max_abs_db": 37.283487650198516,
+      "xy_phase_spread_mean_abs_deg": 64.21082034722032,
+      "xy_phase_spread_rms_deg": 74.70382774550119,
+      "xy_phase_spread_max_abs_deg": 179.977794538329,
+      "pattern_symmetry_sample_count": 33288,
+      "pattern_symmetry_mean_abs_db": 10.602387186569525,
+      "pattern_symmetry_rms_db": 11.682906029979664,
+      "pattern_symmetry_max_abs_db": 33.98927440189889,
+      "phase_center_sample_count": 21024,
+      "phase_center_raw_rms_deg": 132.82378900745778,
+      "phase_center_raw_p95_deg": 254.43842657896158,
+      "phase_center_calibrated_rms_deg": 124.23959427669823,
+      "phase_center_calibrated_p95_deg": 243.55190954529186,
+      "phase_center_calibrated_max_abs_deg": 544.2837478550548,
+      "phase_center_delta_mag_mean_mm": 10.265839116575332,
+      "phase_center_delta_mag_max_mm": 16.743465680800796,
+      "sparam_score": 54.057389251998984,
+      "full_score": 222.39179270859103,
+      "meets_s": false,
+      "meets_balance": false,
+      "meets_calibrated_pdoa": false,
+      "meets_pattern_symmetry": false,
+      "meets_phase_center": false,
+      "meets_all": false
+    },
+    {
+      "candidate": "mirror_patch9p25_reference",
+      "stacked_enabled": false,
+      "elapsed_s": 116.92331218719482,
+      "rationale": "上一轮镜像边馈最优候选，不加叠层寄生贴片，用作本轮硬件基线。",
+      "parameters": {
+        "patch_side_mm": 9.25,
+        "corner_cut_mm": 0.0,
+        "feed_offset_u_mm": 3.4,
+        "feed_offset_v_mm": 0.0,
+        "feed_pad_radius_mm": 0.28,
+        "port_width_mm": 0.5,
+        "microstrip_feed_enabled": 1.0,
+        "microstrip_feed_offset_mm": 0.0,
+        "microstrip_feedline_length_mm": 1.78,
+        "microstrip_feedline_width_mm": 0.58,
+        "microstrip_match_length_mm": 0.48,
+        "microstrip_match_width_mm": 0.34,
+        "microstrip_transform2_length_mm": 0.55,
+        "microstrip_transform2_width_mm": 0.5,
+        "microstrip_stub_length_mm": 0.0,
+        "microstrip_stub_width_mm": 0.24,
+        "microstrip_stub_offset_mm": 0.6,
+        "microstrip_feed_mirror_enabled": 1.0,
+        "neutralization_branch_enabled": 0.0,
+        "neutralization_branch_length_mm": 0.85,
+        "neutralization_branch_width_mm": 0.12,
+        "neutralization_branch_offset_mm": 0.65,
+        "local_dgs_enabled": 0.0,
+        "local_dgs_length_mm": 3.6,
+        "local_dgs_width_mm": 0.18,
+        "local_dgs_offset_mm": 0.75,
+        "dualpol_parasitic_enabled": 0.0,
+        "parasitic_side_mm": 0.0,
+        "parasitic_corner_cut_mm": 0.0,
+        "parasitic_rotation_deg": 0.0,
+        "parasitic_offset_u_mm": 0.0,
+        "parasitic_offset_v_mm": 0.0,
+        "air_gap_mm": 0.0,
+        "weak_coupling_open_line_enabled": 0.0,
+        "via_fence_enabled": 0.0,
+        "isolation_slot_enabled": 1.0,
+        "isolation_slot_length_mm": 10.0,
+        "isolation_slot_width_mm": 0.42,
+        "isolation_slot_inner_mm": 3.2
+      },
+      "worst_return_db": -7.816775612279803,
+      "isolation_db": 9.576869035076498,
+      "x_return_worst_db": -7.816775612279803,
+      "y_return_worst_db": -8.100212250208699,
+      "xy_return_balance_db": 0.2834366379288964,
+      "same_element_xy_isolation_db": 9.576869035076498,
+      "same_feed_inter_element_isolation_db": 15.281649439170462,
+      "dualpol_vector_avg_rms_bias_deg": 86.84057411081925,
+      "dualpol_vector_p95_rms_bias_deg": 151.98961258739044,
+      "dualpol_vector_max_abs_bias_deg": 179.99970269868106,
+      "calibrated_avg_rms_bias_deg": 51.31721466293201,
+      "calibrated_p95_rms_bias_deg": 80.73292455318543,
+      "calibrated_max_abs_bias_deg": 179.97667701631832,
+      "calibrated_avg_valid_percent": 100.0,
+      "calibration_quality": {
+        "7.738000GHz": {
+          "1": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.32544172845499103,
+            "condition_number": 1.3879204144884716,
+            "matrix": [
+              [
+                {
+                  "re": -0.17357804159451845,
+                  "im": -0.5713672613347702
+                },
+                {
+                  "re": -0.4028686275245502,
+                  "im": 0.6823185069905308
+                }
+              ],
+              [
+                {
+                  "re": 0.22977538251977464,
+                  "im": -0.6639983273213244
+                },
+                {
+                  "re": 0.25269888015859465,
+                  "im": -0.34418383649605055
+                }
+              ]
+            ]
+          },
+          "2": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.3517089225590164,
+            "condition_number": 1.2880106074924955,
+            "matrix": [
+              [
+                {
+                  "re": -0.11590771690808732,
+                  "im": -0.28723032267428744
+                },
+                {
+                  "re": 0.20091821026367593,
+                  "im": 0.7632401256545519
+                }
+              ],
+              [
+                {
+                  "re": -0.44146236083436474,
+                  "im": -0.7247504016253259
+                },
+                {
+                  "re": 0.0839575769621167,
+                  "im": -0.3731381890853051
+                }
+              ]
+            ]
+          },
+          "3": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.38256327903093645,
+            "condition_number": 1.4441425762262667,
+            "matrix": [
+              [
+                {
+                  "re": -0.3998249924380383,
+                  "im": -0.19770101851866886
+                },
+                {
+                  "re": 0.6735097106085388,
+                  "im": -0.31365079722414935
+                }
+              ],
+              [
+                {
+                  "re": 0.7202481617320153,
+                  "im": -0.24123637220411864
+                },
+                {
+                  "re": 0.3497161518255045,
+                  "im": -0.13880535864102372
+                }
+              ]
+            ]
+          },
+          "4": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.4569690575593666,
+            "condition_number": 1.1896107174681674,
+            "matrix": [
+              [
+                {
+                  "re": 0.2829033899147479,
+                  "im": 0.14247561499305808
+                },
+                {
+                  "re": -0.6107660103820548,
+                  "im": -0.3515821664621934
+                }
+              ],
+              [
+                {
+                  "re": -0.596986336409783,
+                  "im": -0.3823565612503078
+                },
+                {
+                  "re": -0.30308001170518045,
+                  "im": -0.04800648451418854
+                }
+              ]
+            ]
+          }
+        },
+        "7.985500GHz": {
+          "1": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.3376172208098144,
+            "condition_number": 1.4124595543868088,
+            "matrix": [
+              [
+                {
+                  "re": -0.009876100582942023,
+                  "im": -0.5931672211527854
+                },
+                {
+                  "re": -0.6744781091456384,
+                  "im": 0.4716263793041442
+                }
+              ],
+              [
+                {
+                  "re": 0.40177837705463415,
+                  "im": -0.5749339858246779
+                },
+                {
+                  "re": 0.34094167463750474,
+                  "im": -0.15772720978701116
+                }
+              ]
+            ]
+          },
+          "2": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.35742895056671514,
+            "condition_number": 1.244376089581638,
+            "matrix": [
+              [
+                {
+                  "re": -0.09701949162411147,
+                  "im": -0.33405687599125944
+                },
+                {
+                  "re": -0.08823469777592842,
+                  "im": 0.7582616575428687
+                }
+              ],
+              [
+                {
+                  "re": -0.20156999698749622,
+                  "im": -0.784649637698452
+                },
+                {
+                  "re": 0.2516913799749192,
+                  "im": -0.3490260573601378
+                }
+              ]
+            ]
+          },
+          "3": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.39449770860206784,
+            "condition_number": 1.3967330184388274,
+            "matrix": [
+              [
+                {
+                  "re": -0.2878150442644443,
+                  "im": -0.32117528463790385
+                },
+                {
+                  "re": 0.733557951306316,
+                  "im": -0.012816304909420978
+                }
+              ],
+              [
+                {
+                  "re": 0.7511288169861419,
+                  "im": 0.018224107317826865
+                },
+                {
+                  "re": 0.35212480946100466,
+                  "im": -0.022429928397672827
+                }
+              ]
+            ]
+          },
+          "4": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.48507620018488085,
+            "condition_number": 1.191678281849162,
+            "matrix": [
+              [
+                {
+                  "re": 0.17194285450303023,
+                  "im": 0.26253400924408526
+                },
+                {
+                  "re": -0.3902116566735093,
+                  "im": -0.5317113346321641
+                }
+              ],
+              [
+                {
+                  "re": -0.3952322808697565,
+                  "im": -0.5529256004858788
+                },
+                {
+                  "re": -0.2551794074484665,
+                  "im": -0.12180606845958092
+                }
+              ]
+            ]
+          }
+        },
+        "8.233000GHz": {
+          "1": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.35278616387362144,
+            "condition_number": 1.3727672105619637,
+            "matrix": [
+              [
+                {
+                  "re": 0.12380440504532791,
+                  "im": -0.552200251161688
+                },
+                {
+                  "re": -0.8090516616886554,
+                  "im": 0.21042435784055594
+                }
+              ],
+              [
+                {
+                  "re": 0.5357689730056615,
+                  "im": -0.41567271349735746
+                },
+                {
+                  "re": 0.3496346734597757,
+                  "im": 0.06931881976639323
+                }
+              ]
+            ]
+          },
+          "2": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.35669764683933336,
+            "condition_number": 1.1984620259101293,
+            "matrix": [
+              [
+                {
+                  "re": -0.03738708839708351,
+                  "im": -0.3473817981597051
+                },
+                {
+                  "re": -0.3834475043927883,
+                  "im": 0.6611024817381623
+                }
+              ],
+              [
+                {
+                  "re": 0.05076454621001503,
+                  "im": -0.7809372679064222
+                },
+                {
+                  "re": 0.38695051729470953,
+                  "im": -0.22906895916086378
+                }
+              ]
+            ]
+          },
+          "3": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.40123264812282367,
+            "condition_number": 1.2814536270780355,
+            "matrix": [
+              [
+                {
+                  "re": -0.16128993769678993,
+                  "im": -0.42842184743919304
+                },
+                {
+                  "re": 0.655419180958706,
+                  "im": 0.28489068281521884
+                }
+              ],
+              [
+                {
+                  "re": 0.6713503861773025,
+                  "im": 0.27737097339739647
+                },
+                {
+                  "re": 0.3438777401972196,
+                  "im": 0.025844695186486077
+                }
+              ]
+            ]
+          },
+          "4": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.502481206996849,
+            "condition_number": 1.2395265725218727,
+            "matrix": [
+              [
+                {
+                  "re": 0.05567322884134516,
+                  "im": 0.3342959972201702
+                },
+                {
+                  "re": -0.1854493907118744,
+                  "im": -0.5726111809115242
+                }
+              ],
+              [
+                {
+                  "re": -0.1855784157357835,
+                  "im": -0.6508074420224272
+                },
+                {
+                  "re": -0.17882274841199303,
+                  "im": -0.1768066412547919
+                }
+              ]
+            ]
+          }
+        }
+      },
+      "xy_mag_imbalance_mean_abs_db": 3.407504251182371,
+      "xy_mag_imbalance_rms_db": 5.084076199214481,
+      "xy_mag_imbalance_max_abs_db": 44.494017734312465,
+      "xy_phase_spread_mean_abs_deg": 64.6610533992385,
+      "xy_phase_spread_rms_deg": 74.76925203522066,
+      "xy_phase_spread_max_abs_deg": 179.96265847221025,
+      "pattern_symmetry_sample_count": 33288,
+      "pattern_symmetry_mean_abs_db": 10.434117565895951,
+      "pattern_symmetry_rms_db": 11.561004601013277,
+      "pattern_symmetry_max_abs_db": 42.95531760417445,
+      "phase_center_sample_count": 21024,
+      "phase_center_raw_rms_deg": 138.51588578833486,
+      "phase_center_raw_p95_deg": 272.8976653286402,
+      "phase_center_calibrated_rms_deg": 129.71753339279115,
+      "phase_center_calibrated_p95_deg": 258.4168993195642,
+      "phase_center_calibrated_max_abs_deg": 618.5176704970129,
+      "phase_center_delta_mag_mean_mm": 10.733823127221244,
+      "phase_center_delta_mag_max_mm": 24.477434435373358,
+      "sparam_score": 46.01815104803816,
+      "full_score": 216.5930934317819,
+      "meets_s": false,
+      "meets_balance": false,
+      "meets_calibrated_pdoa": false,
+      "meets_pattern_symmetry": false,
+      "meets_phase_center": false,
+      "meets_all": false
+    }
+  ],
+  "best": {
+    "candidate": "stack_drive9p15_par9p75_gap1p20",
+    "stacked_enabled": true,
+    "elapsed_s": 118.744145154953,
+    "rationale": "缩小下层驱动贴片、保持中等寄生贴片，弱化下层边馈加载。",
+    "parameters": {
+      "patch_side_mm": 9.15,
+      "corner_cut_mm": 0.0,
+      "feed_offset_u_mm": 3.4,
+      "feed_offset_v_mm": 0.0,
+      "feed_pad_radius_mm": 0.28,
+      "port_width_mm": 0.5,
+      "microstrip_feed_enabled": 1.0,
+      "microstrip_feed_offset_mm": 0.0,
+      "microstrip_feedline_length_mm": 1.78,
+      "microstrip_feedline_width_mm": 0.58,
+      "microstrip_match_length_mm": 0.48,
+      "microstrip_match_width_mm": 0.34,
+      "microstrip_transform2_length_mm": 0.55,
+      "microstrip_transform2_width_mm": 0.5,
+      "microstrip_stub_length_mm": 0.0,
+      "microstrip_stub_width_mm": 0.24,
+      "microstrip_stub_offset_mm": 0.6,
+      "microstrip_feed_mirror_enabled": 1.0,
+      "neutralization_branch_enabled": 0.0,
+      "neutralization_branch_length_mm": 0.85,
+      "neutralization_branch_width_mm": 0.12,
+      "neutralization_branch_offset_mm": 0.65,
+      "local_dgs_enabled": 0.0,
+      "local_dgs_length_mm": 3.6,
+      "local_dgs_width_mm": 0.18,
+      "local_dgs_offset_mm": 0.75,
+      "dualpol_parasitic_enabled": 1.0,
+      "parasitic_side_mm": 9.75,
+      "parasitic_corner_cut_mm": 0.0,
+      "parasitic_rotation_deg": 0.0,
+      "parasitic_offset_u_mm": 0.0,
+      "parasitic_offset_v_mm": 0.0,
+      "air_gap_mm": 1.2,
+      "weak_coupling_open_line_enabled": 0.0,
+      "via_fence_enabled": 0.0,
+      "isolation_slot_enabled": 1.0,
+      "isolation_slot_length_mm": 10.0,
+      "isolation_slot_width_mm": 0.42,
+      "isolation_slot_inner_mm": 3.2
+    },
+    "worst_return_db": -6.3806319695856315,
+    "isolation_db": 10.386763746619668,
+    "x_return_worst_db": -6.818127897398431,
+    "y_return_worst_db": -6.3806319695856315,
+    "xy_return_balance_db": 0.4374959278127992,
+    "same_element_xy_isolation_db": 10.386763746619668,
+    "same_feed_inter_element_isolation_db": 14.481868129108811,
+    "dualpol_vector_avg_rms_bias_deg": 88.39827358035055,
+    "dualpol_vector_p95_rms_bias_deg": 152.50169864928142,
+    "dualpol_vector_max_abs_bias_deg": 179.99566113979733,
+    "calibrated_avg_rms_bias_deg": 52.06470624725422,
+    "calibrated_p95_rms_bias_deg": 82.28742662366925,
+    "calibrated_max_abs_bias_deg": 179.93784427819213,
+    "calibrated_avg_valid_percent": 100.0,
+    "calibration_quality": {
+      "7.738000GHz": {
+        "1": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.3261833918279808,
+          "condition_number": 1.3984386488654152,
+          "matrix": [
+            [
+              {
+                "re": -0.04988197027480822,
+                "im": -0.5876113246914929
+              },
+              {
+                "re": -0.565092221969608,
+                "im": 0.5744606904797657
+              }
+            ],
+            [
+              {
+                "re": 0.3288313341045177,
+                "im": -0.6251465587291196
+              },
+              {
+                "re": 0.2989668918373696,
+                "im": -0.2818816756555928
+              }
+            ]
+          ]
+        },
+        "2": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.36595598592800466,
+          "condition_number": 1.3088057591282272,
+          "matrix": [
+            [
+              {
+                "re": -0.0885332073316406,
+                "im": -0.2855164685617346
+              },
+              {
+                "re": 0.027580042453860004,
+                "im": 0.7674439559764235
+              }
+            ],
+            [
+              {
+                "re": -0.30278919560839457,
+                "im": -0.7832621752549928
+              },
+              {
+                "re": 0.19671874597361624,
+                "im": -0.3609509910617022
+              }
+            ]
+          ]
+        },
+        "3": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.39087585690763976,
+          "condition_number": 1.4979455293393178,
+          "matrix": [
+            [
+              {
+                "re": -0.3503422313857754,
+                "im": -0.25004880603446306
+              },
+              {
+                "re": 0.7260603599331341,
+                "im": -0.17655488193241187
+              }
+            ],
+            [
+              {
+                "re": 0.7673471190208597,
+                "im": -0.10930023891338325
+              },
+              {
+                "re": 0.350562711560197,
+                "im": -0.015591819846958233
+              }
+            ]
+          ]
+        },
+        "4": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.45563114362805923,
+          "condition_number": 1.205772315377671,
+          "matrix": [
+            [
+              {
+                "re": 0.26080149367250427,
+                "im": 0.22843674948356862
+              },
+              {
+                "re": -0.4804492529696266,
+                "im": -0.5050409914667182
+              }
+            ],
+            [
+              {
+                "re": -0.4961131975456548,
+                "im": -0.5006151595165782
+              },
+              {
+                "re": -0.2887313059167647,
+                "im": -0.12524364657237802
+              }
+            ]
+          ]
+        }
+      },
+      "7.985500GHz": {
+        "1": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.33676983149056683,
+          "condition_number": 1.4013468812033516,
+          "matrix": [
+            [
+              {
+                "re": 0.09044809069020658,
+                "im": -0.5602626120171085
+              },
+              {
+                "re": -0.7702766625472729,
+                "im": 0.31493284670357774
+              }
+            ],
+            [
+              {
+                "re": 0.4894826014848671,
+                "im": -0.5186352585691705
+              },
+              {
+                "re": 0.3494172463608638,
+                "im": -0.09341474706912473
+              }
+            ]
+          ]
+        },
+        "2": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.37057505821346776,
+          "condition_number": 1.2824628375247462,
+          "matrix": [
+            [
+              {
+                "re": -0.048259428333121086,
+                "im": -0.3263262903718265
+              },
+              {
+                "re": -0.2308102503616395,
+                "im": 0.7112527596381695
+              }
+            ],
+            [
+              {
+                "re": -0.06680411538833997,
+                "im": -0.7970715348319765
+              },
+              {
+                "re": 0.3438819453024137,
+                "im": -0.3045101171993335
+              }
+            ]
+          ]
+        },
+        "3": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.39951614922955075,
+          "condition_number": 1.4218196509994931,
+          "matrix": [
+            [
+              {
+                "re": -0.24448175202245612,
+                "im": -0.3611202324670726
+              },
+              {
+                "re": 0.7128138182182727,
+                "im": 0.11928952358572373
+              }
+            ],
+            [
+              {
+                "re": 0.7533001675121576,
+                "im": 0.13330639085826212
+              },
+              {
+                "re": 0.3329129547577574,
+                "im": 0.05402457711997363
+              }
+            ]
+          ]
+        },
+        "4": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.48458238528707326,
+          "condition_number": 1.2202356764139604,
+          "matrix": [
+            [
+              {
+                "re": 0.1401943602240264,
+                "im": 0.3113750884075713
+              },
+              {
+                "re": -0.23940030405067214,
+                "im": -0.6054357073944514
+              }
+            ],
+            [
+              {
+                "re": -0.2825702103518051,
+                "im": -0.6211551555895569
+              },
+              {
+                "re": -0.2067567427235698,
+                "im": -0.18648188026359955
+              }
+            ]
+          ]
+        }
+      },
+      "8.233000GHz": {
+        "1": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.3493980628890222,
+          "condition_number": 1.3304713866114917,
+          "matrix": [
+            [
+              {
+                "re": 0.2029237362406583,
+                "im": -0.4895755158737491
+              },
+              {
+                "re": -0.8278331904112575,
+                "im": 0.06395428181500358
+              }
+            ],
+            [
+              {
+                "re": 0.6063893331542725,
+                "im": -0.36185426559300227
+              },
+              {
+                "re": 0.32968756328793264,
+                "im": 0.09129816148500053
+              }
+            ]
+          ]
+        },
+        "2": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.3645741879801613,
+          "condition_number": 1.2468450707203358,
+          "matrix": [
+            [
+              {
+                "re": 0.021086102854405795,
+                "im": -0.330016551163587
+              },
+              {
+                "re": -0.4577726429352677,
+                "im": 0.5983187879840592
+              }
+            ],
+            [
+              {
+                "re": 0.16358802065279843,
+                "im": -0.7683266235091746
+              },
+              {
+                "re": 0.4298379958636821,
+                "im": -0.18611318074940741
+              }
+            ]
+          ]
+        },
+        "3": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.40219238026953685,
+          "condition_number": 1.293398155500241,
+          "matrix": [
+            [
+              {
+                "re": -0.1303661952554269,
+                "im": -0.43762622629002207
+              },
+              {
+                "re": 0.6041913981299974,
+                "im": 0.3531751278933473
+              }
+            ],
+            [
+              {
+                "re": 0.6547378062984209,
+                "im": 0.35280456166054863
+              },
+              {
+                "re": 0.3285193383917876,
+                "im": 0.07613369503523301
+              }
+            ]
+          ]
+        },
+        "4": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.4953871468889376,
+          "condition_number": 1.255861246689982,
+          "matrix": [
+            [
+              {
+                "re": 0.03824445418138955,
+                "im": 0.35451442789058374
+              },
+              {
+                "re": -0.07772534227037309,
+                "im": -0.6043194153248282
+              }
+            ],
+            [
+              {
+                "re": -0.10292527722276756,
+                "im": -0.6804952036586969
+              },
+              {
+                "re": -0.11864924684145906,
+                "im": -0.2162873522011663
+              }
+            ]
+          ]
+        }
+      }
+    },
+    "xy_mag_imbalance_mean_abs_db": 3.533832379900277,
+    "xy_mag_imbalance_rms_db": 5.3007896946884046,
+    "xy_mag_imbalance_max_abs_db": 37.283487650198516,
+    "xy_phase_spread_mean_abs_deg": 64.21082034722032,
+    "xy_phase_spread_rms_deg": 74.70382774550119,
+    "xy_phase_spread_max_abs_deg": 179.977794538329,
+    "pattern_symmetry_sample_count": 33288,
+    "pattern_symmetry_mean_abs_db": 10.602387186569525,
+    "pattern_symmetry_rms_db": 11.682906029979664,
+    "pattern_symmetry_max_abs_db": 33.98927440189889,
+    "phase_center_sample_count": 21024,
+    "phase_center_raw_rms_deg": 132.82378900745778,
+    "phase_center_raw_p95_deg": 254.43842657896158,
+    "phase_center_calibrated_rms_deg": 124.23959427669823,
+    "phase_center_calibrated_p95_deg": 243.55190954529186,
+    "phase_center_calibrated_max_abs_deg": 544.2837478550548,
+    "phase_center_delta_mag_mean_mm": 10.265839116575332,
+    "phase_center_delta_mag_max_mm": 16.743465680800796,
+    "sparam_score": 54.057389251998984,
+    "full_score": 222.39179270859103,
+    "meets_s": false,
+    "meets_balance": false,
+    "meets_calibrated_pdoa": false,
+    "meets_pattern_symmetry": false,
+    "meets_phase_center": false,
+    "meets_all": false
+  },
+  "files": {
+    "sparam_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_stacked_calibration_opt\\UWB_CH9_D44_DUALPOL_STACKED_CAL_sparam_screening.csv",
+    "full_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_stacked_calibration_opt\\UWB_CH9_D44_DUALPOL_STACKED_CAL_full_validation.csv",
+    "best_curves_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_stacked_calibration_opt\\UWB_CH9_D44_DUALPOL_STACKED_CAL_best_curves.csv",
+    "best_summary_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_stacked_calibration_opt\\UWB_CH9_D44_DUALPOL_STACKED_CAL_best_summary.csv",
+    "best_calibrated_curves_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_stacked_calibration_opt\\UWB_CH9_D44_DUALPOL_STACKED_CAL_best_calibrated_curves.csv",
+    "best_calibrated_summary_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_stacked_calibration_opt\\UWB_CH9_D44_DUALPOL_STACKED_CAL_best_calibrated_summary.csv",
+    "best_phase_center_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_stacked_calibration_opt\\UWB_CH9_D44_DUALPOL_STACKED_CAL_best_phase_center.csv",
+    "best_json": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_stacked_calibration_opt\\UWB_CH9_D44_DUALPOL_STACKED_CAL_best.json",
+    "report_md": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_stacked_calibration_opt\\UWB_CH9_D44_DUALPOL_STACKED_CAL_optimization_report.md"
+  }
+}
