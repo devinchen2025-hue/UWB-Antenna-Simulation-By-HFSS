@@ -72,6 +72,19 @@ BASE_PARAMS = {
     "parasitic_offset_u_mm": 0.0,
     "parasitic_offset_v_mm": 0.0,
     "air_gap_mm": 0.0,
+    "dualpol_slotcoupled_enabled": 0.0,
+    "feed_substrate_h_mm": 0.254,
+    "slot_coupled_aperture_length_a_mm": 3.6,
+    "slot_coupled_aperture_length_b_mm": 3.6,
+    "slot_coupled_aperture_width_mm": 0.45,
+    "slot_coupled_offset_a_mm": 0.0,
+    "slot_coupled_offset_b_mm": 0.0,
+    "slot_coupled_aperture_center_a_v_mm": 0.0,
+    "slot_coupled_aperture_center_b_u_mm": 0.0,
+    "slot_coupled_feedline_length_mm": 10.0,
+    "slot_coupled_feedline_width_mm": 0.60,
+    "slot_coupled_feedline_offset_a_v_mm": 0.0,
+    "slot_coupled_feedline_offset_b_u_mm": 0.0,
     "isolation_slot_enabled": 1.0,
     "isolation_slot_length_mm": 11.0,
     "isolation_slot_width_mm": 0.45,
@@ -196,6 +209,19 @@ TOPOLOGIES = {
             "parasitic_offset_u_mm": 0.0,
             "parasitic_offset_v_mm": 0.0,
             "air_gap_mm": 1.20,
+            "dualpol_slotcoupled_enabled": 0.0,
+            "feed_substrate_h_mm": 0.254,
+            "slot_coupled_aperture_length_a_mm": 3.6,
+            "slot_coupled_aperture_length_b_mm": 3.6,
+            "slot_coupled_aperture_width_mm": 0.45,
+            "slot_coupled_offset_a_mm": 0.0,
+            "slot_coupled_offset_b_mm": 0.0,
+            "slot_coupled_aperture_center_a_v_mm": 0.0,
+            "slot_coupled_aperture_center_b_u_mm": 0.0,
+            "slot_coupled_feedline_length_mm": 10.0,
+            "slot_coupled_feedline_width_mm": 0.60,
+            "slot_coupled_feedline_offset_a_v_mm": 0.0,
+            "slot_coupled_feedline_offset_b_u_mm": 0.0,
             "weak_coupling_open_line_enabled": 0.0,
             "via_fence_enabled": 0.0,
             "isolation_slot_enabled": 1.0,
@@ -262,6 +288,10 @@ def has_stacked_parasitic(params: dict) -> bool:
     return True
 
 
+def has_dualpol_slotcoupled(params: dict) -> bool:
+    return params.get("dualpol_slotcoupled_enabled", 0.0) >= 0.5
+
+
 def topology_params(topology: str) -> dict:
     params = dict(BASE_PARAMS)
     params.update(TOPOLOGIES[topology].get("params", {}))
@@ -324,6 +354,7 @@ def add_lumped_feed(
     bottom_z: float,
     params: dict,
     pad: bool = True,
+    port_width_axis: str = "v",
 ) -> list[str]:
     cx, cy = center
     feed = local_to_global(cx, cy, angle_deg, feed_u, feed_v, top_z)
@@ -340,10 +371,16 @@ def add_lumped_feed(
         )
         metals.append(pad_obj.name)
     half_w = params["port_width_mm"] / 2.0
-    p0 = local_to_global(cx, cy, angle_deg, feed_u, feed_v - half_w, bottom_z)
-    p1 = local_to_global(cx, cy, angle_deg, feed_u, feed_v + half_w, bottom_z)
-    p2 = local_to_global(cx, cy, angle_deg, feed_u, feed_v + half_w, top_z)
-    p3 = local_to_global(cx, cy, angle_deg, feed_u, feed_v - half_w, top_z)
+    if port_width_axis == "u":
+        p0 = local_to_global(cx, cy, angle_deg, feed_u - half_w, feed_v, bottom_z)
+        p1 = local_to_global(cx, cy, angle_deg, feed_u + half_w, feed_v, bottom_z)
+        p2 = local_to_global(cx, cy, angle_deg, feed_u + half_w, feed_v, top_z)
+        p3 = local_to_global(cx, cy, angle_deg, feed_u - half_w, feed_v, top_z)
+    else:
+        p0 = local_to_global(cx, cy, angle_deg, feed_u, feed_v - half_w, bottom_z)
+        p1 = local_to_global(cx, cy, angle_deg, feed_u, feed_v + half_w, bottom_z)
+        p2 = local_to_global(cx, cy, angle_deg, feed_u, feed_v + half_w, top_z)
+        p3 = local_to_global(cx, cy, angle_deg, feed_u, feed_v - half_w, top_z)
     port_sheet = polygon_sheet(hfss, f"{name}_lumped_port_sheet", [p0, p1, p2, p3], None)
     hfss.lumped_port(
         port_sheet.name,
@@ -589,6 +626,34 @@ def add_via_fence(hfss: Hfss, tag: str, center: tuple[float, float], angle_deg: 
             )
 
 
+def add_dualpol_parasitic_patch(hfss: Hfss, tag: str, center: tuple[float, float], angle: float, params: dict) -> list[str]:
+    if not has_stacked_parasitic(params):
+        return []
+    h = params["substrate_h_mm"]
+    parasitic_z = h + params.get("air_gap_mm", 0.0)
+    parasitic_offset = local_to_global(
+        center[0],
+        center[1],
+        angle,
+        params.get("parasitic_offset_u_mm", 0.0),
+        params.get("parasitic_offset_v_mm", 0.0),
+        parasitic_z,
+    )
+    parasitic = polygon_sheet(
+        hfss,
+        f"{tag}_dualpol_stacked_parasitic_patch",
+        patch_points(
+            parasitic_offset[0],
+            parasitic_offset[1],
+            angle + params.get("parasitic_rotation_deg", 0.0),
+            params["parasitic_side_mm"],
+            params.get("parasitic_corner_cut_mm", 0.0),
+            parasitic_z,
+        ),
+    )
+    return [parasitic.name]
+
+
 def add_dualfeed_element(hfss: Hfss, tag: str, center: tuple[float, float], angle: float, params: dict, hybrid_traces: bool = False) -> list[str]:
     metals = []
     h = params["substrate_h_mm"]
@@ -598,29 +663,7 @@ def add_dualfeed_element(hfss: Hfss, tag: str, center: tuple[float, float], angl
         patch_points(*center, angle, params["patch_side_mm"], 0.0, h),
     )
     metals.append(patch.name)
-    if has_stacked_parasitic(params):
-        parasitic_z = h + params.get("air_gap_mm", 0.0)
-        parasitic_offset = local_to_global(
-            center[0],
-            center[1],
-            angle,
-            params.get("parasitic_offset_u_mm", 0.0),
-            params.get("parasitic_offset_v_mm", 0.0),
-            parasitic_z,
-        )
-        parasitic = polygon_sheet(
-            hfss,
-            f"{tag}_dualpol_stacked_parasitic_patch",
-            patch_points(
-                parasitic_offset[0],
-                parasitic_offset[1],
-                angle + params.get("parasitic_rotation_deg", 0.0),
-                params["parasitic_side_mm"],
-                params.get("parasitic_corner_cut_mm", 0.0),
-                parasitic_z,
-            ),
-        )
-        metals.append(parasitic.name)
+    metals.extend(add_dualpol_parasitic_patch(hfss, tag, center, angle, params))
     f_a = params.get("feed_offset_a_mm", params["feed_offset_u_mm"])
     f_b = params.get("feed_offset_b_mm", params["feed_offset_u_mm"])
     if params.get("microstrip_feed_enabled", 0.0) >= 0.5:
@@ -648,6 +691,79 @@ def add_dualfeed_element(hfss: Hfss, tag: str, center: tuple[float, float], angl
             trace = polygon_sheet(hfss, f"{tag}_hybrid_{suffix}", rectangle_points(*center, angle, u0, u1, v0, v1, h), "copper")
             metals.append(trace.name)
     return metals
+
+
+def add_dualpol_slotcoupled_element(hfss: Hfss, tag: str, center: tuple[float, float], angle: float, params: dict) -> tuple[list[str], list[str]]:
+    metals = []
+    slots = []
+    h = params["substrate_h_mm"]
+    feed_z = -params.get("feed_substrate_h_mm", 0.254)
+    patch = polygon_sheet(
+        hfss,
+        f"{tag}_dualpol_slotcoupled_patch",
+        patch_points(*center, angle, params["patch_side_mm"], 0.0, h),
+    )
+    metals.append(patch.name)
+    metals.extend(add_dualpol_parasitic_patch(hfss, tag, center, angle, params))
+
+    aperture_w = params["slot_coupled_aperture_width_mm"]
+    aperture_a_u = params.get("slot_coupled_offset_a_mm", 0.0)
+    aperture_a_v = params.get("slot_coupled_aperture_center_a_v_mm", 0.0)
+    aperture_b_u = params.get("slot_coupled_aperture_center_b_u_mm", 0.0)
+    aperture_b_v = params.get("slot_coupled_offset_b_mm", 0.0)
+    aperture_a = polygon_sheet(
+        hfss,
+        f"{tag}_slotcoupled_a_aperture",
+        rectangle_points(
+            *center,
+            angle,
+            aperture_a_u - aperture_w / 2.0,
+            aperture_a_u + aperture_w / 2.0,
+            aperture_a_v - params["slot_coupled_aperture_length_a_mm"] / 2.0,
+            aperture_a_v + params["slot_coupled_aperture_length_a_mm"] / 2.0,
+            0.0,
+        ),
+        "vacuum",
+    )
+    aperture_b = polygon_sheet(
+        hfss,
+        f"{tag}_slotcoupled_b_aperture",
+        rectangle_points(
+            *center,
+            angle,
+            aperture_b_u - params["slot_coupled_aperture_length_b_mm"] / 2.0,
+            aperture_b_u + params["slot_coupled_aperture_length_b_mm"] / 2.0,
+            aperture_b_v - aperture_w / 2.0,
+            aperture_b_v + aperture_w / 2.0,
+            0.0,
+        ),
+        "vacuum",
+    )
+    slots.extend([aperture_a.name, aperture_b.name])
+
+    half_l = params["slot_coupled_feedline_length_mm"] / 2.0
+    half_w = params["slot_coupled_feedline_width_mm"] / 2.0
+    feedline_a_v = params.get("slot_coupled_feedline_offset_a_v_mm", 0.0)
+    feedline_b_u = params.get("slot_coupled_feedline_offset_b_u_mm", 0.0)
+    u_side_sign = mirrored_feed_side_sign(center, "u", params)
+    v_side_sign = mirrored_feed_side_sign(center, "v", params)
+
+    line_a = polygon_sheet(
+        hfss,
+        f"{tag}_slotcoupled_a_underside_feedline",
+        rectangle_points(*center, angle, -half_l, half_l, feedline_a_v - half_w, feedline_a_v + half_w, feed_z),
+        "copper",
+    )
+    line_b = polygon_sheet(
+        hfss,
+        f"{tag}_slotcoupled_b_underside_feedline",
+        rectangle_points(*center, angle, feedline_b_u - half_w, feedline_b_u + half_w, -half_l, half_l, feed_z),
+        "copper",
+    )
+    metals.extend([line_a.name, line_b.name])
+    metals += add_lumped_feed(hfss, f"P{tag[-1]}A", center, angle, u_side_sign * half_l, feedline_a_v, 0.0, feed_z, params, pad=False)
+    metals += add_lumped_feed(hfss, f"P{tag[-1]}B", center, angle, feedline_b_u, v_side_sign * half_l, 0.0, feed_z, params, pad=False, port_width_axis="u")
+    return metals, slots
 
 
 def add_singlefeed_element(hfss: Hfss, tag: str, center: tuple[float, float], angle: float, params: dict, stacked: bool = False) -> list[str]:
@@ -700,10 +816,13 @@ def add_slotcoupled_element(hfss: Hfss, tag: str, center: tuple[float, float], a
 
 def validate_params(params: dict) -> None:
     stacked_parasitic = has_stacked_parasitic(params)
+    slotcoupled = has_dualpol_slotcoupled(params)
     top_height = params["substrate_h_mm"] + 2.0 * params["copper_t_mm"]
     if stacked_parasitic:
         top_height += params.get("air_gap_mm", 0.0)
         top_height += params["copper_t_mm"]
+    if slotcoupled:
+        top_height += params.get("feed_substrate_h_mm", 0.254) + params["copper_t_mm"]
     if params.get("weak_coupling_open_line_enabled", 0.0) >= 0.5:
         top_height = max(
             top_height,
@@ -718,6 +837,33 @@ def validate_params(params: dict) -> None:
     max_side = max(params["patch_side_mm"], params.get("parasitic_side_mm", params["patch_side_mm"]) if stacked_parasitic else params["patch_side_mm"])
     if center_radius + max_side / math.sqrt(2.0) > board_radius - 0.25:
         raise ValueError("Patch corner too close to board edge")
+    if slotcoupled:
+        feed_h = params.get("feed_substrate_h_mm", 0.254)
+        aperture_len_a = params.get("slot_coupled_aperture_length_a_mm", 0.0)
+        aperture_len_b = params.get("slot_coupled_aperture_length_b_mm", 0.0)
+        aperture_w = params.get("slot_coupled_aperture_width_mm", 0.0)
+        feed_len = params.get("slot_coupled_feedline_length_mm", 0.0)
+        feed_w = params.get("slot_coupled_feedline_width_mm", 0.0)
+        aperture_a_u = params.get("slot_coupled_offset_a_mm", 0.0)
+        aperture_a_v = params.get("slot_coupled_aperture_center_a_v_mm", 0.0)
+        aperture_b_u = params.get("slot_coupled_aperture_center_b_u_mm", 0.0)
+        aperture_b_v = params.get("slot_coupled_offset_b_mm", 0.0)
+        feedline_a_v = params.get("slot_coupled_feedline_offset_a_v_mm", 0.0)
+        feedline_b_u = params.get("slot_coupled_feedline_offset_b_u_mm", 0.0)
+        if feed_h <= 0.0 or aperture_len_a <= 0.0 or aperture_len_b <= 0.0 or aperture_w <= 0.0 or feed_len <= 0.0 or feed_w <= 0.0:
+            raise ValueError("Dual-polarized slot-coupled feed dimensions must be positive")
+        half_patch = params["patch_side_mm"] / 2.0
+        aperture_extent = max(
+            abs(aperture_a_u) + aperture_w / 2.0,
+            abs(aperture_a_v) + aperture_len_a / 2.0,
+            abs(aperture_b_u) + aperture_len_b / 2.0,
+            abs(aperture_b_v) + aperture_w / 2.0,
+        )
+        if aperture_extent > half_patch - 0.25:
+            raise ValueError("Dual-polarized slot apertures must stay below the patch aperture")
+        feedline_extent = feed_len / 2.0 + max(abs(feedline_a_v), abs(feedline_b_u)) + feed_w
+        if center_radius + feedline_extent > board_radius - 0.25:
+            raise ValueError("Dual-polarized underside feedline too close to board edge")
     if params.get("weak_coupling_open_line_enabled", 0.0) >= 0.5:
         line_len = params.get("weak_coupling_open_line_length_mm", 0.0)
         line_w = params.get("weak_coupling_open_line_width_mm", 0.0)
@@ -840,6 +986,18 @@ def build_project(
     center_radius = params["element_spacing_mm"] / math.sqrt(2.0)
     substrate = hfss.modeler.create_cylinder("Z", [0, 0, 0], board_radius, h, num_sides=128, name=f"{spec['label']}_substrate", material=substrate_material)
     substrate.transparency = 0.65
+    if has_dualpol_slotcoupled(params):
+        feed_h = params.get("feed_substrate_h_mm", 0.254)
+        feed_substrate = hfss.modeler.create_cylinder(
+            "Z",
+            [0, 0, -feed_h],
+            board_radius,
+            feed_h,
+            num_sides=128,
+            name=f"{spec['label']}_feed_substrate",
+            material=substrate_material,
+        )
+        feed_substrate.transparency = 0.72
     ground = hfss.modeler.create_circle("XY", [0, 0, 0], params["ground_radius_mm"], num_sides=128, name=f"{spec['label']}_bottom_ground", material="copper")
     metal_names = [ground.name]
     slot_names = add_isolation_slot_sheets(hfss, params)
@@ -855,7 +1013,12 @@ def build_project(
         elif kind == "hybrid":
             metal_names.extend(add_dualfeed_element(hfss, tag, (cx, cy), angle, params, hybrid_traces=True))
         elif kind == "dualpol":
-            metal_names.extend(add_dualfeed_element(hfss, tag, (cx, cy), 0.0, params))
+            if has_dualpol_slotcoupled(params):
+                metals, slots = add_dualpol_slotcoupled_element(hfss, tag, (cx, cy), 0.0, params)
+                metal_names.extend(metals)
+                slot_names.extend(slots)
+            else:
+                metal_names.extend(add_dualfeed_element(hfss, tag, (cx, cy), 0.0, params))
         elif kind == "slotcoupled":
             metals, slots = add_slotcoupled_element(hfss, tag, (cx, cy), angle, params)
             metal_names.extend(metals)
@@ -937,6 +1100,8 @@ def build_project(
     if has_stacked_parasitic(params):
         total_height += params.get("air_gap_mm", 0.0)
         total_height += params["copper_t_mm"]
+    if has_dualpol_slotcoupled(params):
+        total_height += params.get("feed_substrate_h_mm", 0.254) + params["copper_t_mm"]
     if params.get("weak_coupling_open_line_enabled", 0.0) >= 0.5:
         total_height = max(
             total_height,
@@ -985,6 +1150,8 @@ def source_guidance(topology: str) -> list[str]:
             guidance.append("Same-element X/Y neutralization branches are enabled and should be co-tuned with receiver calibration.")
         if params.get("dualpol_parasitic_enabled", 0.0) >= 0.5:
             guidance.append("A stacked parasitic patch is enabled above each dual-polarized driven patch to decouple feed layout from the radiating aperture.")
+        if params.get("dualpol_slotcoupled_enabled", 0.0) >= 0.5:
+            guidance.append("A/B ports use underside microstrip feedlines coupled through orthogonal ground apertures; tune aperture windows and feed substrate thickness together.")
         return guidance
     if topology in {"dualfeed", "hybrid"}:
         guidance = [

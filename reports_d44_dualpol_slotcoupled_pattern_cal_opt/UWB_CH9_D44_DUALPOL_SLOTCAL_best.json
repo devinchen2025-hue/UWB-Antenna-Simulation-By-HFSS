@@ -1,0 +1,1561 @@
+{
+  "targets": {
+    "return_target_db": -10.0,
+    "xy_isolation_target_db": 15.0,
+    "same_feed_isolation_target_db": 16.0,
+    "return_balance_target_db": 0.5,
+    "xy_mag_balance_target_db": 2.0,
+    "xy_phase_spread_target_deg": 30.0,
+    "pdoa_rms_target_deg": 10.0,
+    "pdoa_max_target_deg": 20.0,
+    "pattern_symmetry_target_db": 3.0,
+    "phase_center_rms_target_deg": 20.0
+  },
+  "candidate_count": 10,
+  "sparam_top": [
+    {
+      "index": "1",
+      "candidate": "stacked_reference_prev",
+      "slotcoupled_enabled": "False",
+      "elapsed_s": "89.863633",
+      "rationale": "上一轮最优叠层寄生贴片真实网络参考，用于判断缝隙耦合窗口是否带来净收益。",
+      "worst_return_db": "-6.380632",
+      "isolation_db": "10.386764",
+      "worst_return_expr": "dB(S(P2B:1,P2B:1))",
+      "worst_coupling_expr": "dB(S(P1A:1,P1B:1))",
+      "x_return_worst_db": "-6.818128",
+      "y_return_worst_db": "-6.380632",
+      "xy_return_balance_db": "0.437496",
+      "same_element_xy_isolation_db": "10.386764",
+      "same_feed_inter_element_isolation_db": "14.481868",
+      "patch_side_mm": "9.150000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "1.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "1.000000",
+      "parasitic_side_mm": "9.750000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "1.200000",
+      "dualpol_slotcoupled_enabled": "0.000000",
+      "feed_substrate_h_mm": "0.254000",
+      "slot_coupled_aperture_length_a_mm": "3.600000",
+      "slot_coupled_aperture_length_b_mm": "3.600000",
+      "slot_coupled_aperture_width_mm": "0.450000",
+      "slot_coupled_offset_a_mm": "0.000000",
+      "slot_coupled_offset_b_mm": "0.000000",
+      "slot_coupled_feedline_length_mm": "10.000000",
+      "slot_coupled_feedline_width_mm": "0.600000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "55.057389",
+      "slot_coupled_aperture_center_a_v_mm": "",
+      "slot_coupled_aperture_center_b_u_mm": "",
+      "slot_coupled_feedline_offset_a_v_mm": "",
+      "slot_coupled_feedline_offset_b_u_mm": ""
+    },
+    {
+      "index": "3",
+      "candidate": "slot_l3p6_w0p45_feed0p60",
+      "slotcoupled_enabled": "True",
+      "elapsed_s": "74.430505",
+      "rationale": "中等正交缝隙窗口和 0.60 mm 下层馈线，作为本轮主候选。",
+      "worst_return_db": "-1.787889",
+      "isolation_db": "2.830048",
+      "worst_return_expr": "dB(S(P4B:1,P4B:1))",
+      "worst_coupling_expr": "dB(S(P1B:1,P1A:1))",
+      "x_return_worst_db": "-1.825441",
+      "y_return_worst_db": "-1.787889",
+      "xy_return_balance_db": "0.037552",
+      "same_element_xy_isolation_db": "2.830048",
+      "same_feed_inter_element_isolation_db": "38.166126",
+      "patch_side_mm": "9.350000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "0.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "0.000000",
+      "parasitic_side_mm": "0.000000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "0.000000",
+      "dualpol_slotcoupled_enabled": "1.000000",
+      "feed_substrate_h_mm": "0.254000",
+      "slot_coupled_aperture_length_a_mm": "3.600000",
+      "slot_coupled_aperture_length_b_mm": "3.600000",
+      "slot_coupled_aperture_width_mm": "0.450000",
+      "slot_coupled_offset_a_mm": "0.000000",
+      "slot_coupled_offset_b_mm": "0.000000",
+      "slot_coupled_feedline_length_mm": "10.000000",
+      "slot_coupled_feedline_width_mm": "0.600000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "125.546643",
+      "slot_coupled_aperture_center_a_v_mm": "",
+      "slot_coupled_aperture_center_b_u_mm": "",
+      "slot_coupled_feedline_offset_a_v_mm": "",
+      "slot_coupled_feedline_offset_b_u_mm": ""
+    },
+    {
+      "index": "9",
+      "candidate": "slot_l4p0_w0p50_feed0p60",
+      "slotcoupled_enabled": "True",
+      "elapsed_s": "72.390984",
+      "rationale": "加长缝隙窗口提高耦合强度，观察回波和同阵元隔离的平衡点。",
+      "worst_return_db": "-1.966774",
+      "isolation_db": "1.978863",
+      "worst_return_expr": "dB(S(P4A:1,P4A:1))",
+      "worst_coupling_expr": "dB(S(P1A:1,P1B:1))",
+      "x_return_worst_db": "-1.966774",
+      "y_return_worst_db": "-1.981090",
+      "xy_return_balance_db": "0.014316",
+      "same_element_xy_isolation_db": "1.978863",
+      "same_feed_inter_element_isolation_db": "44.137752",
+      "patch_side_mm": "9.350000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "0.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "0.000000",
+      "parasitic_side_mm": "0.000000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "0.000000",
+      "dualpol_slotcoupled_enabled": "1.000000",
+      "feed_substrate_h_mm": "0.254000",
+      "slot_coupled_aperture_length_a_mm": "4.000000",
+      "slot_coupled_aperture_length_b_mm": "4.000000",
+      "slot_coupled_aperture_width_mm": "0.500000",
+      "slot_coupled_offset_a_mm": "0.000000",
+      "slot_coupled_offset_b_mm": "0.000000",
+      "slot_coupled_feedline_length_mm": "10.000000",
+      "slot_coupled_feedline_width_mm": "0.600000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "128.371490",
+      "slot_coupled_aperture_center_a_v_mm": "0.000000",
+      "slot_coupled_aperture_center_b_u_mm": "0.000000",
+      "slot_coupled_feedline_offset_a_v_mm": "0.000000",
+      "slot_coupled_feedline_offset_b_u_mm": "0.000000"
+    },
+    {
+      "index": "10",
+      "candidate": "slot_l4p4_w0p55_feed0p65",
+      "slotcoupled_enabled": "True",
+      "elapsed_s": "72.392435",
+      "rationale": "更强耦合窗口和较宽馈线，用于检查槽耦合匹配上限。",
+      "worst_return_db": "-2.289091",
+      "isolation_db": "1.374918",
+      "worst_return_expr": "dB(S(P3A:1,P3A:1))",
+      "worst_coupling_expr": "dB(S(P2A:1,P2B:1))",
+      "x_return_worst_db": "-2.289091",
+      "y_return_worst_db": "-2.302057",
+      "xy_return_balance_db": "0.012966",
+      "same_element_xy_isolation_db": "1.374918",
+      "same_feed_inter_element_isolation_db": "38.804452",
+      "patch_side_mm": "9.350000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "0.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "0.000000",
+      "parasitic_side_mm": "0.000000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "0.000000",
+      "dualpol_slotcoupled_enabled": "1.000000",
+      "feed_substrate_h_mm": "0.254000",
+      "slot_coupled_aperture_length_a_mm": "4.400000",
+      "slot_coupled_aperture_length_b_mm": "4.400000",
+      "slot_coupled_aperture_width_mm": "0.550000",
+      "slot_coupled_offset_a_mm": "0.000000",
+      "slot_coupled_offset_b_mm": "0.000000",
+      "slot_coupled_feedline_length_mm": "10.000000",
+      "slot_coupled_feedline_width_mm": "0.650000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "128.812687",
+      "slot_coupled_aperture_center_a_v_mm": "0.000000",
+      "slot_coupled_aperture_center_b_u_mm": "0.000000",
+      "slot_coupled_feedline_offset_a_v_mm": "0.000000",
+      "slot_coupled_feedline_offset_b_u_mm": "0.000000"
+    },
+    {
+      "index": "2",
+      "candidate": "slot_l3p2_w0p40_feed0p55_patch9p35",
+      "slotcoupled_enabled": "True",
+      "elapsed_s": "80.925257",
+      "rationale": "小缝隙窗口和窄下层馈线，优先验证弱耦合窗口是否能保住端口匹配。",
+      "worst_return_db": "-0.985685",
+      "isolation_db": "2.616754",
+      "worst_return_expr": "dB(S(P1A:1,P1A:1))",
+      "worst_coupling_expr": "dB(S(P2A:1,P2B:1))",
+      "x_return_worst_db": "-0.985685",
+      "y_return_worst_db": "-1.204724",
+      "xy_return_balance_db": "0.219039",
+      "same_element_xy_isolation_db": "2.616754",
+      "same_feed_inter_element_isolation_db": "32.890860",
+      "patch_side_mm": "9.350000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "0.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "0.000000",
+      "parasitic_side_mm": "0.000000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "0.000000",
+      "dualpol_slotcoupled_enabled": "1.000000",
+      "feed_substrate_h_mm": "0.254000",
+      "slot_coupled_aperture_length_a_mm": "3.200000",
+      "slot_coupled_aperture_length_b_mm": "3.200000",
+      "slot_coupled_aperture_width_mm": "0.400000",
+      "slot_coupled_offset_a_mm": "0.000000",
+      "slot_coupled_offset_b_mm": "0.000000",
+      "slot_coupled_feedline_length_mm": "10.000000",
+      "slot_coupled_feedline_width_mm": "0.550000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "133.030750",
+      "slot_coupled_aperture_center_a_v_mm": "",
+      "slot_coupled_aperture_center_b_u_mm": "",
+      "slot_coupled_feedline_offset_a_v_mm": "",
+      "slot_coupled_feedline_offset_b_u_mm": ""
+    },
+    {
+      "index": "4",
+      "candidate": "slot_sep_l4p8_w0p70_h0p10_feed0p80",
+      "slotcoupled_enabled": "True",
+      "elapsed_s": "70.362563",
+      "rationale": "进一步拉近下层馈线到接地缝的距离，检查耦合不足是否来自下层介质过厚。",
+      "worst_return_db": "-0.057695",
+      "isolation_db": "3.890227",
+      "worst_return_expr": "dB(S(P1A:1,P1A:1))",
+      "worst_coupling_expr": "dB(S(P4B:1,P4A:1))",
+      "x_return_worst_db": "-0.057695",
+      "y_return_worst_db": "-0.057723",
+      "xy_return_balance_db": "0.000028",
+      "same_element_xy_isolation_db": "3.890227",
+      "same_feed_inter_element_isolation_db": "50.951963",
+      "patch_side_mm": "9.550000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "0.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "0.000000",
+      "parasitic_side_mm": "0.000000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "0.000000",
+      "dualpol_slotcoupled_enabled": "1.000000",
+      "feed_substrate_h_mm": "0.100000",
+      "slot_coupled_aperture_length_a_mm": "4.800000",
+      "slot_coupled_aperture_length_b_mm": "4.800000",
+      "slot_coupled_aperture_width_mm": "0.700000",
+      "slot_coupled_offset_a_mm": "0.000000",
+      "slot_coupled_offset_b_mm": "0.000000",
+      "slot_coupled_feedline_length_mm": "10.000000",
+      "slot_coupled_feedline_width_mm": "0.800000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "134.087306",
+      "slot_coupled_aperture_center_a_v_mm": "-1.500000",
+      "slot_coupled_aperture_center_b_u_mm": "1.500000",
+      "slot_coupled_feedline_offset_a_v_mm": "-1.500000",
+      "slot_coupled_feedline_offset_b_u_mm": "1.500000"
+    },
+    {
+      "index": "3",
+      "candidate": "slot_sep_l5p0_w0p70_h0p18_feed0p80_patch9p55",
+      "slotcoupled_enabled": "True",
+      "elapsed_s": "72.406711",
+      "rationale": "放大贴片并加长分离孔缝，优先提升耦合强度和回波匹配。",
+      "worst_return_db": "-0.153191",
+      "isolation_db": "1.382158",
+      "worst_return_expr": "dB(S(P2A:1,P2A:1))",
+      "worst_coupling_expr": "dB(S(P4B:1,P4A:1))",
+      "x_return_worst_db": "-0.153191",
+      "y_return_worst_db": "-0.158347",
+      "xy_return_balance_db": "0.005155",
+      "same_element_xy_isolation_db": "1.382158",
+      "same_feed_inter_element_isolation_db": "43.504135",
+      "patch_side_mm": "9.550000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "0.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "0.000000",
+      "parasitic_side_mm": "0.000000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "0.000000",
+      "dualpol_slotcoupled_enabled": "1.000000",
+      "feed_substrate_h_mm": "0.180000",
+      "slot_coupled_aperture_length_a_mm": "5.000000",
+      "slot_coupled_aperture_length_b_mm": "5.000000",
+      "slot_coupled_aperture_width_mm": "0.700000",
+      "slot_coupled_offset_a_mm": "0.000000",
+      "slot_coupled_offset_b_mm": "0.000000",
+      "slot_coupled_feedline_length_mm": "10.000000",
+      "slot_coupled_feedline_width_mm": "0.800000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "145.863678",
+      "slot_coupled_aperture_center_a_v_mm": "-1.550000",
+      "slot_coupled_aperture_center_b_u_mm": "1.550000",
+      "slot_coupled_feedline_offset_a_v_mm": "-1.550000",
+      "slot_coupled_feedline_offset_b_u_mm": "1.550000"
+    },
+    {
+      "index": "6",
+      "candidate": "slot_sep_l5p2_w0p75_h0p18_feed0p85",
+      "slotcoupled_enabled": "True",
+      "elapsed_s": "76.638411",
+      "rationale": "强耦合分离孔缝上限候选，用于判断当前结构能否把回波拉回可优化区间。",
+      "worst_return_db": "-0.119772",
+      "isolation_db": "1.397068",
+      "worst_return_expr": "dB(S(P1A:1,P1A:1))",
+      "worst_coupling_expr": "dB(S(P4B:1,P4A:1))",
+      "x_return_worst_db": "-0.119772",
+      "y_return_worst_db": "-0.168823",
+      "xy_return_balance_db": "0.049051",
+      "same_element_xy_isolation_db": "1.397068",
+      "same_feed_inter_element_isolation_db": "39.851779",
+      "patch_side_mm": "9.550000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "0.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "0.000000",
+      "parasitic_side_mm": "0.000000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "0.000000",
+      "dualpol_slotcoupled_enabled": "1.000000",
+      "feed_substrate_h_mm": "0.180000",
+      "slot_coupled_aperture_length_a_mm": "5.200000",
+      "slot_coupled_aperture_length_b_mm": "5.200000",
+      "slot_coupled_aperture_width_mm": "0.750000",
+      "slot_coupled_offset_a_mm": "0.000000",
+      "slot_coupled_offset_b_mm": "0.000000",
+      "slot_coupled_feedline_length_mm": "10.000000",
+      "slot_coupled_feedline_width_mm": "0.850000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "146.056483",
+      "slot_coupled_aperture_center_a_v_mm": "-1.450000",
+      "slot_coupled_aperture_center_b_u_mm": "1.450000",
+      "slot_coupled_feedline_offset_a_v_mm": "-1.450000",
+      "slot_coupled_feedline_offset_b_u_mm": "1.450000"
+    },
+    {
+      "index": "2",
+      "candidate": "slot_sep_l4p4_w0p65_h0p18_feed0p75",
+      "slotcoupled_enabled": "True",
+      "elapsed_s": "76.539993",
+      "rationale": "A/B 孔缝和下层馈线分离布置，缩短中心交叉耦合路径，并用更近的下层馈线增强孔缝耦合。",
+      "worst_return_db": "-0.206763",
+      "isolation_db": "1.132994",
+      "worst_return_expr": "dB(S(P3B:1,P3B:1))",
+      "worst_coupling_expr": "dB(S(P4B:1,P4A:1))",
+      "x_return_worst_db": "-0.234643",
+      "y_return_worst_db": "-0.206763",
+      "xy_return_balance_db": "0.027880",
+      "same_element_xy_isolation_db": "1.132994",
+      "same_feed_inter_element_isolation_db": "38.277201",
+      "patch_side_mm": "9.350000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "0.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "0.000000",
+      "parasitic_side_mm": "0.000000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "0.000000",
+      "dualpol_slotcoupled_enabled": "1.000000",
+      "feed_substrate_h_mm": "0.180000",
+      "slot_coupled_aperture_length_a_mm": "4.400000",
+      "slot_coupled_aperture_length_b_mm": "4.400000",
+      "slot_coupled_aperture_width_mm": "0.650000",
+      "slot_coupled_offset_a_mm": "0.000000",
+      "slot_coupled_offset_b_mm": "0.000000",
+      "slot_coupled_feedline_length_mm": "10.000000",
+      "slot_coupled_feedline_width_mm": "0.750000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "146.680928",
+      "slot_coupled_aperture_center_a_v_mm": "-1.550000",
+      "slot_coupled_aperture_center_b_u_mm": "1.550000",
+      "slot_coupled_feedline_offset_a_v_mm": "-1.550000",
+      "slot_coupled_feedline_offset_b_u_mm": "1.550000"
+    },
+    {
+      "index": "5",
+      "candidate": "slot_sep_l4p4_w0p65_h0p18_par9p75",
+      "slotcoupled_enabled": "True",
+      "elapsed_s": "72.397895",
+      "rationale": "分离孔缝上方叠加弱寄生贴片，尝试在增强耦合后恢复方向图对称性。",
+      "worst_return_db": "-0.223026",
+      "isolation_db": "1.047064",
+      "worst_return_expr": "dB(S(P1A:1,P1A:1))",
+      "worst_coupling_expr": "dB(S(P4B:1,P4A:1))",
+      "x_return_worst_db": "-0.223026",
+      "y_return_worst_db": "-0.226143",
+      "xy_return_balance_db": "0.003117",
+      "same_element_xy_isolation_db": "1.047064",
+      "same_feed_inter_element_isolation_db": "39.212514",
+      "patch_side_mm": "9.150000",
+      "feed_offset_u_mm": "3.400000",
+      "feed_pad_radius_mm": "0.280000",
+      "port_width_mm": "0.500000",
+      "microstrip_feed_enabled": "0.000000",
+      "microstrip_feedline_length_mm": "1.780000",
+      "microstrip_feedline_width_mm": "0.580000",
+      "microstrip_match_length_mm": "0.480000",
+      "microstrip_match_width_mm": "0.340000",
+      "microstrip_transform2_length_mm": "0.550000",
+      "microstrip_transform2_width_mm": "0.500000",
+      "microstrip_feed_mirror_enabled": "1.000000",
+      "dualpol_parasitic_enabled": "1.000000",
+      "parasitic_side_mm": "9.750000",
+      "parasitic_corner_cut_mm": "0.000000",
+      "parasitic_rotation_deg": "0.000000",
+      "parasitic_offset_u_mm": "0.000000",
+      "parasitic_offset_v_mm": "0.000000",
+      "air_gap_mm": "0.800000",
+      "dualpol_slotcoupled_enabled": "1.000000",
+      "feed_substrate_h_mm": "0.180000",
+      "slot_coupled_aperture_length_a_mm": "4.400000",
+      "slot_coupled_aperture_length_b_mm": "4.400000",
+      "slot_coupled_aperture_width_mm": "0.650000",
+      "slot_coupled_offset_a_mm": "0.000000",
+      "slot_coupled_offset_b_mm": "0.000000",
+      "slot_coupled_feedline_length_mm": "10.000000",
+      "slot_coupled_feedline_width_mm": "0.750000",
+      "neutralization_branch_enabled": "0.000000",
+      "local_dgs_enabled": "0.000000",
+      "isolation_slot_enabled": "1.000000",
+      "isolation_slot_length_mm": "10.000000",
+      "isolation_slot_width_mm": "0.420000",
+      "isolation_slot_inner_mm": "3.200000",
+      "score": "146.980473",
+      "slot_coupled_aperture_center_a_v_mm": "-1.500000",
+      "slot_coupled_aperture_center_b_u_mm": "1.500000",
+      "slot_coupled_feedline_offset_a_v_mm": "-1.500000",
+      "slot_coupled_feedline_offset_b_u_mm": "1.500000"
+    }
+  ],
+  "full_validation": [
+    {
+      "candidate": "slot_l3p6_w0p45_feed0p60",
+      "slotcoupled_enabled": true,
+      "elapsed_s": 126.28353309631348,
+      "rationale": "居中孔缝馈电，窗口略加长，完整复核显示 PDOA 与镜像对称性优于叠层参考，但匹配与同阵元 X/Y 隔离仍未达标。",
+      "parameters": {
+        "patch_side_mm": 9.35,
+        "corner_cut_mm": 0.0,
+        "feed_offset_u_mm": 3.4,
+        "feed_offset_v_mm": 0.0,
+        "feed_pad_radius_mm": 0.28,
+        "port_width_mm": 0.5,
+        "microstrip_feed_enabled": 0.0,
+        "microstrip_feed_offset_mm": 0.0,
+        "microstrip_feedline_length_mm": 1.78,
+        "microstrip_feedline_width_mm": 0.58,
+        "microstrip_match_length_mm": 0.48,
+        "microstrip_match_width_mm": 0.34,
+        "microstrip_transform2_length_mm": 0.55,
+        "microstrip_transform2_width_mm": 0.5,
+        "microstrip_stub_length_mm": 0.0,
+        "microstrip_stub_width_mm": 0.24,
+        "microstrip_stub_offset_mm": 0.6,
+        "microstrip_feed_mirror_enabled": 1.0,
+        "neutralization_branch_enabled": 0.0,
+        "neutralization_branch_length_mm": 0.85,
+        "neutralization_branch_width_mm": 0.12,
+        "neutralization_branch_offset_mm": 0.65,
+        "local_dgs_enabled": 0.0,
+        "local_dgs_length_mm": 3.6,
+        "local_dgs_width_mm": 0.18,
+        "local_dgs_offset_mm": 0.75,
+        "dualpol_parasitic_enabled": 0.0,
+        "parasitic_side_mm": 0.0,
+        "parasitic_corner_cut_mm": 0.0,
+        "parasitic_rotation_deg": 0.0,
+        "parasitic_offset_u_mm": 0.0,
+        "parasitic_offset_v_mm": 0.0,
+        "air_gap_mm": 0.0,
+        "dualpol_slotcoupled_enabled": 1.0,
+        "feed_substrate_h_mm": 0.254,
+        "slot_coupled_aperture_length_a_mm": 3.6,
+        "slot_coupled_aperture_length_b_mm": 3.6,
+        "slot_coupled_aperture_width_mm": 0.45,
+        "slot_coupled_offset_a_mm": 0.0,
+        "slot_coupled_offset_b_mm": 0.0,
+        "slot_coupled_feedline_length_mm": 10.0,
+        "slot_coupled_feedline_width_mm": 0.6,
+        "weak_coupling_open_line_enabled": 0.0,
+        "via_fence_enabled": 0.0,
+        "isolation_slot_enabled": 1.0,
+        "isolation_slot_length_mm": 10.0,
+        "isolation_slot_width_mm": 0.42,
+        "isolation_slot_inner_mm": 3.2,
+        "slot_coupled_aperture_center_a_v_mm": 0.0,
+        "slot_coupled_aperture_center_b_u_mm": 0.0,
+        "slot_coupled_feedline_offset_a_v_mm": 0.0,
+        "slot_coupled_feedline_offset_b_u_mm": 0.0
+      },
+      "worst_return_db": -1.7878893639039393,
+      "isolation_db": 2.830048370447979,
+      "x_return_worst_db": -1.825441390623375,
+      "y_return_worst_db": -1.7878893639039393,
+      "xy_return_balance_db": 0.037552026719435805,
+      "same_element_xy_isolation_db": 2.830048370447979,
+      "same_feed_inter_element_isolation_db": 38.16612594882037,
+      "dualpol_vector_avg_rms_bias_deg": 73.14362275496899,
+      "dualpol_vector_p95_rms_bias_deg": 155.89329414533793,
+      "dualpol_vector_max_abs_bias_deg": 179.99871946281297,
+      "calibrated_avg_rms_bias_deg": 32.448899180361344,
+      "calibrated_p95_rms_bias_deg": 72.73820833686295,
+      "calibrated_max_abs_bias_deg": 179.93089143574025,
+      "calibrated_avg_valid_percent": 100.0,
+      "calibration_quality": {
+        "7.738000GHz": {
+          "1": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.37144216520818096,
+            "condition_number": 1.9538282600969863,
+            "matrix": [
+              [
+                {
+                  "re": -0.44030648850210125,
+                  "im": -0.5525308314499808
+                },
+                {
+                  "re": -0.3376990345104644,
+                  "im": 0.8026914961577644
+                }
+              ],
+              [
+                {
+                  "re": -0.2691560741223277,
+                  "im": -0.8310584323244072
+                },
+                {
+                  "re": 0.26610743035658074,
+                  "im": 0.11362506543864592
+                }
+              ]
+            ]
+          },
+          "2": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.39861294424431576,
+            "condition_number": 1.7968038286335817,
+            "matrix": [
+              [
+                {
+                  "re": -0.7201781806292623,
+                  "im": -0.3628373973062546
+                },
+                {
+                  "re": 0.3722597884121541,
+                  "im": 0.46296833187121217
+                }
+              ],
+              [
+                {
+                  "re": -0.5006679053376407,
+                  "im": -0.6222374511732837
+                },
+                {
+                  "re": 0.21851562744410277,
+                  "im": -0.4026657913527242
+                }
+              ]
+            ]
+          },
+          "3": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.40533252521736696,
+            "condition_number": 1.5767478779016586,
+            "matrix": [
+              [
+                {
+                  "re": -0.10665261237290302,
+                  "im": -0.7306834532836546
+                },
+                {
+                  "re": 0.43336301485347467,
+                  "im": 0.05015733021339926
+                }
+              ],
+              [
+                {
+                  "re": 0.11897569334459782,
+                  "im": 0.1596554137488093
+                },
+                {
+                  "re": 0.19484574005447503,
+                  "im": -0.8800596427491418
+                }
+              ]
+            ]
+          },
+          "4": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.46119753846000905,
+            "condition_number": 1.6827576498237482,
+            "matrix": [
+              [
+                {
+                  "re": -0.19485223480437372,
+                  "im": 0.4375995919822105
+                },
+                {
+                  "re": -0.4277708664326743,
+                  "im": -0.09689059700212233
+                }
+              ],
+              [
+                {
+                  "re": -0.27627641385249907,
+                  "im": -0.375724431073431
+                },
+                {
+                  "re": -0.6167042290821301,
+                  "im": 0.6517066588997772
+                }
+              ]
+            ]
+          }
+        },
+        "7.985500GHz": {
+          "1": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.33281274814025175,
+            "condition_number": 1.283454894504268,
+            "matrix": [
+              [
+                {
+                  "re": -0.2671709216840331,
+                  "im": -0.6651388615871604
+                },
+                {
+                  "re": -0.5877998362956768,
+                  "im": 0.06655329528392748
+                }
+              ],
+              [
+                {
+                  "re": 0.014931772998511672,
+                  "im": -0.47936462963076676
+                },
+                {
+                  "re": 0.5280159026390446,
+                  "im": 0.4892497189179017
+                }
+              ]
+            ]
+          },
+          "2": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.37980069357109436,
+            "condition_number": 1.189641796641114,
+            "matrix": [
+              [
+                {
+                  "re": -0.6158077319702272,
+                  "im": -0.4077529660914694
+                },
+                {
+                  "re": -0.2690362387448849,
+                  "im": 0.2428049149406425
+                }
+              ],
+              [
+                {
+                  "re": -0.10923555068598673,
+                  "im": -0.4946892141356838
+                },
+                {
+                  "re": 0.722044651748178,
+                  "im": -0.023644516601104115
+                }
+              ]
+            ]
+          },
+          "3": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.491838876206509,
+            "condition_number": 2.2651547178309217,
+            "matrix": [
+              [
+                {
+                  "re": 0.11737243466140035,
+                  "im": -0.8068964648389498
+                },
+                {
+                  "re": 0.31648830966978736,
+                  "im": 0.4433254792652222
+                }
+              ],
+              [
+                {
+                  "re": 0.06154289394821552,
+                  "im": 0.3479723880137706
+                },
+                {
+                  "re": 0.2780008622846127,
+                  "im": -0.9779920110288765
+                }
+              ]
+            ]
+          },
+          "4": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.4564236298900284,
+            "condition_number": 1.808895180141688,
+            "matrix": [
+              [
+                {
+                  "re": -0.4141608448646046,
+                  "im": 0.5106352937248159
+                },
+                {
+                  "re": -0.2237169155506759,
+                  "im": -0.2619577357487549
+                }
+              ],
+              [
+                {
+                  "re": 0.082993450604362,
+                  "im": -0.5278705812149218
+                },
+                {
+                  "re": -0.5850081989359239,
+                  "im": 0.5923363020272324
+                }
+              ]
+            ]
+          }
+        },
+        "8.233000GHz": {
+          "1": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.3875822746480724,
+            "condition_number": 1.8165312709119878,
+            "matrix": [
+              [
+                {
+                  "re": -0.18515898457131658,
+                  "im": -0.5744863372249004
+                },
+                {
+                  "re": -0.5913184033251475,
+                  "im": -0.4802270141159815
+                }
+              ],
+              [
+                {
+                  "re": 0.21495214820406588,
+                  "im": -0.3529578248697738
+                },
+                {
+                  "re": 0.5334531468579095,
+                  "im": 0.81470108044416
+                }
+              ]
+            ]
+          },
+          "2": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.46935610239707215,
+            "condition_number": 2.0627548389825456,
+            "matrix": [
+              [
+                {
+                  "re": -0.18330169124517007,
+                  "im": -0.6186187708916773
+                },
+                {
+                  "re": -0.6844290076308174,
+                  "im": -0.2263706357093655
+                }
+              ],
+              [
+                {
+                  "re": 0.06170539554640948,
+                  "im": -0.17741361275199524
+                },
+                {
+                  "re": 0.8479387731930496,
+                  "im": 0.3818778970457476
+                }
+              ]
+            ]
+          },
+          "3": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.4523472842710514,
+            "condition_number": 2.7485691594133645,
+            "matrix": [
+              [
+                {
+                  "re": -0.24368284504032134,
+                  "im": 0.6502691896133028
+                },
+                {
+                  "re": 0.5998534046978338,
+                  "im": -0.8031565219476196
+                }
+              ],
+              [
+                {
+                  "re": 0.656277163693489,
+                  "im": -0.9764935528970246
+                },
+                {
+                  "re": -0.055861090197785235,
+                  "im": 0.4245484827821965
+                }
+              ]
+            ]
+          },
+          "4": {
+            "sample_count": 272.0,
+            "fit_rms_error": 0.6009173586760559,
+            "condition_number": 1.5633743639715516,
+            "matrix": [
+              [
+                {
+                  "re": 0.22354155232027048,
+                  "im": 0.06355816468617696
+                },
+                {
+                  "re": -0.3828744076319678,
+                  "im": -0.0632198917888418
+                }
+              ],
+              [
+                {
+                  "re": -0.48449268436692267,
+                  "im": -0.1254170218126483
+                },
+                {
+                  "re": -0.2906910904797247,
+                  "im": 0.184335005370538
+                }
+              ]
+            ]
+          }
+        }
+      },
+      "complex_pattern_table": {
+        "description": "Per-element embedded complex far-field calibration table. Use source/element/feed plus freq/theta/phi as lookup keys.",
+        "coordinate_system": "HFSS far-field rETheta/rEPhi on Upper_Hemisphere_5deg.",
+        "linear_polarizations_deg": [
+          0.0,
+          45.0,
+          90.0,
+          135.0
+        ],
+        "frequencies_ghz": [
+          7.738,
+          7.9855,
+          8.233
+        ],
+        "sources": [
+          "P1A",
+          "P1B",
+          "P2A",
+          "P2B",
+          "P3A",
+          "P3B",
+          "P4A",
+          "P4B"
+        ],
+        "theta_count": 73,
+        "phi_count": 19,
+        "row_count": 33288,
+        "columns": [
+          "freq_ghz",
+          "source",
+          "element",
+          "feed",
+          "theta_deg",
+          "phi_deg",
+          "etheta_re",
+          "etheta_im",
+          "ephi_re",
+          "ephi_im",
+          "gain_proxy_mag",
+          "linpol0_re",
+          "linpol0_im",
+          "linpol0_mag",
+          "linpol0_phase_deg",
+          "linpol45_re",
+          "linpol45_im",
+          "linpol45_mag",
+          "linpol45_phase_deg",
+          "linpol90_re",
+          "linpol90_im",
+          "linpol90_mag",
+          "linpol90_phase_deg",
+          "linpol135_re",
+          "linpol135_im",
+          "linpol135_mag",
+          "linpol135_phase_deg"
+        ]
+      },
+      "xy_mag_imbalance_mean_abs_db": 6.604823937074598,
+      "xy_mag_imbalance_rms_db": 8.672422483506132,
+      "xy_mag_imbalance_max_abs_db": 48.060528524600194,
+      "xy_phase_spread_mean_abs_deg": 59.4499128520976,
+      "xy_phase_spread_rms_deg": 69.72487339589205,
+      "xy_phase_spread_max_abs_deg": 179.85231198039628,
+      "pattern_symmetry_sample_count": 33288,
+      "pattern_symmetry_mean_abs_db": 6.0826383571405644,
+      "pattern_symmetry_rms_db": 7.676533940081867,
+      "pattern_symmetry_max_abs_db": 34.64654736315018,
+      "phase_center_sample_count": 21024,
+      "phase_center_raw_rms_deg": 90.30063387917058,
+      "phase_center_raw_p95_deg": 197.85739919935563,
+      "phase_center_calibrated_rms_deg": 86.91422575533603,
+      "phase_center_calibrated_p95_deg": 189.80422895985754,
+      "phase_center_calibrated_max_abs_deg": 442.6374325132886,
+      "phase_center_delta_mag_mean_mm": 8.46735305772399,
+      "phase_center_delta_mag_max_mm": 21.06879082939394,
+      "sparam_score": 125.54664323652858,
+      "full_score": 253.1977380247828,
+      "meets_s": false,
+      "meets_balance": false,
+      "meets_calibrated_pdoa": false,
+      "meets_pattern_symmetry": false,
+      "meets_phase_center": false,
+      "meets_all": false
+    }
+  ],
+  "best": {
+    "candidate": "slot_l3p6_w0p45_feed0p60",
+    "slotcoupled_enabled": true,
+    "elapsed_s": 126.28353309631348,
+    "rationale": "居中孔缝馈电，窗口略加长，完整复核显示 PDOA 与镜像对称性优于叠层参考，但匹配与同阵元 X/Y 隔离仍未达标。",
+    "parameters": {
+      "patch_side_mm": 9.35,
+      "corner_cut_mm": 0.0,
+      "feed_offset_u_mm": 3.4,
+      "feed_offset_v_mm": 0.0,
+      "feed_pad_radius_mm": 0.28,
+      "port_width_mm": 0.5,
+      "microstrip_feed_enabled": 0.0,
+      "microstrip_feed_offset_mm": 0.0,
+      "microstrip_feedline_length_mm": 1.78,
+      "microstrip_feedline_width_mm": 0.58,
+      "microstrip_match_length_mm": 0.48,
+      "microstrip_match_width_mm": 0.34,
+      "microstrip_transform2_length_mm": 0.55,
+      "microstrip_transform2_width_mm": 0.5,
+      "microstrip_stub_length_mm": 0.0,
+      "microstrip_stub_width_mm": 0.24,
+      "microstrip_stub_offset_mm": 0.6,
+      "microstrip_feed_mirror_enabled": 1.0,
+      "neutralization_branch_enabled": 0.0,
+      "neutralization_branch_length_mm": 0.85,
+      "neutralization_branch_width_mm": 0.12,
+      "neutralization_branch_offset_mm": 0.65,
+      "local_dgs_enabled": 0.0,
+      "local_dgs_length_mm": 3.6,
+      "local_dgs_width_mm": 0.18,
+      "local_dgs_offset_mm": 0.75,
+      "dualpol_parasitic_enabled": 0.0,
+      "parasitic_side_mm": 0.0,
+      "parasitic_corner_cut_mm": 0.0,
+      "parasitic_rotation_deg": 0.0,
+      "parasitic_offset_u_mm": 0.0,
+      "parasitic_offset_v_mm": 0.0,
+      "air_gap_mm": 0.0,
+      "dualpol_slotcoupled_enabled": 1.0,
+      "feed_substrate_h_mm": 0.254,
+      "slot_coupled_aperture_length_a_mm": 3.6,
+      "slot_coupled_aperture_length_b_mm": 3.6,
+      "slot_coupled_aperture_width_mm": 0.45,
+      "slot_coupled_offset_a_mm": 0.0,
+      "slot_coupled_offset_b_mm": 0.0,
+      "slot_coupled_feedline_length_mm": 10.0,
+      "slot_coupled_feedline_width_mm": 0.6,
+      "weak_coupling_open_line_enabled": 0.0,
+      "via_fence_enabled": 0.0,
+      "isolation_slot_enabled": 1.0,
+      "isolation_slot_length_mm": 10.0,
+      "isolation_slot_width_mm": 0.42,
+      "isolation_slot_inner_mm": 3.2,
+      "slot_coupled_aperture_center_a_v_mm": 0.0,
+      "slot_coupled_aperture_center_b_u_mm": 0.0,
+      "slot_coupled_feedline_offset_a_v_mm": 0.0,
+      "slot_coupled_feedline_offset_b_u_mm": 0.0
+    },
+    "worst_return_db": -1.7878893639039393,
+    "isolation_db": 2.830048370447979,
+    "x_return_worst_db": -1.825441390623375,
+    "y_return_worst_db": -1.7878893639039393,
+    "xy_return_balance_db": 0.037552026719435805,
+    "same_element_xy_isolation_db": 2.830048370447979,
+    "same_feed_inter_element_isolation_db": 38.16612594882037,
+    "dualpol_vector_avg_rms_bias_deg": 73.14362275496899,
+    "dualpol_vector_p95_rms_bias_deg": 155.89329414533793,
+    "dualpol_vector_max_abs_bias_deg": 179.99871946281297,
+    "calibrated_avg_rms_bias_deg": 32.448899180361344,
+    "calibrated_p95_rms_bias_deg": 72.73820833686295,
+    "calibrated_max_abs_bias_deg": 179.93089143574025,
+    "calibrated_avg_valid_percent": 100.0,
+    "calibration_quality": {
+      "7.738000GHz": {
+        "1": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.37144216520818096,
+          "condition_number": 1.9538282600969863,
+          "matrix": [
+            [
+              {
+                "re": -0.44030648850210125,
+                "im": -0.5525308314499808
+              },
+              {
+                "re": -0.3376990345104644,
+                "im": 0.8026914961577644
+              }
+            ],
+            [
+              {
+                "re": -0.2691560741223277,
+                "im": -0.8310584323244072
+              },
+              {
+                "re": 0.26610743035658074,
+                "im": 0.11362506543864592
+              }
+            ]
+          ]
+        },
+        "2": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.39861294424431576,
+          "condition_number": 1.7968038286335817,
+          "matrix": [
+            [
+              {
+                "re": -0.7201781806292623,
+                "im": -0.3628373973062546
+              },
+              {
+                "re": 0.3722597884121541,
+                "im": 0.46296833187121217
+              }
+            ],
+            [
+              {
+                "re": -0.5006679053376407,
+                "im": -0.6222374511732837
+              },
+              {
+                "re": 0.21851562744410277,
+                "im": -0.4026657913527242
+              }
+            ]
+          ]
+        },
+        "3": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.40533252521736696,
+          "condition_number": 1.5767478779016586,
+          "matrix": [
+            [
+              {
+                "re": -0.10665261237290302,
+                "im": -0.7306834532836546
+              },
+              {
+                "re": 0.43336301485347467,
+                "im": 0.05015733021339926
+              }
+            ],
+            [
+              {
+                "re": 0.11897569334459782,
+                "im": 0.1596554137488093
+              },
+              {
+                "re": 0.19484574005447503,
+                "im": -0.8800596427491418
+              }
+            ]
+          ]
+        },
+        "4": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.46119753846000905,
+          "condition_number": 1.6827576498237482,
+          "matrix": [
+            [
+              {
+                "re": -0.19485223480437372,
+                "im": 0.4375995919822105
+              },
+              {
+                "re": -0.4277708664326743,
+                "im": -0.09689059700212233
+              }
+            ],
+            [
+              {
+                "re": -0.27627641385249907,
+                "im": -0.375724431073431
+              },
+              {
+                "re": -0.6167042290821301,
+                "im": 0.6517066588997772
+              }
+            ]
+          ]
+        }
+      },
+      "7.985500GHz": {
+        "1": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.33281274814025175,
+          "condition_number": 1.283454894504268,
+          "matrix": [
+            [
+              {
+                "re": -0.2671709216840331,
+                "im": -0.6651388615871604
+              },
+              {
+                "re": -0.5877998362956768,
+                "im": 0.06655329528392748
+              }
+            ],
+            [
+              {
+                "re": 0.014931772998511672,
+                "im": -0.47936462963076676
+              },
+              {
+                "re": 0.5280159026390446,
+                "im": 0.4892497189179017
+              }
+            ]
+          ]
+        },
+        "2": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.37980069357109436,
+          "condition_number": 1.189641796641114,
+          "matrix": [
+            [
+              {
+                "re": -0.6158077319702272,
+                "im": -0.4077529660914694
+              },
+              {
+                "re": -0.2690362387448849,
+                "im": 0.2428049149406425
+              }
+            ],
+            [
+              {
+                "re": -0.10923555068598673,
+                "im": -0.4946892141356838
+              },
+              {
+                "re": 0.722044651748178,
+                "im": -0.023644516601104115
+              }
+            ]
+          ]
+        },
+        "3": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.491838876206509,
+          "condition_number": 2.2651547178309217,
+          "matrix": [
+            [
+              {
+                "re": 0.11737243466140035,
+                "im": -0.8068964648389498
+              },
+              {
+                "re": 0.31648830966978736,
+                "im": 0.4433254792652222
+              }
+            ],
+            [
+              {
+                "re": 0.06154289394821552,
+                "im": 0.3479723880137706
+              },
+              {
+                "re": 0.2780008622846127,
+                "im": -0.9779920110288765
+              }
+            ]
+          ]
+        },
+        "4": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.4564236298900284,
+          "condition_number": 1.808895180141688,
+          "matrix": [
+            [
+              {
+                "re": -0.4141608448646046,
+                "im": 0.5106352937248159
+              },
+              {
+                "re": -0.2237169155506759,
+                "im": -0.2619577357487549
+              }
+            ],
+            [
+              {
+                "re": 0.082993450604362,
+                "im": -0.5278705812149218
+              },
+              {
+                "re": -0.5850081989359239,
+                "im": 0.5923363020272324
+              }
+            ]
+          ]
+        }
+      },
+      "8.233000GHz": {
+        "1": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.3875822746480724,
+          "condition_number": 1.8165312709119878,
+          "matrix": [
+            [
+              {
+                "re": -0.18515898457131658,
+                "im": -0.5744863372249004
+              },
+              {
+                "re": -0.5913184033251475,
+                "im": -0.4802270141159815
+              }
+            ],
+            [
+              {
+                "re": 0.21495214820406588,
+                "im": -0.3529578248697738
+              },
+              {
+                "re": 0.5334531468579095,
+                "im": 0.81470108044416
+              }
+            ]
+          ]
+        },
+        "2": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.46935610239707215,
+          "condition_number": 2.0627548389825456,
+          "matrix": [
+            [
+              {
+                "re": -0.18330169124517007,
+                "im": -0.6186187708916773
+              },
+              {
+                "re": -0.6844290076308174,
+                "im": -0.2263706357093655
+              }
+            ],
+            [
+              {
+                "re": 0.06170539554640948,
+                "im": -0.17741361275199524
+              },
+              {
+                "re": 0.8479387731930496,
+                "im": 0.3818778970457476
+              }
+            ]
+          ]
+        },
+        "3": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.4523472842710514,
+          "condition_number": 2.7485691594133645,
+          "matrix": [
+            [
+              {
+                "re": -0.24368284504032134,
+                "im": 0.6502691896133028
+              },
+              {
+                "re": 0.5998534046978338,
+                "im": -0.8031565219476196
+              }
+            ],
+            [
+              {
+                "re": 0.656277163693489,
+                "im": -0.9764935528970246
+              },
+              {
+                "re": -0.055861090197785235,
+                "im": 0.4245484827821965
+              }
+            ]
+          ]
+        },
+        "4": {
+          "sample_count": 272.0,
+          "fit_rms_error": 0.6009173586760559,
+          "condition_number": 1.5633743639715516,
+          "matrix": [
+            [
+              {
+                "re": 0.22354155232027048,
+                "im": 0.06355816468617696
+              },
+              {
+                "re": -0.3828744076319678,
+                "im": -0.0632198917888418
+              }
+            ],
+            [
+              {
+                "re": -0.48449268436692267,
+                "im": -0.1254170218126483
+              },
+              {
+                "re": -0.2906910904797247,
+                "im": 0.184335005370538
+              }
+            ]
+          ]
+        }
+      }
+    },
+    "complex_pattern_table": {
+      "description": "Per-element embedded complex far-field calibration table. Use source/element/feed plus freq/theta/phi as lookup keys.",
+      "coordinate_system": "HFSS far-field rETheta/rEPhi on Upper_Hemisphere_5deg.",
+      "linear_polarizations_deg": [
+        0.0,
+        45.0,
+        90.0,
+        135.0
+      ],
+      "frequencies_ghz": [
+        7.738,
+        7.9855,
+        8.233
+      ],
+      "sources": [
+        "P1A",
+        "P1B",
+        "P2A",
+        "P2B",
+        "P3A",
+        "P3B",
+        "P4A",
+        "P4B"
+      ],
+      "theta_count": 73,
+      "phi_count": 19,
+      "row_count": 33288,
+      "columns": [
+        "freq_ghz",
+        "source",
+        "element",
+        "feed",
+        "theta_deg",
+        "phi_deg",
+        "etheta_re",
+        "etheta_im",
+        "ephi_re",
+        "ephi_im",
+        "gain_proxy_mag",
+        "linpol0_re",
+        "linpol0_im",
+        "linpol0_mag",
+        "linpol0_phase_deg",
+        "linpol45_re",
+        "linpol45_im",
+        "linpol45_mag",
+        "linpol45_phase_deg",
+        "linpol90_re",
+        "linpol90_im",
+        "linpol90_mag",
+        "linpol90_phase_deg",
+        "linpol135_re",
+        "linpol135_im",
+        "linpol135_mag",
+        "linpol135_phase_deg"
+      ]
+    },
+    "xy_mag_imbalance_mean_abs_db": 6.604823937074598,
+    "xy_mag_imbalance_rms_db": 8.672422483506132,
+    "xy_mag_imbalance_max_abs_db": 48.060528524600194,
+    "xy_phase_spread_mean_abs_deg": 59.4499128520976,
+    "xy_phase_spread_rms_deg": 69.72487339589205,
+    "xy_phase_spread_max_abs_deg": 179.85231198039628,
+    "pattern_symmetry_sample_count": 33288,
+    "pattern_symmetry_mean_abs_db": 6.0826383571405644,
+    "pattern_symmetry_rms_db": 7.676533940081867,
+    "pattern_symmetry_max_abs_db": 34.64654736315018,
+    "phase_center_sample_count": 21024,
+    "phase_center_raw_rms_deg": 90.30063387917058,
+    "phase_center_raw_p95_deg": 197.85739919935563,
+    "phase_center_calibrated_rms_deg": 86.91422575533603,
+    "phase_center_calibrated_p95_deg": 189.80422895985754,
+    "phase_center_calibrated_max_abs_deg": 442.6374325132886,
+    "phase_center_delta_mag_mean_mm": 8.46735305772399,
+    "phase_center_delta_mag_max_mm": 21.06879082939394,
+    "sparam_score": 125.54664323652858,
+    "full_score": 253.1977380247828,
+    "meets_s": false,
+    "meets_balance": false,
+    "meets_calibrated_pdoa": false,
+    "meets_pattern_symmetry": false,
+    "meets_phase_center": false,
+    "meets_all": false
+  },
+  "files": {
+    "sparam_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_slotcoupled_pattern_cal_opt\\UWB_CH9_D44_DUALPOL_SLOTCAL_sparam_screening.csv",
+    "full_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_slotcoupled_pattern_cal_opt\\UWB_CH9_D44_DUALPOL_SLOTCAL_full_validation.csv",
+    "best_curves_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_slotcoupled_pattern_cal_opt\\UWB_CH9_D44_DUALPOL_SLOTCAL_best_curves.csv",
+    "best_summary_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_slotcoupled_pattern_cal_opt\\UWB_CH9_D44_DUALPOL_SLOTCAL_best_summary.csv",
+    "best_calibrated_curves_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_slotcoupled_pattern_cal_opt\\UWB_CH9_D44_DUALPOL_SLOTCAL_best_calibrated_curves.csv",
+    "best_calibrated_summary_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_slotcoupled_pattern_cal_opt\\UWB_CH9_D44_DUALPOL_SLOTCAL_best_calibrated_summary.csv",
+    "best_phase_center_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_slotcoupled_pattern_cal_opt\\UWB_CH9_D44_DUALPOL_SLOTCAL_best_phase_center.csv",
+    "best_json": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_slotcoupled_pattern_cal_opt\\UWB_CH9_D44_DUALPOL_SLOTCAL_best.json",
+    "report_md": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_slotcoupled_pattern_cal_opt\\UWB_CH9_D44_DUALPOL_SLOTCAL_optimization_report.md"
+  },
+  "notes": [
+    "第二轮 full validation 在 AEDT 远场导出阶段停滞，已停止冗余复核；本报告完整复核指标来自已成功完成的 slot_l3p6_w0p45_feed0p60 smoke full validation，S 参数筛选包含 10 个候选。"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "description": "Per-element embedded complex far-field calibration table. Use source/element/feed plus freq/theta/phi as lookup keys.",
+  "coordinate_system": "HFSS far-field rETheta/rEPhi on Upper_Hemisphere_5deg.",
+  "linear_polarizations_deg": [
+    0.0,
+    45.0,
+    90.0,
+    135.0
+  ],
+  "frequencies_ghz": [
+    7.738,
+    7.9855,
+    8.233
+  ],
+  "sources": [
+    "P1A",
+    "P1B",
+    "P2A",
+    "P2B",
+    "P3A",
+    "P3B",
+    "P4A",
+    "P4B"
+  ],
+  "theta_count": 73,
+  "phi_count": 19,
+  "row_count": 33288,
+  "columns": [
+    "freq_ghz",
+    "source",
+    "element",
+    "feed",
+    "theta_deg",
+    "phi_deg",
+    "etheta_re",
+    "etheta_im",
+    "ephi_re",
+    "ephi_im",
+    "gain_proxy_mag",
+    "linpol0_re",
+    "linpol0_im",
+    "linpol0_mag",
+    "linpol0_phase_deg",
+    "linpol45_re",
+    "linpol45_im",
+    "linpol45_mag",
+    "linpol45_phase_deg",
+    "linpol90_re",
+    "linpol90_im",
+    "linpol90_mag",
+    "linpol90_phase_deg",
+    "linpol135_re",
+    "linpol135_im",
+    "linpol135_mag",
+    "linpol135_phase_deg"
+  ]
+}
