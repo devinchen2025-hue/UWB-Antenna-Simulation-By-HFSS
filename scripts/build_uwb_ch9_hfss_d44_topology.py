@@ -157,7 +157,7 @@ TOPOLOGIES = {
             "corner_cut_mm": 0.0,
             "feed_offset_u_mm": 3.40,
             "feed_offset_v_mm": 0.0,
-            "feed_pad_radius_mm": 0.32,
+            "feed_pad_radius_mm": 0.28,
             "port_width_mm": 0.50,
             "microstrip_feed_enabled": 0.0,
             "neutralization_branch_enabled": 0.0,
