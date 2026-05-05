@@ -1,0 +1,107 @@
+{
+  "candidate": "slot_l3p6_w0p45_feed0p60",
+  "source_calibration": "calibrated_2x2_vector_correlation",
+  "target_avg_rms_deg": 10.0,
+  "reference_pol_deg": 0.0,
+  "linear_polarizations_deg": [
+    0.0,
+    45.0,
+    90.0,
+    135.0
+  ],
+  "curve_count": 216,
+  "before_lut_avg_rms_deg": 32.44889917792188,
+  "before_lut_p95_rms_deg": 72.73820839325893,
+  "before_lut_max_abs_deg": 179.93089099999997,
+  "after_exact_lut_avg_rms_deg": 1.3873327920447723e-14,
+  "after_exact_lut_p95_rms_deg": 1.9396716738189787e-14,
+  "after_exact_lut_max_abs_deg": 8.526512829121202e-14,
+  "meets_exact_lut_target": true,
+  "meets_holdout_interpolation_target": true,
+  "validation": {
+    "holdout_step_deg": 10.0,
+    "holdout_group_count": 216.0,
+    "holdout_sample_count": 7776.0,
+    "holdout_avg_group_rms_deg": 5.140411136719258,
+    "holdout_global_rms_deg": 7.875726125507159,
+    "holdout_p95_abs_deg": 6.974724500000036,
+    "holdout_max_abs_deg": 113.7538975
+  },
+  "source_metrics": {
+    "candidate": "slot_l3p6_w0p45_feed0p60",
+    "worst_return_db": -1.7878893639039393,
+    "same_element_xy_isolation_db": 2.830048370447979,
+    "same_feed_inter_element_isolation_db": 38.16612594882037,
+    "calibrated_avg_rms_bias_deg": 32.448899180361344,
+    "calibrated_max_abs_bias_deg": 179.93089143574025,
+    "pattern_symmetry_rms_db": 7.676533940081867,
+    "complex_pattern_table": {
+      "description": "Per-element embedded complex far-field calibration table. Use source/element/feed plus freq/theta/phi as lookup keys.",
+      "coordinate_system": "HFSS far-field rETheta/rEPhi on Upper_Hemisphere_5deg.",
+      "linear_polarizations_deg": [
+        0.0,
+        45.0,
+        90.0,
+        135.0
+      ],
+      "frequencies_ghz": [
+        7.738,
+        7.9855,
+        8.233
+      ],
+      "sources": [
+        "P1A",
+        "P1B",
+        "P2A",
+        "P2B",
+        "P3A",
+        "P3B",
+        "P4A",
+        "P4B"
+      ],
+      "theta_count": 73,
+      "phi_count": 19,
+      "row_count": 33288,
+      "columns": [
+        "freq_ghz",
+        "source",
+        "element",
+        "feed",
+        "theta_deg",
+        "phi_deg",
+        "etheta_re",
+        "etheta_im",
+        "ephi_re",
+        "ephi_im",
+        "gain_proxy_mag",
+        "linpol0_re",
+        "linpol0_im",
+        "linpol0_mag",
+        "linpol0_phase_deg",
+        "linpol45_re",
+        "linpol45_im",
+        "linpol45_mag",
+        "linpol45_phase_deg",
+        "linpol90_re",
+        "linpol90_im",
+        "linpol90_mag",
+        "linpol90_phase_deg",
+        "linpol135_re",
+        "linpol135_im",
+        "linpol135_mag",
+        "linpol135_phase_deg"
+      ]
+    }
+  },
+  "inputs": {
+    "curves_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_slotcoupled_pattern_cal_opt\\UWB_CH9_D44_DUALPOL_SLOTCAL_best_calibrated_curves.csv",
+    "source_json": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_slotcoupled_pattern_cal_opt\\UWB_CH9_D44_DUALPOL_SLOTCAL_best.json"
+  },
+  "outputs": {
+    "PDOA 残差 LUT 校正表": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_pdoa_lut_cal_opt\\UWB_CH9_D44_DUALPOL_PDOA_LUT_CAL_correction_table.csv",
+    "LUT 汇总": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_pdoa_lut_cal_opt\\UWB_CH9_D44_DUALPOL_PDOA_LUT_CAL_summary.csv",
+    "10° 网格插值留出验证": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_pdoa_lut_cal_opt\\UWB_CH9_D44_DUALPOL_PDOA_LUT_CAL_interpolation_validation.csv",
+    "指标 JSON": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_pdoa_lut_cal_opt\\UWB_CH9_D44_DUALPOL_PDOA_LUT_CAL_metrics.json",
+    "中文报告": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_pdoa_lut_cal_opt\\UWB_CH9_D44_DUALPOL_PDOA_LUT_CAL_optimization_report.md"
+  }
+}
