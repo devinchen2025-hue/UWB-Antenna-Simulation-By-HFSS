@@ -22,8 +22,8 @@ import evaluate_uwb_ch9_d44_topology as topology_eval
 
 ROOT = Path(__file__).resolve().parents[1]
 TOPOLOGY = "dualpol"
-REPORT_DIR = ROOT / "reports_d44_dualpol_feed_network_opt"
-STEM = "UWB_CH9_D44_DUALPOL_FEED_NETWORK"
+REPORT_DIR = ROOT / "reports_d44_dualpol_mirror_symmetry_opt"
+STEM = "UWB_CH9_D44_DUALPOL_MIRROR_SYMMETRY"
 SPARAM_CSV = REPORT_DIR / f"{STEM}_sparam_screening.csv"
 FULL_CSV = REPORT_DIR / f"{STEM}_full_validation.csv"
 BEST_JSON = REPORT_DIR / f"{STEM}_best.json"
@@ -41,6 +41,7 @@ XY_MAG_BALANCE_TARGET_DB = 2.0
 XY_PHASE_SPREAD_TARGET_DEG = 30.0
 PDOA_RMS_TARGET_DEG = 10.0
 PDOA_MAX_TARGET_DEG = 20.0
+PATTERN_SYMMETRY_TARGET_DB = 3.0
 
 LINEAR_POLS = [0.0, 45.0, 90.0, 135.0]
 PHI_CUTS = [45.0, 60.0, 75.0, 90.0]
@@ -57,6 +58,9 @@ STRUCTURE_KEYS = [
     "microstrip_feedline_width_mm",
     "microstrip_match_length_mm",
     "microstrip_match_width_mm",
+    "microstrip_transform2_length_mm",
+    "microstrip_transform2_width_mm",
+    "microstrip_feed_mirror_enabled",
     "microstrip_stub_length_mm",
     "microstrip_stub_width_mm",
     "microstrip_stub_offset_mm",
@@ -83,12 +87,15 @@ BASE_PARAMS.update(
         "feed_offset_v_mm": 0.0,
         "feed_pad_radius_mm": 0.28,
         "port_width_mm": 0.50,
-        "microstrip_feed_enabled": 0.0,
+        "microstrip_feed_enabled": 1.0,
         "microstrip_feed_offset_mm": 0.0,
         "microstrip_feedline_length_mm": 1.70,
         "microstrip_feedline_width_mm": 0.58,
         "microstrip_match_length_mm": 0.75,
         "microstrip_match_width_mm": 0.40,
+        "microstrip_transform2_length_mm": 0.45,
+        "microstrip_transform2_width_mm": 0.50,
+        "microstrip_feed_mirror_enabled": 1.0,
         "microstrip_stub_length_mm": 0.0,
         "microstrip_stub_width_mm": 0.24,
         "microstrip_stub_offset_mm": 0.60,
@@ -136,6 +143,9 @@ def network_extra(
     line_width: float,
     match_len: float,
     match_width: float,
+    transform2_len: float = 0.0,
+    transform2_width: float = 0.50,
+    mirror: bool = True,
     feed_offset: float = 0.0,
     stub_len: float = 0.0,
     stub_width: float = 0.24,
@@ -156,6 +166,9 @@ def network_extra(
         "microstrip_feedline_width_mm": line_width,
         "microstrip_match_length_mm": match_len,
         "microstrip_match_width_mm": match_width,
+        "microstrip_transform2_length_mm": transform2_len,
+        "microstrip_transform2_width_mm": transform2_width,
+        "microstrip_feed_mirror_enabled": 1.0 if mirror else 0.0,
         "microstrip_stub_length_mm": stub_len,
         "microstrip_stub_width_mm": stub_width,
         "microstrip_stub_offset_mm": stub_offset,
@@ -187,131 +200,92 @@ def candidates() -> list[Candidate]:
             port_width_mm=0.50,
         ),
         make_candidate(
-            "edge_eq_l1p60_w0p50_m0p62_w0p34",
-            "两路等长短微带过渡，窄匹配段降低边缘过耦合。",
-            **network_extra(line_len=1.60, line_width=0.50, match_len=0.62, match_width=0.34),
+            "edge_unmirror_prev_l1p70",
+            "上一轮真实边馈网络最优解，不启用镜像馈线，作为本轮真实网络基线。",
+            **network_extra(line_len=1.70, line_width=0.58, match_len=0.75, match_width=0.40, mirror=False),
         ),
         make_candidate(
-            "edge_eq_l1p70_w0p58_m0p75_w0p40",
-            "等长微带过渡参考解，匹配段宽度接近上一轮混合器输出段中值。",
+            "mirror_eq_l1p70_m0p75",
+            "保持上一轮阻抗尺寸，仅将每个阵元的边馈线镜像到外侧象限，观察方向图对称性收益。",
             **network_extra(line_len=1.70, line_width=0.58, match_len=0.75, match_width=0.40),
         ),
         make_candidate(
-            "edge_eq_l1p78_w0p62_m0p82_w0p44",
-            "加宽并拉长等长微带过渡，测试回波改善与同阵元串扰变化。",
-            **network_extra(line_len=1.78, line_width=0.62, match_len=0.82, match_width=0.44),
+            "mirror_xform_short_0p30_0p46",
+            "边馈使用窄高阻入口加二级阻抗变换，减少贴片边缘过强加载。",
+            **network_extra(line_len=1.70, line_width=0.58, match_len=0.42, match_width=0.30, transform2_len=0.45, transform2_width=0.46),
         ),
         make_candidate(
-            "edge_offset0p20_l1p70_m0p75",
-            "两路保持等长，加入 0.20 mm 横向偏移用于补偿 X/Y 边馈不对称。",
-            **network_extra(line_len=1.70, line_width=0.58, match_len=0.75, match_width=0.40, feed_offset=0.20),
+            "mirror_xform_mid_0p34_0p50",
+            "中等高阻入口加 0.50 mm 二级变换段，兼顾匹配和线宽可制造性。",
+            **network_extra(line_len=1.78, line_width=0.58, match_len=0.48, match_width=0.34, transform2_len=0.55, transform2_width=0.50),
         ),
         make_candidate(
-            "edge_stub0p85_branch0p65",
-            "加入开路匹配支节和短同阵元隔离枝节，优先改善同阵元 X/Y 隔离。",
-            **network_extra(
-                line_len=1.70,
-                line_width=0.58,
-                match_len=0.75,
-                match_width=0.40,
-                stub_len=0.85,
-                branch=True,
-                branch_len=0.65,
-                branch_width=0.12,
-                branch_offset=0.58,
-            ),
+            "mirror_xform_wide_0p38_0p54",
+            "较宽入口和二级变换段，测试阻抗变换对回波损耗的上限改善。",
+            **network_extra(line_len=1.85, line_width=0.62, match_len=0.54, match_width=0.38, transform2_len=0.58, transform2_width=0.54),
         ),
         make_candidate(
-            "edge_stub1p05_branch0p85",
-            "加长开路匹配支节并提高隔离枝节耦合长度，观察隔离收益上限。",
-            **network_extra(
-                line_len=1.75,
-                line_width=0.58,
-                match_len=0.78,
-                match_width=0.40,
-                stub_len=1.05,
-                branch=True,
-                branch_len=0.85,
-                branch_width=0.12,
-                branch_offset=0.65,
-            ),
+            "mirror_offset0p15_xform_mid",
+            "镜像馈线基础上加入 0.15 mm 共同横向偏移，补偿端口片和馈线不对称。",
+            **network_extra(line_len=1.78, line_width=0.58, match_len=0.48, match_width=0.34, transform2_len=0.55, transform2_width=0.50, feed_offset=0.15),
         ),
         make_candidate(
-            "edge_branch1p05_dgs0p65",
-            "隔离枝节叠加局部 DGS，尝试压低同阵元耦合并保持可制造尺寸。",
-            **network_extra(
-                line_len=1.72,
-                line_width=0.58,
-                match_len=0.78,
-                match_width=0.40,
-                stub_len=0.95,
-                branch=True,
-                branch_len=1.05,
-                branch_width=0.12,
-                branch_offset=0.72,
-                dgs=True,
-                dgs_len=3.4,
-                dgs_width=0.18,
-                dgs_offset=0.65,
-            ),
+            "mirror_patch9p05_xform_mid",
+            "略缩小贴片边长，补偿镜像边馈和阻抗变换引入的边缘电容加载。",
+            patch_side_mm=9.05,
+            **network_extra(line_len=1.78, line_width=0.58, match_len=0.48, match_width=0.34, transform2_len=0.55, transform2_width=0.50),
         ),
         make_candidate(
-            "edge_branch1p20_dgs0p85",
-            "更强隔离枝节与外移 DGS 组合，验证隔离提升是否牺牲匹配。",
+            "mirror_patch9p25_xform_mid",
+            "略放大贴片边长，验证镜像边馈后谐振点是否需要下移。",
+            patch_side_mm=9.25,
+            **network_extra(line_len=1.78, line_width=0.58, match_len=0.48, match_width=0.34, transform2_len=0.55, transform2_width=0.50),
+        ),
+        make_candidate(
+            "mirror_branch0p55_xform_mid",
+            "轻微同阵元隔离枝节随镜像象限布置，优先不破坏匹配。",
             **network_extra(
                 line_len=1.78,
                 line_width=0.58,
-                match_len=0.80,
-                match_width=0.40,
-                stub_len=1.10,
+                match_len=0.48,
+                match_width=0.34,
+                transform2_len=0.55,
+                transform2_width=0.50,
                 branch=True,
-                branch_len=1.20,
-                branch_width=0.12,
-                branch_offset=0.78,
-                dgs=True,
-                dgs_len=3.6,
-                dgs_width=0.18,
-                dgs_offset=0.85,
+                branch_len=0.55,
+                branch_width=0.10,
+                branch_offset=0.52,
             ),
         ),
         make_candidate(
-            "edge_patch9p05_branch_dgs",
-            "略缩小贴片边长补偿边馈电容性加载，并保留隔离枝节/DGS。",
-            patch_side_mm=9.05,
+            "mirror_stub0p65_xform_mid",
+            "镜像馈线加短开路支节，作为边馈阻抗变换的容性微调。",
             **network_extra(
-                line_len=1.70,
+                line_len=1.78,
                 line_width=0.58,
-                match_len=0.75,
-                match_width=0.38,
-                stub_len=0.95,
-                branch=True,
-                branch_len=0.95,
-                branch_width=0.12,
-                branch_offset=0.70,
-                dgs=True,
-                dgs_len=3.4,
-                dgs_width=0.18,
-                dgs_offset=0.75,
+                match_len=0.48,
+                match_width=0.34,
+                transform2_len=0.55,
+                transform2_width=0.50,
+                stub_len=0.65,
+                stub_width=0.20,
+                stub_offset=0.72,
             ),
         ),
         make_candidate(
-            "edge_patch9p25_branch_dgs",
-            "略放大贴片边长抵消边缘馈入导致的谐振上移，同时保留真实网络。",
-            patch_side_mm=9.25,
+            "mirror_dgs_light_xform_mid",
+            "轻量局部 DGS 与镜像边馈组合，测试方向图对称性和耦合抑制。",
             **network_extra(
-                line_len=1.70,
+                line_len=1.78,
                 line_width=0.58,
-                match_len=0.75,
-                match_width=0.40,
-                stub_len=0.95,
-                branch=True,
-                branch_len=0.95,
-                branch_width=0.12,
-                branch_offset=0.70,
+                match_len=0.48,
+                match_width=0.34,
+                transform2_len=0.55,
+                transform2_width=0.50,
                 dgs=True,
-                dgs_len=3.4,
-                dgs_width=0.18,
-                dgs_offset=0.75,
+                dgs_len=2.8,
+                dgs_width=0.14,
+                dgs_offset=0.55,
             ),
         ),
     ]
@@ -461,6 +435,51 @@ def measured_vector(
     a = dualpol_eval.linear_projection(fields_by_source[f"P{element}A"][point_key], pol_deg)
     b = dualpol_eval.linear_projection(fields_by_source[f"P{element}B"][point_key], pol_deg)
     return np.array([a, b], dtype=np.complex128)
+
+
+def mirror_angle_key(theta: float, phi: float, all_points: dict[tuple[float, float], pdoa_eval.FieldPoint]) -> tuple[float, float] | None:
+    mirrored_theta = (theta + 180.0) % 360.0
+    mirrored_phi = (phi + 180.0) % 360.0
+    candidates = [
+        (round(mirrored_theta, 9), round(phi, 9)),
+        (360.0, round(phi, 9)) if abs(mirrored_theta) < 1e-9 else (round(mirrored_theta, 9), round(phi, 9)),
+        (round(theta, 9), round(mirrored_phi, 9)),
+        (round(theta, 9), 360.0) if abs(mirrored_phi) < 1e-9 else (round(theta, 9), round(mirrored_phi, 9)),
+    ]
+    for key in candidates:
+        if key in all_points:
+            return key
+    return None
+
+
+def pattern_symmetry_metrics(fields: dict, eval_freqs: list[float], sources: list[str]) -> dict:
+    elements = set(dualpol_eval.element_pairs(sources))
+    pairs = [(1, 3), (2, 4)]
+    errors = []
+    for freq in eval_freqs:
+        fkey = pdoa_eval.freq_key(freq)
+        fields_by_source = {source: fields[source][fkey] for source in sources}
+        all_points = next(iter(fields_by_source.values()))
+        for left, right in pairs:
+            if left not in elements or right not in elements:
+                continue
+            for point_key, point in all_points.items():
+                mirrored_key = mirror_angle_key(point.theta_deg, point.phi_deg, all_points)
+                if mirrored_key is None:
+                    continue
+                for pol in LINEAR_POLS:
+                    left_mag = float(np.linalg.norm(measured_vector(fields_by_source, left, point_key, pol)))
+                    right_mag = float(np.linalg.norm(measured_vector(fields_by_source, right, mirrored_key, pol)))
+                    if left_mag <= 1e-12 or right_mag <= 1e-12:
+                        continue
+                    errors.append(20.0 * math.log10(left_mag / right_mag))
+    abs_errors = [abs(value) for value in errors]
+    return {
+        "pattern_symmetry_sample_count": len(errors),
+        "pattern_symmetry_mean_abs_db": fmean(abs_errors) if abs_errors else 0.0,
+        "pattern_symmetry_rms_db": math.sqrt(fmean(value * value for value in errors)) if errors else 0.0,
+        "pattern_symmetry_max_abs_db": max(abs_errors) if abs_errors else 0.0,
+    }
 
 
 def fit_calibration_matrices(fields: dict, eval_freqs: list[float], sources: list[str]) -> tuple[dict, dict]:
@@ -649,6 +668,7 @@ def full_score(row: dict) -> float:
         + 0.03 * row["calibrated_max_abs_bias_deg"]
         + 1.25 * row["xy_mag_imbalance_rms_db"]
         + 0.06 * row["xy_phase_spread_rms_deg"]
+        + 2.00 * row["pattern_symmetry_rms_db"]
     )
 
 
@@ -666,6 +686,7 @@ def full_validate(item: Candidate) -> dict:
         curves, summaries, pdoa_metrics = dualpol_eval.evaluate_dualpol_pdoa(fields, eval_freqs, sources)
         cal_curves, cal_summaries, cal_metrics, cal_quality = evaluate_calibrated_pdoa(fields, eval_freqs, sources)
         balance = xy_balance_metrics(fields, eval_freqs, sources)
+        symmetry = pattern_symmetry_metrics(fields, eval_freqs, sources)
     finally:
         hfss.release_desktop(close_projects=False, close_desktop=True)
 
@@ -728,6 +749,7 @@ def full_validate(item: Candidate) -> dict:
         "calibrated_avg_valid_percent": cal_metrics["avg_valid_percent"],
         "calibration_quality": cal_quality,
         **balance,
+        **symmetry,
     }
     row["sparam_score"] = sparam_score(row)
     row["full_score"] = full_score(row)
@@ -745,7 +767,8 @@ def full_validate(item: Candidate) -> dict:
         row["calibrated_avg_rms_bias_deg"] <= PDOA_RMS_TARGET_DEG
         and row["calibrated_max_abs_bias_deg"] <= PDOA_MAX_TARGET_DEG
     )
-    row["meets_all"] = row["meets_s"] and row["meets_balance"] and row["meets_calibrated_pdoa"]
+    row["meets_pattern_symmetry"] = row["pattern_symmetry_rms_db"] <= PATTERN_SYMMETRY_TARGET_DB
+    row["meets_all"] = row["meets_s"] and row["meets_balance"] and row["meets_calibrated_pdoa"] and row["meets_pattern_symmetry"]
     print(json.dumps({k: v for k, v in row.items() if k not in {"parameters", "calibration_quality"}}, indent=2, ensure_ascii=False), flush=True)
     return row
 
@@ -781,7 +804,7 @@ def copy_best_outputs(candidate: str) -> None:
 
 
 def previous_best() -> dict:
-    path = ROOT / "reports_d44_dualpol_xy_balance_opt" / "UWB_CH9_D44_DUALPOL_XY_BALANCE_best.json"
+    path = ROOT / "reports_d44_dualpol_feed_network_opt" / "UWB_CH9_D44_DUALPOL_FEED_NETWORK_best.json"
     if not path.exists():
         return {}
     try:
@@ -793,20 +816,21 @@ def previous_best() -> dict:
 def write_report(best: dict, sparam_rows: list[dict], full_rows: list[dict]) -> None:
     prev = previous_best()
     lines = [
-        "# D44 双极化 XY 真实馈电网络与接收端标定优化报告",
+        "# D44 双极化 XY 镜像馈线、阻抗变换与方向图对称化优化报告",
         "",
         "## 本轮目标",
         "",
-        "- 在保留独立 X/Y 双极化接收架构的前提下，引入真实双极化馈电网络。",
-        "- 两路馈线采用等长微带过渡，避免固定 90 度混合器把 X/Y 信息提前合成为单一圆极化端口。",
-        "- 扫描可调匹配段、开路匹配支节、同阵元隔离枝节与局部 DGS。",
+        "- 在上一轮真实边馈网络基础上，引入二级阶梯阻抗变换，降低贴片边缘过强加载。",
+        "- 将每个阵元的 X/Y 边馈线按阵元位置镜像到外侧象限，减少阵列方向图不对称。",
+        "- 扫描贴片边长、二级变换段宽度、馈线偏移、短隔离枝节、开路支节和轻量 DGS。",
         "- 后端评估加入每阵元 2x2 复数幅相标定矩阵，用于衡量接收端双通道可校准上限。",
-        f"- 目标：最差回波 `<= {RETURN_TARGET_DB:.1f} dB`，同阵元 X/Y 隔离 `>= {XY_ISOLATION_TARGET_DB:.1f} dB`，X/Y 回波差 `<= {RETURN_BALANCE_TARGET_DB:.1f} dB`，标定后 PDOA 平均 RMS `<= {PDOA_RMS_TARGET_DEG:.1f} deg`。",
+        f"- 目标：最差回波 `<= {RETURN_TARGET_DB:.1f} dB`，同阵元 X/Y 隔离 `>= {XY_ISOLATION_TARGET_DB:.1f} dB`，X/Y 回波差 `<= {RETURN_BALANCE_TARGET_DB:.1f} dB`，方向图镜像对称 RMS `<= {PATTERN_SYMMETRY_TARGET_DB:.1f} dB`，标定后 PDOA 平均 RMS `<= {PDOA_RMS_TARGET_DEG:.1f} deg`。",
         "",
         "## 方法说明",
         "",
-        "- S 参数阶段优先筛选真实微带网络候选，探针/焊盘参考解只作为对照。",
+        "- S 参数阶段优先筛选镜像馈线和阻抗变换候选，探针/焊盘参考解只作为对照。",
         "- 完整复核阶段提取嵌入远场，分别计算未标定双极化向量相关 PDOA 与标定后 2x2 向量相关 PDOA。",
+        "- 方向图对称性通过 E1/E3、E2/E4 在方位镜像点的双通道向量幅度差计算，指标越小代表阵元方向图越一致。",
         "- 标定矩阵来自线极化 `0 / 45 / 90 / 135 deg` 的嵌入远场样本最小二乘拟合；它代表后端接收机幅相标定能力，不等同于纯硬件指标改善。",
         "",
         "## S 参数筛选排名",
@@ -829,15 +853,15 @@ def write_report(best: dict, sparam_rows: list[dict], full_rows: list[dict]) -> 
             "",
             "## 完整复核结果",
             "",
-            "| 候选 | 综合评分 | 最差Sii | 同阵元X/Y隔离 | 回波差 | 幅差RMS | 相位离散RMS | 未标定PDOA均值RMS | 标定后PDOA均值RMS | 标定后95分位 | 标定后最大漂移 |",
-            "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
+            "| 候选 | 综合评分 | 最差Sii | 同阵元X/Y隔离 | 回波差 | 方向图对称RMS | 幅差RMS | 相位离散RMS | 未标定PDOA均值RMS | 标定后PDOA均值RMS | 标定后95分位 | 标定后最大漂移 |",
+            "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
         ]
     )
     for row in sorted(full_rows, key=lambda item: item["full_score"]):
         lines.append(
             f"| `{row['candidate']}` | {fmt(row['full_score'])} | {fmt(row['worst_return_db'])} dB | "
             f"{fmt(row['same_element_xy_isolation_db'])} dB | {fmt(row['xy_return_balance_db'])} dB | "
-            f"{fmt(row['xy_mag_imbalance_rms_db'])} dB | {fmt(row['xy_phase_spread_rms_deg'])} deg | "
+            f"{fmt(row['pattern_symmetry_rms_db'])} dB | {fmt(row['xy_mag_imbalance_rms_db'])} dB | {fmt(row['xy_phase_spread_rms_deg'])} deg | "
             f"{fmt(row['dualpol_vector_avg_rms_bias_deg'])} deg | {fmt(row['calibrated_avg_rms_bias_deg'])} deg | "
             f"{fmt(row['calibrated_p95_rms_bias_deg'])} deg | {fmt(row['calibrated_max_abs_bias_deg'])} deg |"
         )
@@ -858,6 +882,8 @@ def write_report(best: dict, sparam_rows: list[dict], full_rows: list[dict]) -> 
             f"- X/Y 回波差：`{fmt(best['xy_return_balance_db'])} dB`",
             f"- 同阵元 X/Y 隔离：`{fmt(best['same_element_xy_isolation_db'])} dB`",
             f"- 同馈跨阵元隔离：`{fmt(best['same_feed_inter_element_isolation_db'])} dB`",
+            f"- 方向图镜像对称 RMS：`{fmt(best['pattern_symmetry_rms_db'])} dB`",
+            f"- 方向图镜像对称最大差：`{fmt(best['pattern_symmetry_max_abs_db'])} dB`",
             f"- X/Y 幅度 RMS 差：`{fmt(best['xy_mag_imbalance_rms_db'])} dB`",
             f"- X/Y 相位离散 RMS：`{fmt(best['xy_phase_spread_rms_deg'])} deg`",
             f"- 未标定双极化向量 PDOA 平均 RMS：`{fmt(best['dualpol_vector_avg_rms_bias_deg'])} deg`",
@@ -877,7 +903,7 @@ def write_report(best: dict, sparam_rows: list[dict], full_rows: list[dict]) -> 
         lines.extend(
             [
                 "",
-                "## 与上一轮小焊盘最优解对比",
+                "## 与上一轮真实边馈网络最优解对比",
                 "",
                 "| 指标 | 上一轮 | 本轮最优 | 变化 |",
                 "| --- | ---: | ---: | ---: |",
@@ -890,6 +916,7 @@ def write_report(best: dict, sparam_rows: list[dict], full_rows: list[dict]) -> 
             ("X/Y 幅度 RMS 差", "xy_mag_imbalance_rms_db", "dB"),
             ("X/Y 相位离散 RMS", "xy_phase_spread_rms_deg", "deg"),
             ("未标定向量 PDOA 平均 RMS", "dualpol_vector_avg_rms_bias_deg", "deg"),
+            ("方向图镜像对称 RMS", "pattern_symmetry_rms_db", "dB"),
         ]
         for label, key, unit in compare:
             old = prev.get(key)
@@ -905,13 +932,15 @@ def write_report(best: dict, sparam_rows: list[dict], full_rows: list[dict]) -> 
             f"- S 参数/隔离目标：`{'通过' if best['meets_s'] else '未通过'}`。",
             f"- X/Y 幅相一致性目标：`{'通过' if best['meets_balance'] else '未通过'}`。",
             f"- 标定后 PDOA 稳定性目标：`{'通过' if best['meets_calibrated_pdoa'] else '未通过'}`。",
+            f"- 方向图镜像对称性目标：`{'通过' if best['meets_pattern_symmetry'] else '未通过'}`。",
             f"- 全部目标：`{'通过' if best['meets_all'] else '未通过'}`。",
             "",
             "## 工程判断",
             "",
-            "- 本轮完成了从探针/焊盘到等长微带双通道馈电网络的结构升级，并保留 X/Y 独立接收端口。",
-            "- 如果硬件 S 参数没有明显提升，而标定后 PDOA 明显改善，说明主要矛盾已经从天线几何转向接收链路幅相一致性与标定质量。",
-            "- 如果标定后 PDOA 仍大幅漂移，下一步需要从阵元方向图对称性入手，考虑双极化贴片旋转一致化、馈线镜像布局、双层过渡或叠层寄生贴片。",
+            "- 本轮把馈线镜像和二级阻抗变换纳入真实 HFSS 几何；如果匹配改善有限，说明边馈位置仍偏离贴片等效 50 欧姆点。",
+            "- `mirror_stub0p65_xform_mid` 在一次 S 参数尝试中 AEDT 未返回有效解数据，`mirror_dgs_light_xform_mid` 未进入最终复核；这两类支节/DGS 结构需要拆成更温和的独立细扫。",
+            "- 若方向图对称性改善但 PDOA 仍漂移，下一步应重点做端口相位中心校正和每阵元独立方向图标定。",
+            "- 若方向图对称性没有改善，下一步应考虑双层过渡或叠层寄生贴片，使馈线从辐射贴片主电流区域退耦。",
             "",
             "## 输出文件",
             "",
@@ -935,7 +964,7 @@ def rebuild_final_project(item: Candidate) -> None:
 
 
 def run(
-    max_sparam_candidates: int = 11,
+    max_sparam_candidates: int = 12,
     full_candidate_count: int = 2,
     resume_sparam: bool = False,
     full_candidate_names: list[str] | None = None,
@@ -978,6 +1007,7 @@ def run(
             "xy_phase_spread_target_deg": XY_PHASE_SPREAD_TARGET_DEG,
             "pdoa_rms_target_deg": PDOA_RMS_TARGET_DEG,
             "pdoa_max_target_deg": PDOA_MAX_TARGET_DEG,
+            "pattern_symmetry_target_db": PATTERN_SYMMETRY_TARGET_DB,
         },
         "candidate_count": len(cands),
         "sparam_top": sorted(sparam_rows, key=lambda row: float(row["score"]))[:12],
@@ -1003,7 +1033,7 @@ def run(
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--max-sparam-candidates", type=int, default=11)
+    parser.add_argument("--max-sparam-candidates", type=int, default=12)
     parser.add_argument("--full-candidate-count", type=int, default=2)
     parser.add_argument("--resume-sparam", action="store_true")
     parser.add_argument("--full-candidate-names", default="", help="Comma-separated candidate names for full validation.")

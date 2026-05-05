@@ -38,9 +38,12 @@ BASE_PARAMS = {
     "microstrip_feedline_width_mm": 0.60,
     "microstrip_match_length_mm": 0.85,
     "microstrip_match_width_mm": 0.42,
+    "microstrip_transform2_length_mm": 0.0,
+    "microstrip_transform2_width_mm": 0.50,
     "microstrip_stub_length_mm": 0.0,
     "microstrip_stub_width_mm": 0.24,
     "microstrip_stub_offset_mm": 0.75,
+    "microstrip_feed_mirror_enabled": 0.0,
     "neutralization_branch_enabled": 0.0,
     "neutralization_branch_length_mm": 1.15,
     "neutralization_branch_width_mm": 0.18,
@@ -85,7 +88,7 @@ TOPOLOGIES = {
         "description": "Dual orthogonal feed square patches. Each element exposes A/B feeds intended for 90 degree CP excitation.",
         "kind": "dualfeed",
         "params": {
-            "patch_side_mm": 9.15,
+            "patch_side_mm": 9.25,
             "corner_cut_mm": 0.0,
             "feed_offset_u_mm": 2.45,
             "feed_pad_radius_mm": 0.42,
@@ -161,13 +164,16 @@ TOPOLOGIES = {
             "port_width_mm": 0.50,
             "microstrip_feed_enabled": 1.0,
             "microstrip_feed_offset_mm": 0.0,
-            "microstrip_feedline_length_mm": 1.70,
+            "microstrip_feedline_length_mm": 1.78,
             "microstrip_feedline_width_mm": 0.58,
-            "microstrip_match_length_mm": 0.75,
-            "microstrip_match_width_mm": 0.40,
+            "microstrip_match_length_mm": 0.48,
+            "microstrip_match_width_mm": 0.34,
+            "microstrip_transform2_length_mm": 0.55,
+            "microstrip_transform2_width_mm": 0.50,
             "microstrip_stub_length_mm": 0.0,
             "microstrip_stub_width_mm": 0.24,
             "microstrip_stub_offset_mm": 0.60,
+            "microstrip_feed_mirror_enabled": 1.0,
             "neutralization_branch_enabled": 0.0,
             "neutralization_branch_length_mm": 0.85,
             "neutralization_branch_width_mm": 0.12,
@@ -366,16 +372,21 @@ def add_microstrip_edge_feed(
     axis: str,
     params: dict,
     hybrid_outputs: bool = False,
+    side_sign: float = 1.0,
 ) -> list[str]:
     h = params["substrate_h_mm"]
     side = params["patch_side_mm"]
     edge = side / 2.0
+    side_sign = 1.0 if side_sign >= 0.0 else -1.0
     line_len = params["microstrip_feedline_length_mm"]
     line_w = params["microstrip_feedline_width_mm"]
     match_len_key = "hybrid_output_match_length_mm" if hybrid_outputs else "microstrip_match_length_mm"
     match_width_key = "hybrid_output_match_width_mm" if hybrid_outputs else "microstrip_match_width_mm"
     match_len = min(params.get(match_len_key, params["microstrip_match_length_mm"]), max(0.15, line_len - 0.1))
     match_w = params.get(match_width_key, params["microstrip_match_width_mm"])
+    transform_len = max(0.0, params.get("microstrip_transform2_length_mm", 0.0))
+    transform_len = min(transform_len, max(0.0, line_len - match_len - 0.1))
+    transform_w = params.get("microstrip_transform2_width_mm", line_w)
     stub_len = params.get("microstrip_stub_length_mm", 0.0)
     stub_w = params.get("microstrip_stub_width_mm", 0.24)
     stub_offset = min(params.get("microstrip_stub_offset_mm", 0.75), max(0.15, line_len - 0.1))
@@ -383,30 +394,57 @@ def add_microstrip_edge_feed(
     overlap = 0.08
     metals = []
 
+    def signed_span(start: float, stop: float) -> tuple[float, float]:
+        a = side_sign * start
+        b = side_sign * stop
+        return min(a, b), max(a, b)
+
     def add_rect(suffix: str, u0: float, u1: float, v0: float, v1: float) -> None:
         sheet = polygon_sheet(hfss, f"{name}_{suffix}", rectangle_points(*center, angle_deg, u0, u1, v0, v1, h), "copper")
         metals.append(sheet.name)
 
     if axis == "u":
-        add_rect("edge_match_section", edge - overlap, edge + match_len, feed_shift - match_w / 2.0, feed_shift + match_w / 2.0)
-        add_rect("edge_feedline", edge + match_len - overlap, edge + line_len, feed_shift - line_w / 2.0, feed_shift + line_w / 2.0)
+        u0, u1 = signed_span(edge - overlap, edge + match_len)
+        add_rect("edge_match_section", u0, u1, feed_shift - match_w / 2.0, feed_shift + match_w / 2.0)
+        feed_start = edge + match_len
+        if transform_len > 1e-9:
+            u0, u1 = signed_span(edge + match_len - overlap, edge + match_len + transform_len)
+            add_rect("edge_transform_section", u0, u1, feed_shift - transform_w / 2.0, feed_shift + transform_w / 2.0)
+            feed_start = edge + match_len + transform_len
+        u0, u1 = signed_span(feed_start - overlap, edge + line_len)
+        add_rect("edge_feedline", u0, u1, feed_shift - line_w / 2.0, feed_shift + line_w / 2.0)
         if stub_len > 1e-9:
-            stub_u = edge + stub_offset
+            stub_u = side_sign * (edge + stub_offset)
             add_rect("open_stub", stub_u - stub_w / 2.0, stub_u + stub_w / 2.0, feed_shift + line_w / 2.0 - overlap, feed_shift + line_w / 2.0 + stub_len)
-        metals += add_lumped_feed(hfss, name, center, angle_deg, edge + line_len, feed_shift, h, 0.0, params, pad=False)
+        metals += add_lumped_feed(hfss, name, center, angle_deg, side_sign * (edge + line_len), feed_shift, h, 0.0, params, pad=False)
     elif axis == "v":
-        add_rect("edge_match_section", feed_shift - match_w / 2.0, feed_shift + match_w / 2.0, edge - overlap, edge + match_len)
-        add_rect("edge_feedline", feed_shift - line_w / 2.0, feed_shift + line_w / 2.0, edge + match_len - overlap, edge + line_len)
+        v0, v1 = signed_span(edge - overlap, edge + match_len)
+        add_rect("edge_match_section", feed_shift - match_w / 2.0, feed_shift + match_w / 2.0, v0, v1)
+        feed_start = edge + match_len
+        if transform_len > 1e-9:
+            v0, v1 = signed_span(edge + match_len - overlap, edge + match_len + transform_len)
+            add_rect("edge_transform_section", feed_shift - transform_w / 2.0, feed_shift + transform_w / 2.0, v0, v1)
+            feed_start = edge + match_len + transform_len
+        v0, v1 = signed_span(feed_start - overlap, edge + line_len)
+        add_rect("edge_feedline", feed_shift - line_w / 2.0, feed_shift + line_w / 2.0, v0, v1)
         if stub_len > 1e-9:
-            stub_v = edge + stub_offset
+            stub_v = side_sign * (edge + stub_offset)
             add_rect("open_stub", feed_shift + line_w / 2.0 - overlap, feed_shift + line_w / 2.0 + stub_len, stub_v - stub_w / 2.0, stub_v + stub_w / 2.0)
-        metals += add_lumped_feed(hfss, name, center, angle_deg, feed_shift, edge + line_len, h, 0.0, params, pad=False)
+        metals += add_lumped_feed(hfss, name, center, angle_deg, feed_shift, side_sign * (edge + line_len), h, 0.0, params, pad=False)
     else:
         raise ValueError(f"Unsupported feed axis {axis}")
     return metals
 
 
-def add_neutralization_branch(hfss: Hfss, tag: str, center: tuple[float, float], angle_deg: float, params: dict) -> list[str]:
+def add_neutralization_branch(
+    hfss: Hfss,
+    tag: str,
+    center: tuple[float, float],
+    angle_deg: float,
+    params: dict,
+    u_side_sign: float = 1.0,
+    v_side_sign: float = 1.0,
+) -> list[str]:
     if params.get("neutralization_branch_enabled", 0.0) < 0.5:
         return []
     h = params["substrate_h_mm"]
@@ -416,16 +454,31 @@ def add_neutralization_branch(hfss: Hfss, tag: str, center: tuple[float, float],
     width = params["neutralization_branch_width_mm"]
     offset = min(params["neutralization_branch_offset_mm"], max(0.2, line_len - 0.15))
     length = min(params.get("neutralization_branch_length_mm", offset), max(0.2, line_len - 0.15))
-    anchor = edge + offset
-    corner = edge + length
+    u_side_sign = 1.0 if u_side_sign >= 0.0 else -1.0
+    v_side_sign = 1.0 if v_side_sign >= 0.0 else -1.0
+    anchor_u = u_side_sign * (edge + offset)
+    anchor_v = v_side_sign * (edge + offset)
+    corner_u = u_side_sign * (edge + length)
+    corner_v = v_side_sign * (edge + length)
     metals = []
+    u_leg_u0, u_leg_u1 = sorted([anchor_u - width / 2.0, anchor_u + width / 2.0])
+    u_leg_v0, u_leg_v1 = sorted([-v_side_sign * line_w / 2.0, corner_v + v_side_sign * width / 2.0])
+    v_leg_u0, v_leg_u1 = sorted([-u_side_sign * line_w / 2.0, corner_u + u_side_sign * width / 2.0])
+    v_leg_v0, v_leg_v1 = sorted([anchor_v - width / 2.0, anchor_v + width / 2.0])
     for suffix, u0, u1, v0, v1 in [
-        ("neutralization_u_leg", anchor - width / 2.0, anchor + width / 2.0, -line_w / 2.0, corner + width / 2.0),
-        ("neutralization_v_leg", -line_w / 2.0, anchor + width / 2.0, corner - width / 2.0, corner + width / 2.0),
+        ("neutralization_u_leg", u_leg_u0, u_leg_u1, u_leg_v0, u_leg_v1),
+        ("neutralization_v_leg", v_leg_u0, v_leg_u1, v_leg_v0, v_leg_v1),
     ]:
         sheet = polygon_sheet(hfss, f"{tag}_{suffix}", rectangle_points(*center, angle_deg, u0, u1, v0, v1, h), "copper")
         metals.append(sheet.name)
     return metals
+
+
+def mirrored_feed_side_sign(center: tuple[float, float], axis: str, params: dict) -> float:
+    if params.get("microstrip_feed_mirror_enabled", 0.0) < 0.5:
+        return 1.0
+    coord = center[0] if axis == "u" else center[1]
+    return -1.0 if coord < -1e-9 else 1.0
 
 
 def rotated_rectangle_points(
@@ -525,9 +578,11 @@ def add_dualfeed_element(hfss: Hfss, tag: str, center: tuple[float, float], angl
     f_a = params.get("feed_offset_a_mm", params["feed_offset_u_mm"])
     f_b = params.get("feed_offset_b_mm", params["feed_offset_u_mm"])
     if params.get("microstrip_feed_enabled", 0.0) >= 0.5:
-        metals += add_microstrip_edge_feed(hfss, f"P{tag[-1]}A", center, angle, "u", params, hybrid_outputs=hybrid_traces)
-        metals += add_microstrip_edge_feed(hfss, f"P{tag[-1]}B", center, angle, "v", params, hybrid_outputs=hybrid_traces)
-        metals += add_neutralization_branch(hfss, tag, center, angle, params)
+        u_side_sign = mirrored_feed_side_sign(center, "u", params)
+        v_side_sign = mirrored_feed_side_sign(center, "v", params)
+        metals += add_microstrip_edge_feed(hfss, f"P{tag[-1]}A", center, angle, "u", params, hybrid_outputs=hybrid_traces, side_sign=u_side_sign)
+        metals += add_microstrip_edge_feed(hfss, f"P{tag[-1]}B", center, angle, "v", params, hybrid_outputs=hybrid_traces, side_sign=v_side_sign)
+        metals += add_neutralization_branch(hfss, tag, center, angle, params, u_side_sign, v_side_sign)
     else:
         metals += add_lumped_feed(hfss, f"P{tag[-1]}A", center, angle, f_a, 0.0, h, 0.0, params)
         metals += add_lumped_feed(hfss, f"P{tag[-1]}B", center, angle, 0.0, f_b, h, 0.0, params)
@@ -646,6 +701,7 @@ def validate_params(params: dict) -> None:
             line_len,
             params.get("neutralization_branch_length_mm", 0.0),
             params.get("neutralization_branch_offset_mm", 0.0),
+            params.get("microstrip_match_length_mm", 0.0) + params.get("microstrip_transform2_length_mm", 0.0),
             params.get("microstrip_stub_offset_mm", 0.0) + params.get("microstrip_stub_length_mm", 0.0),
             abs(params.get("microstrip_feed_offset_mm", 0.0)) + params.get("microstrip_feedline_width_mm", 0.0) / 2.0,
         )
@@ -874,6 +930,8 @@ def source_guidance(topology: str) -> list[str]:
         params = topology_params(topology)
         if params.get("microstrip_feed_enabled", 0.0) >= 0.5:
             guidance.append("The dual-polarized feed uses equal-length edge microstrip transitions with tunable matching sections.")
+        if params.get("microstrip_feed_mirror_enabled", 0.0) >= 0.5:
+            guidance.append("The edge feedlines are mirrored by element position to improve array pattern symmetry.")
         if params.get("neutralization_branch_enabled", 0.0) >= 0.5:
             guidance.append("Same-element X/Y neutralization branches are enabled and should be co-tuned with receiver calibration.")
         return guidance
