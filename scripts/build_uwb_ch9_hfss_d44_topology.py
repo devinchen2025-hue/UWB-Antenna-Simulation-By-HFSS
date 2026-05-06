@@ -85,15 +85,30 @@ BASE_PARAMS = {
     "slot_coupled_feedline_width_mm": 0.60,
     "slot_coupled_feedline_offset_a_v_mm": 0.0,
     "slot_coupled_feedline_offset_b_u_mm": 0.0,
+    "slot_coupled_b_feed_layer_offset_mm": 0.0,
+    "slot_coupled_bridge_enabled": 0.0,
+    "slot_coupled_bridge_gap_mm": 1.10,
+    "slot_coupled_bridge_offset_mm": 0.0,
+    "slot_coupled_bridge_width_mm": 0.60,
     "slot_coupled_stub_enabled": 0.0,
     "slot_coupled_stub_length_mm": 0.0,
     "slot_coupled_stub_width_mm": 0.25,
     "slot_coupled_stub_offset_mm": 2.0,
     "slot_coupled_stub_side_sign": 1.0,
+    "slot_coupled_stub2_enabled": 0.0,
+    "slot_coupled_stub2_length_mm": 0.0,
+    "slot_coupled_stub2_width_mm": 0.25,
+    "slot_coupled_stub2_offset_mm": 3.0,
+    "slot_coupled_stub2_side_sign": -1.0,
+    "slot_coupled_step_enabled": 0.0,
+    "slot_coupled_step_length_mm": 0.0,
+    "slot_coupled_step_width_mm": 0.80,
     "isolation_slot_enabled": 1.0,
     "isolation_slot_length_mm": 11.0,
     "isolation_slot_width_mm": 0.45,
     "isolation_slot_inner_mm": 3.2,
+    "analysis_cores": 8.0,
+    "analysis_tasks": 8.0,
     "air_frequency_ghz": 7.0,
     "cp_axial_ratio_target_db": 3.0,
     "fov_min_gain_target_dbi": -5.0,
@@ -227,11 +242,24 @@ TOPOLOGIES = {
             "slot_coupled_feedline_width_mm": 0.60,
             "slot_coupled_feedline_offset_a_v_mm": 0.0,
             "slot_coupled_feedline_offset_b_u_mm": 0.0,
+            "slot_coupled_b_feed_layer_offset_mm": 0.0,
+            "slot_coupled_bridge_enabled": 0.0,
+            "slot_coupled_bridge_gap_mm": 1.10,
+            "slot_coupled_bridge_offset_mm": 0.0,
+            "slot_coupled_bridge_width_mm": 0.60,
             "slot_coupled_stub_enabled": 0.0,
             "slot_coupled_stub_length_mm": 0.0,
             "slot_coupled_stub_width_mm": 0.25,
             "slot_coupled_stub_offset_mm": 2.0,
             "slot_coupled_stub_side_sign": 1.0,
+            "slot_coupled_stub2_enabled": 0.0,
+            "slot_coupled_stub2_length_mm": 0.0,
+            "slot_coupled_stub2_width_mm": 0.25,
+            "slot_coupled_stub2_offset_mm": 3.0,
+            "slot_coupled_stub2_side_sign": -1.0,
+            "slot_coupled_step_enabled": 0.0,
+            "slot_coupled_step_length_mm": 0.0,
+            "slot_coupled_step_width_mm": 0.80,
             "weak_coupling_open_line_enabled": 0.0,
             "via_fence_enabled": 0.0,
             "isolation_slot_enabled": 1.0,
@@ -707,7 +735,8 @@ def add_dualpol_slotcoupled_element(hfss: Hfss, tag: str, center: tuple[float, f
     metals = []
     slots = []
     h = params["substrate_h_mm"]
-    feed_z = -params.get("feed_substrate_h_mm", 0.254)
+    feed_z_a = -params.get("feed_substrate_h_mm", 0.254)
+    feed_z_b = feed_z_a - params.get("slot_coupled_b_feed_layer_offset_mm", 0.0)
     patch = polygon_sheet(
         hfss,
         f"{tag}_dualpol_slotcoupled_patch",
@@ -758,54 +787,172 @@ def add_dualpol_slotcoupled_element(hfss: Hfss, tag: str, center: tuple[float, f
     u_side_sign = mirrored_feed_side_sign(center, "u", params)
     v_side_sign = mirrored_feed_side_sign(center, "v", params)
 
+    def vertical_local_sheet(name: str, u0: float, u1: float, v: float, z0: float, z1: float) -> str:
+        pts = [
+            local_to_global(*center, angle, u0, v, z0),
+            local_to_global(*center, angle, u1, v, z0),
+            local_to_global(*center, angle, u1, v, z1),
+            local_to_global(*center, angle, u0, v, z1),
+        ]
+        return polygon_sheet(hfss, name, pts, "copper").name
+
     line_a = polygon_sheet(
         hfss,
         f"{tag}_slotcoupled_a_underside_feedline",
-        rectangle_points(*center, angle, -half_l, half_l, feedline_a_v - half_w, feedline_a_v + half_w, feed_z),
+        rectangle_points(*center, angle, -half_l, half_l, feedline_a_v - half_w, feedline_a_v + half_w, feed_z_a),
         "copper",
     )
-    line_b = polygon_sheet(
-        hfss,
-        f"{tag}_slotcoupled_b_underside_feedline",
-        rectangle_points(*center, angle, feedline_b_u - half_w, feedline_b_u + half_w, -half_l, half_l, feed_z),
-        "copper",
-    )
-    metals.extend([line_a.name, line_b.name])
+    metals.append(line_a.name)
+    if params.get("slot_coupled_bridge_enabled", 0.0) >= 0.5:
+        bridge_gap = params.get("slot_coupled_bridge_gap_mm", 1.10)
+        bridge_offset = params.get("slot_coupled_bridge_offset_mm", 0.0)
+        bridge_half_w = params.get("slot_coupled_bridge_width_mm", params["slot_coupled_feedline_width_mm"]) / 2.0
+        bridge_z = feed_z_b - bridge_offset
+        line_b_neg = polygon_sheet(
+            hfss,
+            f"{tag}_slotcoupled_b_underside_feedline_neg",
+            rectangle_points(*center, angle, feedline_b_u - half_w, feedline_b_u + half_w, -half_l, -bridge_gap / 2.0, feed_z_b),
+            "copper",
+        )
+        line_b_pos = polygon_sheet(
+            hfss,
+            f"{tag}_slotcoupled_b_underside_feedline_pos",
+            rectangle_points(*center, angle, feedline_b_u - half_w, feedline_b_u + half_w, bridge_gap / 2.0, half_l, feed_z_b),
+            "copper",
+        )
+        bridge = polygon_sheet(
+            hfss,
+            f"{tag}_slotcoupled_b_center_bridge",
+            rectangle_points(
+                *center,
+                angle,
+                feedline_b_u - bridge_half_w,
+                feedline_b_u + bridge_half_w,
+                -bridge_gap / 2.0,
+                bridge_gap / 2.0,
+                bridge_z,
+            ),
+            "copper",
+        )
+        metals.extend(
+            [
+                line_b_neg.name,
+                line_b_pos.name,
+                bridge.name,
+                vertical_local_sheet(
+                    f"{tag}_slotcoupled_b_bridge_via_neg",
+                    feedline_b_u - bridge_half_w,
+                    feedline_b_u + bridge_half_w,
+                    -bridge_gap / 2.0,
+                    feed_z_b,
+                    bridge_z,
+                ),
+                vertical_local_sheet(
+                    f"{tag}_slotcoupled_b_bridge_via_pos",
+                    feedline_b_u - bridge_half_w,
+                    feedline_b_u + bridge_half_w,
+                    bridge_gap / 2.0,
+                    feed_z_b,
+                    bridge_z,
+                ),
+            ]
+        )
+    else:
+        line_b = polygon_sheet(
+            hfss,
+            f"{tag}_slotcoupled_b_underside_feedline",
+            rectangle_points(*center, angle, feedline_b_u - half_w, feedline_b_u + half_w, -half_l, half_l, feed_z_b),
+            "copper",
+        )
+        metals.append(line_b.name)
+    if params.get("slot_coupled_step_enabled", 0.0) >= 0.5:
+        step_l = params.get("slot_coupled_step_length_mm", 0.0)
+        step_w = params.get("slot_coupled_step_width_mm", params["slot_coupled_feedline_width_mm"])
+        if step_l > 1e-9 and step_w > params["slot_coupled_feedline_width_mm"] + 1e-9:
+            step_a_u0 = u_side_sign * (half_l - step_l)
+            step_a_u1 = u_side_sign * half_l
+            step_a = polygon_sheet(
+                hfss,
+                f"{tag}_slotcoupled_a_port_step",
+                rectangle_points(
+                    *center,
+                    angle,
+                    min(step_a_u0, step_a_u1),
+                    max(step_a_u0, step_a_u1),
+                    feedline_a_v - step_w / 2.0,
+                    feedline_a_v + step_w / 2.0,
+                    feed_z_a,
+                ),
+                "copper",
+            )
+            step_b_v0 = v_side_sign * (half_l - step_l)
+            step_b_v1 = v_side_sign * half_l
+            step_b = polygon_sheet(
+                hfss,
+                f"{tag}_slotcoupled_b_port_step",
+                rectangle_points(
+                    *center,
+                    angle,
+                    feedline_b_u - step_w / 2.0,
+                    feedline_b_u + step_w / 2.0,
+                    min(step_b_v0, step_b_v1),
+                    max(step_b_v0, step_b_v1),
+                    feed_z_b,
+                ),
+                "copper",
+            )
+            metals.extend([step_a.name, step_b.name])
+
+    def add_stub_pair(suffix: str, stub_l: float, stub_w: float, stub_offset: float, stub_side_value: float) -> None:
+        if stub_l <= 1e-9 or stub_w <= 1e-9:
+            return
+        stub_side = 1.0 if stub_side_value >= 0.0 else -1.0
+        stub_a_u = u_side_sign * stub_offset
+        if stub_side >= 0.0:
+            stub_a_v0 = feedline_a_v + half_w - 0.03
+            stub_a_v1 = feedline_a_v + half_w + stub_l
+        else:
+            stub_a_v0 = feedline_a_v - half_w - stub_l
+            stub_a_v1 = feedline_a_v - half_w + 0.03
+        stub_a = polygon_sheet(
+            hfss,
+            f"{tag}_slotcoupled_a_{suffix}",
+            rectangle_points(*center, angle, stub_a_u - stub_w / 2.0, stub_a_u + stub_w / 2.0, stub_a_v0, stub_a_v1, feed_z_a),
+            "copper",
+        )
+        stub_b_v = v_side_sign * stub_offset
+        if stub_side >= 0.0:
+            stub_b_u0 = feedline_b_u + half_w - 0.03
+            stub_b_u1 = feedline_b_u + half_w + stub_l
+        else:
+            stub_b_u0 = feedline_b_u - half_w - stub_l
+            stub_b_u1 = feedline_b_u - half_w + 0.03
+        stub_b = polygon_sheet(
+            hfss,
+            f"{tag}_slotcoupled_b_{suffix}",
+            rectangle_points(*center, angle, stub_b_u0, stub_b_u1, stub_b_v - stub_w / 2.0, stub_b_v + stub_w / 2.0, feed_z_b),
+            "copper",
+        )
+        metals.extend([stub_a.name, stub_b.name])
+
     if params.get("slot_coupled_stub_enabled", 0.0) >= 0.5:
-        stub_l = params.get("slot_coupled_stub_length_mm", 0.0)
-        stub_w = params.get("slot_coupled_stub_width_mm", 0.25)
-        stub_offset = params.get("slot_coupled_stub_offset_mm", 2.0)
-        stub_side = 1.0 if params.get("slot_coupled_stub_side_sign", 1.0) >= 0.0 else -1.0
-        if stub_l > 1e-9 and stub_w > 1e-9:
-            stub_a_u = u_side_sign * stub_offset
-            if stub_side >= 0.0:
-                stub_a_v0 = feedline_a_v + half_w - 0.03
-                stub_a_v1 = feedline_a_v + half_w + stub_l
-            else:
-                stub_a_v0 = feedline_a_v - half_w - stub_l
-                stub_a_v1 = feedline_a_v - half_w + 0.03
-            stub_a = polygon_sheet(
-                hfss,
-                f"{tag}_slotcoupled_a_open_stub",
-                rectangle_points(*center, angle, stub_a_u - stub_w / 2.0, stub_a_u + stub_w / 2.0, stub_a_v0, stub_a_v1, feed_z),
-                "copper",
-            )
-            stub_b_v = v_side_sign * stub_offset
-            if stub_side >= 0.0:
-                stub_b_u0 = feedline_b_u + half_w - 0.03
-                stub_b_u1 = feedline_b_u + half_w + stub_l
-            else:
-                stub_b_u0 = feedline_b_u - half_w - stub_l
-                stub_b_u1 = feedline_b_u - half_w + 0.03
-            stub_b = polygon_sheet(
-                hfss,
-                f"{tag}_slotcoupled_b_open_stub",
-                rectangle_points(*center, angle, stub_b_u0, stub_b_u1, stub_b_v - stub_w / 2.0, stub_b_v + stub_w / 2.0, feed_z),
-                "copper",
-            )
-            metals.extend([stub_a.name, stub_b.name])
-    metals += add_lumped_feed(hfss, f"P{tag[-1]}A", center, angle, u_side_sign * half_l, feedline_a_v, 0.0, feed_z, params, pad=False)
-    metals += add_lumped_feed(hfss, f"P{tag[-1]}B", center, angle, feedline_b_u, v_side_sign * half_l, 0.0, feed_z, params, pad=False, port_width_axis="u")
+        add_stub_pair(
+            "open_stub",
+            params.get("slot_coupled_stub_length_mm", 0.0),
+            params.get("slot_coupled_stub_width_mm", 0.25),
+            params.get("slot_coupled_stub_offset_mm", 2.0),
+            params.get("slot_coupled_stub_side_sign", 1.0),
+        )
+    if params.get("slot_coupled_stub2_enabled", 0.0) >= 0.5:
+        add_stub_pair(
+            "open_stub2",
+            params.get("slot_coupled_stub2_length_mm", 0.0),
+            params.get("slot_coupled_stub2_width_mm", 0.25),
+            params.get("slot_coupled_stub2_offset_mm", 3.0),
+            params.get("slot_coupled_stub2_side_sign", -1.0),
+        )
+    metals += add_lumped_feed(hfss, f"P{tag[-1]}A", center, angle, u_side_sign * half_l, feedline_a_v, 0.0, feed_z_a, params, pad=False)
+    metals += add_lumped_feed(hfss, f"P{tag[-1]}B", center, angle, feedline_b_u, v_side_sign * half_l, 0.0, feed_z_b, params, pad=False, port_width_axis="u")
     return metals, slots
 
 
@@ -893,14 +1040,40 @@ def validate_params(params: dict) -> None:
         aperture_b_v = params.get("slot_coupled_offset_b_mm", 0.0)
         feedline_a_v = params.get("slot_coupled_feedline_offset_a_v_mm", 0.0)
         feedline_b_u = params.get("slot_coupled_feedline_offset_b_u_mm", 0.0)
+        b_layer_offset = params.get("slot_coupled_b_feed_layer_offset_mm", 0.0)
+        bridge_enabled = params.get("slot_coupled_bridge_enabled", 0.0) >= 0.5
+        bridge_gap = params.get("slot_coupled_bridge_gap_mm", 1.10)
+        bridge_offset = params.get("slot_coupled_bridge_offset_mm", 0.0)
+        bridge_w = params.get("slot_coupled_bridge_width_mm", feed_w)
         stub_enabled = params.get("slot_coupled_stub_enabled", 0.0) >= 0.5
         stub_len = params.get("slot_coupled_stub_length_mm", 0.0)
         stub_w = params.get("slot_coupled_stub_width_mm", 0.25)
         stub_offset = params.get("slot_coupled_stub_offset_mm", 2.0)
+        stub2_enabled = params.get("slot_coupled_stub2_enabled", 0.0) >= 0.5
+        stub2_len = params.get("slot_coupled_stub2_length_mm", 0.0)
+        stub2_w = params.get("slot_coupled_stub2_width_mm", 0.25)
+        stub2_offset = params.get("slot_coupled_stub2_offset_mm", 3.0)
+        step_enabled = params.get("slot_coupled_step_enabled", 0.0) >= 0.5
+        step_len = params.get("slot_coupled_step_length_mm", 0.0)
+        step_w = params.get("slot_coupled_step_width_mm", feed_w)
         if feed_h <= 0.0 or aperture_len_a <= 0.0 or aperture_len_b <= 0.0 or aperture_w <= 0.0 or feed_len <= 0.0 or feed_w <= 0.0:
             raise ValueError("Dual-polarized slot-coupled feed dimensions must be positive")
+        if b_layer_offset < 0.0 or b_layer_offset > 0.45:
+            raise ValueError("Dual-polarized B feed layer offset must be between 0 and 0.45 mm")
+        if bridge_enabled and (
+            bridge_gap <= feed_w + 0.10
+            or bridge_gap >= feed_len - 0.50
+            or bridge_offset <= 0.0
+            or bridge_offset > 0.35
+            or bridge_w <= 0.0
+        ):
+            raise ValueError("Dual-polarized feed bridge needs a positive offset and a center gap wider than the feedline")
         if stub_enabled and (stub_len <= 0.0 or stub_w <= 0.0 or stub_offset <= 0.0 or stub_offset >= feed_len / 2.0 - 0.15):
             raise ValueError("Dual-polarized slot-coupled tuning stub dimensions must be positive and stay on the feedline")
+        if stub2_enabled and (stub2_len <= 0.0 or stub2_w <= 0.0 or stub2_offset <= 0.0 or stub2_offset >= feed_len / 2.0 - 0.15):
+            raise ValueError("Dual-polarized slot-coupled second tuning stub dimensions must be positive and stay on the feedline")
+        if step_enabled and (step_len <= 0.0 or step_w <= feed_w or step_len >= feed_len / 2.0 - 0.15):
+            raise ValueError("Dual-polarized slot-coupled feed step must be wider than the feedline and stay near the port")
         half_patch = params["patch_side_mm"] / 2.0
         aperture_extent = max(
             abs(aperture_a_u) + aperture_w / 2.0,
@@ -917,6 +1090,15 @@ def validate_params(params: dict) -> None:
                 max(abs(feedline_a_v), abs(feedline_b_u)) + feed_w / 2.0 + stub_len,
             )
             feedline_extent = max(feedline_extent, stub_extent)
+        if stub2_enabled:
+            stub2_extent = max(
+                abs(stub2_offset) + stub2_w / 2.0,
+                max(abs(feedline_a_v), abs(feedline_b_u)) + feed_w / 2.0 + stub2_len,
+            )
+            feedline_extent = max(feedline_extent, stub2_extent)
+        if step_enabled:
+            step_extent = feed_len / 2.0 + max(abs(feedline_a_v), abs(feedline_b_u)) + step_w
+            feedline_extent = max(feedline_extent, step_extent)
         if center_radius + feedline_extent > board_radius - 0.25:
             raise ValueError("Dual-polarized underside feedline too close to board edge")
     if params.get("weak_coupling_open_line_enabled", 0.0) >= 0.5:
@@ -1015,6 +1197,8 @@ def build_project(
     band_samples: bool = False,
     sparam_only: bool = False,
     return_hfss: bool = False,
+    analysis_cores: int | None = None,
+    analysis_tasks: int | None = None,
 ):
     spec = TOPOLOGIES[topology]
     params = topology_params(topology)
@@ -1043,11 +1227,15 @@ def build_project(
     substrate.transparency = 0.65
     if has_dualpol_slotcoupled(params):
         feed_h = params.get("feed_substrate_h_mm", 0.254)
+        feed_substrate_h = feed_h + max(
+            params.get("slot_coupled_b_feed_layer_offset_mm", 0.0),
+            params.get("slot_coupled_bridge_offset_mm", 0.0) if params.get("slot_coupled_bridge_enabled", 0.0) >= 0.5 else 0.0,
+        )
         feed_substrate = hfss.modeler.create_cylinder(
             "Z",
-            [0, 0, -feed_h],
+            [0, 0, -feed_substrate_h],
             board_radius,
-            feed_h,
+            feed_substrate_h,
             num_sides=128,
             name=f"{spec['label']}_feed_substrate",
             material=substrate_material,
@@ -1180,7 +1368,9 @@ def build_project(
     hfss.save_project()
     if analyze:
         print(f"Stage: {spec['label']} analysis started", flush=True)
-        ok = hfss.analyze_setup(setup.name, cores=4, tasks=4, blocking=True)
+        cores = int(analysis_cores or params.get("analysis_cores", 8))
+        tasks = int(analysis_tasks or params.get("analysis_tasks", cores))
+        ok = hfss.analyze_setup(setup.name, cores=cores, tasks=tasks, blocking=True)
         print(f"Analyze result: {ok}", flush=True)
         hfss.save_project()
     if return_hfss:
@@ -1244,6 +1434,8 @@ def main() -> None:
     parser.add_argument("--quick", action="store_true")
     parser.add_argument("--band-samples", action="store_true")
     parser.add_argument("--sparam-only", action="store_true")
+    parser.add_argument("--cores", type=int, default=None, help="HFSS analysis cores")
+    parser.add_argument("--tasks", type=int, default=None, help="HFSS analysis tasks")
     parser.add_argument("--param", action="append", default=[], help="Override topology parameter, e.g. --param patch_side_mm=9.2")
     args = parser.parse_args()
     if args.param:
@@ -1258,6 +1450,8 @@ def main() -> None:
         quick=args.quick,
         band_samples=args.band_samples,
         sparam_only=args.sparam_only,
+        analysis_cores=args.cores,
+        analysis_tasks=args.tasks,
     )
     print(path)
 
