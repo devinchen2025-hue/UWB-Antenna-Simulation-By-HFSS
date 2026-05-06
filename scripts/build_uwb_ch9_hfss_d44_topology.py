@@ -94,6 +94,27 @@ BASE_PARAMS = {
     "slot_coupled_bridge_overhang_mm": 0.0,
     "slot_coupled_a_resonator_length_mm": 0.0,
     "slot_coupled_a_resonator_width_mm": 0.0,
+    "slot_coupled_shield_via_enabled": 0.0,
+    "slot_coupled_shield_via_count": 1.0,
+    "slot_coupled_shield_via_radius_mm": 0.06,
+    "slot_coupled_shield_via_offset_mm": 0.68,
+    "slot_coupled_shield_via_pitch_mm": 0.42,
+    "slot_coupled_shield_via_grounded": 1.0,
+    "slot_coupled_shield_via_top_gap_mm": 0.03,
+    "slot_coupled_a_neck_enabled": 0.0,
+    "slot_coupled_a_neck_length_mm": 2.2,
+    "slot_coupled_a_neck_width_mm": 0.30,
+    "slot_coupled_underfeed_neutralizer_enabled": 0.0,
+    "slot_coupled_underfeed_neutralizer_length_mm": 2.2,
+    "slot_coupled_underfeed_neutralizer_width_mm": 0.12,
+    "slot_coupled_underfeed_neutralizer_offset_mm": 1.20,
+    "slot_coupled_underfeed_neutralizer_z_offset_mm": 0.06,
+    "slot_coupled_patch_slit_enabled": 0.0,
+    "slot_coupled_patch_slit_length_mm": 3.0,
+    "slot_coupled_patch_slit_width_mm": 0.10,
+    "slot_coupled_patch_slit_angle_deg": 45.0,
+    "slot_coupled_patch_slit_offset_u_mm": 0.0,
+    "slot_coupled_patch_slit_offset_v_mm": 0.0,
     "slot_coupled_stub_enabled": 0.0,
     "slot_coupled_stub_length_mm": 0.0,
     "slot_coupled_stub_width_mm": 0.25,
@@ -255,6 +276,27 @@ TOPOLOGIES = {
             "slot_coupled_bridge_overhang_mm": 0.0,
             "slot_coupled_a_resonator_length_mm": 0.0,
             "slot_coupled_a_resonator_width_mm": 0.0,
+            "slot_coupled_shield_via_enabled": 0.0,
+            "slot_coupled_shield_via_count": 1.0,
+            "slot_coupled_shield_via_radius_mm": 0.06,
+            "slot_coupled_shield_via_offset_mm": 0.68,
+            "slot_coupled_shield_via_pitch_mm": 0.42,
+            "slot_coupled_shield_via_grounded": 1.0,
+            "slot_coupled_shield_via_top_gap_mm": 0.03,
+            "slot_coupled_a_neck_enabled": 0.0,
+            "slot_coupled_a_neck_length_mm": 2.2,
+            "slot_coupled_a_neck_width_mm": 0.30,
+            "slot_coupled_underfeed_neutralizer_enabled": 0.0,
+            "slot_coupled_underfeed_neutralizer_length_mm": 2.2,
+            "slot_coupled_underfeed_neutralizer_width_mm": 0.12,
+            "slot_coupled_underfeed_neutralizer_offset_mm": 1.20,
+            "slot_coupled_underfeed_neutralizer_z_offset_mm": 0.06,
+            "slot_coupled_patch_slit_enabled": 0.0,
+            "slot_coupled_patch_slit_length_mm": 3.0,
+            "slot_coupled_patch_slit_width_mm": 0.10,
+            "slot_coupled_patch_slit_angle_deg": 45.0,
+            "slot_coupled_patch_slit_offset_u_mm": 0.0,
+            "slot_coupled_patch_slit_offset_v_mm": 0.0,
             "slot_coupled_stub_enabled": 0.0,
             "slot_coupled_stub_length_mm": 0.0,
             "slot_coupled_stub_width_mm": 0.25,
@@ -672,6 +714,63 @@ def add_via_fence(hfss: Hfss, tag: str, center: tuple[float, float], angle_deg: 
             )
 
 
+def add_slotcoupled_shield_vias(hfss: Hfss, tag: str, center: tuple[float, float], angle_deg: float, params: dict) -> None:
+    if params.get("slot_coupled_shield_via_enabled", 0.0) < 0.5:
+        return
+    feed_z_a = -params.get("feed_substrate_h_mm", 0.254)
+    feed_z_b = feed_z_a - params.get("slot_coupled_b_feed_layer_offset_mm", 0.0)
+    bridge_z = feed_z_b
+    if params.get("slot_coupled_bridge_enabled", 0.0) >= 0.5:
+        bridge_z -= params.get("slot_coupled_bridge_offset_mm", 0.0)
+    bottom_z = min(feed_z_a, feed_z_b, bridge_z)
+    if params.get("slot_coupled_shield_via_grounded", 1.0) >= 0.5:
+        top_z = 0.0
+    else:
+        top_z = -max(params.get("slot_coupled_shield_via_top_gap_mm", 0.03), 0.01)
+    height = top_z - bottom_z
+    if height <= 1e-9:
+        return
+    count = max(1, int(round(params.get("slot_coupled_shield_via_count", 1.0))))
+    radius = params.get("slot_coupled_shield_via_radius_mm", 0.06)
+    offset = params.get("slot_coupled_shield_via_offset_mm", 0.68)
+    pitch = params.get("slot_coupled_shield_via_pitch_mm", 0.42)
+    for ring in range(count):
+        d = offset + ring * pitch
+        for idx, (u, v) in enumerate(((d, d), (-d, d), (-d, -d), (d, -d)), start=1):
+            origin = local_to_global(*center, angle_deg, u, v, bottom_z)
+            hfss.modeler.create_cylinder(
+                "Z",
+                origin,
+                radius,
+                height,
+                num_sides=12,
+                name=f"{tag}_slotcoupled_ab_shield_via_{ring + 1}_{idx}",
+                material="copper",
+            )
+
+
+def add_slotcoupled_patch_slit(hfss: Hfss, tag: str, patch_name: str, center: tuple[float, float], angle_deg: float, params: dict) -> None:
+    if params.get("slot_coupled_patch_slit_enabled", 0.0) < 0.5:
+        return
+    h = params["substrate_h_mm"]
+    slit = polygon_sheet(
+        hfss,
+        f"{tag}_slotcoupled_patch_decoupling_slit",
+        rotated_rectangle_points(
+            *center,
+            angle_deg,
+            params.get("slot_coupled_patch_slit_offset_u_mm", 0.0),
+            params.get("slot_coupled_patch_slit_offset_v_mm", 0.0),
+            params.get("slot_coupled_patch_slit_angle_deg", 45.0),
+            params.get("slot_coupled_patch_slit_length_mm", 3.0),
+            params.get("slot_coupled_patch_slit_width_mm", 0.10),
+            h,
+        ),
+        "vacuum",
+    )
+    hfss.modeler.subtract(patch_name, [slit.name], keep_originals=False)
+
+
 def add_dualpol_parasitic_patch(hfss: Hfss, tag: str, center: tuple[float, float], angle: float, params: dict) -> list[str]:
     if not has_stacked_parasitic(params):
         return []
@@ -710,6 +809,7 @@ def add_dualfeed_element(hfss: Hfss, tag: str, center: tuple[float, float], angl
     )
     metals.append(patch.name)
     metals.extend(add_dualpol_parasitic_patch(hfss, tag, center, angle, params))
+    metals.extend(add_weak_coupling_open_line(hfss, tag, center, angle, params))
     f_a = params.get("feed_offset_a_mm", params["feed_offset_u_mm"])
     f_b = params.get("feed_offset_b_mm", params["feed_offset_u_mm"])
     if params.get("microstrip_feed_enabled", 0.0) >= 0.5:
@@ -750,6 +850,7 @@ def add_dualpol_slotcoupled_element(hfss: Hfss, tag: str, center: tuple[float, f
         f"{tag}_dualpol_slotcoupled_patch",
         patch_points(*center, angle, params["patch_side_mm"], 0.0, h),
     )
+    add_slotcoupled_patch_slit(hfss, tag, patch.name, center, angle, params)
     metals.append(patch.name)
     metals.extend(add_dualpol_parasitic_patch(hfss, tag, center, angle, params))
 
@@ -795,6 +896,24 @@ def add_dualpol_slotcoupled_element(hfss: Hfss, tag: str, center: tuple[float, f
     u_side_sign = mirrored_feed_side_sign(center, "u", params)
     v_side_sign = mirrored_feed_side_sign(center, "v", params)
 
+    if params.get("slot_coupled_underfeed_neutralizer_enabled", 0.0) >= 0.5:
+        neutralizer = polygon_sheet(
+            hfss,
+            f"{tag}_slotcoupled_underfeed_neutralizer",
+            rotated_rectangle_points(
+                *center,
+                angle,
+                u_side_sign * params.get("slot_coupled_underfeed_neutralizer_offset_mm", 1.20),
+                v_side_sign * params.get("slot_coupled_underfeed_neutralizer_offset_mm", 1.20),
+                -45.0 * u_side_sign * v_side_sign,
+                params.get("slot_coupled_underfeed_neutralizer_length_mm", 2.2),
+                params.get("slot_coupled_underfeed_neutralizer_width_mm", 0.12),
+                feed_z_a + params.get("slot_coupled_underfeed_neutralizer_z_offset_mm", 0.06),
+            ),
+            "copper",
+        )
+        metals.append(neutralizer.name)
+
     def vertical_local_sheet(name: str, u0: float, u1: float, v: float, z0: float, z1: float) -> str:
         pts = [
             local_to_global(*center, angle, u0, v, z0),
@@ -804,13 +923,32 @@ def add_dualpol_slotcoupled_element(hfss: Hfss, tag: str, center: tuple[float, f
         ]
         return polygon_sheet(hfss, name, pts, "copper").name
 
-    line_a = polygon_sheet(
-        hfss,
-        f"{tag}_slotcoupled_a_underside_feedline",
-        rectangle_points(*center, angle, -half_l, half_l, feedline_a_v - half_w, feedline_a_v + half_w, feed_z_a),
-        "copper",
-    )
-    metals.append(line_a.name)
+    if params.get("slot_coupled_a_neck_enabled", 0.0) >= 0.5:
+        neck_l = params.get("slot_coupled_a_neck_length_mm", 2.2)
+        neck_w = params.get("slot_coupled_a_neck_width_mm", params["slot_coupled_feedline_width_mm"])
+        neck_half_l = neck_l / 2.0
+        neck_half_w = neck_w / 2.0
+        overlap = 0.03
+        for suffix, u0, u1, v0, v1 in [
+            ("neg", -half_l, -neck_half_l + overlap, feedline_a_v - half_w, feedline_a_v + half_w),
+            ("neck", -neck_half_l, neck_half_l, feedline_a_v - neck_half_w, feedline_a_v + neck_half_w),
+            ("pos", neck_half_l - overlap, half_l, feedline_a_v - half_w, feedline_a_v + half_w),
+        ]:
+            line_a = polygon_sheet(
+                hfss,
+                f"{tag}_slotcoupled_a_underside_feedline_{suffix}",
+                rectangle_points(*center, angle, u0, u1, v0, v1, feed_z_a),
+                "copper",
+            )
+            metals.append(line_a.name)
+    else:
+        line_a = polygon_sheet(
+            hfss,
+            f"{tag}_slotcoupled_a_underside_feedline",
+            rectangle_points(*center, angle, -half_l, half_l, feedline_a_v - half_w, feedline_a_v + half_w, feed_z_a),
+            "copper",
+        )
+        metals.append(line_a.name)
     a_res_len = params.get("slot_coupled_a_resonator_length_mm", 0.0)
     a_res_w = params.get("slot_coupled_a_resonator_width_mm", 0.0)
     if a_res_len > 1e-9 and a_res_w > half_w * 2.0 + 1e-9:
@@ -982,6 +1120,7 @@ def add_dualpol_slotcoupled_element(hfss: Hfss, tag: str, center: tuple[float, f
             params.get("slot_coupled_stub2_offset_mm", 3.0),
             params.get("slot_coupled_stub2_side_sign", -1.0),
         )
+    add_slotcoupled_shield_vias(hfss, tag, center, angle, params)
     metals += add_lumped_feed(hfss, f"P{tag[-1]}A", center, angle, u_side_sign * half_l, feedline_a_v, 0.0, feed_z_a, params, pad=False)
     metals += add_lumped_feed(hfss, f"P{tag[-1]}B", center, angle, feedline_b_u, v_side_sign * half_l, 0.0, feed_z_b, params, pad=False, port_width_axis="u")
     return metals, slots
@@ -1065,6 +1204,7 @@ def validate_params(params: dict) -> None:
         aperture_w = params.get("slot_coupled_aperture_width_mm", 0.0)
         feed_len = params.get("slot_coupled_feedline_length_mm", 0.0)
         feed_w = params.get("slot_coupled_feedline_width_mm", 0.0)
+        half_patch = params["patch_side_mm"] / 2.0
         aperture_a_u = params.get("slot_coupled_offset_a_mm", 0.0)
         aperture_a_v = params.get("slot_coupled_aperture_center_a_v_mm", 0.0)
         aperture_b_u = params.get("slot_coupled_aperture_center_b_u_mm", 0.0)
@@ -1080,6 +1220,25 @@ def validate_params(params: dict) -> None:
         bridge_overhang = params.get("slot_coupled_bridge_overhang_mm", 0.0)
         a_res_len = params.get("slot_coupled_a_resonator_length_mm", 0.0)
         a_res_w = params.get("slot_coupled_a_resonator_width_mm", 0.0)
+        shield_enabled = params.get("slot_coupled_shield_via_enabled", 0.0) >= 0.5
+        shield_count = max(1, int(round(params.get("slot_coupled_shield_via_count", 1.0))))
+        shield_radius = params.get("slot_coupled_shield_via_radius_mm", 0.06)
+        shield_offset = params.get("slot_coupled_shield_via_offset_mm", 0.68)
+        shield_pitch = params.get("slot_coupled_shield_via_pitch_mm", 0.42)
+        shield_top_gap = params.get("slot_coupled_shield_via_top_gap_mm", 0.03)
+        a_neck_enabled = params.get("slot_coupled_a_neck_enabled", 0.0) >= 0.5
+        a_neck_len = params.get("slot_coupled_a_neck_length_mm", 2.2)
+        a_neck_w = params.get("slot_coupled_a_neck_width_mm", 0.30)
+        neutralizer_enabled = params.get("slot_coupled_underfeed_neutralizer_enabled", 0.0) >= 0.5
+        neutralizer_len = params.get("slot_coupled_underfeed_neutralizer_length_mm", 2.2)
+        neutralizer_w = params.get("slot_coupled_underfeed_neutralizer_width_mm", 0.12)
+        neutralizer_offset = params.get("slot_coupled_underfeed_neutralizer_offset_mm", 1.20)
+        neutralizer_z_offset = params.get("slot_coupled_underfeed_neutralizer_z_offset_mm", 0.06)
+        patch_slit_enabled = params.get("slot_coupled_patch_slit_enabled", 0.0) >= 0.5
+        patch_slit_len = params.get("slot_coupled_patch_slit_length_mm", 3.0)
+        patch_slit_w = params.get("slot_coupled_patch_slit_width_mm", 0.10)
+        patch_slit_offset_u = params.get("slot_coupled_patch_slit_offset_u_mm", 0.0)
+        patch_slit_offset_v = params.get("slot_coupled_patch_slit_offset_v_mm", 0.0)
         stub_enabled = params.get("slot_coupled_stub_enabled", 0.0) >= 0.5
         stub_len = params.get("slot_coupled_stub_length_mm", 0.0)
         stub_w = params.get("slot_coupled_stub_width_mm", 0.25)
@@ -1113,13 +1272,45 @@ def validate_params(params: dict) -> None:
                 raise ValueError("Dual-polarized A feed center resonator must be wider than the feedline and fit under the patch")
             if bridge_enabled and abs(feedline_a_v) + a_res_w / 2.0 >= bridge_gap / 2.0 - 0.05:
                 raise ValueError("Dual-polarized A feed center resonator must stay inside the B-feed bridge gap")
+        if shield_enabled:
+            max_shield_offset = shield_offset + (shield_count - 1) * shield_pitch
+            slot_clear = aperture_w / 2.0 + shield_radius + 0.05
+            feed_clear = feed_w / 2.0 + shield_radius + 0.05
+            if shield_count < 1 or shield_count > 3:
+                raise ValueError("Dual-polarized slot-coupled shield via count must be between 1 and 3")
+            if shield_radius <= 0.0 or shield_radius > 0.12 or shield_offset <= 0.0 or shield_pitch < 0.0:
+                raise ValueError("Dual-polarized slot-coupled shield via dimensions must be positive and manufacturable")
+            if params.get("slot_coupled_shield_via_grounded", 1.0) < 0.5 and (shield_top_gap <= 0.0 or shield_top_gap > feed_h - 0.02):
+                raise ValueError("Floating slot-coupled shield vias need a positive top gap inside the feed dielectric")
+            if shield_offset <= max(slot_clear, feed_clear):
+                raise ValueError("Dual-polarized slot-coupled shield vias must clear the cross apertures and feedlines")
+            if max_shield_offset + shield_radius > half_patch - 0.35:
+                raise ValueError("Dual-polarized slot-coupled shield vias must stay under the patch ground region")
+        if a_neck_enabled:
+            if a_neck_len <= 0.20 or a_neck_len >= feed_len - 0.50:
+                raise ValueError("Dual-polarized A feed neck must fit inside the feedline")
+            if a_neck_w <= 0.08 or a_neck_w >= feed_w:
+                raise ValueError("Dual-polarized A feed neck must be narrower than the main feedline")
+        if neutralizer_enabled:
+            if neutralizer_len <= 0.20 or neutralizer_w <= 0.02 or neutralizer_offset <= 0.0:
+                raise ValueError("Dual-polarized underfeed neutralizer dimensions must be positive")
+            if neutralizer_z_offset <= 0.0 or neutralizer_z_offset >= feed_h - 0.02:
+                raise ValueError("Dual-polarized underfeed neutralizer must stay inside the feed dielectric")
+            half_diag_extent = (neutralizer_len + neutralizer_w) / (2.0 * math.sqrt(2.0))
+            if neutralizer_offset + half_diag_extent > half_patch - 0.35:
+                raise ValueError("Dual-polarized underfeed neutralizer must stay under the patch")
+        if patch_slit_enabled:
+            if patch_slit_len <= 0.20 or patch_slit_w <= 0.02 or patch_slit_w >= 0.45:
+                raise ValueError("Dual-polarized patch decoupling slit dimensions must be positive and narrow")
+            slit_extent = max(abs(patch_slit_offset_u), abs(patch_slit_offset_v)) + (patch_slit_len + patch_slit_w) / 2.0
+            if slit_extent > half_patch - 0.35:
+                raise ValueError("Dual-polarized patch decoupling slit must stay inside the patch")
         if stub_enabled and (stub_len <= 0.0 or stub_w <= 0.0 or stub_offset <= 0.0 or stub_offset >= feed_len / 2.0 - 0.15):
             raise ValueError("Dual-polarized slot-coupled tuning stub dimensions must be positive and stay on the feedline")
         if stub2_enabled and (stub2_len <= 0.0 or stub2_w <= 0.0 or stub2_offset <= 0.0 or stub2_offset >= feed_len / 2.0 - 0.15):
             raise ValueError("Dual-polarized slot-coupled second tuning stub dimensions must be positive and stay on the feedline")
         if step_enabled and (step_len <= 0.0 or step_w <= feed_w or step_len >= feed_len / 2.0 - 0.15):
             raise ValueError("Dual-polarized slot-coupled feed step must be wider than the feedline and stay near the port")
-        half_patch = params["patch_side_mm"] / 2.0
         aperture_extent = max(
             abs(aperture_a_u) + aperture_w / 2.0,
             abs(aperture_a_v) + aperture_len_a / 2.0,
