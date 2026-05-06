@@ -85,6 +85,11 @@ BASE_PARAMS = {
     "slot_coupled_feedline_width_mm": 0.60,
     "slot_coupled_feedline_offset_a_v_mm": 0.0,
     "slot_coupled_feedline_offset_b_u_mm": 0.0,
+    "slot_coupled_stub_enabled": 0.0,
+    "slot_coupled_stub_length_mm": 0.0,
+    "slot_coupled_stub_width_mm": 0.25,
+    "slot_coupled_stub_offset_mm": 2.0,
+    "slot_coupled_stub_side_sign": 1.0,
     "isolation_slot_enabled": 1.0,
     "isolation_slot_length_mm": 11.0,
     "isolation_slot_width_mm": 0.45,
@@ -222,6 +227,11 @@ TOPOLOGIES = {
             "slot_coupled_feedline_width_mm": 0.60,
             "slot_coupled_feedline_offset_a_v_mm": 0.0,
             "slot_coupled_feedline_offset_b_u_mm": 0.0,
+            "slot_coupled_stub_enabled": 0.0,
+            "slot_coupled_stub_length_mm": 0.0,
+            "slot_coupled_stub_width_mm": 0.25,
+            "slot_coupled_stub_offset_mm": 2.0,
+            "slot_coupled_stub_side_sign": 1.0,
             "weak_coupling_open_line_enabled": 0.0,
             "via_fence_enabled": 0.0,
             "isolation_slot_enabled": 1.0,
@@ -761,6 +771,39 @@ def add_dualpol_slotcoupled_element(hfss: Hfss, tag: str, center: tuple[float, f
         "copper",
     )
     metals.extend([line_a.name, line_b.name])
+    if params.get("slot_coupled_stub_enabled", 0.0) >= 0.5:
+        stub_l = params.get("slot_coupled_stub_length_mm", 0.0)
+        stub_w = params.get("slot_coupled_stub_width_mm", 0.25)
+        stub_offset = params.get("slot_coupled_stub_offset_mm", 2.0)
+        stub_side = 1.0 if params.get("slot_coupled_stub_side_sign", 1.0) >= 0.0 else -1.0
+        if stub_l > 1e-9 and stub_w > 1e-9:
+            stub_a_u = u_side_sign * stub_offset
+            if stub_side >= 0.0:
+                stub_a_v0 = feedline_a_v + half_w - 0.03
+                stub_a_v1 = feedline_a_v + half_w + stub_l
+            else:
+                stub_a_v0 = feedline_a_v - half_w - stub_l
+                stub_a_v1 = feedline_a_v - half_w + 0.03
+            stub_a = polygon_sheet(
+                hfss,
+                f"{tag}_slotcoupled_a_open_stub",
+                rectangle_points(*center, angle, stub_a_u - stub_w / 2.0, stub_a_u + stub_w / 2.0, stub_a_v0, stub_a_v1, feed_z),
+                "copper",
+            )
+            stub_b_v = v_side_sign * stub_offset
+            if stub_side >= 0.0:
+                stub_b_u0 = feedline_b_u + half_w - 0.03
+                stub_b_u1 = feedline_b_u + half_w + stub_l
+            else:
+                stub_b_u0 = feedline_b_u - half_w - stub_l
+                stub_b_u1 = feedline_b_u - half_w + 0.03
+            stub_b = polygon_sheet(
+                hfss,
+                f"{tag}_slotcoupled_b_open_stub",
+                rectangle_points(*center, angle, stub_b_u0, stub_b_u1, stub_b_v - stub_w / 2.0, stub_b_v + stub_w / 2.0, feed_z),
+                "copper",
+            )
+            metals.extend([stub_a.name, stub_b.name])
     metals += add_lumped_feed(hfss, f"P{tag[-1]}A", center, angle, u_side_sign * half_l, feedline_a_v, 0.0, feed_z, params, pad=False)
     metals += add_lumped_feed(hfss, f"P{tag[-1]}B", center, angle, feedline_b_u, v_side_sign * half_l, 0.0, feed_z, params, pad=False, port_width_axis="u")
     return metals, slots
@@ -850,8 +893,14 @@ def validate_params(params: dict) -> None:
         aperture_b_v = params.get("slot_coupled_offset_b_mm", 0.0)
         feedline_a_v = params.get("slot_coupled_feedline_offset_a_v_mm", 0.0)
         feedline_b_u = params.get("slot_coupled_feedline_offset_b_u_mm", 0.0)
+        stub_enabled = params.get("slot_coupled_stub_enabled", 0.0) >= 0.5
+        stub_len = params.get("slot_coupled_stub_length_mm", 0.0)
+        stub_w = params.get("slot_coupled_stub_width_mm", 0.25)
+        stub_offset = params.get("slot_coupled_stub_offset_mm", 2.0)
         if feed_h <= 0.0 or aperture_len_a <= 0.0 or aperture_len_b <= 0.0 or aperture_w <= 0.0 or feed_len <= 0.0 or feed_w <= 0.0:
             raise ValueError("Dual-polarized slot-coupled feed dimensions must be positive")
+        if stub_enabled and (stub_len <= 0.0 or stub_w <= 0.0 or stub_offset <= 0.0 or stub_offset >= feed_len / 2.0 - 0.15):
+            raise ValueError("Dual-polarized slot-coupled tuning stub dimensions must be positive and stay on the feedline")
         half_patch = params["patch_side_mm"] / 2.0
         aperture_extent = max(
             abs(aperture_a_u) + aperture_w / 2.0,
@@ -862,6 +911,12 @@ def validate_params(params: dict) -> None:
         if aperture_extent > half_patch - 0.25:
             raise ValueError("Dual-polarized slot apertures must stay below the patch aperture")
         feedline_extent = feed_len / 2.0 + max(abs(feedline_a_v), abs(feedline_b_u)) + feed_w
+        if stub_enabled:
+            stub_extent = max(
+                abs(stub_offset) + stub_w / 2.0,
+                max(abs(feedline_a_v), abs(feedline_b_u)) + feed_w / 2.0 + stub_len,
+            )
+            feedline_extent = max(feedline_extent, stub_extent)
         if center_radius + feedline_extent > board_radius - 0.25:
             raise ValueError("Dual-polarized underside feedline too close to board edge")
     if params.get("weak_coupling_open_line_enabled", 0.0) >= 0.5:
