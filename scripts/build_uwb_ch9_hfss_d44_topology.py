@@ -90,6 +90,10 @@ BASE_PARAMS = {
     "slot_coupled_bridge_gap_mm": 1.10,
     "slot_coupled_bridge_offset_mm": 0.0,
     "slot_coupled_bridge_width_mm": 0.60,
+    "slot_coupled_bridge_resonator_width_mm": 0.0,
+    "slot_coupled_bridge_overhang_mm": 0.0,
+    "slot_coupled_a_resonator_length_mm": 0.0,
+    "slot_coupled_a_resonator_width_mm": 0.0,
     "slot_coupled_stub_enabled": 0.0,
     "slot_coupled_stub_length_mm": 0.0,
     "slot_coupled_stub_width_mm": 0.25,
@@ -247,6 +251,10 @@ TOPOLOGIES = {
             "slot_coupled_bridge_gap_mm": 1.10,
             "slot_coupled_bridge_offset_mm": 0.0,
             "slot_coupled_bridge_width_mm": 0.60,
+            "slot_coupled_bridge_resonator_width_mm": 0.0,
+            "slot_coupled_bridge_overhang_mm": 0.0,
+            "slot_coupled_a_resonator_length_mm": 0.0,
+            "slot_coupled_a_resonator_width_mm": 0.0,
             "slot_coupled_stub_enabled": 0.0,
             "slot_coupled_stub_length_mm": 0.0,
             "slot_coupled_stub_width_mm": 0.25,
@@ -803,10 +811,33 @@ def add_dualpol_slotcoupled_element(hfss: Hfss, tag: str, center: tuple[float, f
         "copper",
     )
     metals.append(line_a.name)
+    a_res_len = params.get("slot_coupled_a_resonator_length_mm", 0.0)
+    a_res_w = params.get("slot_coupled_a_resonator_width_mm", 0.0)
+    if a_res_len > 1e-9 and a_res_w > half_w * 2.0 + 1e-9:
+        a_resonator = polygon_sheet(
+            hfss,
+            f"{tag}_slotcoupled_a_center_resonator",
+            rectangle_points(
+                *center,
+                angle,
+                -a_res_len / 2.0,
+                a_res_len / 2.0,
+                feedline_a_v - a_res_w / 2.0,
+                feedline_a_v + a_res_w / 2.0,
+                feed_z_a,
+            ),
+            "copper",
+        )
+        metals.append(a_resonator.name)
     if params.get("slot_coupled_bridge_enabled", 0.0) >= 0.5:
         bridge_gap = params.get("slot_coupled_bridge_gap_mm", 1.10)
         bridge_offset = params.get("slot_coupled_bridge_offset_mm", 0.0)
         bridge_half_w = params.get("slot_coupled_bridge_width_mm", params["slot_coupled_feedline_width_mm"]) / 2.0
+        resonator_half_w = max(
+            params.get("slot_coupled_bridge_resonator_width_mm", 0.0),
+            params.get("slot_coupled_bridge_width_mm", params["slot_coupled_feedline_width_mm"]),
+        ) / 2.0
+        bridge_overhang = params.get("slot_coupled_bridge_overhang_mm", 0.0)
         bridge_z = feed_z_b - bridge_offset
         line_b_neg = polygon_sheet(
             hfss,
@@ -826,10 +857,10 @@ def add_dualpol_slotcoupled_element(hfss: Hfss, tag: str, center: tuple[float, f
             rectangle_points(
                 *center,
                 angle,
-                feedline_b_u - bridge_half_w,
-                feedline_b_u + bridge_half_w,
-                -bridge_gap / 2.0,
-                bridge_gap / 2.0,
+                feedline_b_u - resonator_half_w,
+                feedline_b_u + resonator_half_w,
+                -bridge_gap / 2.0 - bridge_overhang,
+                bridge_gap / 2.0 + bridge_overhang,
                 bridge_z,
             ),
             "copper",
@@ -1045,6 +1076,10 @@ def validate_params(params: dict) -> None:
         bridge_gap = params.get("slot_coupled_bridge_gap_mm", 1.10)
         bridge_offset = params.get("slot_coupled_bridge_offset_mm", 0.0)
         bridge_w = params.get("slot_coupled_bridge_width_mm", feed_w)
+        bridge_res_w = params.get("slot_coupled_bridge_resonator_width_mm", 0.0)
+        bridge_overhang = params.get("slot_coupled_bridge_overhang_mm", 0.0)
+        a_res_len = params.get("slot_coupled_a_resonator_length_mm", 0.0)
+        a_res_w = params.get("slot_coupled_a_resonator_width_mm", 0.0)
         stub_enabled = params.get("slot_coupled_stub_enabled", 0.0) >= 0.5
         stub_len = params.get("slot_coupled_stub_length_mm", 0.0)
         stub_w = params.get("slot_coupled_stub_width_mm", 0.25)
@@ -1066,8 +1101,18 @@ def validate_params(params: dict) -> None:
             or bridge_offset <= 0.0
             or bridge_offset > 0.35
             or bridge_w <= 0.0
+            or bridge_res_w < 0.0
+            or bridge_overhang < 0.0
+            or bridge_gap + 2.0 * bridge_overhang >= feed_len - 0.50
         ):
             raise ValueError("Dual-polarized feed bridge needs a positive offset and a center gap wider than the feedline")
+        if a_res_len < 0.0 or a_res_w < 0.0:
+            raise ValueError("Dual-polarized A feed center resonator dimensions must be non-negative")
+        if a_res_len > 1e-9 or a_res_w > 1e-9:
+            if a_res_len <= 0.0 or a_res_w <= feed_w or a_res_len >= feed_len - 0.50:
+                raise ValueError("Dual-polarized A feed center resonator must be wider than the feedline and fit under the patch")
+            if bridge_enabled and abs(feedline_a_v) + a_res_w / 2.0 >= bridge_gap / 2.0 - 0.05:
+                raise ValueError("Dual-polarized A feed center resonator must stay inside the B-feed bridge gap")
         if stub_enabled and (stub_len <= 0.0 or stub_w <= 0.0 or stub_offset <= 0.0 or stub_offset >= feed_len / 2.0 - 0.15):
             raise ValueError("Dual-polarized slot-coupled tuning stub dimensions must be positive and stay on the feedline")
         if stub2_enabled and (stub2_len <= 0.0 or stub2_w <= 0.0 or stub2_offset <= 0.0 or stub2_offset >= feed_len / 2.0 - 0.15):
@@ -1099,6 +1144,8 @@ def validate_params(params: dict) -> None:
         if step_enabled:
             step_extent = feed_len / 2.0 + max(abs(feedline_a_v), abs(feedline_b_u)) + step_w
             feedline_extent = max(feedline_extent, step_extent)
+        if a_res_len > 1e-9 or a_res_w > 1e-9:
+            feedline_extent = max(feedline_extent, max(a_res_len, a_res_w) / 2.0 + max(abs(feedline_a_v), abs(feedline_b_u)))
         if center_radius + feedline_extent > board_radius - 0.25:
             raise ValueError("Dual-polarized underside feedline too close to board edge")
     if params.get("weak_coupling_open_line_enabled", 0.0) >= 0.5:
