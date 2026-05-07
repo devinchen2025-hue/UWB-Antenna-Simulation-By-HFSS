@@ -1,0 +1,462 @@
+{
+  "best_candidate": "p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_g0p12_l1p8_ph2p10_z0p06",
+  "target_avg_rms_deg": 10.0,
+  "reference_pol_deg": 0.0,
+  "holdout_step_deg": 10.0,
+  "linear_polarizations_deg": [
+    0.0,
+    45.0,
+    90.0,
+    135.0
+  ],
+  "phi_cuts_deg": [
+    45.0,
+    60.0,
+    75.0,
+    90.0
+  ],
+  "cases": {
+    "A_ON_absorptive_50ohm_c0p08pf": {
+      "case": "A_ON_absorptive_50ohm_c0p08pf",
+      "active_pol": "A",
+      "off_resistance_ohm": 50.0,
+      "off_capacitance_pf": 0.08,
+      "off_inductance_nh": 0.0,
+      "engineering_valid_s11": true,
+      "elapsed_s": 182.8206021785736,
+      "sources": [
+        "P1A",
+        "P2A",
+        "P3A",
+        "P4A"
+      ],
+      "eval_freqs_ghz": [
+        7.738,
+        7.9855,
+        8.233
+      ],
+      "active_port_count": 4,
+      "worst_return_db": -13.358649841558885,
+      "worst_return_expr": "dB(S(P3A:1,P3A:1))",
+      "active_interelement_isolation_db": 35.13256018525664,
+      "worst_active_coupling_expr": "dB(S(P4A:1,P3A:1))",
+      "s11_pass": true,
+      "raw_curve_count_non_ref": 216,
+      "raw_avg_rms_bias_vs_pol0_deg": 74.61811200145858,
+      "raw_p95_rms_bias_vs_pol0_deg": 110.11654029704393,
+      "raw_max_abs_bias_vs_pol0_deg": 179.9503002799633,
+      "lut_holdout": {
+        "holdout_group_count": 216,
+        "holdout_sample_count": 7744,
+        "holdout_avg_group_rms_deg": 6.715285255797071,
+        "holdout_global_rms_deg": 7.949080932595689,
+        "holdout_p95_abs_deg": 11.052432233657754,
+        "holdout_max_abs_deg": 112.72745330300711,
+        "by_pol": {
+          "45deg": {
+            "sample_count": 2579,
+            "global_rms_deg": 8.316476825198555,
+            "p95_abs_deg": 12.200223429074015,
+            "max_abs_deg": 103.15349040102365
+          },
+          "90deg": {
+            "sample_count": 2582,
+            "global_rms_deg": 8.615893562036472,
+            "p95_abs_deg": 12.149455236567121,
+            "max_abs_deg": 112.72745330300711
+          },
+          "135deg": {
+            "sample_count": 2583,
+            "global_rms_deg": 6.795570975384537,
+            "p95_abs_deg": 9.350456342447899,
+            "max_abs_deg": 95.78450942985913
+          }
+        },
+        "meets_target": true
+      },
+      "project_copy": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_rf_switch_pdoa_workstate\\UWB_CH9_D44_DUALPOL_RF_SWITCH_PDOA_A_ON_absorptive_50ohm_c0p08pf.aedt"
+    },
+    "B_ON_absorptive_50ohm_c0p08pf": {
+      "case": "B_ON_absorptive_50ohm_c0p08pf",
+      "active_pol": "B",
+      "off_resistance_ohm": 50.0,
+      "off_capacitance_pf": 0.08,
+      "off_inductance_nh": 0.0,
+      "engineering_valid_s11": true,
+      "elapsed_s": 193.7817714214325,
+      "sources": [
+        "P1B",
+        "P2B",
+        "P3B",
+        "P4B"
+      ],
+      "eval_freqs_ghz": [
+        7.738,
+        7.9855,
+        8.233
+      ],
+      "active_port_count": 4,
+      "worst_return_db": -11.009788322726239,
+      "worst_return_expr": "dB(S(P2B:1,P2B:1))",
+      "active_interelement_isolation_db": 43.3390789776016,
+      "worst_active_coupling_expr": "dB(S(P3B:1,P2B:1))",
+      "s11_pass": true,
+      "raw_curve_count_non_ref": 216,
+      "raw_avg_rms_bias_vs_pol0_deg": 73.28306136375421,
+      "raw_p95_rms_bias_vs_pol0_deg": 113.52587500148296,
+      "raw_max_abs_bias_vs_pol0_deg": 179.99266520331878,
+      "lut_holdout": {
+        "holdout_group_count": 216,
+        "holdout_sample_count": 7742,
+        "holdout_avg_group_rms_deg": 5.661985203433854,
+        "holdout_global_rms_deg": 6.739354840366427,
+        "holdout_p95_abs_deg": 10.083145776538686,
+        "holdout_max_abs_deg": 91.55881941768297,
+        "by_pol": {
+          "45deg": {
+            "sample_count": 2579,
+            "global_rms_deg": 6.12954470416424,
+            "p95_abs_deg": 10.261855507399787,
+            "max_abs_deg": 68.69579865466147
+          },
+          "90deg": {
+            "sample_count": 2581,
+            "global_rms_deg": 7.83657946403998,
+            "p95_abs_deg": 13.483448710554285,
+            "max_abs_deg": 91.55881941768297
+          },
+          "135deg": {
+            "sample_count": 2582,
+            "global_rms_deg": 6.104956269279173,
+            "p95_abs_deg": 8.558697150101665,
+            "max_abs_deg": 72.1519492429627
+          }
+        },
+        "meets_target": true
+      },
+      "project_copy": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_rf_switch_pdoa_workstate\\UWB_CH9_D44_DUALPOL_RF_SWITCH_PDOA_B_ON_absorptive_50ohm_c0p08pf.aedt"
+    },
+    "A_ON_reflective_5kohm_c0p08pf": {
+      "case": "A_ON_reflective_5kohm_c0p08pf",
+      "active_pol": "A",
+      "off_resistance_ohm": 5000.0,
+      "off_capacitance_pf": 0.08,
+      "off_inductance_nh": 0.0,
+      "engineering_valid_s11": false,
+      "elapsed_s": 169.07516956329346,
+      "sources": [
+        "P1A",
+        "P2A",
+        "P3A",
+        "P4A"
+      ],
+      "eval_freqs_ghz": [
+        7.738,
+        7.9855,
+        8.233
+      ],
+      "active_port_count": 4,
+      "worst_return_db": -0.3411431853131588,
+      "worst_return_expr": "dB(S(P3A:1,P3A:1))",
+      "active_interelement_isolation_db": 36.17944387680553,
+      "worst_active_coupling_expr": "dB(S(P2A:1,P1A:1))",
+      "s11_pass": false,
+      "raw_curve_count_non_ref": 216,
+      "raw_avg_rms_bias_vs_pol0_deg": 89.81284496374866,
+      "raw_p95_rms_bias_vs_pol0_deg": 130.2377229373929,
+      "raw_max_abs_bias_vs_pol0_deg": 179.9978806774688,
+      "lut_holdout": {
+        "holdout_group_count": 216,
+        "holdout_sample_count": 7620,
+        "holdout_avg_group_rms_deg": 8.285333044475392,
+        "holdout_global_rms_deg": 9.778410063753308,
+        "holdout_p95_abs_deg": 14.789911262902478,
+        "holdout_max_abs_deg": 120.06969881088995,
+        "by_pol": {
+          "45deg": {
+            "sample_count": 2543,
+            "global_rms_deg": 10.20203705421162,
+            "p95_abs_deg": 16.841963475462762,
+            "max_abs_deg": 120.06969881088995
+          },
+          "90deg": {
+            "sample_count": 2535,
+            "global_rms_deg": 8.874624376058494,
+            "p95_abs_deg": 10.886277968684965,
+            "max_abs_deg": 119.67241016939394
+          },
+          "135deg": {
+            "sample_count": 2542,
+            "global_rms_deg": 10.196158052761477,
+            "p95_abs_deg": 16.139299450935027,
+            "max_abs_deg": 119.14330440601736
+          }
+        },
+        "meets_target": true
+      },
+      "project_copy": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_rf_switch_pdoa_workstate\\UWB_CH9_D44_DUALPOL_RF_SWITCH_PDOA_A_ON_reflective_5kohm_c0p08pf.aedt"
+    },
+    "B_ON_reflective_5kohm_c0p08pf": {
+      "case": "B_ON_reflective_5kohm_c0p08pf",
+      "active_pol": "B",
+      "off_resistance_ohm": 5000.0,
+      "off_capacitance_pf": 0.08,
+      "off_inductance_nh": 0.0,
+      "engineering_valid_s11": false,
+      "elapsed_s": 166.08607602119446,
+      "sources": [
+        "P1B",
+        "P2B",
+        "P3B",
+        "P4B"
+      ],
+      "eval_freqs_ghz": [
+        7.738,
+        7.9855,
+        8.233
+      ],
+      "active_port_count": 4,
+      "worst_return_db": -0.34470164429463757,
+      "worst_return_expr": "dB(S(P4B:1,P4B:1))",
+      "active_interelement_isolation_db": 37.86999995737534,
+      "worst_active_coupling_expr": "dB(S(P1B:1,P2B:1))",
+      "s11_pass": false,
+      "raw_curve_count_non_ref": 216,
+      "raw_avg_rms_bias_vs_pol0_deg": 68.49993563108113,
+      "raw_p95_rms_bias_vs_pol0_deg": 124.40012140745799,
+      "raw_max_abs_bias_vs_pol0_deg": 179.9906560884504,
+      "lut_holdout": {
+        "holdout_group_count": 216,
+        "holdout_sample_count": 7700,
+        "holdout_avg_group_rms_deg": 4.786187769694889,
+        "holdout_global_rms_deg": 6.618048992395039,
+        "holdout_p95_abs_deg": 7.0448264961978,
+        "holdout_max_abs_deg": 139.2196919448739,
+        "by_pol": {
+          "45deg": {
+            "sample_count": 2554,
+            "global_rms_deg": 7.562962429600698,
+            "p95_abs_deg": 5.4029360847513885,
+            "max_abs_deg": 139.2196919448739
+          },
+          "90deg": {
+            "sample_count": 2566,
+            "global_rms_deg": 6.758305072322258,
+            "p95_abs_deg": 9.438606919392214,
+            "max_abs_deg": 95.59739330944257
+          },
+          "135deg": {
+            "sample_count": 2580,
+            "global_rms_deg": 5.354236335168466,
+            "p95_abs_deg": 6.3985748725175995,
+            "max_abs_deg": 61.15812112822749
+          }
+        },
+        "meets_target": true
+      },
+      "project_copy": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_rf_switch_pdoa_workstate\\UWB_CH9_D44_DUALPOL_RF_SWITCH_PDOA_B_ON_reflective_5kohm_c0p08pf.aedt"
+    }
+  },
+  "polarization_summary": [
+    {
+      "case": "A_ON_absorptive_50ohm_c0p08pf",
+      "linear_pol_deg": 0.0,
+      "curve_count": 72,
+      "valid_percent_avg": 99.88584474885845,
+      "raw_rms_bias_vs_pol0_avg_deg": 0.0,
+      "raw_p95_rms_bias_vs_pol0_deg": 0.0,
+      "raw_max_abs_bias_vs_pol0_deg": 0.0,
+      "lut_holdout_global_rms_deg": 0.0,
+      "lut_holdout_p95_abs_deg": 0.0,
+      "lut_holdout_max_abs_deg": 0.0
+    },
+    {
+      "case": "A_ON_absorptive_50ohm_c0p08pf",
+      "linear_pol_deg": 45.0,
+      "curve_count": 72,
+      "valid_percent_avg": 99.4482496194825,
+      "raw_rms_bias_vs_pol0_avg_deg": 73.8894472336116,
+      "raw_p95_rms_bias_vs_pol0_deg": 111.04378227248628,
+      "raw_max_abs_bias_vs_pol0_deg": 179.9503002799633,
+      "lut_holdout_global_rms_deg": 8.316476825198555,
+      "lut_holdout_p95_abs_deg": 12.200223429074015,
+      "lut_holdout_max_abs_deg": 103.15349040102365
+    },
+    {
+      "case": "A_ON_absorptive_50ohm_c0p08pf",
+      "linear_pol_deg": 90.0,
+      "curve_count": 72,
+      "valid_percent_avg": 99.63850837138509,
+      "raw_rms_bias_vs_pol0_avg_deg": 82.69035140063411,
+      "raw_p95_rms_bias_vs_pol0_deg": 111.75157015354516,
+      "raw_max_abs_bias_vs_pol0_deg": 179.94100998722547,
+      "lut_holdout_global_rms_deg": 8.615893562036472,
+      "lut_holdout_p95_abs_deg": 12.149455236567121,
+      "lut_holdout_max_abs_deg": 112.72745330300711
+    },
+    {
+      "case": "A_ON_absorptive_50ohm_c0p08pf",
+      "linear_pol_deg": 135.0,
+      "curve_count": 72,
+      "valid_percent_avg": 99.84779299847793,
+      "raw_rms_bias_vs_pol0_avg_deg": 67.27453737013003,
+      "raw_p95_rms_bias_vs_pol0_deg": 99.91965560860604,
+      "raw_max_abs_bias_vs_pol0_deg": 179.86396455422778,
+      "lut_holdout_global_rms_deg": 6.795570975384537,
+      "lut_holdout_p95_abs_deg": 9.350456342447899,
+      "lut_holdout_max_abs_deg": 95.78450942985913
+    },
+    {
+      "case": "A_ON_reflective_5kohm_c0p08pf",
+      "linear_pol_deg": 0.0,
+      "curve_count": 72,
+      "valid_percent_avg": 99.16286149162862,
+      "raw_rms_bias_vs_pol0_avg_deg": 0.0,
+      "raw_p95_rms_bias_vs_pol0_deg": 0.0,
+      "raw_max_abs_bias_vs_pol0_deg": 0.0,
+      "lut_holdout_global_rms_deg": 0.0,
+      "lut_holdout_p95_abs_deg": 0.0,
+      "lut_holdout_max_abs_deg": 0.0
+    },
+    {
+      "case": "A_ON_reflective_5kohm_c0p08pf",
+      "linear_pol_deg": 45.0,
+      "curve_count": 72,
+      "valid_percent_avg": 98.85844748858447,
+      "raw_rms_bias_vs_pol0_avg_deg": 95.04209258533781,
+      "raw_p95_rms_bias_vs_pol0_deg": 132.05336861035508,
+      "raw_max_abs_bias_vs_pol0_deg": 179.98830090947428,
+      "lut_holdout_global_rms_deg": 10.20203705421162,
+      "lut_holdout_p95_abs_deg": 16.841963475462762,
+      "lut_holdout_max_abs_deg": 120.06969881088995
+    },
+    {
+      "case": "A_ON_reflective_5kohm_c0p08pf",
+      "linear_pol_deg": 90.0,
+      "curve_count": 72,
+      "valid_percent_avg": 99.01065449010655,
+      "raw_rms_bias_vs_pol0_avg_deg": 100.50132886130707,
+      "raw_p95_rms_bias_vs_pol0_deg": 131.8691645126526,
+      "raw_max_abs_bias_vs_pol0_deg": 179.9958752147976,
+      "lut_holdout_global_rms_deg": 8.874624376058494,
+      "lut_holdout_p95_abs_deg": 10.886277968684965,
+      "lut_holdout_max_abs_deg": 119.67241016939394
+    },
+    {
+      "case": "A_ON_reflective_5kohm_c0p08pf",
+      "linear_pol_deg": 135.0,
+      "curve_count": 72,
+      "valid_percent_avg": 98.85844748858447,
+      "raw_rms_bias_vs_pol0_avg_deg": 73.8951134446011,
+      "raw_p95_rms_bias_vs_pol0_deg": 109.08174044304472,
+      "raw_max_abs_bias_vs_pol0_deg": 179.9978806774688,
+      "lut_holdout_global_rms_deg": 10.196158052761477,
+      "lut_holdout_p95_abs_deg": 16.139299450935027,
+      "lut_holdout_max_abs_deg": 119.14330440601736
+    },
+    {
+      "case": "B_ON_absorptive_50ohm_c0p08pf",
+      "linear_pol_deg": 0.0,
+      "curve_count": 72,
+      "valid_percent_avg": 99.92389649923896,
+      "raw_rms_bias_vs_pol0_avg_deg": 0.0,
+      "raw_p95_rms_bias_vs_pol0_deg": 0.0,
+      "raw_max_abs_bias_vs_pol0_deg": 0.0,
+      "lut_holdout_global_rms_deg": 0.0,
+      "lut_holdout_p95_abs_deg": 0.0,
+      "lut_holdout_max_abs_deg": 0.0
+    },
+    {
+      "case": "B_ON_absorptive_50ohm_c0p08pf",
+      "linear_pol_deg": 45.0,
+      "curve_count": 72,
+      "valid_percent_avg": 99.54337899543378,
+      "raw_rms_bias_vs_pol0_avg_deg": 62.51942086525776,
+      "raw_p95_rms_bias_vs_pol0_deg": 98.80758749822947,
+      "raw_max_abs_bias_vs_pol0_deg": 179.91977125529434,
+      "lut_holdout_global_rms_deg": 6.12954470416424,
+      "lut_holdout_p95_abs_deg": 10.261855507399787,
+      "lut_holdout_max_abs_deg": 68.69579865466147
+    },
+    {
+      "case": "B_ON_absorptive_50ohm_c0p08pf",
+      "linear_pol_deg": 90.0,
+      "curve_count": 72,
+      "valid_percent_avg": 99.67656012176559,
+      "raw_rms_bias_vs_pol0_avg_deg": 84.67453955866597,
+      "raw_p95_rms_bias_vs_pol0_deg": 118.18898225956879,
+      "raw_max_abs_bias_vs_pol0_deg": 179.99266520331878,
+      "lut_holdout_global_rms_deg": 7.83657946403998,
+      "lut_holdout_p95_abs_deg": 13.483448710554285,
+      "lut_holdout_max_abs_deg": 91.55881941768297
+    },
+    {
+      "case": "B_ON_absorptive_50ohm_c0p08pf",
+      "linear_pol_deg": 135.0,
+      "curve_count": 72,
+      "valid_percent_avg": 99.8668188736682,
+      "raw_rms_bias_vs_pol0_avg_deg": 72.65522366733894,
+      "raw_p95_rms_bias_vs_pol0_deg": 113.8853520715954,
+      "raw_max_abs_bias_vs_pol0_deg": 179.9822761089485,
+      "lut_holdout_global_rms_deg": 6.104956269279173,
+      "lut_holdout_p95_abs_deg": 8.558697150101665,
+      "lut_holdout_max_abs_deg": 72.1519492429627
+    },
+    {
+      "case": "B_ON_reflective_5kohm_c0p08pf",
+      "linear_pol_deg": 0.0,
+      "curve_count": 72,
+      "valid_percent_avg": 99.84779299847793,
+      "raw_rms_bias_vs_pol0_avg_deg": 0.0,
+      "raw_p95_rms_bias_vs_pol0_deg": 0.0,
+      "raw_max_abs_bias_vs_pol0_deg": 0.0,
+      "lut_holdout_global_rms_deg": 0.0,
+      "lut_holdout_p95_abs_deg": 0.0,
+      "lut_holdout_max_abs_deg": 0.0
+    },
+    {
+      "case": "B_ON_reflective_5kohm_c0p08pf",
+      "linear_pol_deg": 45.0,
+      "curve_count": 72,
+      "valid_percent_avg": 98.82039573820396,
+      "raw_rms_bias_vs_pol0_avg_deg": 57.4304204011734,
+      "raw_p95_rms_bias_vs_pol0_deg": 106.61489896632747,
+      "raw_max_abs_bias_vs_pol0_deg": 179.66306166299842,
+      "lut_holdout_global_rms_deg": 7.562962429600698,
+      "lut_holdout_p95_abs_deg": 5.4029360847513885,
+      "lut_holdout_max_abs_deg": 139.2196919448739
+    },
+    {
+      "case": "B_ON_reflective_5kohm_c0p08pf",
+      "linear_pol_deg": 90.0,
+      "curve_count": 72,
+      "valid_percent_avg": 99.42922374429223,
+      "raw_rms_bias_vs_pol0_avg_deg": 96.85061583915078,
+      "raw_p95_rms_bias_vs_pol0_deg": 141.7812917715403,
+      "raw_max_abs_bias_vs_pol0_deg": 179.9906560884504,
+      "lut_holdout_global_rms_deg": 6.758305072322258,
+      "lut_holdout_p95_abs_deg": 9.438606919392214,
+      "lut_holdout_max_abs_deg": 95.59739330944257
+    },
+    {
+      "case": "B_ON_reflective_5kohm_c0p08pf",
+      "linear_pol_deg": 135.0,
+      "curve_count": 72,
+      "valid_percent_avg": 99.71461187214612,
+      "raw_rms_bias_vs_pol0_avg_deg": 51.218770652919204,
+      "raw_p95_rms_bias_vs_pol0_deg": 87.90765072679075,
+      "raw_max_abs_bias_vs_pol0_deg": 179.2217068709076,
+      "lut_holdout_global_rms_deg": 5.354236335168466,
+      "lut_holdout_p95_abs_deg": 6.3985748725175995,
+      "lut_holdout_max_abs_deg": 61.15812112822749
+    }
+  ],
+  "engineering_valid_absorptive_avg_holdout_group_rms_deg": 6.188635229615462,
+  "engineering_valid_absorptive_meets_target": true,
+  "project_copies": {
+    "A_ON_absorptive_50ohm_c0p08pf": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_rf_switch_pdoa_workstate\\UWB_CH9_D44_DUALPOL_RF_SWITCH_PDOA_A_ON_absorptive_50ohm_c0p08pf.aedt",
+    "B_ON_absorptive_50ohm_c0p08pf": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_rf_switch_pdoa_workstate\\UWB_CH9_D44_DUALPOL_RF_SWITCH_PDOA_B_ON_absorptive_50ohm_c0p08pf.aedt",
+    "A_ON_reflective_5kohm_c0p08pf": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_rf_switch_pdoa_workstate\\UWB_CH9_D44_DUALPOL_RF_SWITCH_PDOA_A_ON_reflective_5kohm_c0p08pf.aedt",
+    "B_ON_reflective_5kohm_c0p08pf": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_rf_switch_pdoa_workstate\\UWB_CH9_D44_DUALPOL_RF_SWITCH_PDOA_B_ON_reflective_5kohm_c0p08pf.aedt"
+  }
+}
