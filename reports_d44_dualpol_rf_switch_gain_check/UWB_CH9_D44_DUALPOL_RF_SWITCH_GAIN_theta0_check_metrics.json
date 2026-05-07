@@ -1,0 +1,45 @@
+{
+  "target_dbi": -5.0,
+  "interpretation": "theta=0 deg, +Z boresight. z rows use all Phi duplicates conservatively by minimum.",
+  "best_candidate": "p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_g0p12_l1p8_ph2p10_z0p06",
+  "row_count": 24,
+  "min_z_theta0_gain_total_dbi": -15.27591370561899,
+  "min_z_theta0_realized_gain_total_dbi": -15.470565310197223,
+  "min_upper_hemi_peak_gain_total_dbi": -12.758338037939549,
+  "min_upper_hemi_peak_realized_gain_total_dbi": -12.952989642517785,
+  "all_z_gain_total_meet": false,
+  "all_z_realized_gain_meet": false,
+  "all_peak_gain_total_meet": false,
+  "all_peak_realized_gain_meet": false,
+  "case_summary": {
+    "A_ON_absorptive_50ohm_c0p08pf": {
+      "z_theta0_gain_total_min_dbi": -15.275914,
+      "z_theta0_realized_gain_total_min_dbi": -15.470565,
+      "upper_hemi_peak_gain_total_min_dbi": -12.758338,
+      "upper_hemi_peak_realized_gain_total_min_dbi": -12.95299,
+      "worst_z_source": "P3A",
+      "worst_z_freq_ghz": 8.233,
+      "z_gain_total_meets": false,
+      "z_realized_gain_meets": false,
+      "peak_gain_total_meets": false,
+      "peak_realized_gain_meets": false
+    },
+    "B_ON_absorptive_50ohm_c0p08pf": {
+      "z_theta0_gain_total_min_dbi": -13.919146,
+      "z_theta0_realized_gain_total_min_dbi": -14.134518,
+      "upper_hemi_peak_gain_total_min_dbi": -11.712061,
+      "upper_hemi_peak_realized_gain_total_min_dbi": -11.927433,
+      "worst_z_source": "P4B",
+      "worst_z_freq_ghz": 8.233,
+      "z_gain_total_meets": false,
+      "z_realized_gain_meets": false,
+      "peak_gain_total_meets": false,
+      "peak_realized_gain_meets": false
+    }
+  },
+  "csv": "reports_d44_dualpol_rf_switch_gain_check\\UWB_CH9_D44_DUALPOL_RF_SWITCH_GAIN_theta0_check.csv",
+  "projects": {
+    "A_ON_absorptive_50ohm_c0p08pf": "reports_d44_dualpol_rf_switch_gain_check\\UWB_CH9_D44_DUALPOL_RF_SWITCH_GAIN_A_ON_absorptive_50ohm_c0p08pf.aedt",
+    "B_ON_absorptive_50ohm_c0p08pf": "reports_d44_dualpol_rf_switch_gain_check\\UWB_CH9_D44_DUALPOL_RF_SWITCH_GAIN_B_ON_absorptive_50ohm_c0p08pf.aedt"
+  }
+}
