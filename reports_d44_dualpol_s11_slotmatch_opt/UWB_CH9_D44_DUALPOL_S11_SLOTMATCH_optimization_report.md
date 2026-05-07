@@ -4,21 +4,21 @@
 
 - 目标：真正独立双端口馈电/过桥谐振耦合网络，8 端口带内最差 S11 `<= -10.0 dB`，并同步观察 A/B 隔离。
 - 仿真方式：S 参数快速筛选，HFSS 非图形模式，`analysis_cores=8`，`analysis_tasks=8`。
-- 本轮累计有效候选：`331` 个，其中独立过桥候选 `169` 个。
-- 结论：`S11 未达标`。最终独立过桥候选 `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_untrl2p2_fsvia0p74_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` 的最差回波为 `-10.87 dB`。
-- 限制：同阵元 A/B 隔离仍低，为 `0.38 dB`；同馈跨阵元隔离为 `39.81 dB`。
+- 本轮累计有效候选：`343` 个，其中独立过桥候选 `181` 个。
+- 结论：`S11 未达标`。最终独立过桥候选 `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_g0p12_l1p8_ph2p10_z0p06` 的最差回波为 `-12.02 dB`。
+- 限制：同阵元 A/B 隔离仍低，为 `0.40 dB`；同馈跨阵元隔离为 `39.05 dB`。
 
 ## 最佳独立候选指标
 
 | 指标 | 数值 |
 | --- | ---: |
-| 最差 S11 | -10.87 dB |
-| X/A 极化最差回波 | -11.46 dB |
-| Y/B 极化最差回波 | -10.87 dB |
-| X/Y 回波不平衡 | 0.60 dB |
-| 同阵元 A/B 隔离 | 0.38 dB |
-| 同馈跨阵元隔离 | 39.81 dB |
-| 最差回波表达式 | `dB(S(P4B:1,P4B:1))` |
+| 最差 S11 | -12.02 dB |
+| X/A 极化最差回波 | -12.02 dB |
+| Y/B 极化最差回波 | -12.42 dB |
+| X/Y 回波不平衡 | 0.41 dB |
+| 同阵元 A/B 隔离 | 0.40 dB |
+| 同馈跨阵元隔离 | 39.05 dB |
+| 最差回波表达式 | `dB(S(P2A:1,P2A:1))` |
 | 最差耦合表达式 | `dB(S(P3B:1,P3A:1))` |
 
 ## 关键结构参数
@@ -70,6 +70,13 @@
 | `slot_coupled_patch_slit_angle_deg` | `45.000` |
 | `slot_coupled_patch_slit_offset_u_mm` | `0.000` |
 | `slot_coupled_patch_slit_offset_v_mm` | `0.000` |
+| `slot_coupled_ab_cancel_enabled` | `1.000` |
+| `slot_coupled_ab_cancel_coupling_length_mm` | `1.800` |
+| `slot_coupled_ab_cancel_trace_width_mm` | `0.120` |
+| `slot_coupled_ab_cancel_gap_mm` | `0.120` |
+| `slot_coupled_ab_cancel_phase_offset_mm` | `2.100` |
+| `slot_coupled_ab_cancel_side_sign` | `1.000` |
+| `slot_coupled_ab_cancel_z_offset_mm` | `0.060` |
 | `slot_coupled_stub_enabled` | `1.000` |
 | `slot_coupled_stub_length_mm` | `4.400` |
 | `slot_coupled_stub_width_mm` | `0.550` |
@@ -107,26 +114,26 @@
 
 | 排名 | 候选 | 最差 S11 | X/A | Y/B | A/B 隔离 | 同馈跨阵元隔离 |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
-| 1 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_untrl2p2_fsvia0p74_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -10.87 dB | -11.46 dB | -10.87 dB | 0.38 dB | 39.81 dB |
-| 2 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_fsvia0p74r0p05gap0p03_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -11.52 dB | -12.12 dB | -11.52 dB | 0.36 dB | 41.19 dB |
-| 3 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_untrl2p2_fsvia0p74_pslit3p2` | -11.71 dB | -11.71 dB | -12.17 dB | 0.35 dB | 41.81 dB |
-| 4 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -10.23 dB | -10.52 dB | -10.23 dB | 0.32 dB | 42.02 dB |
-| 5 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_weak2p2_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -10.23 dB | -10.52 dB | -10.23 dB | 0.32 dB | 42.02 dB |
-| 6 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_untrl2p2_fsvia0p74_pslit2p4` | -9.96 dB | -10.57 dB | -9.96 dB | 0.37 dB | 41.46 dB |
-| 7 | `p9p75_l5p0_w0p58_fw0p74_fl11p8_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -9.67 dB | -9.67 dB | -9.90 dB | 0.27 dB | 47.34 dB |
-| 8 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_untrl3p0w0p16o1p0z0p06_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -9.46 dB | -9.88 dB | -9.46 dB | 0.28 dB | 45.87 dB |
-| 9 | `p9p75_l5p0_w0p58_fw0p74_fl11p8_ares1p7x1p3_rbridge_gap1p7_qstub4p2_step1p1` | -9.25 dB | -9.51 dB | -9.25 dB | 0.29 dB | 44.98 dB |
-| 10 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_aneck1p8w0p42_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -9.22 dB | -9.53 dB | -9.22 dB | 0.36 dB | 42.07 dB |
-| 11 | `p9p75_l5p0_w0p59_fw0p74_fl11p8_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -9.11 dB | -9.36 dB | -9.11 dB | 0.26 dB | 47.73 dB |
-| 12 | `p9p75_l5p0_w0p58_fw0p74_fl11p8_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9_dsw0p35` | -9.10 dB | -9.10 dB | -9.17 dB | 0.26 dB | 46.40 dB |
-| 13 | `p9p75_l4p6_w0p50_fw0p70_fl11p6_ares1p5x1p1_rbridge_gap1p5_qstub4p4_step1p0` | -8.96 dB | -8.96 dB | -9.11 dB | 0.29 dB | 44.64 dB |
-| 14 | `p9p75_l5p0_w0p60_fw0p78_h0p30_fl11p8_untrl3p0w0p16o1p0z0p06_ares1p7x1p3_rbridge_gap1p7_qstub4p5_dstub1p9` | -8.88 dB | -8.88 dB | -9.02 dB | 0.36 dB | 44.37 dB |
-| 15 | `p9p75_l5p0_w0p58_fw0p74_fl11p8_ares1p7x1p3_rbridge_gap1p7_qstub4p3_dstub1p9` | -8.84 dB | -9.08 dB | -8.84 dB | 0.27 dB | 48.40 dB |
-| 16 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_aneck2p4w0p34_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -8.82 dB | -8.82 dB | -9.05 dB | 0.35 dB | 48.10 dB |
-| 17 | `p9p75_l4p8_w0p54_fw0p72_fl11p8_ares1p6x1p2_rbridge_gap1p6_qstub4p4_step1p0` | -8.72 dB | -8.92 dB | -8.72 dB | 0.26 dB | 46.47 dB |
-| 18 | `p9p75_l4p6_w0p50_fw0p70_fl11p8_ares1p5x1p1_rbridge_gap1p5_qstub4p4_step1p0` | -8.72 dB | -8.72 dB | -9.18 dB | 0.28 dB | 47.12 dB |
-| 19 | `p9p75_l4p4_w0p48_fw0p68_fl11p8_ares1p4x1p0_rbridge_gap1p4_qstub4p4_step0p9` | -8.65 dB | -8.94 dB | -8.65 dB | 0.31 dB | 46.18 dB |
-| 20 | `p9p75_l4p8_w0p54_fw0p72_fl11p8_ares1p6x1p2_rbridge_gap1p6_qstub3p8_step1p0` | -8.59 dB | -8.59 dB | -8.67 dB | 0.29 dB | 48.41 dB |
+| 1 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_g0p12_l1p8_ph2p10_z0p06` | -12.02 dB | -12.02 dB | -12.42 dB | 0.40 dB | 39.05 dB |
+| 2 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_z0p06_g0p12_l2p0_ph2p30` | -11.67 dB | -12.01 dB | -11.67 dB | 0.40 dB | 38.90 dB |
+| 3 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_untrl2p2_fsvia0p74_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -10.87 dB | -11.46 dB | -10.87 dB | 0.38 dB | 39.81 dB |
+| 4 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_z0p10_g0p12_l1p8_ph2p10` | -12.89 dB | -12.89 dB | -13.68 dB | 0.38 dB | 41.08 dB |
+| 5 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_g0p10_l1p6_ph1p95_w0p12` | -12.54 dB | -12.58 dB | -12.54 dB | 0.38 dB | 40.93 dB |
+| 6 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_fsvia0p74r0p05gap0p03_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -11.52 dB | -12.12 dB | -11.52 dB | 0.36 dB | 41.19 dB |
+| 7 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_z0p14_g0p12_l1p8_ph2p10` | -11.70 dB | -11.76 dB | -11.70 dB | 0.36 dB | 40.00 dB |
+| 8 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_untrl2p2_fsvia0p74_pslit3p2` | -11.71 dB | -11.71 dB | -12.17 dB | 0.35 dB | 41.81 dB |
+| 9 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_z0p06_g0p16_l1p8_ph2p10` | -13.29 dB | -13.29 dB | -13.34 dB | 0.35 dB | 39.34 dB |
+| 10 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_g0p16_l1p2_ph1p65_w0p10` | -11.86 dB | -11.99 dB | -11.86 dB | 0.34 dB | 38.70 dB |
+| 11 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_g0p06_l2p1_ph2p45_w0p14` | -13.08 dB | -13.11 dB | -13.08 dB | 0.33 dB | 42.83 dB |
+| 12 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_z0p06_g0p08_l1p8_ph2p10` | -11.62 dB | -11.62 dB | -12.00 dB | 0.33 dB | 41.57 dB |
+| 13 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_g0p08_l1p9_ph2p25_w0p12` | -13.37 dB | -13.37 dB | -13.60 dB | 0.33 dB | 41.14 dB |
+| 14 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_g0p08_l1p9_ph2p25_rev` | -11.84 dB | -11.84 dB | -11.88 dB | 0.33 dB | 39.20 dB |
+| 15 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -10.23 dB | -10.52 dB | -10.23 dB | 0.32 dB | 42.02 dB |
+| 16 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_weak2p2_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -10.23 dB | -10.52 dB | -10.23 dB | 0.32 dB | 42.02 dB |
+| 17 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_untrl2p2_fsvia0p74_pslit2p4` | -9.96 dB | -10.57 dB | -9.96 dB | 0.37 dB | 41.46 dB |
+| 18 | `p9p75_l5p0_w0p58_fw0p74_fl11p8_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -9.67 dB | -9.67 dB | -9.90 dB | 0.27 dB | 47.34 dB |
+| 19 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_untrl3p0w0p16o1p0z0p06_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -9.46 dB | -9.88 dB | -9.46 dB | 0.28 dB | 45.87 dB |
+| 20 | `p9p75_l5p0_w0p58_fw0p74_fl11p8_ares1p7x1p3_rbridge_gap1p7_qstub4p2_step1p1` | -9.25 dB | -9.51 dB | -9.25 dB | 0.29 dB | 44.98 dB |
 
 ## 下一步建议
 
@@ -144,10 +151,10 @@
 
 ## 本轮补充结论
 
-- 本轮目标：最差 S11 <= -10.0 dB，同时同阵元 A/B 端口隔离 >= 15.0 dB，并尽量保持同馈跨阵元隔离。
-- 当前最佳可运行候选为 row 325：`p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_untrl2p2_fsvia0p74_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9`。
-- 核心结果：最差 S11 = -10.866 dB，X/A 最差回波 = -11.462 dB，Y/B 最差回波 = -10.866 dB，同阵元 A/B 隔离 = 0.379 dB，同馈跨阵元隔离 = 39.808 dB。
-- 达标状态：S11 已达标；同阵元 A/B 隔离未达标，因此本轮整体未完全达标。
-- 正向改进：相对 row 289 的 A/B 隔离 0.321 dB，row 325 提升到 0.379 dB；相对 row 316 的 A/B 隔离 0.364 dB，row 325 也有小幅改善，同时保持 S11 <= -10 dB。
-- 失败路径总结：接地屏蔽过孔可把 A/B 隔离推到 10-17 dB，但会把 S11 拉回 -0.2 dB 量级；浮置过孔和下馈中和线能保住 S11，但隔离只能到亚 dB；孔缝/馈线偏移可提升隔离趋势，但 S11 会塌陷；贴片斜缝能保持或改善 S11，但没有带来有效 A/B 去耦。
-- 下一轮建议：不要继续只靠局部被动几何微调；应切到带受控幅相的独立 A/B 中和支路、外部/板上耦合抵消网络，或重构为真正分离模态的双端口馈电，再统一重调孔缝耦合和匹配网络。
+- 本轮结构切换：已从单纯几何微调切到带受控幅相的独立 A/B 中和支路/耦合抵消网络。实现方式为每个阵元下层馈线之间新增浮置 C-line-C 支路，A/B 两侧通过非接触耦合臂取样，中间相位线提供相位延迟；`gap/length/trace_width` 控制耦合幅度，`phase_offset/side_sign/z_offset` 控制相位和加载强度。
+- 新增参数族：`slot_coupled_ab_cancel_enabled`、`slot_coupled_ab_cancel_coupling_length_mm`、`slot_coupled_ab_cancel_trace_width_mm`、`slot_coupled_ab_cancel_gap_mm`、`slot_coupled_ab_cancel_phase_offset_mm`、`slot_coupled_ab_cancel_side_sign`、`slot_coupled_ab_cancel_z_offset_mm`。
+- 本轮共扩展到 343 个候选，其中 row332-row343 为 A/B 中和支路候选。当前最佳仍是 row337：`p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_g0p12_l1p8_ph2p10_z0p06`。
+- row337 核心结果：最差 S11 = -12.017 dB，X/A 最差回波 = -12.017 dB，Y/B 最差回波 = -12.424 dB，同阵元 A/B 隔离 = 0.403 dB，同馈跨阵元隔离 = 39.047 dB。
+- 达标状态：S11 已达标并比 row325 的 -10.866 dB 更深；同阵元 A/B 隔离从 row325 的 0.379 dB 提升到 0.403 dB，但仍远低于 15.0 dB，因此整体仍未完全达标。
+- 扫参观察：同层强耦合支路会使隔离回落或只改善 S11；把中和支路抬到馈电介质内 `z_offset=0.06 mm` 是当前最好的折中；继续抬高到 0.10/0.14 mm 或改变相位长度没有进一步提升 A/B 隔离。
+- 下一步建议：如果必须把 A/B 隔离推向 15 dB，当前纯浮置被动 C-line-C 支路耦合量不足，需要进入更强的可控抵消结构，例如带明确串联电容/开路间隙加载的高阻抗跨端中和线、可调 lumped C/L 的等效抵消网络，或把 A/B 馈电改为更大物理分离的双模态耦合路径后再重新匹配。

@@ -115,6 +115,13 @@ BASE_PARAMS = {
     "slot_coupled_patch_slit_angle_deg": 45.0,
     "slot_coupled_patch_slit_offset_u_mm": 0.0,
     "slot_coupled_patch_slit_offset_v_mm": 0.0,
+    "slot_coupled_ab_cancel_enabled": 0.0,
+    "slot_coupled_ab_cancel_coupling_length_mm": 1.60,
+    "slot_coupled_ab_cancel_trace_width_mm": 0.12,
+    "slot_coupled_ab_cancel_gap_mm": 0.08,
+    "slot_coupled_ab_cancel_phase_offset_mm": 2.00,
+    "slot_coupled_ab_cancel_side_sign": 1.0,
+    "slot_coupled_ab_cancel_z_offset_mm": 0.0,
     "slot_coupled_stub_enabled": 0.0,
     "slot_coupled_stub_length_mm": 0.0,
     "slot_coupled_stub_width_mm": 0.25,
@@ -297,6 +304,13 @@ TOPOLOGIES = {
             "slot_coupled_patch_slit_angle_deg": 45.0,
             "slot_coupled_patch_slit_offset_u_mm": 0.0,
             "slot_coupled_patch_slit_offset_v_mm": 0.0,
+            "slot_coupled_ab_cancel_enabled": 0.0,
+            "slot_coupled_ab_cancel_coupling_length_mm": 1.60,
+            "slot_coupled_ab_cancel_trace_width_mm": 0.12,
+            "slot_coupled_ab_cancel_gap_mm": 0.08,
+            "slot_coupled_ab_cancel_phase_offset_mm": 2.00,
+            "slot_coupled_ab_cancel_side_sign": 1.0,
+            "slot_coupled_ab_cancel_z_offset_mm": 0.0,
             "slot_coupled_stub_enabled": 0.0,
             "slot_coupled_stub_length_mm": 0.0,
             "slot_coupled_stub_width_mm": 0.25,
@@ -771,6 +785,79 @@ def add_slotcoupled_patch_slit(hfss: Hfss, tag: str, patch_name: str, center: tu
     hfss.modeler.subtract(patch_name, [slit.name], keep_originals=False)
 
 
+def add_slotcoupled_ab_cancellation_network(
+    hfss: Hfss,
+    tag: str,
+    center: tuple[float, float],
+    angle_deg: float,
+    params: dict,
+    feed_z: float,
+    feedline_a_v: float,
+    feedline_b_u: float,
+    half_feed_w: float,
+    u_side_sign: float,
+    v_side_sign: float,
+) -> list[str]:
+    if params.get("slot_coupled_ab_cancel_enabled", 0.0) < 0.5:
+        return []
+    coupling_l = params.get("slot_coupled_ab_cancel_coupling_length_mm", 1.60)
+    trace_w = params.get("slot_coupled_ab_cancel_trace_width_mm", 0.12)
+    gap = params.get("slot_coupled_ab_cancel_gap_mm", 0.08)
+    phase_offset = params.get("slot_coupled_ab_cancel_phase_offset_mm", 2.00)
+    side_sign = 1.0 if params.get("slot_coupled_ab_cancel_side_sign", 1.0) >= 0.0 else -1.0
+    z = feed_z + params.get("slot_coupled_ab_cancel_z_offset_mm", 0.0)
+    overlap = min(0.08, max(0.03, trace_w / 2.0))
+
+    uq = u_side_sign * side_sign
+    vq = v_side_sign * side_sign
+    coupling_edge = half_feed_w + gap + trace_w / 2.0
+    a_center_u = uq * phase_offset
+    a_center_v = feedline_a_v + vq * coupling_edge
+    b_center_u = feedline_b_u + uq * coupling_edge
+    b_center_v = vq * phase_offset
+
+    metals = []
+    a_pad = polygon_sheet(
+        hfss,
+        f"{tag}_slotcoupled_ab_cancel_a_coupler",
+        rotated_rectangle_points(*center, angle_deg, a_center_u, a_center_v, 0.0, coupling_l, trace_w, z),
+        "copper",
+    )
+    b_pad = polygon_sheet(
+        hfss,
+        f"{tag}_slotcoupled_ab_cancel_b_coupler",
+        rotated_rectangle_points(*center, angle_deg, b_center_u, b_center_v, 90.0, coupling_l, trace_w, z),
+        "copper",
+    )
+    metals.extend([a_pad.name, b_pad.name])
+
+    a_inner_u = uq * (phase_offset - coupling_l / 2.0 + overlap)
+    a_inner_v = a_center_v
+    b_inner_u = b_center_u
+    b_inner_v = vq * (phase_offset - coupling_l / 2.0 + overlap)
+    du = b_inner_u - a_inner_u
+    dv = b_inner_v - a_inner_v
+    connector_l = math.hypot(du, dv)
+    if connector_l > trace_w:
+        connector = polygon_sheet(
+            hfss,
+            f"{tag}_slotcoupled_ab_cancel_phase_line",
+            rotated_rectangle_points(
+                *center,
+                angle_deg,
+                (a_inner_u + b_inner_u) / 2.0,
+                (a_inner_v + b_inner_v) / 2.0,
+                math.degrees(math.atan2(dv, du)),
+                connector_l + 2.0 * overlap,
+                trace_w,
+                z,
+            ),
+            "copper",
+        )
+        metals.append(connector.name)
+    return metals
+
+
 def add_dualpol_parasitic_patch(hfss: Hfss, tag: str, center: tuple[float, float], angle: float, params: dict) -> list[str]:
     if not has_stacked_parasitic(params):
         return []
@@ -1120,6 +1207,21 @@ def add_dualpol_slotcoupled_element(hfss: Hfss, tag: str, center: tuple[float, f
             params.get("slot_coupled_stub2_offset_mm", 3.0),
             params.get("slot_coupled_stub2_side_sign", -1.0),
         )
+    metals.extend(
+        add_slotcoupled_ab_cancellation_network(
+            hfss,
+            tag,
+            center,
+            angle,
+            params,
+            feed_z_a,
+            feedline_a_v,
+            feedline_b_u,
+            half_w,
+            u_side_sign,
+            v_side_sign,
+        )
+    )
     add_slotcoupled_shield_vias(hfss, tag, center, angle, params)
     metals += add_lumped_feed(hfss, f"P{tag[-1]}A", center, angle, u_side_sign * half_l, feedline_a_v, 0.0, feed_z_a, params, pad=False)
     metals += add_lumped_feed(hfss, f"P{tag[-1]}B", center, angle, feedline_b_u, v_side_sign * half_l, 0.0, feed_z_b, params, pad=False, port_width_axis="u")
@@ -1239,6 +1341,12 @@ def validate_params(params: dict) -> None:
         patch_slit_w = params.get("slot_coupled_patch_slit_width_mm", 0.10)
         patch_slit_offset_u = params.get("slot_coupled_patch_slit_offset_u_mm", 0.0)
         patch_slit_offset_v = params.get("slot_coupled_patch_slit_offset_v_mm", 0.0)
+        ab_cancel_enabled = params.get("slot_coupled_ab_cancel_enabled", 0.0) >= 0.5
+        ab_cancel_l = params.get("slot_coupled_ab_cancel_coupling_length_mm", 1.60)
+        ab_cancel_w = params.get("slot_coupled_ab_cancel_trace_width_mm", 0.12)
+        ab_cancel_gap = params.get("slot_coupled_ab_cancel_gap_mm", 0.08)
+        ab_cancel_phase_offset = params.get("slot_coupled_ab_cancel_phase_offset_mm", 2.00)
+        ab_cancel_z_offset = params.get("slot_coupled_ab_cancel_z_offset_mm", 0.0)
         stub_enabled = params.get("slot_coupled_stub_enabled", 0.0) >= 0.5
         stub_len = params.get("slot_coupled_stub_length_mm", 0.0)
         stub_w = params.get("slot_coupled_stub_width_mm", 0.25)
@@ -1305,6 +1413,18 @@ def validate_params(params: dict) -> None:
             slit_extent = max(abs(patch_slit_offset_u), abs(patch_slit_offset_v)) + (patch_slit_len + patch_slit_w) / 2.0
             if slit_extent > half_patch - 0.35:
                 raise ValueError("Dual-polarized patch decoupling slit must stay inside the patch")
+        if ab_cancel_enabled:
+            if ab_cancel_l <= 0.40 or ab_cancel_w <= 0.03 or ab_cancel_w > 0.30:
+                raise ValueError("Dual-polarized A/B cancellation trace dimensions must be manufacturable")
+            if ab_cancel_gap < 0.04 or ab_cancel_gap > 0.40:
+                raise ValueError("Dual-polarized A/B cancellation coupling gap must be between 0.04 and 0.40 mm")
+            if ab_cancel_z_offset < -0.02 or ab_cancel_z_offset >= feed_h - 0.04:
+                raise ValueError("Dual-polarized A/B cancellation network z offset must stay inside the feed dielectric")
+            coupling_edge = feed_w / 2.0 + ab_cancel_gap + ab_cancel_w / 2.0
+            if ab_cancel_phase_offset - ab_cancel_l / 2.0 <= coupling_edge + 0.05:
+                raise ValueError("Dual-polarized A/B cancellation network needs a positive phase-line span")
+            if ab_cancel_phase_offset + ab_cancel_l / 2.0 > half_patch - 0.35:
+                raise ValueError("Dual-polarized A/B cancellation network must stay below the patch footprint")
         if stub_enabled and (stub_len <= 0.0 or stub_w <= 0.0 or stub_offset <= 0.0 or stub_offset >= feed_len / 2.0 - 0.15):
             raise ValueError("Dual-polarized slot-coupled tuning stub dimensions must be positive and stay on the feedline")
         if stub2_enabled and (stub2_len <= 0.0 or stub2_w <= 0.0 or stub2_offset <= 0.0 or stub2_offset >= feed_len / 2.0 - 0.15):
@@ -1337,6 +1457,8 @@ def validate_params(params: dict) -> None:
             feedline_extent = max(feedline_extent, step_extent)
         if a_res_len > 1e-9 or a_res_w > 1e-9:
             feedline_extent = max(feedline_extent, max(a_res_len, a_res_w) / 2.0 + max(abs(feedline_a_v), abs(feedline_b_u)))
+        if ab_cancel_enabled:
+            feedline_extent = max(feedline_extent, ab_cancel_phase_offset + ab_cancel_l / 2.0 + ab_cancel_w)
         if center_radius + feedline_extent > board_radius - 0.25:
             raise ValueError("Dual-polarized underside feedline too close to board edge")
     if params.get("weak_coupling_open_line_enabled", 0.0) >= 0.5:
