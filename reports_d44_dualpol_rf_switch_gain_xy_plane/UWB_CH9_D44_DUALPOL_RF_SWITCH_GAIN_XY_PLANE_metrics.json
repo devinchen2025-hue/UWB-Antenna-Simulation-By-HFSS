@@ -1,0 +1,46 @@
+{
+  "target_dbi": -5.0,
+  "interpretation": "Z=0 plane is interpreted as the XY plane, i.e. Theta=90 deg and Phi=0..360 deg in HFSS spherical coordinates.",
+  "best_candidate": "p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_g0p12_l1p8_ph2p10_z0p06",
+  "case_summary": {
+    "A_ON_absorptive_50ohm_c0p08pf": {
+      "xy_plane_gain_total_min_dbi": -26.443285255653436,
+      "xy_plane_gain_total_min_source": "P4A",
+      "xy_plane_gain_total_min_freq_ghz": 8.233,
+      "xy_plane_gain_total_min_phi_deg": 50.0,
+      "xy_plane_realized_gain_total_min_dbi": -26.65421083218238,
+      "xy_plane_realized_gain_total_min_source": "P4A",
+      "xy_plane_realized_gain_total_min_freq_ghz": 8.233,
+      "xy_plane_realized_gain_total_min_phi_deg": 50.0,
+      "xy_plane_gain_total_max_min_dbi": -17.248521518255444,
+      "xy_plane_realized_gain_total_max_min_dbi": -17.45944709478439,
+      "xy_plane_gain_total_meets": false,
+      "xy_plane_realized_gain_meets": false
+    },
+    "B_ON_absorptive_50ohm_c0p08pf": {
+      "xy_plane_gain_total_min_dbi": -33.10013354589521,
+      "xy_plane_gain_total_min_source": "P3B",
+      "xy_plane_gain_total_min_freq_ghz": 8.233,
+      "xy_plane_gain_total_min_phi_deg": 65.0,
+      "xy_plane_realized_gain_total_min_dbi": -33.19195579158985,
+      "xy_plane_realized_gain_total_min_source": "P3B",
+      "xy_plane_realized_gain_total_min_freq_ghz": 8.233,
+      "xy_plane_realized_gain_total_min_phi_deg": 65.0,
+      "xy_plane_gain_total_max_min_dbi": -17.447182643495573,
+      "xy_plane_realized_gain_total_max_min_dbi": -17.57535183186513,
+      "xy_plane_gain_total_meets": false,
+      "xy_plane_realized_gain_meets": false
+    }
+  },
+  "min_xy_plane_gain_total_dbi": -33.10013354589521,
+  "min_xy_plane_realized_gain_total_dbi": -33.19195579158985,
+  "min_xy_plane_peak_gain_total_dbi": -17.447182643495573,
+  "min_xy_plane_peak_realized_gain_total_dbi": -17.57535183186513,
+  "all_xy_plane_gain_total_meet": false,
+  "all_xy_plane_realized_gain_meet": false,
+  "csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_rf_switch_gain_xy_plane\\UWB_CH9_D44_DUALPOL_RF_SWITCH_GAIN_XY_PLANE_check.csv",
+  "projects": {
+    "A_ON_absorptive_50ohm_c0p08pf": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_rf_switch_gain_xy_plane\\UWB_CH9_D44_DUALPOL_RF_SWITCH_GAIN_XY_PLANE_A_ON_absorptive_50ohm_c0p08pf.aedt",
+    "B_ON_absorptive_50ohm_c0p08pf": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_rf_switch_gain_xy_plane\\UWB_CH9_D44_DUALPOL_RF_SWITCH_GAIN_XY_PLANE_B_ON_absorptive_50ohm_c0p08pf.aedt"
+  }
+}
