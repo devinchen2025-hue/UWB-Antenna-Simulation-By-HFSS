@@ -1,0 +1,5 @@
+﻿case,active_pol,off_resistance_ohm,off_capacitance_pf,off_inductance_nh,elapsed_s,active_port_count,worst_return_db,worst_return_expr,active_interelement_isolation_db,worst_active_coupling_expr,s11_pass
+A_ON_absorptive_50ohm_c0p08pf,A,50.000000,0.080000,0.000000,132.544451,4,-13.358650,"dB(S(P3A:1,P3A:1))",35.132560,"dB(S(P4A:1,P3A:1))",True
+B_ON_absorptive_50ohm_c0p08pf,B,50.000000,0.080000,0.000000,136.315643,4,-13.155695,"dB(S(P4B:1,P4B:1))",42.040653,"dB(S(P2B:1,P3B:1))",True
+A_ON_reflective_5kohm_c0p08pf,A,5000.000000,0.080000,0.000000,136.318267,4,-0.341143,"dB(S(P3A:1,P3A:1))",36.179444,"dB(S(P1A:1,P2A:1))",False
+B_ON_reflective_5kohm_c0p08pf,B,5000.000000,0.080000,0.000000,132.388639,4,-0.344702,"dB(S(P4B:1,P4B:1))",37.870000,"dB(S(P2B:1,P1B:1))",False

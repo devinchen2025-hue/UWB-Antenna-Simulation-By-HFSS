@@ -1,0 +1,72 @@
+{
+  "best_candidate": "p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_g0p12_l1p8_ph2p10_z0p06",
+  "return_target_db": -10.0,
+  "cases": [
+    {
+      "case": "A_ON_absorptive_50ohm_c0p08pf",
+      "active_pol": "A",
+      "off_resistance_ohm": 50.0,
+      "off_capacitance_pf": 0.08,
+      "off_inductance_nh": 0.0,
+      "elapsed_s": 132.54445052146912,
+      "active_port_count": 4,
+      "worst_return_db": -13.358649841562084,
+      "worst_return_expr": "dB(S(P3A:1,P3A:1))",
+      "active_interelement_isolation_db": 35.13256018525201,
+      "worst_active_coupling_expr": "dB(S(P4A:1,P3A:1))",
+      "s11_pass": true
+    },
+    {
+      "case": "B_ON_absorptive_50ohm_c0p08pf",
+      "active_pol": "B",
+      "off_resistance_ohm": 50.0,
+      "off_capacitance_pf": 0.08,
+      "off_inductance_nh": 0.0,
+      "elapsed_s": 136.31564259529114,
+      "active_port_count": 4,
+      "worst_return_db": -13.155694677058886,
+      "worst_return_expr": "dB(S(P4B:1,P4B:1))",
+      "active_interelement_isolation_db": 42.04065261050069,
+      "worst_active_coupling_expr": "dB(S(P2B:1,P3B:1))",
+      "s11_pass": true
+    },
+    {
+      "case": "A_ON_reflective_5kohm_c0p08pf",
+      "active_pol": "A",
+      "off_resistance_ohm": 5000.0,
+      "off_capacitance_pf": 0.08,
+      "off_inductance_nh": 0.0,
+      "elapsed_s": 136.3182671070099,
+      "active_port_count": 4,
+      "worst_return_db": -0.3411431853131959,
+      "worst_return_expr": "dB(S(P3A:1,P3A:1))",
+      "active_interelement_isolation_db": 36.17944387680438,
+      "worst_active_coupling_expr": "dB(S(P1A:1,P2A:1))",
+      "s11_pass": false
+    },
+    {
+      "case": "B_ON_reflective_5kohm_c0p08pf",
+      "active_pol": "B",
+      "off_resistance_ohm": 5000.0,
+      "off_capacitance_pf": 0.08,
+      "off_inductance_nh": 0.0,
+      "elapsed_s": 132.38863921165466,
+      "active_port_count": 4,
+      "worst_return_db": -0.34470164429463457,
+      "worst_return_expr": "dB(S(P4B:1,P4B:1))",
+      "active_interelement_isolation_db": 37.86999995737491,
+      "worst_active_coupling_expr": "dB(S(P2B:1,P1B:1))",
+      "s11_pass": false
+    }
+  ],
+  "project_copies": {
+    "A_ON_absorptive_50ohm_c0p08pf": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_rf_switch_workstate\\UWB_CH9_D44_DUALPOL_RF_SWITCH_A_ON_absorptive_50ohm_c0p08pf.aedt",
+    "B_ON_absorptive_50ohm_c0p08pf": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_rf_switch_workstate\\UWB_CH9_D44_DUALPOL_RF_SWITCH_B_ON_absorptive_50ohm_c0p08pf.aedt",
+    "A_ON_reflective_5kohm_c0p08pf": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_rf_switch_workstate\\UWB_CH9_D44_DUALPOL_RF_SWITCH_A_ON_reflective_5kohm_c0p08pf.aedt",
+    "B_ON_reflective_5kohm_c0p08pf": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_rf_switch_workstate\\UWB_CH9_D44_DUALPOL_RF_SWITCH_B_ON_reflective_5kohm_c0p08pf.aedt"
+  },
+  "assumptions": {
+    "selected_path": "Selected polarization remains a 50 ohm normalized HFSS lumped port; switch on insertion loss is not embedded.",
+    "inactive_path": "Inactive polarization is replaced by a parallel RLC sheet at the former feed port location."
+  }
+}

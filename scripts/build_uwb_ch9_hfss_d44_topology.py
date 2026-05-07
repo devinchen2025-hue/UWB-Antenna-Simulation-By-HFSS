@@ -122,6 +122,11 @@ BASE_PARAMS = {
     "slot_coupled_ab_cancel_phase_offset_mm": 2.00,
     "slot_coupled_ab_cancel_side_sign": 1.0,
     "slot_coupled_ab_cancel_z_offset_mm": 0.0,
+    "rf_switch_equiv_enabled": 0.0,
+    "rf_switch_active_pol": 0.0,
+    "rf_switch_off_resistance_ohm": 50.0,
+    "rf_switch_off_capacitance_pf": 0.08,
+    "rf_switch_off_inductance_nh": 0.0,
     "slot_coupled_stub_enabled": 0.0,
     "slot_coupled_stub_length_mm": 0.0,
     "slot_coupled_stub_width_mm": 0.25,
@@ -311,6 +316,11 @@ TOPOLOGIES = {
             "slot_coupled_ab_cancel_phase_offset_mm": 2.00,
             "slot_coupled_ab_cancel_side_sign": 1.0,
             "slot_coupled_ab_cancel_z_offset_mm": 0.0,
+            "rf_switch_equiv_enabled": 0.0,
+            "rf_switch_active_pol": 0.0,
+            "rf_switch_off_resistance_ohm": 50.0,
+            "rf_switch_off_capacitance_pf": 0.08,
+            "rf_switch_off_inductance_nh": 0.0,
             "slot_coupled_stub_enabled": 0.0,
             "slot_coupled_stub_length_mm": 0.0,
             "slot_coupled_stub_width_mm": 0.25,
@@ -493,6 +503,47 @@ def add_lumped_feed(
         renormalize=True,
     )
     return metals
+
+
+def add_lumped_switch_load(
+    hfss: Hfss,
+    name: str,
+    center: tuple[float, float],
+    angle_deg: float,
+    feed_u: float,
+    feed_v: float,
+    top_z: float,
+    bottom_z: float,
+    params: dict,
+    port_width_axis: str = "v",
+) -> None:
+    cx, cy = center
+    feed = local_to_global(cx, cy, angle_deg, feed_u, feed_v, top_z)
+    base = local_to_global(cx, cy, angle_deg, feed_u, feed_v, bottom_z)
+    half_w = params["port_width_mm"] / 2.0
+    if port_width_axis == "u":
+        p0 = local_to_global(cx, cy, angle_deg, feed_u - half_w, feed_v, bottom_z)
+        p1 = local_to_global(cx, cy, angle_deg, feed_u + half_w, feed_v, bottom_z)
+        p2 = local_to_global(cx, cy, angle_deg, feed_u + half_w, feed_v, top_z)
+        p3 = local_to_global(cx, cy, angle_deg, feed_u - half_w, feed_v, top_z)
+    else:
+        p0 = local_to_global(cx, cy, angle_deg, feed_u, feed_v - half_w, bottom_z)
+        p1 = local_to_global(cx, cy, angle_deg, feed_u, feed_v + half_w, bottom_z)
+        p2 = local_to_global(cx, cy, angle_deg, feed_u, feed_v + half_w, top_z)
+        p3 = local_to_global(cx, cy, angle_deg, feed_u, feed_v - half_w, top_z)
+    load_sheet = polygon_sheet(hfss, f"{name}_switch_off_load_sheet", [p0, p1, p2, p3], None)
+    resistance = params.get("rf_switch_off_resistance_ohm", 50.0)
+    capacitance = params.get("rf_switch_off_capacitance_pf", 0.08) * 1e-12
+    inductance = params.get("rf_switch_off_inductance_nh", 0.0) * 1e-9
+    hfss.assign_lumped_rlc_to_sheet(
+        load_sheet.name,
+        start_direction=[feed, base],
+        name=f"{name}_switch_off_load",
+        rlc_type="Parallel",
+        resistance=resistance if resistance > 0.0 else None,
+        capacitance=capacitance if capacitance > 0.0 else None,
+        inductance=inductance if inductance > 0.0 else None,
+    )
 
 
 def add_isolation_slot_sheets(hfss: Hfss, params: dict) -> list[str]:
@@ -1223,8 +1274,16 @@ def add_dualpol_slotcoupled_element(hfss: Hfss, tag: str, center: tuple[float, f
         )
     )
     add_slotcoupled_shield_vias(hfss, tag, center, angle, params)
-    metals += add_lumped_feed(hfss, f"P{tag[-1]}A", center, angle, u_side_sign * half_l, feedline_a_v, 0.0, feed_z_a, params, pad=False)
-    metals += add_lumped_feed(hfss, f"P{tag[-1]}B", center, angle, feedline_b_u, v_side_sign * half_l, 0.0, feed_z_b, params, pad=False, port_width_axis="u")
+    switch_enabled = params.get("rf_switch_equiv_enabled", 0.0) >= 0.5
+    active_pol = int(round(params.get("rf_switch_active_pol", 0.0)))
+    if not switch_enabled or active_pol == 0:
+        metals += add_lumped_feed(hfss, f"P{tag[-1]}A", center, angle, u_side_sign * half_l, feedline_a_v, 0.0, feed_z_a, params, pad=False)
+    if switch_enabled and active_pol == 1:
+        add_lumped_switch_load(hfss, f"P{tag[-1]}A", center, angle, u_side_sign * half_l, feedline_a_v, 0.0, feed_z_a, params)
+    if not switch_enabled or active_pol == 1:
+        metals += add_lumped_feed(hfss, f"P{tag[-1]}B", center, angle, feedline_b_u, v_side_sign * half_l, 0.0, feed_z_b, params, pad=False, port_width_axis="u")
+    if switch_enabled and active_pol == 0:
+        add_lumped_switch_load(hfss, f"P{tag[-1]}B", center, angle, feedline_b_u, v_side_sign * half_l, 0.0, feed_z_b, params, port_width_axis="u")
     return metals, slots
 
 
@@ -1347,6 +1406,11 @@ def validate_params(params: dict) -> None:
         ab_cancel_gap = params.get("slot_coupled_ab_cancel_gap_mm", 0.08)
         ab_cancel_phase_offset = params.get("slot_coupled_ab_cancel_phase_offset_mm", 2.00)
         ab_cancel_z_offset = params.get("slot_coupled_ab_cancel_z_offset_mm", 0.0)
+        switch_enabled = params.get("rf_switch_equiv_enabled", 0.0) >= 0.5
+        switch_active_pol = int(round(params.get("rf_switch_active_pol", 0.0)))
+        switch_off_r = params.get("rf_switch_off_resistance_ohm", 50.0)
+        switch_off_c = params.get("rf_switch_off_capacitance_pf", 0.08)
+        switch_off_l = params.get("rf_switch_off_inductance_nh", 0.0)
         stub_enabled = params.get("slot_coupled_stub_enabled", 0.0) >= 0.5
         stub_len = params.get("slot_coupled_stub_length_mm", 0.0)
         stub_w = params.get("slot_coupled_stub_width_mm", 0.25)
@@ -1362,6 +1426,11 @@ def validate_params(params: dict) -> None:
             raise ValueError("Dual-polarized slot-coupled feed dimensions must be positive")
         if b_layer_offset < 0.0 or b_layer_offset > 0.45:
             raise ValueError("Dual-polarized B feed layer offset must be between 0 and 0.45 mm")
+        if switch_enabled:
+            if switch_active_pol not in {0, 1}:
+                raise ValueError("RF switch active polarization must be 0 for A_ON or 1 for B_ON")
+            if switch_off_r <= 0.0 or switch_off_c < 0.0 or switch_off_l < 0.0:
+                raise ValueError("RF switch off-state RLC values must be positive/non-negative")
         if bridge_enabled and (
             bridge_gap <= feed_w + 0.10
             or bridge_gap >= feed_len - 0.50
@@ -1757,6 +1826,8 @@ def source_guidance(topology: str) -> list[str]:
             guidance.append("A stacked parasitic patch is enabled above each dual-polarized driven patch to decouple feed layout from the radiating aperture.")
         if params.get("dualpol_slotcoupled_enabled", 0.0) >= 0.5:
             guidance.append("A/B ports use underside microstrip feedlines coupled through orthogonal ground apertures; tune aperture windows and feed substrate thickness together.")
+        if params.get("rf_switch_equiv_enabled", 0.0) >= 0.5:
+            guidance.append("RF-switch working-state modeling is enabled: the selected polarization remains a lumped port and the inactive polarization is replaced by a parallel off-state R/C/L load.")
         return guidance
     if topology in {"dualfeed", "hybrid"}:
         guidance = [
