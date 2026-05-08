@@ -3,10 +3,12 @@
 ## 目标与坐标口径
 
 - HFSS 球坐标口径：`Theta=45..90 deg`，`Phi=0..360 deg`；对应从水平面到上仰 45 deg 的完整 360 deg 方位覆盖。
-- 目标：FOV 内 `GainTotal` 与 `RealizedGainTotal` 均 `>= -5.0 dBi`。
+- 增益目标：FOV 内 `GainTotal` 与 `RealizedGainTotal` 均 `>= -5.0 dBi`。
 - 工作态：只评估工程有效的吸收式 off 端 `50 ohm // 0.08 pF`，分别为 A_ON 与 B_ON。
-- 严格口径：每个选通端口单独激励，其余选通端口关断，逐端口/逐频点/逐方向都必须满足。
+- 匹配约束：选通工作态最差 S11 需不高于 `-10.0 dB`。
+- 严格口径：每个选通端口单独激励，其他选通端口关闭，逐端口、逐频点、逐方向均需满足。
 - 覆盖口径：同一工作态、同一频点和方向上，在四个选通端口里取最高增益，反映阵列端口选择后的覆盖上限。
+- 本轮报告包含 `27` 条候选记录；本次运行入口为 `38`，计划评估 `1` 条，总候选池 `38` 条。
 
 ## 当前最佳
 
@@ -31,18 +33,24 @@
 | 7 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_stack_p9p55_gap0p80` | -29.33 dBi | -29.13 dBi | -20.31 dBi | -20.22 dBi | -11.80 dB |
 | 8 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit4p0_ang30_off0p45` | -29.45 dBi | -29.38 dBi | -20.66 dBi | -20.66 dBi | -11.00 dB |
 | 9 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p2` | -29.74 dBi | -29.60 dBi | -19.70 dBi | -19.69 dBi | -7.06 dB |
-| 10 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit5p0_offu0p80_v0p00` | -30.21 dBi | -30.07 dBi | -20.35 dBi | -20.33 dBi | -12.31 dB |
-| 11 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p6` | -30.51 dBi | -30.44 dBi | -20.00 dBi | -19.98 dBi | -9.52 dB |
-| 12 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit3p6_off0p35` | -30.57 dBi | -30.30 dBi | -20.46 dBi | -20.34 dBi | -10.59 dB |
-| 13 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit5p5_offu0p60_v0p00` | -32.43 dBi | -32.39 dBi | -19.95 dBi | -19.94 dBi | -10.04 dB |
-| 14 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit5p5_offu0p00_v0p60` | -32.51 dBi | -32.50 dBi | -20.28 dBi | -20.26 dBi | -11.84 dB |
-| 15 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_g0p12_l1p8_ph2p10_z0p06` | -33.19 dBi | -33.10 dBi | -20.46 dBi | -20.30 dBi | -13.16 dB |
-| 16 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p2_abc` | -33.69 dBi | -33.25 dBi | -19.55 dBi | -19.53 dBi | -10.16 dB |
-| 17 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_stack_p9p75_gap1p20` | -33.94 dBi | -33.93 dBi | -20.75 dBi | -20.71 dBi | -12.56 dB |
-| 18 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso10p5_w0p50_i2p8` | -34.68 dBi | -34.55 dBi | -22.12 dBi | -22.11 dBi | -9.58 dB |
-| 19 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p2_z0p10` | -34.98 dBi | -34.96 dBi | -20.43 dBi | -20.35 dBi | -9.58 dB |
-| 20 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -41.73 dBi | -41.41 dBi | -23.51 dBi | -23.01 dBi | -7.26 dB |
-| 21 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_stack_p9p95_gap1p60` | -43.64 dBi | -43.59 dBi | -20.44 dBi | -20.40 dBi | -12.40 dB |
+| 10 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_edgewall3p0_w0p45` | -29.99 dBi | -29.78 dBi | -20.77 dBi | -20.77 dBi | -11.80 dB |
+| 11 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit5p0_offu0p80_v0p00` | -30.21 dBi | -30.07 dBi | -20.35 dBi | -20.33 dBi | -12.31 dB |
+| 12 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p6` | -30.51 dBi | -30.44 dBi | -20.00 dBi | -19.98 dBi | -9.52 dB |
+| 13 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit3p6_off0p35` | -30.57 dBi | -30.30 dBi | -20.46 dBi | -20.34 dBi | -10.59 dB |
+| 14 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_edgearm3p2_w0p30` | -30.60 dBi | -30.51 dBi | -20.73 dBi | -20.72 dBi | -11.02 dB |
+| 15 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit5p5_offu0p60_v0p00` | -32.43 dBi | -32.39 dBi | -19.95 dBi | -19.94 dBi | -10.04 dB |
+| 16 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit5p5_offu0p00_v0p60` | -32.51 dBi | -32.50 dBi | -20.28 dBi | -20.26 dBi | -11.84 dB |
+| 17 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_g0p12_l1p8_ph2p10_z0p06` | -33.19 dBi | -33.10 dBi | -20.46 dBi | -20.30 dBi | -13.16 dB |
+| 18 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_edgearm2p4_w0p30` | -33.35 dBi | -33.24 dBi | -20.29 dBi | -20.29 dBi | -11.42 dB |
+| 19 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p2_abc` | -33.69 dBi | -33.25 dBi | -19.55 dBi | -19.53 dBi | -10.16 dB |
+| 20 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_stack_p9p75_gap1p20` | -33.94 dBi | -33.93 dBi | -20.75 dBi | -20.71 dBi | -12.56 dB |
+| 21 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_horizonloop5p8_clean` | -34.16 dBi | -30.97 dBi | -26.96 dBi | -24.40 dBi | -2.56 dB |
+| 22 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso10p5_w0p50_i2p8` | -34.68 dBi | -34.55 dBi | -22.12 dBi | -22.11 dBi | -9.58 dB |
+| 23 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p2_z0p10` | -34.98 dBi | -34.96 dBi | -20.43 dBi | -20.35 dBi | -9.58 dB |
+| 24 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_horizonloop6p2_clean` | -38.76 dBi | -36.74 dBi | -26.98 dBi | -24.65 dBi | -3.07 dB |
+| 25 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -41.73 dBi | -41.41 dBi | -23.51 dBi | -23.01 dBi | -7.26 dB |
+| 26 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_stack_p9p95_gap1p60` | -43.64 dBi | -43.59 dBi | -20.44 dBi | -20.40 dBi | -12.40 dB |
+| 27 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_horizonloop6p6_clean` | -44.61 dBi | -42.26 dBi | -27.64 dBi | -25.44 dBi | -3.14 dB |
 
 ## 最差点
 
@@ -52,7 +60,7 @@
 ## 工程判断
 
 - 本轮尚未达到 -5 dBi FOV 目标。最差点仍落在 Theta=90 deg 附近，说明当前低剖面贴片/孔缝结构在水平面方向存在结构性辐射低谷。
-- 继续只调 S11 匹配网络收益有限；下一轮应加入面向水平面辐射的结构，例如边缘寄生/折叠单极子、垂直电流支路、或独立的低仰角覆盖单元。
+- 继续只调 S11 匹配网络收益有限；下一轮应优先评估面向水平面辐射的结构，例如边缘寄生辐射臂、折叠单极子、垂直电流支路，或独立低仰角覆盖单元。
 
 ## 输出文件
 

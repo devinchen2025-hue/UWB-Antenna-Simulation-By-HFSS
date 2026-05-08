@@ -314,6 +314,44 @@ GAIN_NAME_UPDATES: list[tuple[str, dict[str, Any]]] = [
             "slot_coupled_ab_cancel_z_offset_mm": 0.06,
         },
     ),
+    (
+        "edgearm2p4_w0p30",
+        {
+            "slot_coupled_edge_arm_enabled": 1.0,
+            "slot_coupled_edge_arm_length_mm": 2.40,
+            "slot_coupled_edge_arm_width_mm": 0.30,
+            "slot_coupled_edge_arm_offset_mm": 0.0,
+            "slot_coupled_edge_arm_gap_mm": 0.0,
+        },
+    ),
+    (
+        "edgearm3p2_w0p30",
+        {
+            "slot_coupled_edge_arm_enabled": 1.0,
+            "slot_coupled_edge_arm_length_mm": 3.20,
+            "slot_coupled_edge_arm_width_mm": 0.30,
+            "slot_coupled_edge_arm_offset_mm": 0.0,
+            "slot_coupled_edge_arm_gap_mm": 0.0,
+        },
+    ),
+    (
+        "edgewall2p0_w0p50",
+        {
+            "slot_coupled_edge_wall_enabled": 1.0,
+            "slot_coupled_edge_wall_height_mm": 2.00,
+            "slot_coupled_edge_wall_width_mm": 0.50,
+            "slot_coupled_edge_wall_offset_mm": 0.0,
+        },
+    ),
+    (
+        "edgewall3p0_w0p45",
+        {
+            "slot_coupled_edge_wall_enabled": 1.0,
+            "slot_coupled_edge_wall_height_mm": 3.00,
+            "slot_coupled_edge_wall_width_mm": 0.45,
+            "slot_coupled_edge_wall_offset_mm": 0.0,
+        },
+    ),
 ]
 
 
@@ -609,6 +647,98 @@ def candidate_pool() -> list[GainCandidate]:
             slot_coupled_ab_cancel_phase_offset_mm=2.10,
             slot_coupled_ab_cancel_side_sign=1.0,
             slot_coupled_ab_cancel_z_offset_mm=0.06,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_horizonloop5p8_clean",
+            "Switch the radiator to a square horizon loop and remove the earlier slit / neutralizer / match tweaks.",
+            dualpol_parasitic_enabled=0.0,
+            slot_coupled_a_neck_enabled=0.0,
+            slot_coupled_underfeed_neutralizer_enabled=0.0,
+            slot_coupled_patch_slit_enabled=0.0,
+            slot_coupled_ab_cancel_enabled=0.0,
+            slot_coupled_stub_enabled=0.0,
+            slot_coupled_stub2_enabled=0.0,
+            slot_coupled_step_enabled=0.0,
+            slot_coupled_shield_via_enabled=0.0,
+            slot_coupled_horizon_loop_enabled=1.0,
+            slot_coupled_horizon_loop_inner_side_mm=5.8,
+            slot_coupled_horizon_loop_offset_u_mm=0.0,
+            slot_coupled_horizon_loop_offset_v_mm=0.0,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_horizonloop6p2_clean",
+            "Switch the radiator to a square horizon loop and remove the earlier slit / neutralizer / match tweaks.",
+            dualpol_parasitic_enabled=0.0,
+            slot_coupled_a_neck_enabled=0.0,
+            slot_coupled_underfeed_neutralizer_enabled=0.0,
+            slot_coupled_patch_slit_enabled=0.0,
+            slot_coupled_ab_cancel_enabled=0.0,
+            slot_coupled_stub_enabled=0.0,
+            slot_coupled_stub2_enabled=0.0,
+            slot_coupled_step_enabled=0.0,
+            slot_coupled_shield_via_enabled=0.0,
+            slot_coupled_horizon_loop_enabled=1.0,
+            slot_coupled_horizon_loop_inner_side_mm=6.2,
+            slot_coupled_horizon_loop_offset_u_mm=0.0,
+            slot_coupled_horizon_loop_offset_v_mm=0.0,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_horizonloop6p6_clean",
+            "Switch the radiator to a square horizon loop and remove the earlier slit / neutralizer / match tweaks.",
+            dualpol_parasitic_enabled=0.0,
+            slot_coupled_a_neck_enabled=0.0,
+            slot_coupled_underfeed_neutralizer_enabled=0.0,
+            slot_coupled_patch_slit_enabled=0.0,
+            slot_coupled_ab_cancel_enabled=0.0,
+            slot_coupled_stub_enabled=0.0,
+            slot_coupled_stub2_enabled=0.0,
+            slot_coupled_step_enabled=0.0,
+            slot_coupled_shield_via_enabled=0.0,
+            slot_coupled_horizon_loop_enabled=1.0,
+            slot_coupled_horizon_loop_inner_side_mm=6.6,
+            slot_coupled_horizon_loop_offset_u_mm=0.0,
+            slot_coupled_horizon_loop_offset_v_mm=0.0,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_edgearm2p4_w0p30",
+            "Add a connected radial edge arm to inject a stronger horizontal-plane current path while keeping the best slit baseline.",
+            slot_coupled_edge_arm_enabled=1.0,
+            slot_coupled_edge_arm_length_mm=2.40,
+            slot_coupled_edge_arm_width_mm=0.30,
+            slot_coupled_edge_arm_offset_mm=0.0,
+            slot_coupled_edge_arm_gap_mm=0.0,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_edgearm3p2_w0p30",
+            "Lengthen the radial edge arm to see whether stronger board-edge current lifts the theta=90 deg FOV null.",
+            slot_coupled_edge_arm_enabled=1.0,
+            slot_coupled_edge_arm_length_mm=3.20,
+            slot_coupled_edge_arm_width_mm=0.30,
+            slot_coupled_edge_arm_offset_mm=0.0,
+            slot_coupled_edge_arm_gap_mm=0.0,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_edgewall2p0_w0p50",
+            "Add a low vertical edge wall as a compact current branch aimed at horizontal-plane radiation.",
+            slot_coupled_edge_wall_enabled=1.0,
+            slot_coupled_edge_wall_height_mm=2.00,
+            slot_coupled_edge_wall_width_mm=0.50,
+            slot_coupled_edge_wall_offset_mm=0.0,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_edgewall3p0_w0p45",
+            "Use a taller narrow vertical edge wall to test whether a stronger monopole-like branch improves FOV floor.",
+            slot_coupled_edge_wall_enabled=1.0,
+            slot_coupled_edge_wall_height_mm=3.00,
+            slot_coupled_edge_wall_width_mm=0.45,
+            slot_coupled_edge_wall_offset_mm=0.0,
         ),
     ]
     for item in custom:
@@ -977,6 +1107,82 @@ def write_report(payload: dict[str, Any]) -> None:
     else:
         lines.append("- 本轮尚未达到 -5 dBi FOV 目标。最差点仍落在 Theta=90 deg 附近，说明当前低剖面贴片/孔缝结构在水平面方向存在结构性辐射低谷。")
         lines.append("- 继续只调 S11 匹配网络收益有限；下一轮应加入面向水平面辐射的结构，例如边缘寄生/折叠单极子、垂直电流支路、或独立的低仰角覆盖单元。")
+    lines.extend(
+        [
+            "",
+            "## 输出文件",
+            "",
+            f"- 候选汇总 CSV：`{SUMMARY_CSV}`",
+            f"- 逐端口明细 CSV：`{SOURCE_CSV}`",
+            f"- 覆盖口径明细 CSV：`{COVERAGE_CSV}`",
+            f"- 指标 JSON：`{METRICS_JSON}`",
+        ]
+    )
+    for case, path in coerce_project_map(best.get("projects")).items():
+        lines.append(f"- 最佳 `{case}` AEDT 快照：`{path}`")
+    REPORT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def write_report(payload: dict[str, Any]) -> None:
+    ranked = rank_summary(payload["summary_rows"])
+    best = ranked[0]
+    strict_ok = bool_field(best["strict_gain_target_pass"]) and bool_field(best["strict_realized_gain_target_pass"])
+    coverage_ok = bool_field(best["coverage_gain_target_pass"]) and bool_field(best["coverage_realized_gain_target_pass"])
+    lines = [
+        "# D44 RF Switch 工作态 FOV 增益优化报告",
+        "",
+        "## 目标与坐标口径",
+        "",
+        f"- HFSS 球坐标口径：`Theta={THETA_MIN_DEG:.0f}..{THETA_MAX_DEG:.0f} deg`，`Phi=0..360 deg`；对应从水平面到上仰 45 deg 的完整 360 deg 方位覆盖。",
+        f"- 增益目标：FOV 内 `GainTotal` 与 `RealizedGainTotal` 均 `>= {GAIN_TARGET_DBI:.1f} dBi`。",
+        "- 工作态：只评估工程有效的吸收式 off 端 `50 ohm // 0.08 pF`，分别为 A_ON 与 B_ON。",
+        f"- 匹配约束：选通工作态最差 S11 需不高于 `{RETURN_TARGET_DB:.1f} dB`。",
+        "- 严格口径：每个选通端口单独激励，其他选通端口关闭，逐端口、逐频点、逐方向均需满足。",
+        "- 覆盖口径：同一工作态、同一频点和方向上，在四个选通端口里取最高增益，反映阵列端口选择后的覆盖上限。",
+        f"- 本轮报告包含 `{len(ranked)}` 条候选记录；本次运行入口为 `{payload.get('evaluated_start_index', 'N/A')}`，计划评估 `{payload.get('evaluated_count', 'N/A')}` 条，总候选池 `{payload.get('candidate_count', len(ranked))}` 条。",
+        "",
+        "## 当前最佳",
+        "",
+        f"- 候选：`{best['candidate']}`",
+        f"- 严格口径最小 GainTotal：`{fmt(best['strict_fov_gain_total_min_dbi'])} dBi`。",
+        f"- 严格口径最小 RealizedGainTotal：`{fmt(best['strict_fov_realized_gain_total_min_dbi'])} dBi`。",
+        f"- 覆盖口径最小 GainTotal：`{fmt(best['coverage_fov_gain_total_min_dbi'])} dBi`。",
+        f"- 覆盖口径最小 RealizedGainTotal：`{fmt(best['coverage_fov_realized_gain_total_min_dbi'])} dBi`。",
+        f"- 工作态最差 S11：`{fmt(best['worst_active_s11_db'])} dB`。",
+        f"- 结论：严格口径 `{'达标' if strict_ok else '未达标'}`，覆盖口径 `{'达标' if coverage_ok else '未达标'}`。",
+        "",
+        "## 候选排名",
+        "",
+        "| 排名 | 候选 | 严格 Realized 最小值 | 严格 Gain 最小值 | 覆盖 Realized 最小值 | 覆盖 Gain 最小值 | 最差 S11 |",
+        "| ---: | --- | ---: | ---: | ---: | ---: | ---: |",
+    ]
+    for idx, row in enumerate(ranked, start=1):
+        lines.append(
+            f"| {idx} | `{row['candidate']}` | {fmt(row['strict_fov_realized_gain_total_min_dbi'])} dBi | "
+            f"{fmt(row['strict_fov_gain_total_min_dbi'])} dBi | {fmt(row['coverage_fov_realized_gain_total_min_dbi'])} dBi | "
+            f"{fmt(row['coverage_fov_gain_total_min_dbi'])} dBi | {fmt(row['worst_active_s11_db'])} dB |"
+        )
+    lines.extend(
+        [
+            "",
+            "## 最差点",
+            "",
+            f"- 严格口径最差 Realized：`{best['strict_fov_realized_gain_total_worst_case']}` / `{best['strict_fov_realized_gain_total_worst_source']}` / "
+            f"{fmt(best['strict_fov_realized_gain_total_worst_freq_ghz'], 4)} GHz / Theta {fmt(best['strict_fov_realized_gain_total_worst_theta_deg'], 0)} deg / Phi {fmt(best['strict_fov_realized_gain_total_worst_phi_deg'], 0)} deg。",
+            f"- 覆盖口径最差 Realized：`{best['coverage_fov_realized_gain_total_worst_case']}` / best source `{best['coverage_fov_realized_gain_total_worst_source']}` / "
+            f"{fmt(best['coverage_fov_realized_gain_total_worst_freq_ghz'], 4)} GHz / Theta {fmt(best['coverage_fov_realized_gain_total_worst_theta_deg'], 0)} deg / Phi {fmt(best['coverage_fov_realized_gain_total_worst_phi_deg'], 0)} deg。",
+            "",
+            "## 工程判断",
+            "",
+        ]
+    )
+    if strict_ok:
+        lines.append("- 本轮已在最保守逐端口口径下达到目标，可进入更细频点、更细角度和制造容差复核。")
+    elif coverage_ok:
+        lines.append("- 单端口嵌入方向图仍有深谷，但端口选择覆盖已达到目标；如果系统允许按方位选择阵元/端口，可继续转入切换策略和标定验证。")
+    else:
+        lines.append("- 本轮尚未达到 -5 dBi FOV 目标。最差点仍落在 Theta=90 deg 附近，说明当前低剖面贴片/孔缝结构在水平面方向存在结构性辐射低谷。")
+        lines.append("- 继续只调 S11 匹配网络收益有限；下一轮应优先评估面向水平面辐射的结构，例如边缘寄生辐射臂、折叠单极子、垂直电流支路，或独立低仰角覆盖单元。")
     lines.extend(
         [
             "",

@@ -1,5 +1,5 @@
 $begin 'AnsoftProject'
-	Created='Fri May  8 17:41:52 2026'
+	Created='Fri May  8 17:34:05 2026'
 	Product='ElectronicsDesktop'
 	FileOwnedByWorkbench=false
 	$begin 'Desktop'
@@ -145,7 +145,7 @@ $begin 'AnsoftProject'
 				diffusivity='0.8'
 				molecular_mass='0'
 				viscosity='0'
-				ModTime=1778233326
+				ModTime=1778232853
 				Library=''
 				LibLocation='Project'
 				ModSinceLib=true
@@ -196,7 +196,7 @@ $begin 'AnsoftProject'
 		$end 'Scripts'
 		$begin 'Symbols'
 			$begin 'Array4_Diamond_D44_DualPolarized_XY'
-				ModTime=1778233312
+				ModTime=1778232846
 				Library=''
 				ModSinceLib=false
 				LibLocation='Project'
@@ -210,7 +210,7 @@ $begin 'AnsoftProject'
 			$end 'Array4_Diamond_D44_DualPolarized_XY'
 		$end 'Symbols'
 		$begin 'DefInfo'
-			Array4_Diamond_D44_DualPolarized_XY(1002, 0, 0, 0, '', 1778233312, '', 'Array4_Diamond_D44_DualPolarized_XY', '', '', '', '', '', 'Design.bmp', '', 'Project', '', '', 1778233312, '', 0, 0)
+			Array4_Diamond_D44_DualPolarized_XY(1002, 0, 0, 0, '', 1778232846, '', 'Array4_Diamond_D44_DualPolarized_XY', '', '', '', '', '', 'Design.bmp', '', 'Project', '', '', 1778232846, '', 0, 0)
 		$end 'DefInfo'
 		$begin 'Compdefs'
 			$begin 'Array4_Diamond_D44_DualPolarized_XY'
@@ -2015,7 +2015,7 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='E1_slotcoupled_radial_edge_wall'
+								Name='E1_slotcoupled_radial_edge_arm'
 								Flags=''
 								Color='(242 140 102)'
 								Transparency=0.2
@@ -2043,28 +2043,28 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='16.8958152801713mm'
-												Y='-0.225mm'
+												X='16.8358152801713mm'
+												Y='-0.15mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='16.8958152801713mm'
-												Y='0.225mm'
+												X='20.0958152801713mm'
+												Y='-0.15mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='16.8958152801713mm'
-												Y='0.225mm'
-												Z='5mm'
+												X='20.0958152801713mm'
+												Y='0.15mm'
+												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='16.8958152801713mm'
-												Y='-0.225mm'
-												Z='5mm'
+												X='16.8358152801713mm'
+												Y='0.15mm'
+												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='16.8958152801713mm'
-												Y='-0.225mm'
+												X='16.8358152801713mm'
+												Y='-0.15mm'
 												Z='2mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
@@ -2165,13 +2165,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1.35
-															FcUVMid(16.8958152801713, 0, 3.5)
+															Area=0.978000000000001
+															FcUVMid(18.4658152801713, 0, 2)
 															$begin 'FcTolVts'
-																TolVt(16.8958152801713, -0.225, 2, 5e-07)
-																TolVt(16.8958152801713, 0.225, 2, 5e-07)
-																TolVt(16.8958152801713, 0.225, 5, 5e-07)
-																TolVt(16.8958152801713, -0.225, 5, 5e-07)
+																TolVt(16.8358152801713, -0.15, 2, 5e-07)
+																TolVt(20.0958152801713, -0.15, 2, 5e-07)
+																TolVt(20.0958152801713, 0.15, 2, 5e-07)
+																TolVt(16.8358152801713, 0.15, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -4215,7 +4215,7 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='E2_slotcoupled_radial_edge_wall'
+								Name='E2_slotcoupled_radial_edge_arm'
 								Flags=''
 								Color='(242 140 102)'
 								Transparency=0.2
@@ -4243,28 +4243,28 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-0.224999999999999mm'
-												Y='16.8958152801713mm'
+												X='-0.149999999999999mm'
+												Y='16.8358152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.225000000000001mm'
-												Y='16.8958152801713mm'
+												X='0.150000000000001mm'
+												Y='16.8358152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.225000000000001mm'
-												Y='16.8958152801713mm'
-												Z='5mm'
+												X='0.150000000000001mm'
+												Y='20.0958152801713mm'
+												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-0.224999999999999mm'
-												Y='16.8958152801713mm'
-												Z='5mm'
+												X='-0.149999999999999mm'
+												Y='20.0958152801713mm'
+												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-0.224999999999999mm'
-												Y='16.8958152801713mm'
+												X='-0.149999999999999mm'
+												Y='16.8358152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
@@ -4365,13 +4365,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1.35
-															FcUVMid(7.58941520739853e-16, 16.8958152801713, 3.5)
+															Area=0.978000000000001
+															FcUVMid(7.48099499014998e-16, 18.4658152801713, 2)
 															$begin 'FcTolVts'
-																TolVt(-0.224999999999999, 16.8958152801713, 2, 5e-07)
-																TolVt(0.225000000000001, 16.8958152801713, 2, 5e-07)
-																TolVt(0.225000000000001, 16.8958152801713, 5, 5e-07)
-																TolVt(-0.224999999999999, 16.8958152801713, 5, 5e-07)
+																TolVt(-0.149999999999999, 16.8358152801713, 2, 5e-07)
+																TolVt(0.150000000000001, 16.8358152801713, 2, 5e-07)
+																TolVt(0.150000000000001, 20.0958152801713, 2, 5e-07)
+																TolVt(-0.149999999999999, 20.0958152801713, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -6415,7 +6415,7 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='E3_slotcoupled_radial_edge_wall'
+								Name='E3_slotcoupled_radial_edge_arm'
 								Flags=''
 								Color='(242 140 102)'
 								Transparency=0.2
@@ -6443,28 +6443,28 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-16.8958152801713mm'
-												Y='-0.224999999999999mm'
+												X='-20.0958152801713mm'
+												Y='-0.149999999999999mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-16.8958152801713mm'
-												Y='0.225000000000001mm'
+												X='-16.8358152801713mm'
+												Y='-0.149999999999999mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-16.8958152801713mm'
-												Y='0.225000000000001mm'
-												Z='5mm'
+												X='-16.8358152801713mm'
+												Y='0.150000000000001mm'
+												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-16.8958152801713mm'
-												Y='-0.224999999999999mm'
-												Z='5mm'
+												X='-20.0958152801713mm'
+												Y='0.150000000000001mm'
+												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-16.8958152801713mm'
-												Y='-0.224999999999999mm'
+												X='-20.0958152801713mm'
+												Y='-0.149999999999999mm'
 												Z='2mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
@@ -6565,13 +6565,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1.35
-															FcUVMid(-16.8958152801713, 1.47451495458029e-15, 3.5)
+															Area=0.978000000000001
+															FcUVMid(-18.4658152801713, 1.47451495458029e-15, 2)
 															$begin 'FcTolVts'
-																TolVt(-16.8958152801713, -0.224999999999999, 2, 5e-07)
-																TolVt(-16.8958152801713, 0.225000000000002, 2, 5e-07)
-																TolVt(-16.8958152801713, 0.225000000000002, 5, 5e-07)
-																TolVt(-16.8958152801713, -0.224999999999999, 5, 5e-07)
+																TolVt(-20.0958152801713, -0.149999999999999, 2, 5e-07)
+																TolVt(-16.8358152801713, -0.149999999999999, 2, 5e-07)
+																TolVt(-16.8358152801713, 0.150000000000001, 2, 5e-07)
+																TolVt(-20.0958152801713, 0.150000000000001, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -8615,7 +8615,7 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='E4_slotcoupled_radial_edge_wall'
+								Name='E4_slotcoupled_radial_edge_arm'
 								Flags=''
 								Color='(242 140 102)'
 								Transparency=0.2
@@ -8643,28 +8643,28 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-0.225000000000002mm'
-												Y='-16.8958152801713mm'
+												X='-0.150000000000002mm'
+												Y='-20.0958152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.224999999999998mm'
-												Y='-16.8958152801713mm'
+												X='0.149999999999998mm'
+												Y='-20.0958152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.224999999999998mm'
-												Y='-16.8958152801713mm'
-												Z='5mm'
+												X='0.149999999999998mm'
+												Y='-16.8358152801713mm'
+												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-0.225000000000002mm'
-												Y='-16.8958152801713mm'
-												Z='5mm'
+												X='-0.150000000000002mm'
+												Y='-16.8358152801713mm'
+												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-0.225000000000002mm'
-												Y='-16.8958152801713mm'
+												X='-0.150000000000002mm'
+												Y='-20.0958152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
@@ -8765,13 +8765,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1.35
-															FcUVMid(-2.23345647532014e-15, -16.8958152801713, 3.5)
+															Area=0.978000000000001
+															FcUVMid(-2.22261445359528e-15, -18.4658152801713, 2)
 															$begin 'FcTolVts'
-																TolVt(-0.225000000000002, -16.8958152801713, 2, 5e-07)
-																TolVt(0.224999999999998, -16.8958152801713, 2, 5e-07)
-																TolVt(0.224999999999998, -16.8958152801713, 5, 5e-07)
-																TolVt(-0.225000000000002, -16.8958152801713, 5, 5e-07)
+																TolVt(-0.150000000000002, -20.0958152801713, 2, 5e-07)
+																TolVt(0.149999999999998, -20.0958152801713, 2, 5e-07)
+																TolVt(0.149999999999998, -16.8358152801713, 2, 5e-07)
+																TolVt(-0.150000000000002, -16.8358152801713, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -13459,9 +13459,9 @@ $begin 'AnsoftProject'
 						$begin 'e1_slotcoupled_patch_decoupling_slit'
 							e1_slotcoupled_patch_decoupling_slit(-1)
 						$end 'e1_slotcoupled_patch_decoupling_slit'
-						$begin 'e1_slotcoupled_radial_edge_wall'
-							e1_slotcoupled_radial_edge_wall(-1)
-						$end 'e1_slotcoupled_radial_edge_wall'
+						$begin 'e1_slotcoupled_radial_edge_arm'
+							e1_slotcoupled_radial_edge_arm(-1)
+						$end 'e1_slotcoupled_radial_edge_arm'
 						$begin 'e2_dualpol_slotcoupled_patch'
 							e2_dualpol_slotcoupled_patch(-1)
 						$end 'e2_dualpol_slotcoupled_patch'
@@ -13492,9 +13492,9 @@ $begin 'AnsoftProject'
 						$begin 'e2_slotcoupled_patch_decoupling_slit'
 							e2_slotcoupled_patch_decoupling_slit(-1)
 						$end 'e2_slotcoupled_patch_decoupling_slit'
-						$begin 'e2_slotcoupled_radial_edge_wall'
-							e2_slotcoupled_radial_edge_wall(-1)
-						$end 'e2_slotcoupled_radial_edge_wall'
+						$begin 'e2_slotcoupled_radial_edge_arm'
+							e2_slotcoupled_radial_edge_arm(-1)
+						$end 'e2_slotcoupled_radial_edge_arm'
 						$begin 'e3_dualpol_slotcoupled_patch'
 							e3_dualpol_slotcoupled_patch(-1)
 						$end 'e3_dualpol_slotcoupled_patch'
@@ -13525,9 +13525,9 @@ $begin 'AnsoftProject'
 						$begin 'e3_slotcoupled_patch_decoupling_slit'
 							e3_slotcoupled_patch_decoupling_slit(-1)
 						$end 'e3_slotcoupled_patch_decoupling_slit'
-						$begin 'e3_slotcoupled_radial_edge_wall'
-							e3_slotcoupled_radial_edge_wall(-1)
-						$end 'e3_slotcoupled_radial_edge_wall'
+						$begin 'e3_slotcoupled_radial_edge_arm'
+							e3_slotcoupled_radial_edge_arm(-1)
+						$end 'e3_slotcoupled_radial_edge_arm'
 						$begin 'e4_dualpol_slotcoupled_patch'
 							e4_dualpol_slotcoupled_patch(-1)
 						$end 'e4_dualpol_slotcoupled_patch'
@@ -13558,9 +13558,9 @@ $begin 'AnsoftProject'
 						$begin 'e4_slotcoupled_patch_decoupling_slit'
 							e4_slotcoupled_patch_decoupling_slit(-1)
 						$end 'e4_slotcoupled_patch_decoupling_slit'
-						$begin 'e4_slotcoupled_radial_edge_wall'
-							e4_slotcoupled_radial_edge_wall(-1)
-						$end 'e4_slotcoupled_radial_edge_wall'
+						$begin 'e4_slotcoupled_radial_edge_arm'
+							e4_slotcoupled_radial_edge_arm(-1)
+						$end 'e4_slotcoupled_radial_edge_arm'
 						$begin 'global'
 							global(-1)
 						$end 'global'
@@ -15275,7 +15275,7 @@ $begin 'AnsoftProject'
 				MoveBackwards=false
 			$end 'NearFieldSetups'
 			RadFieldComputationVersion=1.8
-			RadfieldHeaderFile='RAD34C610948177823333212.tmp'
+			RadfieldHeaderFile='RAD2EB713784177823285712.tmp'
 			RadPowerMethod=0
 		$end 'RadField'
 		$begin 'SolutionManager'
@@ -15392,22 +15392,22 @@ $begin 'AnsoftProject'
 					ID=169
 					Name='Sweep_CH9'
 					$begin 'SimDataExtractor'
-						SimValue('S(P2B:1,P2B:1)', 2, 90, false, SimValueID=171, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P3B:1,P3B:1)', 2, 90, false, SimValueID=172, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P4B:1,P4B:1)', 2, 90, false, SimValueID=173, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P1B:1,P1B:1)', 2, 90, false, SimValueID=174, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P2B:1,P3B:1)', 2, 90, false, SimValueID=175, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P2B:1,P4B:1)', 2, 90, false, SimValueID=176, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P2B:1,P1B:1)', 2, 90, false, SimValueID=177, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P3B:1,P2B:1)', 2, 90, false, SimValueID=178, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P3B:1,P4B:1)', 2, 90, false, SimValueID=179, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P3B:1,P1B:1)', 2, 90, false, SimValueID=180, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P4B:1,P2B:1)', 2, 90, false, SimValueID=181, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P4B:1,P3B:1)', 2, 90, false, SimValueID=182, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P4B:1,P1B:1)', 2, 90, false, SimValueID=183, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P1B:1,P2B:1)', 2, 90, false, SimValueID=184, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P1B:1,P3B:1)', 2, 90, false, SimValueID=185, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P1B:1,P4B:1)', 2, 90, false, SimValueID=186, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P4B:1,P4B:1)', 2, 90, false, SimValueID=171, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P2B:1,P2B:1)', 2, 90, false, SimValueID=172, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P1B:1,P1B:1)', 2, 90, false, SimValueID=173, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P3B:1,P3B:1)', 2, 90, false, SimValueID=174, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P4B:1,P2B:1)', 2, 90, false, SimValueID=175, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P4B:1,P1B:1)', 2, 90, false, SimValueID=176, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P4B:1,P3B:1)', 2, 90, false, SimValueID=177, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P2B:1,P4B:1)', 2, 90, false, SimValueID=178, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P2B:1,P1B:1)', 2, 90, false, SimValueID=179, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P2B:1,P3B:1)', 2, 90, false, SimValueID=180, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P1B:1,P4B:1)', 2, 90, false, SimValueID=181, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P1B:1,P2B:1)', 2, 90, false, SimValueID=182, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P1B:1,P3B:1)', 2, 90, false, SimValueID=183, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P3B:1,P4B:1)', 2, 90, false, SimValueID=184, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P3B:1,P2B:1)', 2, 90, false, SimValueID=185, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P3B:1,P1B:1)', 2, 90, false, SimValueID=186, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 						SimValue('GainTotal', 1, 90, true, SimValueID=187, 0, 0, 2, 0, false, false, 7, 1, 0, 1, 1, '', 0, 0, 'SourceContext', false, '0')
 						SimValue('AxialRatioValue', 2, 90, false, SimValueID=188, 0, 0, 2, 0, false, false, 7, 1, 0, 1, 1, '', 0, 0, 'SourceContext', false, '0')
 						$begin 'Sweeps'
@@ -15490,7 +15490,7 @@ $begin 'AnsoftProject'
 		Notes=$begin_cdata$ $end_cdata$
 		$begin 'AnimationSetups'
 		$end 'AnimationSetups'
-		CacheHeaderFile='HDR34C610948177823333213.tmp'
+		CacheHeaderFile='HDR2EB713784177823285713.tmp'
 	$end 'HFSSModel'
 	$begin 'DataInstances'
 		DesignEditor='TopLevel'
@@ -15531,128 +15531,6 @@ $begin 'AnsoftProject'
 									$end 'DesignSolnDefn'
 									ID=0
 									VersionID=16
-									Name='dB(S(P2B:1,P2B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P2B:1,P2B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=169
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=1
-									VersionID=17
-									Name='dB(S(P3B:1,P3B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P3B:1,P3B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=169
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=2
-									VersionID=18
 									Name='dB(S(P4B:1,P4B:1))'
 									TieNameToExpr=true
 									$begin 'Components'
@@ -15712,8 +15590,69 @@ $begin 'AnsoftProject'
 											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
 										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
 									$end 'DesignSolnDefn'
-									ID=3
-									VersionID=19
+									ID=1
+									VersionID=17
+									Name='dB(S(P2B:1,P2B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P2B:1,P2B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=169
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=2
+									VersionID=18
 									Name='dB(S(P1B:1,P1B:1))'
 									TieNameToExpr=true
 									$begin 'Components'
@@ -15773,374 +15712,69 @@ $begin 'AnsoftProject'
 											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
 										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
 									$end 'DesignSolnDefn'
+									ID=3
+									VersionID=19
+									Name='dB(S(P3B:1,P3B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P3B:1,P3B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=169
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
 									ID=4
 									VersionID=20
-									Name='dB(S(P2B:1,P3B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P2B:1,P3B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=169
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=5
-									VersionID=21
-									Name='dB(S(P2B:1,P4B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P2B:1,P4B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=169
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=6
-									VersionID=22
-									Name='dB(S(P2B:1,P1B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P2B:1,P1B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=169
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=7
-									VersionID=23
-									Name='dB(S(P3B:1,P2B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P3B:1,P2B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=169
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=8
-									VersionID=24
-									Name='dB(S(P3B:1,P4B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P3B:1,P4B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=169
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=9
-									VersionID=25
-									Name='dB(S(P3B:1,P1B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P3B:1,P1B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=169
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=10
-									VersionID=26
 									Name='dB(S(P4B:1,P2B:1))'
 									TieNameToExpr=true
 									$begin 'Components'
@@ -16200,69 +15834,8 @@ $begin 'AnsoftProject'
 											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
 										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
 									$end 'DesignSolnDefn'
-									ID=11
-									VersionID=27
-									Name='dB(S(P4B:1,P3B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P4B:1,P3B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=169
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=12
-									VersionID=28
+									ID=5
+									VersionID=21
 									Name='dB(S(P4B:1,P1B:1))'
 									TieNameToExpr=true
 									$begin 'Components'
@@ -16322,8 +15895,313 @@ $begin 'AnsoftProject'
 											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
 										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
 									$end 'DesignSolnDefn'
-									ID=13
-									VersionID=29
+									ID=6
+									VersionID=22
+									Name='dB(S(P4B:1,P3B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P4B:1,P3B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=169
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=7
+									VersionID=23
+									Name='dB(S(P2B:1,P4B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P2B:1,P4B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=169
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=8
+									VersionID=24
+									Name='dB(S(P2B:1,P1B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P2B:1,P1B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=169
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=9
+									VersionID=25
+									Name='dB(S(P2B:1,P3B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P2B:1,P3B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=169
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=10
+									VersionID=26
+									Name='dB(S(P1B:1,P4B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P1B:1,P4B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=169
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=11
+									VersionID=27
 									Name='dB(S(P1B:1,P2B:1))'
 									TieNameToExpr=true
 									$begin 'Components'
@@ -16383,8 +16261,8 @@ $begin 'AnsoftProject'
 											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
 										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
 									$end 'DesignSolnDefn'
-									ID=14
-									VersionID=30
+									ID=12
+									VersionID=28
 									Name='dB(S(P1B:1,P3B:1))'
 									TieNameToExpr=true
 									$begin 'Components'
@@ -16444,16 +16322,138 @@ $begin 'AnsoftProject'
 											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
 										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
 									$end 'DesignSolnDefn'
-									ID=15
-									VersionID=31
-									Name='dB(S(P1B:1,P4B:1))'
+									ID=13
+									VersionID=29
+									Name='dB(S(P3B:1,P4B:1))'
 									TieNameToExpr=true
 									$begin 'Components'
 										$begin 'TraceComponentDefinition'
 											Expr='Freq'
 										$end 'TraceComponentDefinition'
 										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P1B:1,P4B:1))'
+											Expr='dB(S(P3B:1,P4B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=169
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=14
+									VersionID=30
+									Name='dB(S(P3B:1,P2B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P3B:1,P2B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=169
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=15
+									VersionID=31
+									Name='dB(S(P3B:1,P1B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P3B:1,P1B:1))'
 										$end 'TraceComponentDefinition'
 									$end 'Components'
 									$begin 'ExtendedTraceInfo'

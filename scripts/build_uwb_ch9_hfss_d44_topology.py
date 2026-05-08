@@ -115,6 +115,19 @@ BASE_PARAMS = {
     "slot_coupled_patch_slit_angle_deg": 45.0,
     "slot_coupled_patch_slit_offset_u_mm": 0.0,
     "slot_coupled_patch_slit_offset_v_mm": 0.0,
+    "slot_coupled_horizon_loop_enabled": 0.0,
+    "slot_coupled_horizon_loop_inner_side_mm": 6.2,
+    "slot_coupled_horizon_loop_offset_u_mm": 0.0,
+    "slot_coupled_horizon_loop_offset_v_mm": 0.0,
+    "slot_coupled_edge_arm_enabled": 0.0,
+    "slot_coupled_edge_arm_length_mm": 2.4,
+    "slot_coupled_edge_arm_width_mm": 0.30,
+    "slot_coupled_edge_arm_offset_mm": 0.0,
+    "slot_coupled_edge_arm_gap_mm": 0.0,
+    "slot_coupled_edge_wall_enabled": 0.0,
+    "slot_coupled_edge_wall_height_mm": 2.0,
+    "slot_coupled_edge_wall_width_mm": 0.50,
+    "slot_coupled_edge_wall_offset_mm": 0.0,
     "slot_coupled_ab_cancel_enabled": 0.0,
     "slot_coupled_ab_cancel_coupling_length_mm": 1.60,
     "slot_coupled_ab_cancel_trace_width_mm": 0.12,
@@ -836,6 +849,86 @@ def add_slotcoupled_patch_slit(hfss: Hfss, tag: str, patch_name: str, center: tu
     hfss.modeler.subtract(patch_name, [slit.name], keep_originals=False)
 
 
+def add_slotcoupled_horizon_loop(hfss: Hfss, tag: str, patch_name: str, center: tuple[float, float], angle_deg: float, params: dict) -> None:
+    if params.get("slot_coupled_horizon_loop_enabled", 0.0) < 0.5:
+        return
+    h = params["substrate_h_mm"]
+    inner_side = params.get("slot_coupled_horizon_loop_inner_side_mm", 0.0)
+    offset_u = params.get("slot_coupled_horizon_loop_offset_u_mm", 0.0)
+    offset_v = params.get("slot_coupled_horizon_loop_offset_v_mm", 0.0)
+    hole = polygon_sheet(
+        hfss,
+        f"{tag}_slotcoupled_horizon_loop_hole",
+        rectangle_points(
+            *center,
+            angle_deg,
+            offset_u - inner_side / 2.0,
+            offset_u + inner_side / 2.0,
+            offset_v - inner_side / 2.0,
+            offset_v + inner_side / 2.0,
+            h,
+        ),
+        "vacuum",
+    )
+    hfss.modeler.subtract(patch_name, [hole.name], keep_originals=False)
+
+
+def radial_edge_axis(center: tuple[float, float]) -> tuple[str, float]:
+    cx, cy = center
+    if abs(cx) >= abs(cy):
+        return "u", 1.0 if cx >= 0.0 else -1.0
+    return "v", 1.0 if cy >= 0.0 else -1.0
+
+
+def add_slotcoupled_edge_radiators(hfss: Hfss, tag: str, center: tuple[float, float], angle_deg: float, params: dict) -> list[str]:
+    metals: list[str] = []
+    h = params["substrate_h_mm"]
+    edge = params["patch_side_mm"] / 2.0
+    axis, side = radial_edge_axis(center)
+
+    if params.get("slot_coupled_edge_arm_enabled", 0.0) >= 0.5:
+        length = params.get("slot_coupled_edge_arm_length_mm", 2.4)
+        width = params.get("slot_coupled_edge_arm_width_mm", 0.30)
+        offset = params.get("slot_coupled_edge_arm_offset_mm", 0.0)
+        gap = params.get("slot_coupled_edge_arm_gap_mm", 0.0)
+        overlap = 0.06 if gap <= 1e-9 else 0.0
+        start = side * (edge + gap - overlap)
+        stop = side * (edge + gap + length)
+        span0, span1 = sorted([start, stop])
+        cross0, cross1 = offset - width / 2.0, offset + width / 2.0
+        if axis == "u":
+            pts = rectangle_points(*center, angle_deg, span0, span1, cross0, cross1, h)
+        else:
+            pts = rectangle_points(*center, angle_deg, cross0, cross1, span0, span1, h)
+        arm = polygon_sheet(hfss, f"{tag}_slotcoupled_radial_edge_arm", pts, "copper")
+        metals.append(arm.name)
+
+    if params.get("slot_coupled_edge_wall_enabled", 0.0) >= 0.5:
+        height = params.get("slot_coupled_edge_wall_height_mm", 2.0)
+        width = params.get("slot_coupled_edge_wall_width_mm", 0.50)
+        offset = params.get("slot_coupled_edge_wall_offset_mm", 0.0)
+        side_pos = side * edge
+        cross0, cross1 = offset - width / 2.0, offset + width / 2.0
+        if axis == "u":
+            pts = [
+                local_to_global(*center, angle_deg, side_pos, cross0, h),
+                local_to_global(*center, angle_deg, side_pos, cross1, h),
+                local_to_global(*center, angle_deg, side_pos, cross1, h + height),
+                local_to_global(*center, angle_deg, side_pos, cross0, h + height),
+            ]
+        else:
+            pts = [
+                local_to_global(*center, angle_deg, cross0, side_pos, h),
+                local_to_global(*center, angle_deg, cross1, side_pos, h),
+                local_to_global(*center, angle_deg, cross1, side_pos, h + height),
+                local_to_global(*center, angle_deg, cross0, side_pos, h + height),
+            ]
+        wall = polygon_sheet(hfss, f"{tag}_slotcoupled_radial_edge_wall", pts, "copper")
+        metals.append(wall.name)
+
+    return metals
+
+
 def add_slotcoupled_ab_cancellation_network(
     hfss: Hfss,
     tag: str,
@@ -988,8 +1081,10 @@ def add_dualpol_slotcoupled_element(hfss: Hfss, tag: str, center: tuple[float, f
         f"{tag}_dualpol_slotcoupled_patch",
         patch_points(*center, angle, params["patch_side_mm"], 0.0, h),
     )
+    add_slotcoupled_horizon_loop(hfss, tag, patch.name, center, angle, params)
     add_slotcoupled_patch_slit(hfss, tag, patch.name, center, angle, params)
     metals.append(patch.name)
+    metals.extend(add_slotcoupled_edge_radiators(hfss, tag, center, angle, params))
     metals.extend(add_dualpol_parasitic_patch(hfss, tag, center, angle, params))
 
     aperture_w = params["slot_coupled_aperture_width_mm"]
@@ -1349,6 +1444,11 @@ def validate_params(params: dict) -> None:
             top_height,
             params["substrate_h_mm"] + params.get("weak_coupling_open_line_gap_mm", 0.08) + params["copper_t_mm"],
         )
+    if params.get("slot_coupled_edge_wall_enabled", 0.0) >= 0.5:
+        top_height = max(
+            top_height,
+            params["substrate_h_mm"] + params.get("slot_coupled_edge_wall_height_mm", 2.0) + params["copper_t_mm"],
+        )
     if top_height > params["total_height_limit_mm"]:
         raise ValueError(f"Total height {top_height:.3f} mm exceeds {params['total_height_limit_mm']:.3f} mm")
     if params["ground_radius_mm"] > params["board_diameter_mm"] / 2.0:
@@ -1400,6 +1500,19 @@ def validate_params(params: dict) -> None:
         patch_slit_w = params.get("slot_coupled_patch_slit_width_mm", 0.10)
         patch_slit_offset_u = params.get("slot_coupled_patch_slit_offset_u_mm", 0.0)
         patch_slit_offset_v = params.get("slot_coupled_patch_slit_offset_v_mm", 0.0)
+        horizon_loop_enabled = params.get("slot_coupled_horizon_loop_enabled", 0.0) >= 0.5
+        horizon_loop_inner = params.get("slot_coupled_horizon_loop_inner_side_mm", 0.0)
+        horizon_loop_offset_u = params.get("slot_coupled_horizon_loop_offset_u_mm", 0.0)
+        horizon_loop_offset_v = params.get("slot_coupled_horizon_loop_offset_v_mm", 0.0)
+        edge_arm_enabled = params.get("slot_coupled_edge_arm_enabled", 0.0) >= 0.5
+        edge_arm_len = params.get("slot_coupled_edge_arm_length_mm", 2.4)
+        edge_arm_w = params.get("slot_coupled_edge_arm_width_mm", 0.30)
+        edge_arm_offset = params.get("slot_coupled_edge_arm_offset_mm", 0.0)
+        edge_arm_gap = params.get("slot_coupled_edge_arm_gap_mm", 0.0)
+        edge_wall_enabled = params.get("slot_coupled_edge_wall_enabled", 0.0) >= 0.5
+        edge_wall_h = params.get("slot_coupled_edge_wall_height_mm", 2.0)
+        edge_wall_w = params.get("slot_coupled_edge_wall_width_mm", 0.50)
+        edge_wall_offset = params.get("slot_coupled_edge_wall_offset_mm", 0.0)
         ab_cancel_enabled = params.get("slot_coupled_ab_cancel_enabled", 0.0) >= 0.5
         ab_cancel_l = params.get("slot_coupled_ab_cancel_coupling_length_mm", 1.60)
         ab_cancel_w = params.get("slot_coupled_ab_cancel_trace_width_mm", 0.12)
@@ -1482,6 +1595,29 @@ def validate_params(params: dict) -> None:
             slit_extent = max(abs(patch_slit_offset_u), abs(patch_slit_offset_v)) + (patch_slit_len + patch_slit_w) / 2.0
             if slit_extent > half_patch - 0.35:
                 raise ValueError("Dual-polarized patch decoupling slit must stay inside the patch")
+        if horizon_loop_enabled:
+            if horizon_loop_inner <= 0.0 or horizon_loop_inner >= params["patch_side_mm"] - 1.0:
+                raise ValueError("Dual-polarized horizon loop opening must leave a meaningful frame width")
+            loop_frame = (params["patch_side_mm"] - horizon_loop_inner) / 2.0
+            if loop_frame < 0.65 or loop_frame > half_patch - 0.25:
+                raise ValueError("Dual-polarized horizon loop frame width must stay manufacturable")
+            loop_extent = max(abs(horizon_loop_offset_u), abs(horizon_loop_offset_v)) + horizon_loop_inner / 2.0
+            if loop_extent > half_patch - 0.25:
+                raise ValueError("Dual-polarized horizon loop must stay inside the patch footprint")
+        if edge_arm_enabled:
+            if edge_arm_len <= 0.20 or edge_arm_w <= 0.04 or edge_arm_w > 0.80 or edge_arm_gap < 0.0:
+                raise ValueError("Dual-polarized edge arm dimensions must be positive and manufacturable")
+            if abs(edge_arm_offset) + edge_arm_w / 2.0 > half_patch - 0.35:
+                raise ValueError("Dual-polarized edge arm must attach within the patch edge span")
+            if center_radius + half_patch + edge_arm_gap + edge_arm_len > board_radius - 0.25:
+                raise ValueError("Dual-polarized edge arm must stay inside the board edge")
+        if edge_wall_enabled:
+            if edge_wall_h <= 0.20 or edge_wall_w <= 0.04 or edge_wall_w > 1.20:
+                raise ValueError("Dual-polarized edge wall dimensions must be positive and manufacturable")
+            if params["substrate_h_mm"] + edge_wall_h + params["copper_t_mm"] > params["total_height_limit_mm"]:
+                raise ValueError("Dual-polarized edge wall exceeds the total height limit")
+            if abs(edge_wall_offset) + edge_wall_w / 2.0 > half_patch - 0.35:
+                raise ValueError("Dual-polarized edge wall must attach within the patch edge span")
         if ab_cancel_enabled:
             if ab_cancel_l <= 0.40 or ab_cancel_w <= 0.03 or ab_cancel_w > 0.30:
                 raise ValueError("Dual-polarized A/B cancellation trace dimensions must be manufacturable")
@@ -1778,6 +1914,11 @@ def build_project(
         total_height = max(
             total_height,
             params["substrate_h_mm"] + params.get("weak_coupling_open_line_gap_mm", 0.08) + params["copper_t_mm"],
+        )
+    if params.get("slot_coupled_edge_wall_enabled", 0.0) >= 0.5:
+        total_height = max(
+            total_height,
+            params["substrate_h_mm"] + params.get("slot_coupled_edge_wall_height_mm", 2.0) + params["copper_t_mm"],
         )
     notes = {
         "project": str(paths["project"]),
