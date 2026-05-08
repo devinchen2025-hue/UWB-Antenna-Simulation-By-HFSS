@@ -1,5 +1,5 @@
 $begin 'AnsoftProject'
-	Created='Fri May  8 19:25:11 2026'
+	Created='Fri May  8 19:06:52 2026'
 	Product='ElectronicsDesktop'
 	FileOwnedByWorkbench=false
 	$begin 'Desktop'
@@ -145,7 +145,7 @@ $begin 'AnsoftProject'
 				diffusivity='0.8'
 				molecular_mass='0'
 				viscosity='0'
-				ModTime=1778239518
+				ModTime=1778238420
 				Library=''
 				LibLocation='Project'
 				ModSinceLib=true
@@ -196,7 +196,7 @@ $begin 'AnsoftProject'
 		$end 'Scripts'
 		$begin 'Symbols'
 			$begin 'Array4_Diamond_D44_DualPolarized_XY'
-				ModTime=1778239511
+				ModTime=1778238412
 				Library=''
 				ModSinceLib=false
 				LibLocation='Project'
@@ -210,7 +210,7 @@ $begin 'AnsoftProject'
 			$end 'Array4_Diamond_D44_DualPolarized_XY'
 		$end 'Symbols'
 		$begin 'DefInfo'
-			Array4_Diamond_D44_DualPolarized_XY(1002, 0, 0, 0, '', 1778239511, '', 'Array4_Diamond_D44_DualPolarized_XY', '', '', '', '', '', 'Design.bmp', '', 'Project', '', '', 1778239511, '', 0, 0)
+			Array4_Diamond_D44_DualPolarized_XY(1002, 0, 0, 0, '', 1778238412, '', 'Array4_Diamond_D44_DualPolarized_XY', '', '', '', '', '', 'Design.bmp', '', 'Project', '', '', 1778238412, '', 0, 0)
 		$end 'DefInfo'
 		$begin 'Compdefs'
 			$begin 'Array4_Diamond_D44_DualPolarized_XY'
@@ -758,19 +758,19 @@ $begin 'AnsoftProject'
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
 														TolVt(0.349999999999998, -12.3708152801713, 0, 5e-07)
-														TolVt(2.8, -12.3708152801713, 0, 5e-07)
+														TolVt(2.7, -12.3708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(1.575, -12.3708152801713, 0)
+													EdgeMidPoint(1.525, -12.3708152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=1
 													ID=2711
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(2.8, -11.6708152801713, 0, 5e-07)
-														TolVt(2.8, -12.3708152801713, 0, 5e-07)
+														TolVt(2.7, -11.6708152801713, 0, 5e-07)
+														TolVt(2.7, -12.3708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(2.8, -12.0208152801713, 0)
+													EdgeMidPoint(2.7, -12.0208152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=2
@@ -778,9 +778,9 @@ $begin 'AnsoftProject'
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
 														TolVt(0.349999999999998, -11.6708152801713, 0, 5e-07)
-														TolVt(2.8, -11.6708152801713, 0, 5e-07)
+														TolVt(2.7, -11.6708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(1.575, -11.6708152801713, 0)
+													EdgeMidPoint(1.525, -11.6708152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=3
@@ -788,19 +788,19 @@ $begin 'AnsoftProject'
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
 														TolVt(-0.350000000000002, -12.3708152801713, 0, 5e-07)
-														TolVt(-2.8, -12.3708152801713, 0, 5e-07)
+														TolVt(-2.7, -12.3708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-1.575, -12.3708152801713, 0)
+													EdgeMidPoint(-1.525, -12.3708152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=4
 													ID=2714
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-2.8, -11.6708152801713, 0, 5e-07)
-														TolVt(-2.8, -12.3708152801713, 0, 5e-07)
+														TolVt(-2.7, -11.6708152801713, 0, 5e-07)
+														TolVt(-2.7, -12.3708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-2.8, -12.0208152801713, 0)
+													EdgeMidPoint(-2.7, -12.0208152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=5
@@ -808,69 +808,69 @@ $begin 'AnsoftProject'
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
 														TolVt(-0.350000000000002, -11.6708152801713, 0, 5e-07)
-														TolVt(-2.8, -11.6708152801713, 0, 5e-07)
+														TolVt(-2.7, -11.6708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-1.575, -11.6708152801713, 0)
+													EdgeMidPoint(-1.525, -11.6708152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=6
 													ID=2716
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-0.350000000000002, -9.22081528017131, 0, 5e-07)
+														TolVt(-0.350000000000002, -9.32081528017131, 0, 5e-07)
 														TolVt(-0.350000000000002, -11.6708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-0.350000000000002, -10.4458152801713, 0)
+													EdgeMidPoint(-0.350000000000002, -10.4958152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=7
 													ID=2717
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-0.350000000000002, -14.8208152801713, 0, 5e-07)
+														TolVt(-0.350000000000002, -14.7208152801713, 0, 5e-07)
 														TolVt(-0.350000000000002, -12.3708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-0.350000000000002, -13.5958152801713, 0)
+													EdgeMidPoint(-0.350000000000002, -13.5458152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=8
 													ID=2718
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(0.349999999999998, -14.8208152801713, 0, 5e-07)
-														TolVt(-0.350000000000002, -14.8208152801713, 0, 5e-07)
+														TolVt(0.349999999999998, -14.7208152801713, 0, 5e-07)
+														TolVt(-0.350000000000002, -14.7208152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-2.25514051876985e-15, -14.8208152801713, 0)
+													EdgeMidPoint(-2.25514051876985e-15, -14.7208152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=9
 													ID=2719
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(0.349999999999998, -14.8208152801713, 0, 5e-07)
+														TolVt(0.349999999999998, -14.7208152801713, 0, 5e-07)
 														TolVt(0.349999999999998, -12.3708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(0.349999999999998, -13.5958152801713, 0)
+													EdgeMidPoint(0.349999999999998, -13.5458152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=10
 													ID=2720
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(0.349999999999998, -9.22081528017131, 0, 5e-07)
+														TolVt(0.349999999999998, -9.32081528017131, 0, 5e-07)
 														TolVt(0.349999999999998, -11.6708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(0.349999999999998, -10.4458152801713, 0)
+													EdgeMidPoint(0.349999999999998, -10.4958152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=11
 													ID=2721
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(0.349999999999998, -9.22081528017131, 0, 5e-07)
-														TolVt(-0.350000000000002, -9.22081528017131, 0, 5e-07)
+														TolVt(0.349999999999998, -9.32081528017131, 0, 5e-07)
+														TolVt(-0.350000000000002, -9.32081528017131, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-2.21177243187043e-15, -9.22081528017131, 0)
+													EdgeMidPoint(-2.21177243187043e-15, -9.32081528017131, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=12
@@ -878,19 +878,19 @@ $begin 'AnsoftProject'
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
 														TolVt(-11.6708152801713, -0.349999999999999, 0, 5e-07)
-														TolVt(-9.22081528017131, -0.349999999999998, 0, 5e-07)
+														TolVt(-9.32081528017131, -0.349999999999998, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-10.4458152801713, -0.349999999999998, 0)
+													EdgeMidPoint(-10.4958152801713, -0.349999999999998, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=13
 													ID=2723
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-9.22081528017131, 0.350000000000001, 0, 5e-07)
-														TolVt(-9.22081528017131, -0.349999999999998, 0, 5e-07)
+														TolVt(-9.32081528017131, 0.350000000000001, 0, 5e-07)
+														TolVt(-9.32081528017131, -0.349999999999998, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-9.22081528017131, 1.47451495458029e-15, 0)
+													EdgeMidPoint(-9.32081528017131, 1.47451495458029e-15, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=14
@@ -898,29 +898,29 @@ $begin 'AnsoftProject'
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
 														TolVt(-11.6708152801713, 0.350000000000001, 0, 5e-07)
-														TolVt(-9.22081528017131, 0.350000000000001, 0, 5e-07)
+														TolVt(-9.32081528017131, 0.350000000000001, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-10.4458152801713, 0.350000000000001, 0)
+													EdgeMidPoint(-10.4958152801713, 0.350000000000001, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=15
 													ID=2725
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-12.3708152801713, -0.349999999999998, 0, 5e-07)
-														TolVt(-14.8208152801713, -0.349999999999998, 0, 5e-07)
+														TolVt(-12.3708152801713, -0.349999999999999, 0, 5e-07)
+														TolVt(-14.7208152801713, -0.349999999999998, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-13.5958152801713, -0.349999999999998, 0)
+													EdgeMidPoint(-13.5458152801713, -0.349999999999998, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=16
 													ID=2726
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-14.8208152801713, 0.350000000000001, 0, 5e-07)
-														TolVt(-14.8208152801713, -0.349999999999998, 0, 5e-07)
+														TolVt(-14.7208152801713, 0.350000000000001, 0, 5e-07)
+														TolVt(-14.7208152801713, -0.349999999999998, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-14.8208152801713, 1.51788304147971e-15, 0)
+													EdgeMidPoint(-14.7208152801713, 1.51788304147971e-15, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=17
@@ -928,69 +928,69 @@ $begin 'AnsoftProject'
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
 														TolVt(-12.3708152801713, 0.350000000000001, 0, 5e-07)
-														TolVt(-14.8208152801713, 0.350000000000001, 0, 5e-07)
+														TolVt(-14.7208152801713, 0.350000000000001, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-13.5958152801713, 0.350000000000001, 0)
+													EdgeMidPoint(-13.5458152801713, 0.350000000000001, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=18
 													ID=2728
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-12.3708152801713, 2.8, 0, 5e-07)
+														TolVt(-12.3708152801713, 2.7, 0, 5e-07)
 														TolVt(-12.3708152801713, 0.350000000000001, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-12.3708152801713, 1.575, 0)
+													EdgeMidPoint(-12.3708152801713, 1.525, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=19
 													ID=2729
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-12.3708152801713, -2.8, 0, 5e-07)
-														TolVt(-12.3708152801713, -0.349999999999998, 0, 5e-07)
+														TolVt(-12.3708152801713, -2.7, 0, 5e-07)
+														TolVt(-12.3708152801713, -0.349999999999999, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-12.3708152801713, -1.575, 0)
+													EdgeMidPoint(-12.3708152801713, -1.525, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=20
 													ID=2730
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-11.6708152801713, -2.8, 0, 5e-07)
-														TolVt(-12.3708152801713, -2.8, 0, 5e-07)
+														TolVt(-11.6708152801713, -2.7, 0, 5e-07)
+														TolVt(-12.3708152801713, -2.7, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-12.0208152801713, -2.8, 0)
+													EdgeMidPoint(-12.0208152801713, -2.7, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=21
 													ID=2731
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-11.6708152801713, -2.8, 0, 5e-07)
+														TolVt(-11.6708152801713, -2.7, 0, 5e-07)
 														TolVt(-11.6708152801713, -0.349999999999999, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-11.6708152801713, -1.575, 0)
+													EdgeMidPoint(-11.6708152801713, -1.525, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=22
 													ID=2732
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-11.6708152801713, 2.8, 0, 5e-07)
+														TolVt(-11.6708152801713, 2.7, 0, 5e-07)
 														TolVt(-11.6708152801713, 0.350000000000001, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-11.6708152801713, 1.575, 0)
+													EdgeMidPoint(-11.6708152801713, 1.525, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=23
 													ID=2733
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-11.6708152801713, 2.8, 0, 5e-07)
-														TolVt(-12.3708152801713, 2.8, 0, 5e-07)
+														TolVt(-11.6708152801713, 2.7, 0, 5e-07)
+														TolVt(-12.3708152801713, 2.7, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-12.0208152801713, 2.8, 0)
+													EdgeMidPoint(-12.0208152801713, 2.7, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=24
@@ -998,19 +998,19 @@ $begin 'AnsoftProject'
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
 														TolVt(0.350000000000001, 11.6708152801713, 0, 5e-07)
-														TolVt(2.8, 11.6708152801713, 0, 5e-07)
+														TolVt(2.7, 11.6708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(1.575, 11.6708152801713, 0)
+													EdgeMidPoint(1.525, 11.6708152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=25
 													ID=2735
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(2.8, 12.3708152801713, 0, 5e-07)
-														TolVt(2.8, 11.6708152801713, 0, 5e-07)
+														TolVt(2.7, 12.3708152801713, 0, 5e-07)
+														TolVt(2.7, 11.6708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(2.8, 12.0208152801713, 0)
+													EdgeMidPoint(2.7, 12.0208152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=26
@@ -1018,9 +1018,9 @@ $begin 'AnsoftProject'
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
 														TolVt(0.350000000000001, 12.3708152801713, 0, 5e-07)
-														TolVt(2.8, 12.3708152801713, 0, 5e-07)
+														TolVt(2.7, 12.3708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(1.575, 12.3708152801713, 0)
+													EdgeMidPoint(1.525, 12.3708152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=27
@@ -1028,19 +1028,19 @@ $begin 'AnsoftProject'
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
 														TolVt(-0.349999999999999, 11.6708152801713, 0, 5e-07)
-														TolVt(-2.8, 11.6708152801713, 0, 5e-07)
+														TolVt(-2.7, 11.6708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-1.575, 11.6708152801713, 0)
+													EdgeMidPoint(-1.525, 11.6708152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=28
 													ID=2738
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-2.8, 12.3708152801713, 0, 5e-07)
-														TolVt(-2.8, 11.6708152801713, 0, 5e-07)
+														TolVt(-2.7, 12.3708152801713, 0, 5e-07)
+														TolVt(-2.7, 11.6708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-2.8, 12.0208152801713, 0)
+													EdgeMidPoint(-2.7, 12.0208152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=29
@@ -1048,69 +1048,69 @@ $begin 'AnsoftProject'
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
 														TolVt(-0.349999999999999, 12.3708152801713, 0, 5e-07)
-														TolVt(-2.8, 12.3708152801713, 0, 5e-07)
+														TolVt(-2.7, 12.3708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-1.575, 12.3708152801713, 0)
+													EdgeMidPoint(-1.525, 12.3708152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=30
 													ID=2740
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-0.349999999999999, 14.8208152801713, 0, 5e-07)
+														TolVt(-0.349999999999999, 14.7208152801713, 0, 5e-07)
 														TolVt(-0.349999999999999, 12.3708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-0.349999999999999, 13.5958152801713, 0)
+													EdgeMidPoint(-0.349999999999999, 13.5458152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=31
 													ID=2741
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-0.349999999999999, 9.22081528017131, 0, 5e-07)
+														TolVt(-0.349999999999999, 9.32081528017131, 0, 5e-07)
 														TolVt(-0.349999999999999, 11.6708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-0.349999999999999, 10.4458152801713, 0)
+													EdgeMidPoint(-0.349999999999999, 10.4958152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=32
 													ID=2742
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(0.350000000000001, 9.22081528017131, 0, 5e-07)
-														TolVt(-0.349999999999999, 9.22081528017131, 0, 5e-07)
+														TolVt(0.350000000000001, 9.32081528017131, 0, 5e-07)
+														TolVt(-0.349999999999999, 9.32081528017131, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(6.93889390390723e-16, 9.22081528017131, 0)
+													EdgeMidPoint(6.93889390390723e-16, 9.32081528017131, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=33
 													ID=2743
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(0.350000000000001, 9.22081528017131, 0, 5e-07)
+														TolVt(0.350000000000001, 9.32081528017131, 0, 5e-07)
 														TolVt(0.350000000000001, 11.6708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(0.350000000000001, 10.4458152801713, 0)
+													EdgeMidPoint(0.350000000000001, 10.4958152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=34
 													ID=2744
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(0.350000000000001, 14.8208152801713, 0, 5e-07)
+														TolVt(0.350000000000001, 14.7208152801713, 0, 5e-07)
 														TolVt(0.350000000000001, 12.3708152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(0.350000000000001, 13.5958152801713, 0)
+													EdgeMidPoint(0.350000000000001, 13.5458152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=35
 													ID=2745
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(0.350000000000001, 14.8208152801713, 0, 5e-07)
-														TolVt(-0.349999999999999, 14.8208152801713, 0, 5e-07)
+														TolVt(0.350000000000001, 14.7208152801713, 0, 5e-07)
+														TolVt(-0.349999999999999, 14.7208152801713, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(7.37257477290143e-16, 14.8208152801713, 0)
+													EdgeMidPoint(7.37257477290143e-16, 14.7208152801713, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=36
@@ -1118,19 +1118,19 @@ $begin 'AnsoftProject'
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
 														TolVt(12.3708152801713, -0.35, 0, 5e-07)
-														TolVt(14.8208152801713, -0.35, 0, 5e-07)
+														TolVt(14.7208152801713, -0.35, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(13.5958152801713, -0.35, 0)
+													EdgeMidPoint(13.5458152801713, -0.35, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=37
 													ID=2747
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(14.8208152801713, 0.35, 0, 5e-07)
-														TolVt(14.8208152801713, -0.35, 0, 5e-07)
+														TolVt(14.7208152801713, 0.35, 0, 5e-07)
+														TolVt(14.7208152801713, -0.35, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(14.8208152801713, 0, 0)
+													EdgeMidPoint(14.7208152801713, 0, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=38
@@ -1138,9 +1138,9 @@ $begin 'AnsoftProject'
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
 														TolVt(12.3708152801713, 0.35, 0, 5e-07)
-														TolVt(14.8208152801713, 0.35, 0, 5e-07)
+														TolVt(14.7208152801713, 0.35, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(13.5958152801713, 0.35, 0)
+													EdgeMidPoint(13.5458152801713, 0.35, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=39
@@ -1148,19 +1148,19 @@ $begin 'AnsoftProject'
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
 														TolVt(11.6708152801713, -0.35, 0, 5e-07)
-														TolVt(9.22081528017131, -0.35, 0, 5e-07)
+														TolVt(9.32081528017131, -0.35, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(10.4458152801713, -0.35, 0)
+													EdgeMidPoint(10.4958152801713, -0.35, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=40
 													ID=2750
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(9.22081528017131, 0.35, 0, 5e-07)
-														TolVt(9.22081528017131, -0.35, 0, 5e-07)
+														TolVt(9.32081528017131, 0.35, 0, 5e-07)
+														TolVt(9.32081528017131, -0.35, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(9.22081528017131, 0, 0)
+													EdgeMidPoint(9.32081528017131, 0, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=41
@@ -1168,69 +1168,69 @@ $begin 'AnsoftProject'
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
 														TolVt(11.6708152801713, 0.35, 0, 5e-07)
-														TolVt(9.22081528017131, 0.35, 0, 5e-07)
+														TolVt(9.32081528017131, 0.35, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(10.4458152801713, 0.35, 0)
+													EdgeMidPoint(10.4958152801713, 0.35, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=42
 													ID=2752
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(11.6708152801713, 2.8, 0, 5e-07)
+														TolVt(11.6708152801713, 2.7, 0, 5e-07)
 														TolVt(11.6708152801713, 0.35, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(11.6708152801713, 1.575, 0)
+													EdgeMidPoint(11.6708152801713, 1.525, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=43
 													ID=2753
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(11.6708152801713, -2.8, 0, 5e-07)
+														TolVt(11.6708152801713, -2.7, 0, 5e-07)
 														TolVt(11.6708152801713, -0.35, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(11.6708152801713, -1.575, 0)
+													EdgeMidPoint(11.6708152801713, -1.525, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=44
 													ID=2754
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(12.3708152801713, -2.8, 0, 5e-07)
-														TolVt(11.6708152801713, -2.8, 0, 5e-07)
+														TolVt(12.3708152801713, -2.7, 0, 5e-07)
+														TolVt(11.6708152801713, -2.7, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(12.0208152801713, -2.8, 0)
+													EdgeMidPoint(12.0208152801713, -2.7, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=45
 													ID=2755
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(12.3708152801713, -2.8, 0, 5e-07)
+														TolVt(12.3708152801713, -2.7, 0, 5e-07)
 														TolVt(12.3708152801713, -0.35, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(12.3708152801713, -1.575, 0)
+													EdgeMidPoint(12.3708152801713, -1.525, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=46
 													ID=2756
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(12.3708152801713, 2.8, 0, 5e-07)
+														TolVt(12.3708152801713, 2.7, 0, 5e-07)
 														TolVt(12.3708152801713, 0.35, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(12.3708152801713, 1.575, 0)
+													EdgeMidPoint(12.3708152801713, 1.525, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=47
 													ID=2757
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(12.3708152801713, 2.8, 0, 5e-07)
-														TolVt(11.6708152801713, 2.8, 0, 5e-07)
+														TolVt(12.3708152801713, 2.7, 0, 5e-07)
+														TolVt(11.6708152801713, 2.7, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(12.0208152801713, 2.8, 0)
+													EdgeMidPoint(12.0208152801713, 2.7, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=48
@@ -1397,22 +1397,22 @@ $begin 'AnsoftProject'
 												$begin 'Vertex'
 													NormalizedSerialNum=0
 													ID=2774
-													VtPos(2.8, -12.3708152801713, 0)
+													VtPos(2.7, -12.3708152801713, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=1
 													ID=2775
-													VtPos(2.8, -11.6708152801713, 0)
+													VtPos(2.7, -11.6708152801713, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=2
 													ID=2776
-													VtPos(-2.8, -12.3708152801713, 0)
+													VtPos(-2.7, -12.3708152801713, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=3
 													ID=2777
-													VtPos(-2.8, -11.6708152801713, 0)
+													VtPos(-2.7, -11.6708152801713, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=4
@@ -1437,42 +1437,42 @@ $begin 'AnsoftProject'
 												$begin 'Vertex'
 													NormalizedSerialNum=8
 													ID=2782
-													VtPos(-0.350000000000002, -14.8208152801713, 0)
+													VtPos(-0.350000000000002, -14.7208152801713, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=9
 													ID=2783
-													VtPos(0.349999999999998, -14.8208152801713, 0)
+													VtPos(0.349999999999998, -14.7208152801713, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=10
 													ID=2784
-													VtPos(-0.350000000000002, -9.22081528017131, 0)
+													VtPos(-0.350000000000002, -9.32081528017131, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=11
 													ID=2785
-													VtPos(0.349999999999998, -9.22081528017131, 0)
+													VtPos(0.349999999999998, -9.32081528017131, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=12
 													ID=2786
-													VtPos(-9.22081528017131, -0.349999999999998, 0)
+													VtPos(-9.32081528017131, -0.349999999999998, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=13
 													ID=2787
-													VtPos(-9.22081528017131, 0.350000000000001, 0)
+													VtPos(-9.32081528017131, 0.350000000000001, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=14
 													ID=2788
-													VtPos(-14.8208152801713, -0.349999999999998, 0)
+													VtPos(-14.7208152801713, -0.349999999999998, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=15
 													ID=2789
-													VtPos(-14.8208152801713, 0.350000000000001, 0)
+													VtPos(-14.7208152801713, 0.350000000000001, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=16
@@ -1487,7 +1487,7 @@ $begin 'AnsoftProject'
 												$begin 'Vertex'
 													NormalizedSerialNum=18
 													ID=2792
-													VtPos(-12.3708152801713, -0.349999999999998, 0)
+													VtPos(-12.3708152801713, -0.349999999999999, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=19
@@ -1497,42 +1497,42 @@ $begin 'AnsoftProject'
 												$begin 'Vertex'
 													NormalizedSerialNum=20
 													ID=2794
-													VtPos(-12.3708152801713, -2.8, 0)
+													VtPos(-12.3708152801713, -2.7, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=21
 													ID=2795
-													VtPos(-11.6708152801713, -2.8, 0)
+													VtPos(-11.6708152801713, -2.7, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=22
 													ID=2796
-													VtPos(-12.3708152801713, 2.8, 0)
+													VtPos(-12.3708152801713, 2.7, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=23
 													ID=2797
-													VtPos(-11.6708152801713, 2.8, 0)
+													VtPos(-11.6708152801713, 2.7, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=24
 													ID=2798
-													VtPos(2.8, 11.6708152801713, 0)
+													VtPos(2.7, 11.6708152801713, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=25
 													ID=2799
-													VtPos(2.8, 12.3708152801713, 0)
+													VtPos(2.7, 12.3708152801713, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=26
 													ID=2800
-													VtPos(-2.8, 11.6708152801713, 0)
+													VtPos(-2.7, 11.6708152801713, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=27
 													ID=2801
-													VtPos(-2.8, 12.3708152801713, 0)
+													VtPos(-2.7, 12.3708152801713, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=28
@@ -1557,42 +1557,42 @@ $begin 'AnsoftProject'
 												$begin 'Vertex'
 													NormalizedSerialNum=32
 													ID=2806
-													VtPos(-0.349999999999999, 9.22081528017131, 0)
+													VtPos(-0.349999999999999, 9.32081528017131, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=33
 													ID=2807
-													VtPos(0.350000000000001, 9.22081528017131, 0)
+													VtPos(0.350000000000001, 9.32081528017131, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=34
 													ID=2808
-													VtPos(-0.349999999999999, 14.8208152801713, 0)
+													VtPos(-0.349999999999999, 14.7208152801713, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=35
 													ID=2809
-													VtPos(0.350000000000001, 14.8208152801713, 0)
+													VtPos(0.350000000000001, 14.7208152801713, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=36
 													ID=2810
-													VtPos(14.8208152801713, -0.35, 0)
+													VtPos(14.7208152801713, -0.35, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=37
 													ID=2811
-													VtPos(14.8208152801713, 0.35, 0)
+													VtPos(14.7208152801713, 0.35, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=38
 													ID=2812
-													VtPos(9.22081528017131, -0.35, 0)
+													VtPos(9.32081528017131, -0.35, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=39
 													ID=2813
-													VtPos(9.22081528017131, 0.35, 0)
+													VtPos(9.32081528017131, 0.35, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=40
@@ -1617,22 +1617,22 @@ $begin 'AnsoftProject'
 												$begin 'Vertex'
 													NormalizedSerialNum=44
 													ID=2818
-													VtPos(11.6708152801713, -2.8, 0)
+													VtPos(11.6708152801713, -2.7, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=45
 													ID=2819
-													VtPos(12.3708152801713, -2.8, 0)
+													VtPos(12.3708152801713, -2.7, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=46
 													ID=2820
-													VtPos(11.6708152801713, 2.8, 0)
+													VtPos(11.6708152801713, 2.7, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=47
 													ID=2821
-													VtPos(12.3708152801713, 2.8, 0)
+													VtPos(12.3708152801713, 2.7, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=48
@@ -2044,27 +2044,27 @@ $begin 'AnsoftProject'
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
 												X='16.8358152801713mm'
-												Y='-0.1mm'
+												Y='-0.12mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='16.8358152801713mm'
-												Y='0.1mm'
+												Y='0.12mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='16.8358152801713mm'
-												Y='0.1mm'
-												Z='6.7mm'
+												Y='0.12mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='16.8358152801713mm'
-												Y='-0.1mm'
-												Z='6.7mm'
+												Y='-0.12mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='16.8358152801713mm'
-												Y='-0.1mm'
+												Y='-0.12mm'
 												Z='2mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
@@ -2165,13 +2165,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.94
-															FcUVMid(16.8358152801713, 0, 4.35)
+															Area=1.2
+															FcUVMid(16.8358152801713, 0, 4.5)
 															$begin 'FcTolVts'
-																TolVt(16.8358152801713, -0.1, 2, 5e-07)
-																TolVt(16.8358152801713, 0.1, 2, 5e-07)
-																TolVt(16.8358152801713, 0.1, 6.7, 5e-07)
-																TolVt(16.8358152801713, -0.1, 6.7, 5e-07)
+																TolVt(16.8358152801713, -0.12, 2, 5e-07)
+																TolVt(16.8358152801713, 0.12, 2, 5e-07)
+																TolVt(16.8358152801713, 0.12, 7, 5e-07)
+																TolVt(16.8358152801713, -0.12, 7, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -2218,28 +2218,28 @@ $begin 'AnsoftProject'
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
 												X='16.8358152801713mm'
-												Y='-0.1mm'
-												Z='6.7mm'
+												Y='-0.12mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='18.6958152801713mm'
-												Y='-0.1mm'
-												Z='6.7mm'
+												Y='-0.12mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='18.6958152801713mm'
-												Y='0.1mm'
-												Z='6.7mm'
+												Y='0.12mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='16.8358152801713mm'
-												Y='0.1mm'
-												Z='6.7mm'
+												Y='0.12mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='16.8358152801713mm'
-												Y='-0.1mm'
-												Z='6.7mm'
+												Y='-0.12mm'
+												Z='7mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -2339,13 +2339,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.372
-															FcUVMid(17.7658152801713, 0, 6.7)
+															Area=0.4464
+															FcUVMid(17.7658152801713, 0, 7)
 															$begin 'FcTolVts'
-																TolVt(16.8358152801713, -0.1, 6.7, 5e-07)
-																TolVt(18.6958152801713, -0.1, 6.7, 5e-07)
-																TolVt(18.6958152801713, 0.1, 6.7, 5e-07)
-																TolVt(16.8358152801713, 0.1, 6.7, 5e-07)
+																TolVt(16.8358152801713, -0.12, 7, 5e-07)
+																TolVt(18.6958152801713, -0.12, 7, 5e-07)
+																TolVt(18.6958152801713, 0.12, 7, 5e-07)
+																TolVt(16.8358152801713, 0.12, 7, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -2391,29 +2391,29 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='18.5958152801713mm'
+												X='18.5758152801713mm'
 												Y='0mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='18.7958152801713mm'
+												X='18.8158152801713mm'
 												Y='0mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='18.7958152801713mm'
+												X='18.8158152801713mm'
 												Y='4mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='18.5958152801713mm'
+												X='18.5758152801713mm'
 												Y='4mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='18.5958152801713mm'
+												X='18.5758152801713mm'
 												Y='0mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -2513,13 +2513,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.79999999999999
-															FcUVMid(18.6958152801713, 2, 6.7)
+															Area=0.960000000000005
+															FcUVMid(18.6958152801713, 2, 7)
 															$begin 'FcTolVts'
-																TolVt(18.5958152801713, 0, 6.7, 5e-07)
-																TolVt(18.7958152801713, 0, 6.7, 5e-07)
-																TolVt(18.7958152801713, 4, 6.7, 5e-07)
-																TolVt(18.5958152801713, 4, 6.7, 5e-07)
+																TolVt(18.5758152801713, 0, 7, 5e-07)
+																TolVt(18.8158152801713, 0, 7, 5e-07)
+																TolVt(18.8158152801713, 4, 7, 5e-07)
+																TolVt(18.5758152801713, 4, 7, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -3272,12 +3272,12 @@ $begin 'AnsoftProject'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='14.0708152801713mm'
-												Y='2.3mm'
+												Y='2.2mm'
 												Z='-0.254mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='13.0708152801713mm'
-												Y='2.3mm'
+												Y='2.2mm'
 												Z='-0.254mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
@@ -3383,13 +3383,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1.93
-															FcUVMid(13.5708152801713, 1.335, -0.254)
+															Area=1.83
+															FcUVMid(13.5708152801713, 1.285, -0.254)
 															$begin 'FcTolVts'
 																TolVt(13.0708152801713, 0.37, -0.254, 5e-07)
 																TolVt(14.0708152801713, 0.37, -0.254, 5e-07)
-																TolVt(14.0708152801713, 2.3, -0.254, 5e-07)
-																TolVt(13.0708152801713, 2.3, -0.254, 5e-07)
+																TolVt(14.0708152801713, 2.2, -0.254, 5e-07)
+																TolVt(13.0708152801713, 2.2, -0.254, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -3440,12 +3440,12 @@ $begin 'AnsoftProject'
 												Z='-0.254mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='14.3208152801713mm'
+												X='14.2208152801713mm'
 												Y='1.05mm'
 												Z='-0.254mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='14.3208152801713mm'
+												X='14.2208152801713mm'
 												Y='2.05mm'
 												Z='-0.254mm'
 											$end 'PLPoint'
@@ -3557,12 +3557,12 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1.93
-															FcUVMid(13.3558152801713, 1.55, -0.254)
+															Area=1.83
+															FcUVMid(13.3058152801713, 1.55, -0.254)
 															$begin 'FcTolVts'
 																TolVt(12.3908152801713, 1.05, -0.254, 5e-07)
-																TolVt(14.3208152801713, 1.05, -0.254, 5e-07)
-																TolVt(14.3208152801713, 2.05, -0.254, 5e-07)
+																TolVt(14.2208152801713, 1.05, -0.254, 5e-07)
+																TolVt(14.2208152801713, 2.05, -0.254, 5e-07)
 																TolVt(12.3908152801713, 2.05, -0.254, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
@@ -4591,27 +4591,27 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-0.0999999999999993mm'
+												X='-0.119999999999999mm'
 												Y='16.8358152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.100000000000001mm'
+												X='0.120000000000001mm'
 												Y='16.8358152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.100000000000001mm'
+												X='0.120000000000001mm'
 												Y='16.8358152801713mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-0.0999999999999993mm'
+												X='-0.119999999999999mm'
 												Y='16.8358152801713mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-0.0999999999999993mm'
+												X='-0.119999999999999mm'
 												Y='16.8358152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
@@ -4713,13 +4713,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.94
-															FcUVMid(7.37257477290143e-16, 16.8358152801713, 4.35)
+															Area=1.2
+															FcUVMid(7.37257477290143e-16, 16.8358152801713, 4.5)
 															$begin 'FcTolVts'
-																TolVt(-0.0999999999999993, 16.8358152801713, 2, 5e-07)
-																TolVt(0.100000000000001, 16.8358152801713, 2, 5e-07)
-																TolVt(0.100000000000001, 16.8358152801713, 6.7, 5e-07)
-																TolVt(-0.0999999999999993, 16.8358152801713, 6.7, 5e-07)
+																TolVt(-0.119999999999999, 16.8358152801713, 2, 5e-07)
+																TolVt(0.120000000000001, 16.8358152801713, 2, 5e-07)
+																TolVt(0.120000000000001, 16.8358152801713, 7, 5e-07)
+																TolVt(-0.119999999999999, 16.8358152801713, 7, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -4765,29 +4765,29 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-0.0999999999999993mm'
+												X='-0.119999999999999mm'
 												Y='16.8358152801713mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.100000000000001mm'
+												X='0.120000000000001mm'
 												Y='16.8358152801713mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.100000000000001mm'
+												X='0.120000000000001mm'
 												Y='18.6958152801713mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-0.0999999999999993mm'
+												X='-0.119999999999999mm'
 												Y='18.6958152801713mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-0.0999999999999993mm'
+												X='-0.119999999999999mm'
 												Y='16.8358152801713mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -4887,13 +4887,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.372
-															FcUVMid(7.37257477290143e-16, 17.7658152801713, 6.7)
+															Area=0.4464
+															FcUVMid(7.37257477290143e-16, 17.7658152801713, 7)
 															$begin 'FcTolVts'
-																TolVt(-0.0999999999999993, 16.8358152801713, 6.7, 5e-07)
-																TolVt(0.100000000000001, 16.8358152801713, 6.7, 5e-07)
-																TolVt(0.100000000000001, 18.6958152801713, 6.7, 5e-07)
-																TolVt(-0.0999999999999993, 18.6958152801713, 6.7, 5e-07)
+																TolVt(-0.119999999999999, 16.8358152801713, 7, 5e-07)
+																TolVt(0.120000000000001, 16.8358152801713, 7, 5e-07)
+																TolVt(0.120000000000001, 18.6958152801713, 7, 5e-07)
+																TolVt(-0.119999999999999, 18.6958152801713, 7, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -4940,28 +4940,28 @@ $begin 'AnsoftProject'
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
 												X='7.36062647800169e-16mm'
-												Y='18.5958152801713mm'
-												Z='6.7mm'
+												Y='18.5758152801713mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='4mm'
-												Y='18.5958152801713mm'
-												Z='6.7mm'
+												Y='18.5758152801713mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='4mm'
-												Y='18.7958152801713mm'
-												Z='6.7mm'
+												Y='18.8158152801713mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='7.36062647800169e-16mm'
-												Y='18.7958152801713mm'
-												Z='6.7mm'
+												Y='18.8158152801713mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='7.36062647800169e-16mm'
-												Y='18.5958152801713mm'
-												Z='6.7mm'
+												Y='18.5758152801713mm'
+												Z='7mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -5061,13 +5061,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.79999999999999
-															FcUVMid(2, 18.6958152801713, 6.7)
+															Area=0.960000000000005
+															FcUVMid(2, 18.6958152801713, 7)
 															$begin 'FcTolVts'
-																TolVt(7.36062647800169e-16, 18.5958152801713, 6.7, 5e-07)
-																TolVt(4, 18.5958152801713, 6.7, 5e-07)
-																TolVt(4, 18.7958152801713, 6.7, 5e-07)
-																TolVt(6.93889390390723e-16, 18.7958152801713, 6.7, 5e-07)
+																TolVt(7.36062647800169e-16, 18.5758152801713, 7, 5e-07)
+																TolVt(4, 18.5758152801713, 7, 5e-07)
+																TolVt(4, 18.8158152801713, 7, 5e-07)
+																TolVt(6.93889390390723e-16, 18.8158152801713, 7, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -5820,12 +5820,12 @@ $begin 'AnsoftProject'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='2.05mm'
-												Y='14.3208152801713mm'
+												Y='14.2208152801713mm'
 												Z='-0.254mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='1.05mm'
-												Y='14.3208152801713mm'
+												Y='14.2208152801713mm'
 												Z='-0.254mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
@@ -5931,13 +5931,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1.93
-															FcUVMid(1.55, 13.3558152801713, -0.254)
+															Area=1.83
+															FcUVMid(1.55, 13.3058152801713, -0.254)
 															$begin 'FcTolVts'
 																TolVt(1.05, 12.3908152801713, -0.254, 5e-07)
 																TolVt(2.05, 12.3908152801713, -0.254, 5e-07)
-																TolVt(2.05, 14.3208152801713, -0.254, 5e-07)
-																TolVt(1.05, 14.3208152801713, -0.254, 5e-07)
+																TolVt(2.05, 14.2208152801713, -0.254, 5e-07)
+																TolVt(1.05, 14.2208152801713, -0.254, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -5988,12 +5988,12 @@ $begin 'AnsoftProject'
 												Z='-0.254mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='2.3mm'
+												X='2.2mm'
 												Y='13.0708152801713mm'
 												Z='-0.254mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='2.3mm'
+												X='2.2mm'
 												Y='14.0708152801713mm'
 												Z='-0.254mm'
 											$end 'PLPoint'
@@ -6105,12 +6105,12 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1.93
-															FcUVMid(1.335, 13.5708152801713, -0.254)
+															Area=1.83
+															FcUVMid(1.285, 13.5708152801713, -0.254)
 															$begin 'FcTolVts'
 																TolVt(0.370000000000001, 13.0708152801713, -0.254, 5e-07)
-																TolVt(2.3, 13.0708152801713, -0.254, 5e-07)
-																TolVt(2.3, 14.0708152801713, -0.254, 5e-07)
+																TolVt(2.2, 13.0708152801713, -0.254, 5e-07)
+																TolVt(2.2, 14.0708152801713, -0.254, 5e-07)
 																TolVt(0.370000000000001, 14.0708152801713, -0.254, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
@@ -7140,27 +7140,27 @@ $begin 'AnsoftProject'
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
 												X='-16.8358152801713mm'
-												Y='-0.0999999999999985mm'
+												Y='-0.119999999999999mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-16.8358152801713mm'
-												Y='0.100000000000001mm'
+												Y='0.120000000000001mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-16.8358152801713mm'
-												Y='0.100000000000001mm'
-												Z='6.7mm'
+												Y='0.120000000000001mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-16.8358152801713mm'
-												Y='-0.0999999999999985mm'
-												Z='6.7mm'
+												Y='-0.119999999999999mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-16.8358152801713mm'
-												Y='-0.0999999999999985mm'
+												Y='-0.119999999999999mm'
 												Z='2mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
@@ -7261,13 +7261,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.94
-															FcUVMid(-16.8358152801713, 1.47451495458029e-15, 4.35)
+															Area=1.2
+															FcUVMid(-16.8358152801713, 1.46367293285543e-15, 4.5)
 															$begin 'FcTolVts'
-																TolVt(-16.8358152801713, -0.0999999999999985, 2, 5e-07)
-																TolVt(-16.8358152801713, 0.100000000000001, 2, 5e-07)
-																TolVt(-16.8358152801713, 0.100000000000001, 6.7, 5e-07)
-																TolVt(-16.8358152801713, -0.0999999999999985, 6.7, 5e-07)
+																TolVt(-16.8358152801713, -0.119999999999999, 2, 5e-07)
+																TolVt(-16.8358152801713, 0.120000000000001, 2, 5e-07)
+																TolVt(-16.8358152801713, 0.120000000000001, 7, 5e-07)
+																TolVt(-16.8358152801713, -0.119999999999999, 7, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -7314,28 +7314,28 @@ $begin 'AnsoftProject'
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
 												X='-18.6958152801713mm'
-												Y='-0.0999999999999985mm'
-												Z='6.7mm'
+												Y='-0.119999999999999mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-16.8358152801713mm'
-												Y='-0.0999999999999985mm'
-												Z='6.7mm'
+												Y='-0.119999999999999mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-16.8358152801713mm'
-												Y='0.100000000000001mm'
-												Z='6.7mm'
+												Y='0.120000000000001mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-18.6958152801713mm'
-												Y='0.100000000000001mm'
-												Z='6.7mm'
+												Y='0.120000000000001mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-18.6958152801713mm'
-												Y='-0.0999999999999985mm'
-												Z='6.7mm'
+												Y='-0.119999999999999mm'
+												Z='7mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -7435,13 +7435,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.372
-															FcUVMid(-17.7658152801713, 1.47451495458029e-15, 6.7)
+															Area=0.4464
+															FcUVMid(-17.7658152801713, 1.47451495458029e-15, 7)
 															$begin 'FcTolVts'
-																TolVt(-18.6958152801713, -0.0999999999999985, 6.7, 5e-07)
-																TolVt(-16.8358152801713, -0.0999999999999985, 6.7, 5e-07)
-																TolVt(-16.8358152801713, 0.100000000000001, 6.7, 5e-07)
-																TolVt(-18.6958152801713, 0.100000000000001, 6.7, 5e-07)
+																TolVt(-18.6958152801713, -0.119999999999999, 7, 5e-07)
+																TolVt(-16.8358152801713, -0.119999999999999, 7, 5e-07)
+																TolVt(-16.8358152801713, 0.120000000000001, 7, 5e-07)
+																TolVt(-18.6958152801713, 0.120000000000001, 7, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -7487,29 +7487,29 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-18.7958152801713mm'
+												X='-18.8158152801713mm'
 												Y='1.47212529560034e-15mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-18.5958152801713mm'
+												X='-18.5758152801713mm'
 												Y='1.47212529560034e-15mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-18.5958152801713mm'
+												X='-18.5758152801713mm'
 												Y='4mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-18.7958152801713mm'
+												X='-18.8158152801713mm'
 												Y='4mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-18.7958152801713mm'
+												X='-18.8158152801713mm'
 												Y='1.47212529560034e-15mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -7609,13 +7609,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.79999999999999
-															FcUVMid(-18.6958152801713, 2, 6.7)
+															Area=0.960000000000005
+															FcUVMid(-18.6958152801713, 2, 7)
 															$begin 'FcTolVts'
-																TolVt(-18.7958152801713, 1.47212529560034e-15, 6.7, 5e-07)
-																TolVt(-18.5958152801713, 1.47212529560034e-15, 6.7, 5e-07)
-																TolVt(-18.5958152801713, 4, 6.7, 5e-07)
-																TolVt(-18.7958152801713, 4, 6.7, 5e-07)
+																TolVt(-18.8158152801713, 1.47212529560034e-15, 7, 5e-07)
+																TolVt(-18.5758152801713, 1.47212529560034e-15, 7, 5e-07)
+																TolVt(-18.5758152801713, 4, 7, 5e-07)
+																TolVt(-18.8158152801713, 4, 7, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -8368,12 +8368,12 @@ $begin 'AnsoftProject'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-13.0708152801713mm'
-												Y='2.3mm'
+												Y='2.2mm'
 												Z='-0.254mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-14.0708152801713mm'
-												Y='2.3mm'
+												Y='2.2mm'
 												Z='-0.254mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
@@ -8479,13 +8479,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1.93
-															FcUVMid(-13.5708152801713, 1.335, -0.254)
+															Area=1.83
+															FcUVMid(-13.5708152801713, 1.285, -0.254)
 															$begin 'FcTolVts'
 																TolVt(-14.0708152801713, 0.370000000000001, -0.254, 5e-07)
 																TolVt(-13.0708152801713, 0.370000000000001, -0.254, 5e-07)
-																TolVt(-13.0708152801713, 2.3, -0.254, 5e-07)
-																TolVt(-14.0708152801713, 2.3, -0.254, 5e-07)
+																TolVt(-13.0708152801713, 2.2, -0.254, 5e-07)
+																TolVt(-14.0708152801713, 2.2, -0.254, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -8536,12 +8536,12 @@ $begin 'AnsoftProject'
 												Z='-0.254mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-9.72081528017131mm'
+												X='-9.82081528017131mm'
 												Y='1.05mm'
 												Z='-0.254mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-9.72081528017131mm'
+												X='-9.82081528017131mm'
 												Y='2.05mm'
 												Z='-0.254mm'
 											$end 'PLPoint'
@@ -8653,12 +8653,12 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1.93
-															FcUVMid(-10.6858152801713, 1.55, -0.254)
+															Area=1.83
+															FcUVMid(-10.7358152801713, 1.55, -0.254)
 															$begin 'FcTolVts'
 																TolVt(-11.6508152801713, 1.05, -0.254, 5e-07)
-																TolVt(-9.72081528017131, 1.05, -0.254, 5e-07)
-																TolVt(-9.72081528017131, 2.05, -0.254, 5e-07)
+																TolVt(-9.82081528017131, 1.05, -0.254, 5e-07)
+																TolVt(-9.82081528017131, 2.05, -0.254, 5e-07)
 																TolVt(-11.6508152801713, 2.05, -0.254, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
@@ -9687,27 +9687,27 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-0.100000000000002mm'
+												X='-0.120000000000002mm'
 												Y='-16.8358152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.0999999999999978mm'
+												X='0.119999999999998mm'
 												Y='-16.8358152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.0999999999999978mm'
+												X='0.119999999999998mm'
 												Y='-16.8358152801713mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-0.100000000000002mm'
+												X='-0.120000000000002mm'
 												Y='-16.8358152801713mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-0.100000000000002mm'
+												X='-0.120000000000002mm'
 												Y='-16.8358152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
@@ -9809,13 +9809,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.94
-															FcUVMid(-2.21177243187043e-15, -16.8358152801713, 4.35)
+															Area=1.2
+															FcUVMid(-2.20093041014557e-15, -16.8358152801713, 4.5)
 															$begin 'FcTolVts'
-																TolVt(-0.100000000000002, -16.8358152801713, 2, 5e-07)
-																TolVt(0.0999999999999978, -16.8358152801713, 2, 5e-07)
-																TolVt(0.0999999999999978, -16.8358152801713, 6.7, 5e-07)
-																TolVt(-0.100000000000002, -16.8358152801713, 6.7, 5e-07)
+																TolVt(-0.120000000000002, -16.8358152801713, 2, 5e-07)
+																TolVt(0.119999999999998, -16.8358152801713, 2, 5e-07)
+																TolVt(0.119999999999998, -16.8358152801713, 7, 5e-07)
+																TolVt(-0.120000000000002, -16.8358152801713, 7, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -9861,29 +9861,29 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-0.100000000000002mm'
+												X='-0.120000000000002mm'
 												Y='-18.6958152801713mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.0999999999999978mm'
+												X='0.119999999999998mm'
 												Y='-18.6958152801713mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.0999999999999978mm'
+												X='0.119999999999998mm'
 												Y='-16.8358152801713mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-0.100000000000002mm'
+												X='-0.120000000000002mm'
 												Y='-16.8358152801713mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-0.100000000000002mm'
+												X='-0.120000000000002mm'
 												Y='-18.6958152801713mm'
-												Z='6.7mm'
+												Z='7mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -9983,13 +9983,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.372
-															FcUVMid(-2.21177243187043e-15, -17.7658152801713, 6.7)
+															Area=0.4464
+															FcUVMid(-2.20093041014557e-15, -17.7658152801713, 7)
 															$begin 'FcTolVts'
-																TolVt(-0.100000000000002, -18.6958152801713, 6.7, 5e-07)
-																TolVt(0.0999999999999978, -18.6958152801713, 6.7, 5e-07)
-																TolVt(0.0999999999999978, -16.8358152801713, 6.7, 5e-07)
-																TolVt(-0.100000000000002, -16.8358152801713, 6.7, 5e-07)
+																TolVt(-0.120000000000002, -18.6958152801713, 7, 5e-07)
+																TolVt(0.119999999999998, -18.6958152801713, 7, 5e-07)
+																TolVt(0.119999999999998, -16.8358152801713, 7, 5e-07)
+																TolVt(-0.120000000000002, -16.8358152801713, 7, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -10036,28 +10036,28 @@ $begin 'AnsoftProject'
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
 												X='-2.20818794340051e-15mm'
-												Y='-18.7958152801713mm'
-												Z='6.7mm'
+												Y='-18.8158152801713mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='4mm'
-												Y='-18.7958152801713mm'
-												Z='6.7mm'
+												Y='-18.8158152801713mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='4mm'
-												Y='-18.5958152801713mm'
-												Z='6.7mm'
+												Y='-18.5758152801713mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-2.20818794340051e-15mm'
-												Y='-18.5958152801713mm'
-												Z='6.7mm'
+												Y='-18.5758152801713mm'
+												Z='7mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-2.20818794340051e-15mm'
-												Y='-18.7958152801713mm'
-												Z='6.7mm'
+												Y='-18.8158152801713mm'
+												Z='7mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -10157,13 +10157,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.799999999999989
-															FcUVMid(2, -18.6958152801713, 6.7)
+															Area=0.960000000000005
+															FcUVMid(2, -18.6958152801713, 7)
 															$begin 'FcTolVts'
-																TolVt(-2.20818794340051e-15, -18.7958152801713, 6.7, 5e-07)
-																TolVt(4, -18.7958152801713, 6.7, 5e-07)
-																TolVt(4, -18.5958152801713, 6.7, 5e-07)
-																TolVt(-2.08166817117217e-15, -18.5958152801713, 6.7, 5e-07)
+																TolVt(-2.20818794340051e-15, -18.8158152801713, 7, 5e-07)
+																TolVt(4, -18.8158152801713, 7, 5e-07)
+																TolVt(4, -18.5758152801713, 7, 5e-07)
+																TolVt(-2.08166817117217e-15, -18.5758152801713, 7, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -10916,12 +10916,12 @@ $begin 'AnsoftProject'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='2.05mm'
-												Y='-9.72081528017131mm'
+												Y='-9.82081528017131mm'
 												Z='-0.254mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='1.05mm'
-												Y='-9.72081528017131mm'
+												Y='-9.82081528017131mm'
 												Z='-0.254mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
@@ -11027,13 +11027,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1.93
-															FcUVMid(1.55, -10.6858152801713, -0.254)
+															Area=1.83
+															FcUVMid(1.55, -10.7358152801713, -0.254)
 															$begin 'FcTolVts'
 																TolVt(1.05, -11.6508152801713, -0.254, 5e-07)
 																TolVt(2.05, -11.6508152801713, -0.254, 5e-07)
-																TolVt(2.05, -9.72081528017131, -0.254, 5e-07)
-																TolVt(1.05, -9.72081528017131, -0.254, 5e-07)
+																TolVt(2.05, -9.82081528017131, -0.254, 5e-07)
+																TolVt(1.05, -9.82081528017131, -0.254, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -11084,12 +11084,12 @@ $begin 'AnsoftProject'
 												Z='-0.254mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='2.3mm'
+												X='2.2mm'
 												Y='-14.0708152801713mm'
 												Z='-0.254mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='2.3mm'
+												X='2.2mm'
 												Y='-13.0708152801713mm'
 												Z='-0.254mm'
 											$end 'PLPoint'
@@ -11201,12 +11201,12 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1.93
-															FcUVMid(1.335, -13.5708152801713, -0.254)
+															Area=1.83
+															FcUVMid(1.285, -13.5708152801713, -0.254)
 															$begin 'FcTolVts'
 																TolVt(0.369999999999998, -14.0708152801713, -0.254, 5e-07)
-																TolVt(2.3, -14.0708152801713, -0.254, 5e-07)
-																TolVt(2.3, -13.0708152801713, -0.254, 5e-07)
+																TolVt(2.2, -14.0708152801713, -0.254, 5e-07)
+																TolVt(2.2, -13.0708152801713, -0.254, 5e-07)
 																TolVt(0.369999999999998, -13.0708152801713, -0.254, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
@@ -12895,27 +12895,27 @@ $begin 'AnsoftProject'
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
 												X='11.6708152801713mm'
-												Y='-2.8mm'
+												Y='-2.7mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='12.3708152801713mm'
-												Y='-2.8mm'
+												Y='-2.7mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='12.3708152801713mm'
-												Y='2.8mm'
+												Y='2.7mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='11.6708152801713mm'
-												Y='2.8mm'
+												Y='2.7mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='11.6708152801713mm'
-												Y='-2.8mm'
+												Y='-2.7mm'
 												Z='0mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
@@ -13016,13 +13016,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=3.92
+															Area=3.78
 															FcUVMid(12.0208152801713, 0, 0)
 															$begin 'FcTolVts'
-																TolVt(11.6708152801713, -2.8, 0, 5e-07)
-																TolVt(12.3708152801713, -2.8, 0, 5e-07)
-																TolVt(12.3708152801713, 2.8, 0, 5e-07)
-																TolVt(11.6708152801713, 2.8, 0, 5e-07)
+																TolVt(11.6708152801713, -2.7, 0, 5e-07)
+																TolVt(12.3708152801713, -2.7, 0, 5e-07)
+																TolVt(12.3708152801713, 2.7, 0, 5e-07)
+																TolVt(11.6708152801713, 2.7, 0, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -13068,27 +13068,27 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='9.22081528017131mm'
+												X='9.32081528017131mm'
 												Y='-0.35mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='14.8208152801713mm'
+												X='14.7208152801713mm'
 												Y='-0.35mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='14.8208152801713mm'
+												X='14.7208152801713mm'
 												Y='0.35mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='9.22081528017131mm'
+												X='9.32081528017131mm'
 												Y='0.35mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='9.22081528017131mm'
+												X='9.32081528017131mm'
 												Y='-0.35mm'
 												Z='0mm'
 											$end 'PLPoint'
@@ -13190,13 +13190,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=3.92
+															Area=3.78
 															FcUVMid(12.0208152801713, 0, 0)
 															$begin 'FcTolVts'
-																TolVt(9.22081528017131, -0.35, 0, 5e-07)
-																TolVt(14.8208152801713, -0.35, 0, 5e-07)
-																TolVt(14.8208152801713, 0.35, 0, 5e-07)
-																TolVt(9.22081528017131, 0.35, 0, 5e-07)
+																TolVt(9.32081528017131, -0.35, 0, 5e-07)
+																TolVt(14.7208152801713, -0.35, 0, 5e-07)
+																TolVt(14.7208152801713, 0.35, 0, 5e-07)
+																TolVt(9.32081528017131, 0.35, 0, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -13417,27 +13417,27 @@ $begin 'AnsoftProject'
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
 												X='-0.349999999999999mm'
-												Y='9.22081528017131mm'
+												Y='9.32081528017131mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='0.350000000000001mm'
-												Y='9.22081528017131mm'
+												Y='9.32081528017131mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='0.350000000000001mm'
-												Y='14.8208152801713mm'
+												Y='14.7208152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-0.349999999999999mm'
-												Y='14.8208152801713mm'
+												Y='14.7208152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-0.349999999999999mm'
-												Y='9.22081528017131mm'
+												Y='9.32081528017131mm'
 												Z='0mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
@@ -13538,13 +13538,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=3.92
+															Area=3.78
 															FcUVMid(7.15573433840433e-16, 12.0208152801713, 0)
 															$begin 'FcTolVts'
-																TolVt(-0.349999999999999, 9.22081528017131, 0, 5e-07)
-																TolVt(0.350000000000001, 9.22081528017131, 0, 5e-07)
-																TolVt(0.350000000000001, 14.8208152801713, 0, 5e-07)
-																TolVt(-0.349999999999999, 14.8208152801713, 0, 5e-07)
+																TolVt(-0.349999999999999, 9.32081528017131, 0, 5e-07)
+																TolVt(0.350000000000001, 9.32081528017131, 0, 5e-07)
+																TolVt(0.350000000000001, 14.7208152801713, 0, 5e-07)
+																TolVt(-0.349999999999999, 14.7208152801713, 0, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -13590,27 +13590,27 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-2.8mm'
+												X='-2.7mm'
 												Y='11.6708152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='2.8mm'
+												X='2.7mm'
 												Y='11.6708152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='2.8mm'
+												X='2.7mm'
 												Y='12.3708152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-2.8mm'
+												X='-2.7mm'
 												Y='12.3708152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-2.8mm'
+												X='-2.7mm'
 												Y='11.6708152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
@@ -13712,13 +13712,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=3.92
+															Area=3.78
 															FcUVMid(8.67361737988404e-16, 12.0208152801713, 0)
 															$begin 'FcTolVts'
-																TolVt(-2.8, 11.6708152801713, 0, 5e-07)
-																TolVt(2.8, 11.6708152801713, 0, 5e-07)
-																TolVt(2.8, 12.3708152801713, 0, 5e-07)
-																TolVt(-2.8, 12.3708152801713, 0, 5e-07)
+																TolVt(-2.7, 11.6708152801713, 0, 5e-07)
+																TolVt(2.7, 11.6708152801713, 0, 5e-07)
+																TolVt(2.7, 12.3708152801713, 0, 5e-07)
+																TolVt(-2.7, 12.3708152801713, 0, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -13939,27 +13939,27 @@ $begin 'AnsoftProject'
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
 												X='-12.3708152801713mm'
-												Y='-2.8mm'
+												Y='-2.7mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-11.6708152801713mm'
-												Y='-2.8mm'
+												Y='-2.7mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-11.6708152801713mm'
-												Y='2.8mm'
+												Y='2.7mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-12.3708152801713mm'
-												Y='2.8mm'
+												Y='2.7mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-12.3708152801713mm'
-												Y='-2.8mm'
+												Y='-2.7mm'
 												Z='0mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
@@ -14060,13 +14060,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=3.92
-															FcUVMid(-12.0208152801713, 1.21430643318376e-15, 0)
+															Area=3.78
+															FcUVMid(-12.0208152801713, 1.38777878078145e-15, 0)
 															$begin 'FcTolVts'
-																TolVt(-12.3708152801713, -2.8, 0, 5e-07)
-																TolVt(-11.6708152801713, -2.8, 0, 5e-07)
-																TolVt(-11.6708152801713, 2.8, 0, 5e-07)
-																TolVt(-12.3708152801713, 2.8, 0, 5e-07)
+																TolVt(-12.3708152801713, -2.7, 0, 5e-07)
+																TolVt(-11.6708152801713, -2.7, 0, 5e-07)
+																TolVt(-11.6708152801713, 2.7, 0, 5e-07)
+																TolVt(-12.3708152801713, 2.7, 0, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -14112,27 +14112,27 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-14.8208152801713mm'
+												X='-14.7208152801713mm'
 												Y='-0.349999999999998mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-9.22081528017131mm'
+												X='-9.32081528017131mm'
 												Y='-0.349999999999998mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-9.22081528017131mm'
+												X='-9.32081528017131mm'
 												Y='0.350000000000001mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-14.8208152801713mm'
+												X='-14.7208152801713mm'
 												Y='0.350000000000001mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-14.8208152801713mm'
+												X='-14.7208152801713mm'
 												Y='-0.349999999999998mm'
 												Z='0mm'
 											$end 'PLPoint'
@@ -14234,13 +14234,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=3.92
+															Area=3.78
 															FcUVMid(-12.0208152801713, 1.49619899803e-15, 0)
 															$begin 'FcTolVts'
-																TolVt(-14.8208152801713, -0.349999999999998, 0, 5e-07)
-																TolVt(-9.22081528017131, -0.349999999999998, 0, 5e-07)
-																TolVt(-9.22081528017131, 0.350000000000001, 0, 5e-07)
-																TolVt(-14.8208152801713, 0.350000000000001, 0, 5e-07)
+																TolVt(-14.7208152801713, -0.349999999999998, 0, 5e-07)
+																TolVt(-9.32081528017131, -0.349999999999998, 0, 5e-07)
+																TolVt(-9.32081528017131, 0.350000000000001, 0, 5e-07)
+																TolVt(-14.7208152801713, 0.350000000000001, 0, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -14461,27 +14461,27 @@ $begin 'AnsoftProject'
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
 												X='-0.350000000000002mm'
-												Y='-14.8208152801713mm'
+												Y='-14.7208152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='0.349999999999998mm'
-												Y='-14.8208152801713mm'
+												Y='-14.7208152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='0.349999999999998mm'
-												Y='-9.22081528017131mm'
+												Y='-9.32081528017131mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-0.350000000000002mm'
-												Y='-9.22081528017131mm'
+												Y='-9.32081528017131mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-0.350000000000002mm'
-												Y='-14.8208152801713mm'
+												Y='-14.7208152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
@@ -14582,13 +14582,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=3.92
+															Area=3.78
 															FcUVMid(-2.23345647532014e-15, -12.0208152801713, 0)
 															$begin 'FcTolVts'
-																TolVt(-0.350000000000002, -14.8208152801713, 0, 5e-07)
-																TolVt(0.349999999999998, -14.8208152801713, 0, 5e-07)
-																TolVt(0.349999999999998, -9.22081528017131, 0, 5e-07)
-																TolVt(-0.350000000000002, -9.22081528017131, 0, 5e-07)
+																TolVt(-0.350000000000002, -14.7208152801713, 0, 5e-07)
+																TolVt(0.349999999999998, -14.7208152801713, 0, 5e-07)
+																TolVt(0.349999999999998, -9.32081528017131, 0, 5e-07)
+																TolVt(-0.350000000000002, -9.32081528017131, 0, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -14634,27 +14634,27 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-2.8mm'
+												X='-2.7mm'
 												Y='-12.3708152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='2.8mm'
+												X='2.7mm'
 												Y='-12.3708152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='2.8mm'
+												X='2.7mm'
 												Y='-11.6708152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-2.8mm'
+												X='-2.7mm'
 												Y='-11.6708152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-2.8mm'
+												X='-2.7mm'
 												Y='-12.3708152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
@@ -14756,13 +14756,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=3.92
+															Area=3.78
 															FcUVMid(-2.25514051876985e-15, -12.0208152801713, 0)
 															$begin 'FcTolVts'
-																TolVt(-2.8, -12.3708152801713, 0, 5e-07)
-																TolVt(2.8, -12.3708152801713, 0, 5e-07)
-																TolVt(2.8, -11.6708152801713, 0, 5e-07)
-																TolVt(-2.8, -11.6708152801713, 0, 5e-07)
+																TolVt(-2.7, -12.3708152801713, 0, 5e-07)
+																TolVt(2.7, -12.3708152801713, 0, 5e-07)
+																TolVt(2.7, -11.6708152801713, 0, 5e-07)
+																TolVt(-2.7, -11.6708152801713, 0, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -16771,7 +16771,7 @@ $begin 'AnsoftProject'
 				MoveBackwards=false
 			$end 'NearFieldSetups'
 			RadFieldComputationVersion=1.8
-			RadfieldHeaderFile='RAD03BF13768177823952312.tmp'
+			RadfieldHeaderFile='RAD75C113872177823842612.tmp'
 			RadPowerMethod=0
 		$end 'RadField'
 		$begin 'SolutionManager'
@@ -16888,22 +16888,22 @@ $begin 'AnsoftProject'
 					ID=185
 					Name='Sweep_CH9'
 					$begin 'SimDataExtractor'
-						SimValue('S(P4B:1,P4B:1)', 2, 90, false, SimValueID=187, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P3B:1,P3B:1)', 2, 90, false, SimValueID=188, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P1B:1,P1B:1)', 2, 90, false, SimValueID=189, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P2B:1,P2B:1)', 2, 90, false, SimValueID=190, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P4B:1,P3B:1)', 2, 90, false, SimValueID=191, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P4B:1,P1B:1)', 2, 90, false, SimValueID=192, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P4B:1,P2B:1)', 2, 90, false, SimValueID=193, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P3B:1,P4B:1)', 2, 90, false, SimValueID=194, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P3B:1,P1B:1)', 2, 90, false, SimValueID=195, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P3B:1,P2B:1)', 2, 90, false, SimValueID=196, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P1B:1,P4B:1)', 2, 90, false, SimValueID=197, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P1B:1,P3B:1)', 2, 90, false, SimValueID=198, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P1B:1,P2B:1)', 2, 90, false, SimValueID=199, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P2B:1,P4B:1)', 2, 90, false, SimValueID=200, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P2B:1,P3B:1)', 2, 90, false, SimValueID=201, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('S(P2B:1,P1B:1)', 2, 90, false, SimValueID=202, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P2B:1,P2B:1)', 2, 90, false, SimValueID=187, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P1B:1,P1B:1)', 2, 90, false, SimValueID=188, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P4B:1,P4B:1)', 2, 90, false, SimValueID=189, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P3B:1,P3B:1)', 2, 90, false, SimValueID=190, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P2B:1,P1B:1)', 2, 90, false, SimValueID=191, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P2B:1,P4B:1)', 2, 90, false, SimValueID=192, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P2B:1,P3B:1)', 2, 90, false, SimValueID=193, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P1B:1,P2B:1)', 2, 90, false, SimValueID=194, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P1B:1,P4B:1)', 2, 90, false, SimValueID=195, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P1B:1,P3B:1)', 2, 90, false, SimValueID=196, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P4B:1,P2B:1)', 2, 90, false, SimValueID=197, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P4B:1,P1B:1)', 2, 90, false, SimValueID=198, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P4B:1,P3B:1)', 2, 90, false, SimValueID=199, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P3B:1,P2B:1)', 2, 90, false, SimValueID=200, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P3B:1,P1B:1)', 2, 90, false, SimValueID=201, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('S(P3B:1,P4B:1)', 2, 90, false, SimValueID=202, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 						SimValue('GainTotal', 1, 90, true, SimValueID=203, 0, 0, 2, 0, false, false, 7, 1, 0, 1, 1, '', 0, 0, 'SourceContext', false, '0')
 						SimValue('AxialRatioValue', 2, 90, false, SimValueID=204, 0, 0, 2, 0, false, false, 7, 1, 0, 1, 1, '', 0, 0, 'SourceContext', false, '0')
 						$begin 'Sweeps'
@@ -16986,7 +16986,7 @@ $begin 'AnsoftProject'
 		Notes=$begin_cdata$ $end_cdata$
 		$begin 'AnimationSetups'
 		$end 'AnimationSetups'
-		CacheHeaderFile='HDR03BF13768177823952313.tmp'
+		CacheHeaderFile='HDR75C113872177823842613.tmp'
 	$end 'HFSSModel'
 	$begin 'DataInstances'
 		DesignEditor='TopLevel'
@@ -17027,189 +17027,6 @@ $begin 'AnsoftProject'
 									$end 'DesignSolnDefn'
 									ID=0
 									VersionID=16
-									Name='dB(S(P4B:1,P4B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P4B:1,P4B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=185
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=1
-									VersionID=17
-									Name='dB(S(P3B:1,P3B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P3B:1,P3B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=185
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=2
-									VersionID=18
-									Name='dB(S(P1B:1,P1B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P1B:1,P1B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=185
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=3
-									VersionID=19
 									Name='dB(S(P2B:1,P2B:1))'
 									TieNameToExpr=true
 									$begin 'Components'
@@ -17269,16 +17086,199 @@ $begin 'AnsoftProject'
 											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
 										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
 									$end 'DesignSolnDefn'
-									ID=4
-									VersionID=20
-									Name='dB(S(P4B:1,P3B:1))'
+									ID=1
+									VersionID=17
+									Name='dB(S(P1B:1,P1B:1))'
 									TieNameToExpr=true
 									$begin 'Components'
 										$begin 'TraceComponentDefinition'
 											Expr='Freq'
 										$end 'TraceComponentDefinition'
 										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P4B:1,P3B:1))'
+											Expr='dB(S(P1B:1,P1B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=185
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=2
+									VersionID=18
+									Name='dB(S(P4B:1,P4B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P4B:1,P4B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=185
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=3
+									VersionID=19
+									Name='dB(S(P3B:1,P3B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P3B:1,P3B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=185
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=4
+									VersionID=20
+									Name='dB(S(P2B:1,P1B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P2B:1,P1B:1))'
 										$end 'TraceComponentDefinition'
 									$end 'Components'
 									$begin 'ExtendedTraceInfo'
@@ -17332,494 +17332,6 @@ $begin 'AnsoftProject'
 									$end 'DesignSolnDefn'
 									ID=5
 									VersionID=21
-									Name='dB(S(P4B:1,P1B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P4B:1,P1B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=185
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=6
-									VersionID=22
-									Name='dB(S(P4B:1,P2B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P4B:1,P2B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=185
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=7
-									VersionID=23
-									Name='dB(S(P3B:1,P4B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P3B:1,P4B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=185
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=8
-									VersionID=24
-									Name='dB(S(P3B:1,P1B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P3B:1,P1B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=185
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=9
-									VersionID=25
-									Name='dB(S(P3B:1,P2B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P3B:1,P2B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=185
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=10
-									VersionID=26
-									Name='dB(S(P1B:1,P4B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P1B:1,P4B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=185
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=11
-									VersionID=27
-									Name='dB(S(P1B:1,P3B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P1B:1,P3B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=185
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=12
-									VersionID=28
-									Name='dB(S(P1B:1,P2B:1))'
-									TieNameToExpr=true
-									$begin 'Components'
-										$begin 'TraceComponentDefinition'
-											Expr='Freq'
-										$end 'TraceComponentDefinition'
-										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P1B:1,P2B:1))'
-										$end 'TraceComponentDefinition'
-									$end 'Components'
-									$begin 'ExtendedTraceInfo'
-										NumPoints=0
-										TraceType=0
-										Offset=0
-										XLabel=''
-										SamplingPeriod='0'
-										SamplingPeriodOffset='0'
-										AutoDelay=true
-										DelayValue='0ps'
-										AutoCompCrossAmplitude=true
-										CrossingAmplitude='0mV'
-										YAxis=1
-										AutoCompEyeMeasurementPoint=true
-										EyeMeasurementPoint='0ps'
-										EyePamLow()
-										EyePamVRef()
-										EyePamHigh()
-										EyePamNames()
-										EyePamStrictVRef=false
-									$end 'ExtendedTraceInfo'
-									$begin 'TraceFamiliesDisplayDefinition'
-										DisplayFamiliesType='DisplayAll'
-									$end 'TraceFamiliesDisplayDefinition'
-									$begin 'PointsetDefinition'
-										$begin 'SubsweepDefParamsContainer'
-											$begin '0'
-												SubsweepType='Regular'
-												SubsweepChoiceType='All'
-												SweepVariableName='Freq'
-												AllowSelecteValues=true
-												SweepHasConsistentValues=true
-											$end '0'
-										$end 'SubsweepDefParamsContainer'
-										FamilyBlock()
-									$end 'PointsetDefinition'
-									DesignInstanceID=1
-								$end 'TraceDef'
-								$begin 'TraceDef'
-									TraceDefinitionType='TraceDefinition'
-									$begin 'DesignSolnDefn'
-										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-											DesignID=0
-											SolutionID=185
-											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-												ReportType=0
-												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
-										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
-									$end 'DesignSolnDefn'
-									ID=13
-									VersionID=29
 									Name='dB(S(P2B:1,P4B:1))'
 									TieNameToExpr=true
 									$begin 'Components'
@@ -17879,8 +17391,8 @@ $begin 'AnsoftProject'
 											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
 										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
 									$end 'DesignSolnDefn'
-									ID=14
-									VersionID=30
+									ID=6
+									VersionID=22
 									Name='dB(S(P2B:1,P3B:1))'
 									TieNameToExpr=true
 									$begin 'Components'
@@ -17940,16 +17452,504 @@ $begin 'AnsoftProject'
 											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
 										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
 									$end 'DesignSolnDefn'
-									ID=15
-									VersionID=31
-									Name='dB(S(P2B:1,P1B:1))'
+									ID=7
+									VersionID=23
+									Name='dB(S(P1B:1,P2B:1))'
 									TieNameToExpr=true
 									$begin 'Components'
 										$begin 'TraceComponentDefinition'
 											Expr='Freq'
 										$end 'TraceComponentDefinition'
 										$begin 'TraceComponentDefinition'
-											Expr='dB(S(P2B:1,P1B:1))'
+											Expr='dB(S(P1B:1,P2B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=185
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=8
+									VersionID=24
+									Name='dB(S(P1B:1,P4B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P1B:1,P4B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=185
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=9
+									VersionID=25
+									Name='dB(S(P1B:1,P3B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P1B:1,P3B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=185
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=10
+									VersionID=26
+									Name='dB(S(P4B:1,P2B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P4B:1,P2B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=185
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=11
+									VersionID=27
+									Name='dB(S(P4B:1,P1B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P4B:1,P1B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=185
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=12
+									VersionID=28
+									Name='dB(S(P4B:1,P3B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P4B:1,P3B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=185
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=13
+									VersionID=29
+									Name='dB(S(P3B:1,P2B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P3B:1,P2B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=185
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=14
+									VersionID=30
+									Name='dB(S(P3B:1,P1B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P3B:1,P1B:1))'
+										$end 'TraceComponentDefinition'
+									$end 'Components'
+									$begin 'ExtendedTraceInfo'
+										NumPoints=0
+										TraceType=0
+										Offset=0
+										XLabel=''
+										SamplingPeriod='0'
+										SamplingPeriodOffset='0'
+										AutoDelay=true
+										DelayValue='0ps'
+										AutoCompCrossAmplitude=true
+										CrossingAmplitude='0mV'
+										YAxis=1
+										AutoCompEyeMeasurementPoint=true
+										EyeMeasurementPoint='0ps'
+										EyePamLow()
+										EyePamVRef()
+										EyePamHigh()
+										EyePamNames()
+										EyePamStrictVRef=false
+									$end 'ExtendedTraceInfo'
+									$begin 'TraceFamiliesDisplayDefinition'
+										DisplayFamiliesType='DisplayAll'
+									$end 'TraceFamiliesDisplayDefinition'
+									$begin 'PointsetDefinition'
+										$begin 'SubsweepDefParamsContainer'
+											$begin '0'
+												SubsweepType='Regular'
+												SubsweepChoiceType='All'
+												SweepVariableName='Freq'
+												AllowSelecteValues=true
+												SweepHasConsistentValues=true
+											$end '0'
+										$end 'SubsweepDefParamsContainer'
+										FamilyBlock()
+									$end 'PointsetDefinition'
+									DesignInstanceID=1
+								$end 'TraceDef'
+								$begin 'TraceDef'
+									TraceDefinitionType='TraceDefinition'
+									$begin 'DesignSolnDefn'
+										$begin 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+											DesignID=0
+											SolutionID=185
+											$begin 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+												ReportType=0
+												SimValueContext(3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+											$end 'REPORT_TYPE_SIM_VALUE_CONTEXT'
+										$end 'DESIGN_SOLUTION_SIM_VALUE_CONTEXT'
+									$end 'DesignSolnDefn'
+									ID=15
+									VersionID=31
+									Name='dB(S(P3B:1,P4B:1))'
+									TieNameToExpr=true
+									$begin 'Components'
+										$begin 'TraceComponentDefinition'
+											Expr='Freq'
+										$end 'TraceComponentDefinition'
+										$begin 'TraceComponentDefinition'
+											Expr='dB(S(P3B:1,P4B:1))'
 										$end 'TraceComponentDefinition'
 									$end 'Components'
 									$begin 'ExtendedTraceInfo'
@@ -20032,7 +20032,7 @@ $begin 'AnsoftProject'
 															X_spc=100000000
 															X_fwd=2
 															X_fpr=1
-															Y1_spc=5
+															Y1_spc=10
 															Y1_fwd=2
 															Y1_fpr=0
 														$end 'CartesianCurveGroupLayoutAttribute'
