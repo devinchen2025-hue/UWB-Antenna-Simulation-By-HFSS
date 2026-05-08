@@ -128,6 +128,20 @@ BASE_PARAMS = {
     "slot_coupled_edge_wall_height_mm": 2.0,
     "slot_coupled_edge_wall_width_mm": 0.50,
     "slot_coupled_edge_wall_offset_mm": 0.0,
+    "slot_coupled_board_edge_ifa_enabled": 0.0,
+    "slot_coupled_board_edge_ifa_length_mm": 4.6,
+    "slot_coupled_board_edge_ifa_width_mm": 0.35,
+    "slot_coupled_board_edge_ifa_height_mm": 3.8,
+    "slot_coupled_board_edge_ifa_gap_mm": 0.15,
+    "slot_coupled_board_edge_ifa_offset_mm": 0.0,
+    "slot_coupled_folded_edge_arm_enabled": 0.0,
+    "slot_coupled_folded_edge_arm_radial_length_mm": 1.8,
+    "slot_coupled_folded_edge_arm_tangent_length_mm": 5.5,
+    "slot_coupled_folded_edge_arm_width_mm": 0.30,
+    "slot_coupled_folded_edge_arm_height_mm": 5.2,
+    "slot_coupled_folded_edge_arm_offset_mm": 0.0,
+    "slot_coupled_folded_edge_arm_gap_mm": 0.0,
+    "slot_coupled_folded_edge_arm_turn_sign": 1.0,
     "slot_coupled_ab_cancel_enabled": 0.0,
     "slot_coupled_ab_cancel_coupling_length_mm": 1.60,
     "slot_coupled_ab_cancel_trace_width_mm": 0.12,
@@ -926,6 +940,78 @@ def add_slotcoupled_edge_radiators(hfss: Hfss, tag: str, center: tuple[float, fl
         wall = polygon_sheet(hfss, f"{tag}_slotcoupled_radial_edge_wall", pts, "copper")
         metals.append(wall.name)
 
+    if params.get("slot_coupled_board_edge_ifa_enabled", 0.0) >= 0.5:
+        length = params.get("slot_coupled_board_edge_ifa_length_mm", 4.6)
+        width = params.get("slot_coupled_board_edge_ifa_width_mm", 0.35)
+        height = params.get("slot_coupled_board_edge_ifa_height_mm", 3.8)
+        gap = params.get("slot_coupled_board_edge_ifa_gap_mm", 0.15)
+        offset = params.get("slot_coupled_board_edge_ifa_offset_mm", 0.0)
+        top_z = h + height
+        start = side * (edge + gap)
+        stop = side * (edge + gap + length)
+        span0, span1 = sorted([start, stop])
+        cross0, cross1 = offset - width / 2.0, offset + width / 2.0
+        if axis == "u":
+            top_pts = rectangle_points(*center, angle_deg, span0, span1, cross0, cross1, top_z)
+            short_pts = [
+                local_to_global(*center, angle_deg, start, cross0, 0.0),
+                local_to_global(*center, angle_deg, start, cross1, 0.0),
+                local_to_global(*center, angle_deg, start, cross1, top_z),
+                local_to_global(*center, angle_deg, start, cross0, top_z),
+            ]
+        else:
+            top_pts = rectangle_points(*center, angle_deg, cross0, cross1, span0, span1, top_z)
+            short_pts = [
+                local_to_global(*center, angle_deg, cross0, start, 0.0),
+                local_to_global(*center, angle_deg, cross1, start, 0.0),
+                local_to_global(*center, angle_deg, cross1, start, top_z),
+                local_to_global(*center, angle_deg, cross0, start, top_z),
+            ]
+        top_arm = polygon_sheet(hfss, f"{tag}_slotcoupled_board_edge_ifa_top_arm", top_pts, "copper")
+        short_wall = polygon_sheet(hfss, f"{tag}_slotcoupled_board_edge_ifa_short_wall", short_pts, "copper")
+        metals.extend([top_arm.name, short_wall.name])
+
+    if params.get("slot_coupled_folded_edge_arm_enabled", 0.0) >= 0.5:
+        radial_len = params.get("slot_coupled_folded_edge_arm_radial_length_mm", 1.8)
+        tangent_len = params.get("slot_coupled_folded_edge_arm_tangent_length_mm", 5.5)
+        width = params.get("slot_coupled_folded_edge_arm_width_mm", 0.30)
+        height = params.get("slot_coupled_folded_edge_arm_height_mm", 5.2)
+        offset = params.get("slot_coupled_folded_edge_arm_offset_mm", 0.0)
+        gap = params.get("slot_coupled_folded_edge_arm_gap_mm", 0.0)
+        turn_sign = 1.0 if params.get("slot_coupled_folded_edge_arm_turn_sign", 1.0) >= 0.0 else -1.0
+        top_z = h + height
+        overlap = 0.06 if gap <= 1e-9 else 0.0
+        start = side * (edge + gap - overlap)
+        elbow = side * (edge + gap + radial_len)
+        radial0, radial1 = sorted([start, elbow])
+        cross0, cross1 = offset - width / 2.0, offset + width / 2.0
+        tangent0 = offset
+        tangent1 = offset + turn_sign * tangent_len
+        tan0, tan1 = sorted([tangent0, tangent1])
+        elbow0, elbow1 = sorted([elbow - side * width / 2.0, elbow + side * width / 2.0])
+        if axis == "u":
+            riser_pts = [
+                local_to_global(*center, angle_deg, start, cross0, h),
+                local_to_global(*center, angle_deg, start, cross1, h),
+                local_to_global(*center, angle_deg, start, cross1, top_z),
+                local_to_global(*center, angle_deg, start, cross0, top_z),
+            ]
+            radial_pts = rectangle_points(*center, angle_deg, radial0, radial1, cross0, cross1, top_z)
+            tangent_pts = rectangle_points(*center, angle_deg, elbow0, elbow1, tan0, tan1, top_z)
+        else:
+            riser_pts = [
+                local_to_global(*center, angle_deg, cross0, start, h),
+                local_to_global(*center, angle_deg, cross1, start, h),
+                local_to_global(*center, angle_deg, cross1, start, top_z),
+                local_to_global(*center, angle_deg, cross0, start, top_z),
+            ]
+            radial_pts = rectangle_points(*center, angle_deg, cross0, cross1, radial0, radial1, top_z)
+            tangent_pts = rectangle_points(*center, angle_deg, tan0, tan1, elbow0, elbow1, top_z)
+        riser = polygon_sheet(hfss, f"{tag}_slotcoupled_folded_edge_riser", riser_pts, "copper")
+        radial_arm = polygon_sheet(hfss, f"{tag}_slotcoupled_folded_edge_radial_arm", radial_pts, "copper")
+        tangent_arm = polygon_sheet(hfss, f"{tag}_slotcoupled_folded_edge_tangent_arm", tangent_pts, "copper")
+        metals.extend([riser.name, radial_arm.name, tangent_arm.name])
+
     return metals
 
 
@@ -1449,6 +1535,16 @@ def validate_params(params: dict) -> None:
             top_height,
             params["substrate_h_mm"] + params.get("slot_coupled_edge_wall_height_mm", 2.0) + params["copper_t_mm"],
         )
+    if params.get("slot_coupled_board_edge_ifa_enabled", 0.0) >= 0.5:
+        top_height = max(
+            top_height,
+            params["substrate_h_mm"] + params.get("slot_coupled_board_edge_ifa_height_mm", 3.8) + params["copper_t_mm"],
+        )
+    if params.get("slot_coupled_folded_edge_arm_enabled", 0.0) >= 0.5:
+        top_height = max(
+            top_height,
+            params["substrate_h_mm"] + params.get("slot_coupled_folded_edge_arm_height_mm", 5.2) + params["copper_t_mm"],
+        )
     if top_height > params["total_height_limit_mm"]:
         raise ValueError(f"Total height {top_height:.3f} mm exceeds {params['total_height_limit_mm']:.3f} mm")
     if params["ground_radius_mm"] > params["board_diameter_mm"] / 2.0:
@@ -1513,6 +1609,19 @@ def validate_params(params: dict) -> None:
         edge_wall_h = params.get("slot_coupled_edge_wall_height_mm", 2.0)
         edge_wall_w = params.get("slot_coupled_edge_wall_width_mm", 0.50)
         edge_wall_offset = params.get("slot_coupled_edge_wall_offset_mm", 0.0)
+        board_ifa_enabled = params.get("slot_coupled_board_edge_ifa_enabled", 0.0) >= 0.5
+        board_ifa_len = params.get("slot_coupled_board_edge_ifa_length_mm", 4.6)
+        board_ifa_w = params.get("slot_coupled_board_edge_ifa_width_mm", 0.35)
+        board_ifa_h = params.get("slot_coupled_board_edge_ifa_height_mm", 3.8)
+        board_ifa_gap = params.get("slot_coupled_board_edge_ifa_gap_mm", 0.15)
+        board_ifa_offset = params.get("slot_coupled_board_edge_ifa_offset_mm", 0.0)
+        folded_edge_enabled = params.get("slot_coupled_folded_edge_arm_enabled", 0.0) >= 0.5
+        folded_radial_len = params.get("slot_coupled_folded_edge_arm_radial_length_mm", 1.8)
+        folded_tangent_len = params.get("slot_coupled_folded_edge_arm_tangent_length_mm", 5.5)
+        folded_w = params.get("slot_coupled_folded_edge_arm_width_mm", 0.30)
+        folded_h = params.get("slot_coupled_folded_edge_arm_height_mm", 5.2)
+        folded_offset = params.get("slot_coupled_folded_edge_arm_offset_mm", 0.0)
+        folded_gap = params.get("slot_coupled_folded_edge_arm_gap_mm", 0.0)
         ab_cancel_enabled = params.get("slot_coupled_ab_cancel_enabled", 0.0) >= 0.5
         ab_cancel_l = params.get("slot_coupled_ab_cancel_coupling_length_mm", 1.60)
         ab_cancel_w = params.get("slot_coupled_ab_cancel_trace_width_mm", 0.12)
@@ -1618,6 +1727,34 @@ def validate_params(params: dict) -> None:
                 raise ValueError("Dual-polarized edge wall exceeds the total height limit")
             if abs(edge_wall_offset) + edge_wall_w / 2.0 > half_patch - 0.35:
                 raise ValueError("Dual-polarized edge wall must attach within the patch edge span")
+        if board_ifa_enabled:
+            if board_ifa_len <= 0.50 or board_ifa_w <= 0.06 or board_ifa_w > 0.90:
+                raise ValueError("Board-edge IFA dimensions must be positive and manufacturable")
+            if board_ifa_h <= 0.50:
+                raise ValueError("Board-edge IFA height must be positive")
+            if board_ifa_gap < 0.05:
+                raise ValueError("Board-edge IFA needs an isolation gap from the patch edge")
+            if params["substrate_h_mm"] + board_ifa_h + params["copper_t_mm"] > params["total_height_limit_mm"]:
+                raise ValueError("Board-edge IFA exceeds the total height limit")
+            if abs(board_ifa_offset) + board_ifa_w / 2.0 > half_patch - 0.35:
+                raise ValueError("Board-edge IFA must stay near the patch edge span")
+            if center_radius + half_patch + board_ifa_gap + board_ifa_len > board_radius - 0.20:
+                raise ValueError("Board-edge IFA must stay inside the circular board outline")
+        if folded_edge_enabled:
+            if folded_radial_len <= 0.30 or folded_tangent_len <= 0.50 or folded_w <= 0.06 or folded_w > 0.90:
+                raise ValueError("Folded edge arm dimensions must be positive and manufacturable")
+            if folded_h <= 0.50:
+                raise ValueError("Folded edge arm height must be positive")
+            if folded_gap < 0.0:
+                raise ValueError("Folded edge arm gap must be non-negative")
+            if params["substrate_h_mm"] + folded_h + params["copper_t_mm"] > params["total_height_limit_mm"]:
+                raise ValueError("Folded edge arm exceeds the total height limit")
+            if abs(folded_offset) + folded_w / 2.0 > half_patch - 0.35:
+                raise ValueError("Folded edge arm riser must attach within the patch edge span")
+            if abs(folded_offset) + folded_tangent_len + folded_w / 2.0 > half_patch - 0.20:
+                raise ValueError("Folded edge arm tangent section must stay inside the board-edge span")
+            if center_radius + half_patch + folded_gap + folded_radial_len > board_radius - 0.20:
+                raise ValueError("Folded edge arm radial section must stay inside the circular board outline")
         if ab_cancel_enabled:
             if ab_cancel_l <= 0.40 or ab_cancel_w <= 0.03 or ab_cancel_w > 0.30:
                 raise ValueError("Dual-polarized A/B cancellation trace dimensions must be manufacturable")
@@ -1920,6 +2057,16 @@ def build_project(
             total_height,
             params["substrate_h_mm"] + params.get("slot_coupled_edge_wall_height_mm", 2.0) + params["copper_t_mm"],
         )
+    if params.get("slot_coupled_board_edge_ifa_enabled", 0.0) >= 0.5:
+        total_height = max(
+            total_height,
+            params["substrate_h_mm"] + params.get("slot_coupled_board_edge_ifa_height_mm", 3.8) + params["copper_t_mm"],
+        )
+    if params.get("slot_coupled_folded_edge_arm_enabled", 0.0) >= 0.5:
+        total_height = max(
+            total_height,
+            params["substrate_h_mm"] + params.get("slot_coupled_folded_edge_arm_height_mm", 5.2) + params["copper_t_mm"],
+        )
     notes = {
         "project": str(paths["project"]),
         "design": hfss.design_name,
@@ -1967,6 +2114,10 @@ def source_guidance(topology: str) -> list[str]:
             guidance.append("A stacked parasitic patch is enabled above each dual-polarized driven patch to decouple feed layout from the radiating aperture.")
         if params.get("dualpol_slotcoupled_enabled", 0.0) >= 0.5:
             guidance.append("A/B ports use underside microstrip feedlines coupled through orthogonal ground apertures; tune aperture windows and feed substrate thickness together.")
+        if params.get("slot_coupled_board_edge_ifa_enabled", 0.0) >= 0.5:
+            guidance.append("A parasitic board-edge IFA is enabled to add a dedicated low-elevation current path near the PCB rim.")
+        if params.get("slot_coupled_folded_edge_arm_enabled", 0.0) >= 0.5:
+            guidance.append("A raised folded edge arm is enabled; the candidate intentionally spends height to improve horizontal-plane coverage.")
         if params.get("rf_switch_equiv_enabled", 0.0) >= 0.5:
             guidance.append("RF-switch working-state modeling is enabled: the selected polarization remains a lumped port and the inactive polarization is replaced by a parallel off-state R/C/L load.")
         return guidance
