@@ -1788,7 +1788,7 @@ def build_project(
         "pcb_constraint": "Circular PCB, diameter 44 mm.",
         "height_constraint": f"PCB + copper/topology height {total_height:.3f} mm <= {params['total_height_limit_mm']} mm.",
         "cp_target": "Dual-polarized topology treats axial ratio as a derived digital-combining reference, not the primary target." if topology == "dualpol" else "AxialRatioValue <= 3 dB in the selected FOV and CH9 frequencies.",
-        "fov_target": "Theta 0-360 deg, Phi 45-90 deg, GainTotal min >= -5 dBi.",
+        "fov_target": "HFSS spherical coordinates: Theta 45-90 deg and Phi 0-360 deg, GainTotal min >= -5 dBi.",
         "source_guidance": source_guidance(topology),
         "parameters": params,
     }

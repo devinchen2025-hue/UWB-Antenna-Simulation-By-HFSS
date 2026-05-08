@@ -1,5 +1,5 @@
 $begin 'AnsoftProject'
-	Created='Thu May  7 17:41:35 2026'
+	Created='Thu May  7 17:37:32 2026'
 	Product='ElectronicsDesktop'
 	FileOwnedByWorkbench=false
 	$begin 'Desktop'
@@ -145,7 +145,7 @@ $begin 'AnsoftProject'
 				diffusivity='0.8'
 				molecular_mass='0'
 				viscosity='0'
-				ModTime=1778146903
+				ModTime=1778146660
 				Library=''
 				LibLocation='Project'
 				ModSinceLib=true
@@ -196,7 +196,7 @@ $begin 'AnsoftProject'
 		$end 'Scripts'
 		$begin 'Symbols'
 			$begin 'Array4_Diamond_D44_DualPolarized_XY'
-				ModTime=1778146895
+				ModTime=1778146653
 				Library=''
 				ModSinceLib=false
 				LibLocation='Project'
@@ -210,7 +210,7 @@ $begin 'AnsoftProject'
 			$end 'Array4_Diamond_D44_DualPolarized_XY'
 		$end 'Symbols'
 		$begin 'DefInfo'
-			Array4_Diamond_D44_DualPolarized_XY(1002, 0, 0, 0, '', 1778146895, '', 'Array4_Diamond_D44_DualPolarized_XY', '', '', '', '', '', 'Design.bmp', '', 'Project', '', '', 1778146895, '', 0, 0)
+			Array4_Diamond_D44_DualPolarized_XY(1002, 0, 0, 0, '', 1778146653, '', 'Array4_Diamond_D44_DualPolarized_XY', '', '', '', '', '', 'Design.bmp', '', 'Project', '', '', 1778146653, '', 0, 0)
 		$end 'DefInfo'
 		$begin 'Compdefs'
 			$begin 'Array4_Diamond_D44_DualPolarized_XY'
@@ -1237,160 +1237,160 @@ $begin 'AnsoftProject'
 													ID=2530
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(2.74003877709787, -2.35113004744527, 0, 5e-07)
-														TolVt(2.35113004744527, -2.74003877709787, 0, 5e-07)
+														TolVt(2.15667568261897, -1.8031222920257, 0, 5e-07)
+														TolVt(1.8031222920257, -2.15667568261897, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(2.54558441227157, -2.54558441227157, 0)
+													EdgeMidPoint(1.97989898732233, -1.97989898732233, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=49
 													ID=2531
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(10.4828580310906, -10.8717667607432, 0, 5e-07)
-														TolVt(2.35113004744527, -2.74003877709787, 0, 5e-07)
+														TolVt(9.22774349448444, -9.58129688507772, 0, 5e-07)
+														TolVt(1.8031222920257, -2.15667568261897, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(6.41699403926792, -6.80590276892052, 0)
+													EdgeMidPoint(5.51543289325507, -5.86898628384835, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=50
 													ID=2532
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(10.8717667607432, -10.4828580310906, 0, 5e-07)
-														TolVt(10.4828580310906, -10.8717667607432, 0, 5e-07)
+														TolVt(9.58129688507772, -9.22774349448445, 0, 5e-07)
+														TolVt(9.22774349448444, -9.58129688507772, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(10.6773123959169, -10.6773123959169, 0)
+													EdgeMidPoint(9.40452018978108, -9.40452018978108, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=51
 													ID=2533
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(10.8717667607432, -10.4828580310906, 0, 5e-07)
-														TolVt(2.74003877709787, -2.35113004744527, 0, 5e-07)
+														TolVt(9.58129688507772, -9.22774349448445, 0, 5e-07)
+														TolVt(2.15667568261897, -1.8031222920257, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(6.80590276892052, -6.41699403926792, 0)
+													EdgeMidPoint(5.86898628384834, -5.51543289325507, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=52
 													ID=2534
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-2.35113004744527, -2.74003877709787, 0, 5e-07)
-														TolVt(-2.74003877709787, -2.35113004744527, 0, 5e-07)
+														TolVt(-1.8031222920257, -2.15667568261897, 0, 5e-07)
+														TolVt(-2.15667568261897, -1.8031222920257, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-2.54558441227157, -2.54558441227157, 0)
+													EdgeMidPoint(-1.97989898732233, -1.97989898732233, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=53
 													ID=2535
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-10.8717667607432, -10.4828580310906, 0, 5e-07)
-														TolVt(-2.74003877709787, -2.35113004744527, 0, 5e-07)
+														TolVt(-9.58129688507772, -9.22774349448444, 0, 5e-07)
+														TolVt(-2.15667568261897, -1.8031222920257, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-6.80590276892052, -6.41699403926792, 0)
+													EdgeMidPoint(-5.86898628384835, -5.51543289325507, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=54
 													ID=2536
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-10.4828580310906, -10.8717667607432, 0, 5e-07)
-														TolVt(-10.8717667607432, -10.4828580310906, 0, 5e-07)
+														TolVt(-9.22774349448445, -9.58129688507772, 0, 5e-07)
+														TolVt(-9.58129688507772, -9.22774349448444, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-10.6773123959169, -10.6773123959169, 0)
+													EdgeMidPoint(-9.40452018978108, -9.40452018978108, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=55
 													ID=2537
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-10.4828580310906, -10.8717667607432, 0, 5e-07)
-														TolVt(-2.35113004744527, -2.74003877709787, 0, 5e-07)
+														TolVt(-9.22774349448445, -9.58129688507772, 0, 5e-07)
+														TolVt(-1.8031222920257, -2.15667568261897, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-6.41699403926792, -6.80590276892052, 0)
+													EdgeMidPoint(-5.51543289325507, -5.86898628384834, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=56
 													ID=2538
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-2.74003877709787, 2.35113004744527, 0, 5e-07)
-														TolVt(-2.35113004744527, 2.74003877709787, 0, 5e-07)
+														TolVt(-2.15667568261897, 1.8031222920257, 0, 5e-07)
+														TolVt(-1.8031222920257, 2.15667568261897, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-2.54558441227157, 2.54558441227157, 0)
+													EdgeMidPoint(-1.97989898732233, 1.97989898732233, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=57
 													ID=2539
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-10.4828580310906, 10.8717667607432, 0, 5e-07)
-														TolVt(-2.35113004744527, 2.74003877709787, 0, 5e-07)
+														TolVt(-9.22774349448444, 9.58129688507772, 0, 5e-07)
+														TolVt(-1.8031222920257, 2.15667568261897, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-6.41699403926792, 6.80590276892052, 0)
+													EdgeMidPoint(-5.51543289325507, 5.86898628384835, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=58
 													ID=2540
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-10.8717667607432, 10.4828580310906, 0, 5e-07)
-														TolVt(-10.4828580310906, 10.8717667607432, 0, 5e-07)
+														TolVt(-9.58129688507772, 9.22774349448445, 0, 5e-07)
+														TolVt(-9.22774349448444, 9.58129688507772, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-10.6773123959169, 10.6773123959169, 0)
+													EdgeMidPoint(-9.40452018978108, 9.40452018978108, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=59
 													ID=2541
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(-10.8717667607432, 10.4828580310906, 0, 5e-07)
-														TolVt(-2.74003877709787, 2.35113004744527, 0, 5e-07)
+														TolVt(-9.58129688507772, 9.22774349448445, 0, 5e-07)
+														TolVt(-2.15667568261897, 1.8031222920257, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(-6.80590276892052, 6.41699403926792, 0)
+													EdgeMidPoint(-5.86898628384834, 5.51543289325507, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=60
 													ID=2542
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(2.35113004744527, 2.74003877709787, 0, 5e-07)
-														TolVt(2.74003877709787, 2.35113004744527, 0, 5e-07)
+														TolVt(1.8031222920257, 2.15667568261897, 0, 5e-07)
+														TolVt(2.15667568261897, 1.8031222920257, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(2.54558441227157, 2.54558441227157, 0)
+													EdgeMidPoint(1.97989898732233, 1.97989898732233, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=61
 													ID=2543
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(10.8717667607432, 10.4828580310906, 0, 5e-07)
-														TolVt(2.74003877709787, 2.35113004744527, 0, 5e-07)
+														TolVt(9.58129688507772, 9.22774349448445, 0, 5e-07)
+														TolVt(2.15667568261897, 1.8031222920257, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(6.80590276892052, 6.41699403926792, 0)
+													EdgeMidPoint(5.86898628384834, 5.51543289325507, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=62
 													ID=2544
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(10.4828580310906, 10.8717667607432, 0, 5e-07)
-														TolVt(10.8717667607432, 10.4828580310906, 0, 5e-07)
+														TolVt(9.22774349448445, 9.58129688507772, 0, 5e-07)
+														TolVt(9.58129688507772, 9.22774349448445, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(10.6773123959169, 10.6773123959169, 0)
+													EdgeMidPoint(9.40452018978108, 9.40452018978108, 0)
 												$end 'Edge'
 												$begin 'Edge'
 													NormalizedSerialNum=63
 													ID=2545
 													EdgeFaces(1808)
 													$begin 'EdTolVts'
-														TolVt(10.4828580310906, 10.8717667607432, 0, 5e-07)
-														TolVt(2.35113004744527, 2.74003877709787, 0, 5e-07)
+														TolVt(9.22774349448445, 9.58129688507772, 0, 5e-07)
+														TolVt(1.8031222920257, 2.15667568261897, 0, 5e-07)
 													$end 'EdTolVts'
-													EdgeMidPoint(6.41699403926792, 6.80590276892052, 0)
+													EdgeMidPoint(5.51543289325507, 5.86898628384835, 0)
 												$end 'Edge'
 											$end 'NewEdges'
 											$begin 'NewVertices'
@@ -1637,82 +1637,82 @@ $begin 'AnsoftProject'
 												$begin 'Vertex'
 													NormalizedSerialNum=48
 													ID=2594
-													VtPos(2.35113004744527, -2.74003877709787, 0)
+													VtPos(1.8031222920257, -2.15667568261897, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=49
 													ID=2595
-													VtPos(10.4828580310906, -10.8717667607432, 0)
+													VtPos(9.22774349448444, -9.58129688507772, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=50
 													ID=2596
-													VtPos(2.74003877709787, -2.35113004744527, 0)
+													VtPos(2.15667568261897, -1.8031222920257, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=51
 													ID=2597
-													VtPos(10.8717667607432, -10.4828580310906, 0)
+													VtPos(9.58129688507772, -9.22774349448445, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=52
 													ID=2598
-													VtPos(-2.74003877709787, -2.35113004744527, 0)
+													VtPos(-2.15667568261897, -1.8031222920257, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=53
 													ID=2599
-													VtPos(-10.8717667607432, -10.4828580310906, 0)
+													VtPos(-9.58129688507772, -9.22774349448444, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=54
 													ID=2600
-													VtPos(-2.35113004744527, -2.74003877709787, 0)
+													VtPos(-1.8031222920257, -2.15667568261897, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=55
 													ID=2601
-													VtPos(-10.4828580310906, -10.8717667607432, 0)
+													VtPos(-9.22774349448445, -9.58129688507772, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=56
 													ID=2602
-													VtPos(-2.35113004744527, 2.74003877709787, 0)
+													VtPos(-1.8031222920257, 2.15667568261897, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=57
 													ID=2603
-													VtPos(-10.4828580310906, 10.8717667607432, 0)
+													VtPos(-9.22774349448444, 9.58129688507772, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=58
 													ID=2604
-													VtPos(-2.74003877709787, 2.35113004744527, 0)
+													VtPos(-2.15667568261897, 1.8031222920257, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=59
 													ID=2605
-													VtPos(-10.8717667607432, 10.4828580310906, 0)
+													VtPos(-9.58129688507772, 9.22774349448445, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=60
 													ID=2606
-													VtPos(2.74003877709787, 2.35113004744527, 0)
+													VtPos(2.15667568261897, 1.8031222920257, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=61
 													ID=2607
-													VtPos(10.8717667607432, 10.4828580310906, 0)
+													VtPos(9.58129688507772, 9.22774349448445, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=62
 													ID=2608
-													VtPos(2.35113004744527, 2.74003877709787, 0)
+													VtPos(1.8031222920257, 2.15667568261897, 0)
 												$end 'Vertex'
 												$begin 'Vertex'
 													NormalizedSerialNum=63
 													ID=2609
-													VtPos(10.4828580310906, 10.8717667607432, 0)
+													VtPos(9.22774349448445, 9.58129688507772, 0)
 												$end 'Vertex'
 											$end 'NewVertices'
 										$end 'GeomTopolBasedOperationIdentityHelper'
@@ -9488,28 +9488,28 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='2.74003877709787mm'
-												Y='2.35113004744527mm'
+												X='2.15667568261897mm'
+												Y='1.8031222920257mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='10.8717667607432mm'
-												Y='10.4828580310906mm'
+												X='9.58129688507772mm'
+												Y='9.22774349448445mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='10.4828580310906mm'
-												Y='10.8717667607432mm'
+												X='9.22774349448445mm'
+												Y='9.58129688507772mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='2.35113004744527mm'
-												Y='2.74003877709787mm'
+												X='1.8031222920257mm'
+												Y='2.15667568261897mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='2.74003877709787mm'
-												Y='2.35113004744527mm'
+												X='2.15667568261897mm'
+												Y='1.8031222920257mm'
 												Z='0mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
@@ -9610,13 +9610,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=6.32500000000002
-															FcUVMid(6.61144840409422, 6.61144840409422, 0)
+															Area=5.24999999999999
+															FcUVMid(5.69220958855171, 5.69220958855171, 0)
 															$begin 'FcTolVts'
-																TolVt(2.74003877709787, 2.35113004744527, 0, 5e-07)
-																TolVt(10.8717667607432, 10.4828580310906, 0, 5e-07)
-																TolVt(10.4828580310906, 10.8717667607432, 0, 5e-07)
-																TolVt(2.35113004744527, 2.74003877709787, 0, 5e-07)
+																TolVt(2.15667568261897, 1.8031222920257, 0, 5e-07)
+																TolVt(9.58129688507772, 9.22774349448445, 0, 5e-07)
+																TolVt(9.22774349448445, 9.58129688507772, 0, 5e-07)
+																TolVt(1.8031222920257, 2.15667568261897, 0, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -9662,28 +9662,28 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-2.35113004744527mm'
-												Y='2.74003877709787mm'
+												X='-1.8031222920257mm'
+												Y='2.15667568261897mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-10.4828580310906mm'
-												Y='10.8717667607432mm'
+												X='-9.22774349448444mm'
+												Y='9.58129688507772mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-10.8717667607432mm'
-												Y='10.4828580310906mm'
+												X='-9.58129688507772mm'
+												Y='9.22774349448445mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-2.74003877709787mm'
-												Y='2.35113004744527mm'
+												X='-2.15667568261897mm'
+												Y='1.8031222920257mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-2.35113004744527mm'
-												Y='2.74003877709787mm'
+												X='-1.8031222920257mm'
+												Y='2.15667568261897mm'
 												Z='0mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
@@ -9784,13 +9784,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=6.325
-															FcUVMid(-6.61144840409422, 6.61144840409422, 0)
+															Area=5.24999999999999
+															FcUVMid(-5.69220958855171, 5.69220958855171, 0)
 															$begin 'FcTolVts'
-																TolVt(-2.35113004744527, 2.74003877709787, 0, 5e-07)
-																TolVt(-10.4828580310906, 10.8717667607432, 0, 5e-07)
-																TolVt(-10.8717667607432, 10.4828580310906, 0, 5e-07)
-																TolVt(-2.74003877709787, 2.35113004744527, 0, 5e-07)
+																TolVt(-1.8031222920257, 2.15667568261897, 0, 5e-07)
+																TolVt(-9.22774349448444, 9.58129688507772, 0, 5e-07)
+																TolVt(-9.58129688507772, 9.22774349448445, 0, 5e-07)
+																TolVt(-2.15667568261897, 1.8031222920257, 0, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -9836,28 +9836,28 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-2.74003877709787mm'
-												Y='-2.35113004744527mm'
+												X='-2.15667568261897mm'
+												Y='-1.8031222920257mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-10.8717667607432mm'
-												Y='-10.4828580310906mm'
+												X='-9.58129688507772mm'
+												Y='-9.22774349448444mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-10.4828580310906mm'
-												Y='-10.8717667607432mm'
+												X='-9.22774349448445mm'
+												Y='-9.58129688507772mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-2.35113004744527mm'
-												Y='-2.74003877709787mm'
+												X='-1.8031222920257mm'
+												Y='-2.15667568261897mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-2.74003877709787mm'
-												Y='-2.35113004744527mm'
+												X='-2.15667568261897mm'
+												Y='-1.8031222920257mm'
 												Z='0mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
@@ -9958,13 +9958,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=6.32500000000001
-															FcUVMid(-6.61144840409422, -6.61144840409422, 0)
+															Area=5.24999999999999
+															FcUVMid(-5.69220958855171, -5.69220958855171, 0)
 															$begin 'FcTolVts'
-																TolVt(-2.74003877709787, -2.35113004744527, 0, 5e-07)
-																TolVt(-10.8717667607432, -10.4828580310906, 0, 5e-07)
-																TolVt(-10.4828580310906, -10.8717667607432, 0, 5e-07)
-																TolVt(-2.35113004744527, -2.74003877709787, 0, 5e-07)
+																TolVt(-2.15667568261897, -1.8031222920257, 0, 5e-07)
+																TolVt(-9.58129688507772, -9.22774349448444, 0, 5e-07)
+																TolVt(-9.22774349448445, -9.58129688507772, 0, 5e-07)
+																TolVt(-1.8031222920257, -2.15667568261897, 0, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -10010,28 +10010,28 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='2.35113004744527mm'
-												Y='-2.74003877709787mm'
+												X='1.8031222920257mm'
+												Y='-2.15667568261897mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='10.4828580310906mm'
-												Y='-10.8717667607432mm'
+												X='9.22774349448444mm'
+												Y='-9.58129688507772mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='10.8717667607432mm'
-												Y='-10.4828580310906mm'
+												X='9.58129688507772mm'
+												Y='-9.22774349448445mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='2.74003877709787mm'
-												Y='-2.35113004744527mm'
+												X='2.15667568261897mm'
+												Y='-1.8031222920257mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='2.35113004744527mm'
-												Y='-2.74003877709787mm'
+												X='1.8031222920257mm'
+												Y='-2.15667568261897mm'
 												Z='0mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
@@ -10132,13 +10132,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=6.325
-															FcUVMid(6.61144840409422, -6.61144840409422, 0)
+															Area=5.25
+															FcUVMid(5.69220958855171, -5.69220958855171, 0)
 															$begin 'FcTolVts'
-																TolVt(2.35113004744527, -2.74003877709787, 0, 5e-07)
-																TolVt(10.4828580310906, -10.8717667607432, 0, 5e-07)
-																TolVt(10.8717667607432, -10.4828580310906, 0, 5e-07)
-																TolVt(2.74003877709787, -2.35113004744527, 0, 5e-07)
+																TolVt(1.8031222920257, -2.15667568261897, 0, 5e-07)
+																TolVt(9.22774349448444, -9.58129688507772, 0, 5e-07)
+																TolVt(9.58129688507772, -9.22774349448445, 0, 5e-07)
+																TolVt(2.15667568261897, -1.8031222920257, 0, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -13307,7 +13307,7 @@ $begin 'AnsoftProject'
 				MoveBackwards=false
 			$end 'NearFieldSetups'
 			RadFieldComputationVersion=1.8
-			RadfieldHeaderFile='RAD664C7420177814690510.tmp'
+			RadfieldHeaderFile='RAD63355500177814666310.tmp'
 			RadPowerMethod=0
 		$end 'RadField'
 		$begin 'SolutionManager'
@@ -13522,7 +13522,7 @@ $begin 'AnsoftProject'
 		Notes=$begin_cdata$ $end_cdata$
 		$begin 'AnimationSetups'
 		$end 'AnimationSetups'
-		CacheHeaderFile='HDR664C7420177814690511.tmp'
+		CacheHeaderFile='HDR63355500177814666311.tmp'
 	$end 'HFSSModel'
 	$begin 'DataInstances'
 		DesignEditor='TopLevel'
