@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import ast
 import csv
 import json
 import math
@@ -68,6 +69,27 @@ def read_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def bool_field(value: Any) -> bool:
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, str):
+        return value.strip().lower() in {"1", "true", "yes", "y"}
+    return bool(value)
+
+
+def coerce_project_map(projects: Any) -> dict[str, str]:
+    if isinstance(projects, dict):
+        return {str(case): str(path) for case, path in projects.items()}
+    if isinstance(projects, str) and projects.strip():
+        try:
+            parsed = ast.literal_eval(projects)
+        except (SyntaxError, ValueError):
+            return {}
+        if isinstance(parsed, dict):
+            return {str(case): str(path) for case, path in parsed.items()}
+    return {}
+
+
 def current_best_candidate() -> GainCandidate:
     best_name, params = workstate.best_candidate_params()
     return GainCandidate(best_name, params, "当前 RF switch / PDOA 工作态基线候选。")
@@ -86,6 +108,221 @@ def clone_candidate(base: GainCandidate, name: str, rationale: str, **updates: A
     return GainCandidate(name, params, rationale)
 
 
+GAIN_NAME_UPDATES: list[tuple[str, dict[str, Any]]] = [
+    ("no_ab_cancel", {"slot_coupled_ab_cancel_enabled": 0.0}),
+    ("no_isolation_slot", {"isolation_slot_enabled": 0.0}),
+    ("ground21p9", {"ground_radius_mm": 21.9}),
+    (
+        "patch_slit3p0",
+        {
+            "slot_coupled_patch_slit_enabled": 1.0,
+            "slot_coupled_patch_slit_length_mm": 3.0,
+            "slot_coupled_patch_slit_width_mm": 0.10,
+            "slot_coupled_patch_slit_angle_deg": 45.0,
+        },
+    ),
+    ("feedh0p36", {"feed_substrate_h_mm": 0.36}),
+    (
+        "stack_p9p55_gap0p80",
+        {
+            "dualpol_parasitic_enabled": 1.0,
+            "parasitic_side_mm": 9.55,
+            "parasitic_corner_cut_mm": 0.0,
+            "parasitic_rotation_deg": 0.0,
+            "parasitic_offset_u_mm": 0.0,
+            "parasitic_offset_v_mm": 0.0,
+            "air_gap_mm": 0.80,
+        },
+    ),
+    (
+        "stack_p9p75_gap1p20",
+        {
+            "dualpol_parasitic_enabled": 1.0,
+            "parasitic_side_mm": 9.75,
+            "parasitic_corner_cut_mm": 0.0,
+            "parasitic_rotation_deg": 0.0,
+            "parasitic_offset_u_mm": 0.0,
+            "parasitic_offset_v_mm": 0.0,
+            "air_gap_mm": 1.20,
+        },
+    ),
+    (
+        "stack_p9p95_gap1p60",
+        {
+            "dualpol_parasitic_enabled": 1.0,
+            "parasitic_side_mm": 9.95,
+            "parasitic_corner_cut_mm": 0.0,
+            "parasitic_rotation_deg": 0.0,
+            "parasitic_offset_u_mm": 0.0,
+            "parasitic_offset_v_mm": 0.0,
+            "air_gap_mm": 1.60,
+        },
+    ),
+    (
+        "slit4p0_off0p45",
+        {
+            "slot_coupled_patch_slit_enabled": 1.0,
+            "slot_coupled_patch_slit_length_mm": 4.0,
+            "slot_coupled_patch_slit_width_mm": 0.12,
+            "slot_coupled_patch_slit_angle_deg": 45.0,
+            "slot_coupled_patch_slit_offset_u_mm": 0.45,
+            "slot_coupled_patch_slit_offset_v_mm": 0.45,
+        },
+    ),
+    (
+        "weakline2p4_gap0p12",
+        {
+            "weak_coupling_open_line_enabled": 1.0,
+            "weak_coupling_open_line_length_mm": 2.40,
+            "weak_coupling_open_line_width_mm": 0.12,
+            "weak_coupling_open_line_offset_mm": 1.65,
+            "weak_coupling_open_line_gap_mm": 0.12,
+        },
+    ),
+    (
+        "slit5p0_offu0p80_v0p00",
+        {
+            "slot_coupled_patch_slit_enabled": 1.0,
+            "slot_coupled_patch_slit_length_mm": 5.0,
+            "slot_coupled_patch_slit_width_mm": 0.12,
+            "slot_coupled_patch_slit_angle_deg": 45.0,
+            "slot_coupled_patch_slit_offset_u_mm": 0.80,
+            "slot_coupled_patch_slit_offset_v_mm": 0.00,
+        },
+    ),
+    (
+        "slit5p0_offu0p00_v0p80",
+        {
+            "slot_coupled_patch_slit_enabled": 1.0,
+            "slot_coupled_patch_slit_length_mm": 5.0,
+            "slot_coupled_patch_slit_width_mm": 0.12,
+            "slot_coupled_patch_slit_angle_deg": 45.0,
+            "slot_coupled_patch_slit_offset_u_mm": 0.00,
+            "slot_coupled_patch_slit_offset_v_mm": 0.80,
+        },
+    ),
+    (
+        "slit5p5_offu0p60_v0p00",
+        {
+            "slot_coupled_patch_slit_enabled": 1.0,
+            "slot_coupled_patch_slit_length_mm": 5.5,
+            "slot_coupled_patch_slit_width_mm": 0.12,
+            "slot_coupled_patch_slit_angle_deg": 45.0,
+            "slot_coupled_patch_slit_offset_u_mm": 0.60,
+            "slot_coupled_patch_slit_offset_v_mm": 0.00,
+        },
+    ),
+    (
+        "slit5p5_offu0p00_v0p60",
+        {
+            "slot_coupled_patch_slit_enabled": 1.0,
+            "slot_coupled_patch_slit_length_mm": 5.5,
+            "slot_coupled_patch_slit_width_mm": 0.12,
+            "slot_coupled_patch_slit_angle_deg": 45.0,
+            "slot_coupled_patch_slit_offset_u_mm": 0.00,
+            "slot_coupled_patch_slit_offset_v_mm": 0.60,
+        },
+    ),
+    (
+        "slit3p6_off0p35",
+        {
+            "slot_coupled_patch_slit_enabled": 1.0,
+            "slot_coupled_patch_slit_length_mm": 3.6,
+            "slot_coupled_patch_slit_width_mm": 0.12,
+            "slot_coupled_patch_slit_angle_deg": 45.0,
+            "slot_coupled_patch_slit_offset_u_mm": 0.35,
+            "slot_coupled_patch_slit_offset_v_mm": 0.35,
+        },
+    ),
+    (
+        "slit3p8_off0p45",
+        {
+            "slot_coupled_patch_slit_enabled": 1.0,
+            "slot_coupled_patch_slit_length_mm": 3.8,
+            "slot_coupled_patch_slit_width_mm": 0.12,
+            "slot_coupled_patch_slit_angle_deg": 45.0,
+            "slot_coupled_patch_slit_offset_u_mm": 0.45,
+            "slot_coupled_patch_slit_offset_v_mm": 0.45,
+        },
+    ),
+    (
+        "slit4p0_w0p16_off0p45",
+        {
+            "slot_coupled_patch_slit_enabled": 1.0,
+            "slot_coupled_patch_slit_length_mm": 4.0,
+            "slot_coupled_patch_slit_width_mm": 0.16,
+            "slot_coupled_patch_slit_angle_deg": 45.0,
+            "slot_coupled_patch_slit_offset_u_mm": 0.45,
+            "slot_coupled_patch_slit_offset_v_mm": 0.45,
+        },
+    ),
+    (
+        "slit4p0_ang30_off0p45",
+        {
+            "slot_coupled_patch_slit_enabled": 1.0,
+            "slot_coupled_patch_slit_length_mm": 4.0,
+            "slot_coupled_patch_slit_width_mm": 0.12,
+            "slot_coupled_patch_slit_angle_deg": 30.0,
+            "slot_coupled_patch_slit_offset_u_mm": 0.45,
+            "slot_coupled_patch_slit_offset_v_mm": 0.45,
+        },
+    ),
+    (
+        "neutralizer2p2",
+        {
+            "slot_coupled_underfeed_neutralizer_enabled": 1.0,
+            "slot_coupled_underfeed_neutralizer_length_mm": 2.20,
+            "slot_coupled_underfeed_neutralizer_width_mm": 0.12,
+            "slot_coupled_underfeed_neutralizer_offset_mm": 1.20,
+            "slot_coupled_underfeed_neutralizer_z_offset_mm": 0.06,
+        },
+    ),
+    (
+        "neutralizer2p2_z0p10",
+        {
+            "slot_coupled_underfeed_neutralizer_enabled": 1.0,
+            "slot_coupled_underfeed_neutralizer_length_mm": 2.20,
+            "slot_coupled_underfeed_neutralizer_width_mm": 0.12,
+            "slot_coupled_underfeed_neutralizer_offset_mm": 1.20,
+            "slot_coupled_underfeed_neutralizer_z_offset_mm": 0.10,
+        },
+    ),
+    (
+        "neutralizer2p6",
+        {
+            "slot_coupled_underfeed_neutralizer_enabled": 1.0,
+            "slot_coupled_underfeed_neutralizer_length_mm": 2.60,
+            "slot_coupled_underfeed_neutralizer_width_mm": 0.12,
+            "slot_coupled_underfeed_neutralizer_offset_mm": 1.20,
+            "slot_coupled_underfeed_neutralizer_z_offset_mm": 0.06,
+        },
+    ),
+    (
+        "neutralizer2p2_abc",
+        {
+            "slot_coupled_underfeed_neutralizer_enabled": 1.0,
+            "slot_coupled_underfeed_neutralizer_length_mm": 2.20,
+            "slot_coupled_underfeed_neutralizer_width_mm": 0.12,
+            "slot_coupled_underfeed_neutralizer_offset_mm": 1.20,
+            "slot_coupled_underfeed_neutralizer_z_offset_mm": 0.06,
+            "slot_coupled_ab_cancel_enabled": 1.0,
+            "slot_coupled_ab_cancel_coupling_length_mm": 1.80,
+            "slot_coupled_ab_cancel_trace_width_mm": 0.12,
+            "slot_coupled_ab_cancel_gap_mm": 0.12,
+            "slot_coupled_ab_cancel_phase_offset_mm": 2.10,
+            "slot_coupled_ab_cancel_side_sign": 1.0,
+            "slot_coupled_ab_cancel_z_offset_mm": 0.06,
+        },
+    ),
+]
+
+
+def apply_gain_name_updates(candidate_name: str, params: dict[str, Any]) -> None:
+    for suffix, updates in GAIN_NAME_UPDATES:
+        if f"_{suffix}" in candidate_name:
+            params.update(updates)
+
+
 def previous_gain_best_candidate() -> GainCandidate | None:
     if not SUMMARY_CSV.exists():
         return None
@@ -95,7 +332,15 @@ def previous_gain_best_candidate() -> GainCandidate | None:
     best_name = str(rank_summary(rows)[0].get("candidate", ""))
     if not best_name:
         return None
-    return candidate_by_name(best_name)
+    direct = candidate_by_name(best_name)
+    if direct:
+        return direct
+    for item in sorted(s11_opt.candidates(), key=lambda candidate: len(candidate.name), reverse=True):
+        if best_name.startswith(f"{item.name}_"):
+            params = dict(item.params)
+            apply_gain_name_updates(best_name, params)
+            return GainCandidate(best_name, params, "Previous FOV gain best reconstructed from candidate suffixes.")
+    return None
 
 
 def historical_top_s11_names(limit: int = 8) -> list[str]:
@@ -229,6 +474,141 @@ def candidate_pool() -> list[GainCandidate]:
             weak_coupling_open_line_width_mm=0.12,
             weak_coupling_open_line_offset_mm=1.65,
             weak_coupling_open_line_gap_mm=0.12,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_slit5p0_offu0p80_v0p00",
+            "Shift the slit toward the u-edge and lengthen it slightly to target the remaining low-elevation null.",
+            slot_coupled_patch_slit_enabled=1.0,
+            slot_coupled_patch_slit_length_mm=5.0,
+            slot_coupled_patch_slit_width_mm=0.12,
+            slot_coupled_patch_slit_angle_deg=45.0,
+            slot_coupled_patch_slit_offset_u_mm=0.80,
+            slot_coupled_patch_slit_offset_v_mm=0.00,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_slit5p0_offu0p00_v0p80",
+            "Shift the slit toward the v-edge and lengthen it slightly to target the remaining low-elevation null.",
+            slot_coupled_patch_slit_enabled=1.0,
+            slot_coupled_patch_slit_length_mm=5.0,
+            slot_coupled_patch_slit_width_mm=0.12,
+            slot_coupled_patch_slit_angle_deg=45.0,
+            slot_coupled_patch_slit_offset_u_mm=0.00,
+            slot_coupled_patch_slit_offset_v_mm=0.80,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_slit5p5_offu0p60_v0p00",
+            "Use a longer u-offset slit to see whether a stronger asymmetry fills the phi=45 deg dip.",
+            slot_coupled_patch_slit_enabled=1.0,
+            slot_coupled_patch_slit_length_mm=5.5,
+            slot_coupled_patch_slit_width_mm=0.12,
+            slot_coupled_patch_slit_angle_deg=45.0,
+            slot_coupled_patch_slit_offset_u_mm=0.60,
+            slot_coupled_patch_slit_offset_v_mm=0.00,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_slit5p5_offu0p00_v0p60",
+            "Use a longer v-offset slit to see whether a stronger asymmetry fills the phi=45 deg dip.",
+            slot_coupled_patch_slit_enabled=1.0,
+            slot_coupled_patch_slit_length_mm=5.5,
+            slot_coupled_patch_slit_width_mm=0.12,
+            slot_coupled_patch_slit_angle_deg=45.0,
+            slot_coupled_patch_slit_offset_u_mm=0.00,
+            slot_coupled_patch_slit_offset_v_mm=0.60,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_slit3p6_off0p35",
+            "Use a shorter, less-offset diagonal slit to bracket the current 4.0 mm best point.",
+            slot_coupled_patch_slit_enabled=1.0,
+            slot_coupled_patch_slit_length_mm=3.6,
+            slot_coupled_patch_slit_width_mm=0.12,
+            slot_coupled_patch_slit_angle_deg=45.0,
+            slot_coupled_patch_slit_offset_u_mm=0.35,
+            slot_coupled_patch_slit_offset_v_mm=0.35,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_slit3p8_off0p45",
+            "Trim the winning diagonal slit slightly while keeping the same offset to test a local optimum.",
+            slot_coupled_patch_slit_enabled=1.0,
+            slot_coupled_patch_slit_length_mm=3.8,
+            slot_coupled_patch_slit_width_mm=0.12,
+            slot_coupled_patch_slit_angle_deg=45.0,
+            slot_coupled_patch_slit_offset_u_mm=0.45,
+            slot_coupled_patch_slit_offset_v_mm=0.45,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_slit4p0_w0p16_off0p45",
+            "Widen the current best diagonal slit to see whether a stronger but still symmetric perturbation helps.",
+            slot_coupled_patch_slit_enabled=1.0,
+            slot_coupled_patch_slit_length_mm=4.0,
+            slot_coupled_patch_slit_width_mm=0.16,
+            slot_coupled_patch_slit_angle_deg=45.0,
+            slot_coupled_patch_slit_offset_u_mm=0.45,
+            slot_coupled_patch_slit_offset_v_mm=0.45,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_slit4p0_ang30_off0p45",
+            "Rotate the current best slit to 30 degrees to check angular sensitivity around the horizon dip.",
+            slot_coupled_patch_slit_enabled=1.0,
+            slot_coupled_patch_slit_length_mm=4.0,
+            slot_coupled_patch_slit_width_mm=0.12,
+            slot_coupled_patch_slit_angle_deg=30.0,
+            slot_coupled_patch_slit_offset_u_mm=0.45,
+            slot_coupled_patch_slit_offset_v_mm=0.45,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_neutralizer2p2",
+            "Enable the underfeed neutralizer to test whether it lifts the theta=90 deg horizon dip.",
+            slot_coupled_underfeed_neutralizer_enabled=1.0,
+            slot_coupled_underfeed_neutralizer_length_mm=2.20,
+            slot_coupled_underfeed_neutralizer_width_mm=0.12,
+            slot_coupled_underfeed_neutralizer_offset_mm=1.20,
+            slot_coupled_underfeed_neutralizer_z_offset_mm=0.06,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_neutralizer2p2_z0p10",
+            "Raise the neutralizer above the feed a little to see if the horizon field becomes stronger.",
+            slot_coupled_underfeed_neutralizer_enabled=1.0,
+            slot_coupled_underfeed_neutralizer_length_mm=2.20,
+            slot_coupled_underfeed_neutralizer_width_mm=0.12,
+            slot_coupled_underfeed_neutralizer_offset_mm=1.20,
+            slot_coupled_underfeed_neutralizer_z_offset_mm=0.10,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_neutralizer2p6",
+            "Lengthen the neutralizer to see whether a stronger parasitic line fills the remaining low-elevation null.",
+            slot_coupled_underfeed_neutralizer_enabled=1.0,
+            slot_coupled_underfeed_neutralizer_length_mm=2.60,
+            slot_coupled_underfeed_neutralizer_width_mm=0.12,
+            slot_coupled_underfeed_neutralizer_offset_mm=1.20,
+            slot_coupled_underfeed_neutralizer_z_offset_mm=0.06,
+        ),
+        clone_candidate(
+            gain_base,
+            f"{gain_base.name}_neutralizer2p2_abc",
+            "Combine the neutralizer with the A/B cancellation network to check whether the edge dip can be lifted without killing match.",
+            slot_coupled_underfeed_neutralizer_enabled=1.0,
+            slot_coupled_underfeed_neutralizer_length_mm=2.20,
+            slot_coupled_underfeed_neutralizer_width_mm=0.12,
+            slot_coupled_underfeed_neutralizer_offset_mm=1.20,
+            slot_coupled_underfeed_neutralizer_z_offset_mm=0.06,
+            slot_coupled_ab_cancel_enabled=1.0,
+            slot_coupled_ab_cancel_coupling_length_mm=1.80,
+            slot_coupled_ab_cancel_trace_width_mm=0.12,
+            slot_coupled_ab_cancel_gap_mm=0.12,
+            slot_coupled_ab_cancel_phase_offset_mm=2.10,
+            slot_coupled_ab_cancel_side_sign=1.0,
+            slot_coupled_ab_cancel_z_offset_mm=0.06,
         ),
     ]
     for item in custom:
@@ -542,8 +922,8 @@ def evaluate_candidate(
 def write_report(payload: dict[str, Any]) -> None:
     ranked = rank_summary(payload["summary_rows"])
     best = ranked[0]
-    strict_ok = bool(best["strict_gain_target_pass"] and best["strict_realized_gain_target_pass"])
-    coverage_ok = bool(best["coverage_gain_target_pass"] and best["coverage_realized_gain_target_pass"])
+    strict_ok = bool_field(best["strict_gain_target_pass"]) and bool_field(best["strict_realized_gain_target_pass"])
+    coverage_ok = bool_field(best["coverage_gain_target_pass"]) and bool_field(best["coverage_realized_gain_target_pass"])
     lines = [
         "# D44 RF Switch 工作态 FOV 增益优化报告",
         "",
@@ -608,7 +988,7 @@ def write_report(payload: dict[str, Any]) -> None:
             f"- 指标 JSON：`{METRICS_JSON}`",
         ]
     )
-    for case, path in best.get("projects", {}).items():
+    for case, path in coerce_project_map(best.get("projects")).items():
         lines.append(f"- 最佳 `{case}` AEDT 快照：`{path}`")
     REPORT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
 

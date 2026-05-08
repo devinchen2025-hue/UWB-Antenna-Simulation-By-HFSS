@@ -1,0 +1,2 @@
+C:\Users\admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\ansys\aedt\core\visualization\post\solution_data.py:648: UserWarning: Method `data_real` is deprecated. Use :func:`get_expression_data` property instead.
+  warnings.warn("Method `data_real` is deprecated. Use :func:`get_expression_data` property instead.")

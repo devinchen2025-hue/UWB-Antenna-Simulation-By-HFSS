@@ -10,27 +10,44 @@
 
 ## 当前最佳
 
-- 候选：`p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6`
-- 严格口径最小 GainTotal：`-28.85 dBi`。
-- 严格口径最小 RealizedGainTotal：`-28.89 dBi`。
-- 覆盖口径最小 GainTotal：`-20.35 dBi`。
-- 覆盖口径最小 RealizedGainTotal：`-20.40 dBi`。
-- 工作态最差 S11：`-9.31 dB`。
+- 候选：`p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45`
+- 严格口径最小 GainTotal：`-26.26 dBi`。
+- 严格口径最小 RealizedGainTotal：`-26.37 dBi`。
+- 覆盖口径最小 GainTotal：`-19.69 dBi`。
+- 覆盖口径最小 RealizedGainTotal：`-19.70 dBi`。
+- 工作态最差 S11：`-11.54 dB`。
 - 结论：严格口径 `未达标`，覆盖口径 `未达标`。
 
 ## 候选排名
 
 | 排名 | 候选 | 严格 Realized 最小值 | 严格 Gain 最小值 | 覆盖 Realized 最小值 | 覆盖 Gain 最小值 | 最差 S11 |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: |
-| 1 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6` | -28.89 dBi | -28.85 dBi | -20.40 dBi | -20.35 dBi | -9.31 dB |
-| 2 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_g0p12_l1p8_ph2p10_z0p06` | -33.19 dBi | -33.10 dBi | -20.46 dBi | -20.30 dBi | -13.16 dB |
-| 3 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso10p5_w0p50_i2p8` | -34.68 dBi | -34.55 dBi | -22.12 dBi | -22.11 dBi | -9.58 dB |
-| 4 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -41.73 dBi | -41.41 dBi | -23.51 dBi | -23.01 dBi | -7.26 dB |
+| 1 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45` | -26.37 dBi | -26.26 dBi | -19.70 dBi | -19.69 dBi | -11.54 dB |
+| 2 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit4p0_w0p16_off0p45` | -28.12 dBi | -28.11 dBi | -19.73 dBi | -19.69 dBi | -13.07 dB |
+| 3 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit5p0_offu0p00_v0p80` | -28.18 dBi | -28.18 dBi | -20.46 dBi | -20.37 dBi | -11.78 dB |
+| 4 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit3p8_off0p45` | -28.60 dBi | -28.43 dBi | -19.83 dBi | -19.80 dBi | -12.81 dB |
+| 5 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6` | -28.89 dBi | -28.85 dBi | -20.40 dBi | -20.35 dBi | -9.31 dB |
+| 6 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_weakline2p4_gap0p12` | -28.89 dBi | -28.85 dBi | -20.40 dBi | -20.35 dBi | -9.31 dB |
+| 7 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_stack_p9p55_gap0p80` | -29.33 dBi | -29.13 dBi | -20.31 dBi | -20.22 dBi | -11.80 dB |
+| 8 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit4p0_ang30_off0p45` | -29.45 dBi | -29.38 dBi | -20.66 dBi | -20.66 dBi | -11.00 dB |
+| 9 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p2` | -29.74 dBi | -29.60 dBi | -19.70 dBi | -19.69 dBi | -7.06 dB |
+| 10 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit5p0_offu0p80_v0p00` | -30.21 dBi | -30.07 dBi | -20.35 dBi | -20.33 dBi | -12.31 dB |
+| 11 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p6` | -30.51 dBi | -30.44 dBi | -20.00 dBi | -19.98 dBi | -9.52 dB |
+| 12 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit3p6_off0p35` | -30.57 dBi | -30.30 dBi | -20.46 dBi | -20.34 dBi | -10.59 dB |
+| 13 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit5p5_offu0p60_v0p00` | -32.43 dBi | -32.39 dBi | -19.95 dBi | -19.94 dBi | -10.04 dB |
+| 14 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_slit5p5_offu0p00_v0p60` | -32.51 dBi | -32.50 dBi | -20.28 dBi | -20.26 dBi | -11.84 dB |
+| 15 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_abc_g0p12_l1p8_ph2p10_z0p06` | -33.19 dBi | -33.10 dBi | -20.46 dBi | -20.30 dBi | -13.16 dB |
+| 16 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p2_abc` | -33.69 dBi | -33.25 dBi | -19.55 dBi | -19.53 dBi | -10.16 dB |
+| 17 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_stack_p9p75_gap1p20` | -33.94 dBi | -33.93 dBi | -20.75 dBi | -20.71 dBi | -12.56 dB |
+| 18 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso10p5_w0p50_i2p8` | -34.68 dBi | -34.55 dBi | -22.12 dBi | -22.11 dBi | -9.58 dB |
+| 19 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p2_z0p10` | -34.98 dBi | -34.96 dBi | -20.43 dBi | -20.35 dBi | -9.58 dB |
+| 20 | `p9p75_l5p0_w0p58_fw0p74_h0p30_fl11p8_ares1p7x1p3_rbridge_gap1p7_qstub4p4_dstub1p9` | -41.73 dBi | -41.41 dBi | -23.51 dBi | -23.01 dBi | -7.26 dB |
+| 21 | `p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_stack_p9p95_gap1p60` | -43.64 dBi | -43.59 dBi | -20.44 dBi | -20.40 dBi | -12.40 dB |
 
 ## 最差点
 
-- 严格口径最差 Realized：`B_ON_absorptive_50ohm_c0p08pf` / `P4B` / 8.2330 GHz / Theta 90 deg / Phi 45 deg。
-- 覆盖口径最差 Realized：`A_ON_absorptive_50ohm_c0p08pf` / best source `P2A` / 8.2330 GHz / Theta 85 deg / Phi 40 deg。
+- 严格口径最差 Realized：`B_ON_absorptive_50ohm_c0p08pf` / `P4B` / 7.9855 GHz / Theta 90 deg / Phi 45 deg。
+- 覆盖口径最差 Realized：`B_ON_absorptive_50ohm_c0p08pf` / best source `P2B` / 8.2330 GHz / Theta 90 deg / Phi 90 deg。
 
 ## 工程判断
 
@@ -43,5 +60,5 @@
 - 逐端口明细 CSV：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_dualpol_rf_switch_fov_gain_opt\UWB_CH9_D44_DUALPOL_RF_SWITCH_FOV_GAIN_source_summary.csv`
 - 覆盖口径明细 CSV：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_dualpol_rf_switch_fov_gain_opt\UWB_CH9_D44_DUALPOL_RF_SWITCH_FOV_GAIN_coverage_summary.csv`
 - 指标 JSON：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_dualpol_rf_switch_fov_gain_opt\UWB_CH9_D44_DUALPOL_RF_SWITCH_FOV_GAIN_metrics.json`
-- 最佳 `A_ON_absorptive_50ohm_c0p08pf` AEDT 快照：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_dualpol_rf_switch_fov_gain_opt\UWB_CH9_D44_DUALPOL_RF_SWITCH_FOV_GAIN_04_p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_A_ON_absorptive_50ohm_c0p08pf.aedt`
-- 最佳 `B_ON_absorptive_50ohm_c0p08pf` AEDT 快照：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_dualpol_rf_switch_fov_gain_opt\UWB_CH9_D44_DUALPOL_RF_SWITCH_FOV_GAIN_04_p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_B_ON_absorptive_50ohm_c0p08pf.aedt`
+- 最佳 `A_ON_absorptive_50ohm_c0p08pf` AEDT 快照：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_dualpol_rf_switch_fov_gain_opt\UWB_CH9_D44_DUALPOL_RF_SWITCH_FOV_GAIN_18_p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_A_ON_absorptive_50ohm_c0p08pf.aedt`
+- 最佳 `B_ON_absorptive_50ohm_c0p08pf` AEDT 快照：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_dualpol_rf_switch_fov_gain_opt\UWB_CH9_D44_DUALPOL_RF_SWITCH_FOV_GAIN_18_p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_B_ON_absorptive_50ohm_c0p08pf.aedt`

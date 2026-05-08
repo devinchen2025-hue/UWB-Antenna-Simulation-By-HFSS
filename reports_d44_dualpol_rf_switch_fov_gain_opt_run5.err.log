@@ -1,0 +1,13 @@
+C:\Users\admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\ansys\aedt\core\visualization\post\solution_data.py:648: UserWarning: Method `data_real` is deprecated. Use :func:`get_expression_data` property instead.
+  warnings.warn("Method `data_real` is deprecated. Use :func:`get_expression_data` property instead.")
+Traceback (most recent call last):
+  File "D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\scripts\optimize_uwb_ch9_d44_dualpol_rf_switch_fov_gain.py", line 848, in <module>
+    main()
+  File "D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\scripts\optimize_uwb_ch9_d44_dualpol_rf_switch_fov_gain.py", line 844, in main
+    run(args.max_candidates, args.copy_projects, args.settle_seconds, args.start_index, args.resume)
+  File "D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\scripts\optimize_uwb_ch9_d44_dualpol_rf_switch_fov_gain.py", line 831, in run
+    write_report(payload)
+  File "D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\scripts\optimize_uwb_ch9_d44_dualpol_rf_switch_fov_gain.py", line 787, in write_report
+    for case, path in best.get("projects", {}).items():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'items'

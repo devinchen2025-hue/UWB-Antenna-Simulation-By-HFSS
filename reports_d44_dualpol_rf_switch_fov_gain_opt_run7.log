@@ -1,0 +1,813 @@
+=== FOV gain candidate 28: p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p2 ===
+Stage: starting DUALPOL_XY AEDT/project build
+PyAEDT INFO: Python version 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)].
+PyAEDT INFO: PyAEDT version 0.26.3.
+PyAEDT INFO: Initializing new Desktop session.
+PyAEDT INFO: AEDT version 2023.1.
+PyAEDT INFO: New AEDT session is starting on gRPC port 57470.
+PyAEDT INFO: Starting new AEDT gRPC session on port 57470.
+PyAEDT INFO: Launching AEDT server with gRPC transport mode: TransportMode.WNUA
+PyAEDT INFO: Electronics Desktop started on gRPC port 57470 after 6.1 seconds.
+PyAEDT INFO: AEDT installation Path D:\Program Files\AnsysEM\v231\Win64
+PyAEDT INFO: Connected to AEDT gRPC session on port 57470.
+PyAEDT INFO: Non-graphical mode detected. Disabling Desktop logs.
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY has been created.
+PyAEDT INFO: Added design 'Array4_Diamond_D44_DualPolarized_XY' of type HFSS.
+PyAEDT INFO: AEDT objects correctly read
+PyAEDT INFO: Modeler class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Materials class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Adding new material to the Project Library: RO4350B_custom_D44_Topology
+PyAEDT INFO: Material has been added in Desktop.
+Stage: substrate, ground, and isolation slots created
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: Parsing D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt.
+PyAEDT INFO: File D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.00772857666015625
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped Port P1A has been created.
+PyAEDT INFO: Boundary Lumped RLC P1B_switch_off_load has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped Port P2A has been created.
+PyAEDT INFO: Boundary Lumped RLC P2B_switch_off_load has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped Port P3A has been created.
+PyAEDT INFO: Boundary Lumped RLC P3B_switch_off_load has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped Port P4A has been created.
+PyAEDT INFO: Boundary Lumped RLC P4B_switch_off_load has been created.
+Stage: DUALPOL_XY radiators and feeds created
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+Stage: ground slots cut
+PyAEDT INFO: Boundary Perfect E DUALPOL_XY_PEC_metallization has been created.
+PyAEDT INFO: Open Region correctly created.
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+Stage: radiation region and upper-hemisphere sphere created
+PyAEDT INFO: Parsing D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt.
+PyAEDT INFO: File D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.11166238784790039
+PyAEDT INFO: Linear count sweep Sweep_CH9 has been correctly created.
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Post class has been initialized! Elapsed time: 0m 0sec
+Stage: setup, sweep, and reports created
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+Stage: DUALPOL_XY analysis started
+PyAEDT INFO: Key Desktop/ActiveDSOConfigurations/HFSS correctly changed.
+PyAEDT INFO: Solving design setup Setup_CH9
+PyAEDT INFO: Design setup Setup_CH9 solved correctly in 0.0h 0.0m 56.0s
+PyAEDT INFO: Key Desktop/ActiveDSOConfigurations/HFSS correctly changed.
+Analyze result: True
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Desktop has been released and closed.
+Stage: AEDT settle wait 10.0s
+Stage: starting DUALPOL_XY AEDT/project build
+PyAEDT INFO: Python version 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)].
+PyAEDT INFO: PyAEDT version 0.26.3.
+PyAEDT INFO: Initializing new Desktop session.
+PyAEDT INFO: AEDT version 2023.1.
+PyAEDT INFO: New AEDT session is starting on gRPC port 57645.
+PyAEDT INFO: Starting new AEDT gRPC session on port 57645.
+PyAEDT INFO: Launching AEDT server with gRPC transport mode: TransportMode.WNUA
+PyAEDT INFO: Electronics Desktop started on gRPC port 57645 after 6.0 seconds.
+PyAEDT INFO: AEDT installation Path D:\Program Files\AnsysEM\v231\Win64
+PyAEDT INFO: Connected to AEDT gRPC session on port 57645.
+PyAEDT INFO: Non-graphical mode detected. Disabling Desktop logs.
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY has been created.
+PyAEDT INFO: Added design 'Array4_Diamond_D44_DualPolarized_XY' of type HFSS.
+PyAEDT INFO: AEDT objects correctly read
+PyAEDT INFO: Modeler class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Materials class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Adding new material to the Project Library: RO4350B_custom_D44_Topology
+PyAEDT INFO: Material has been added in Desktop.
+Stage: substrate, ground, and isolation slots created
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: Parsing D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt.
+PyAEDT INFO: File D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.009180784225463867
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped RLC P1A_switch_off_load has been created.
+PyAEDT INFO: Boundary Lumped Port P1B has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped RLC P2A_switch_off_load has been created.
+PyAEDT INFO: Boundary Lumped Port P2B has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped RLC P3A_switch_off_load has been created.
+PyAEDT INFO: Boundary Lumped Port P3B has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped RLC P4A_switch_off_load has been created.
+PyAEDT INFO: Boundary Lumped Port P4B has been created.
+Stage: DUALPOL_XY radiators and feeds created
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+Stage: ground slots cut
+PyAEDT INFO: Boundary Perfect E DUALPOL_XY_PEC_metallization has been created.
+PyAEDT INFO: Open Region correctly created.
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+Stage: radiation region and upper-hemisphere sphere created
+PyAEDT INFO: Parsing D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt.
+PyAEDT INFO: File D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.08618974685668945
+PyAEDT INFO: Linear count sweep Sweep_CH9 has been correctly created.
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Post class has been initialized! Elapsed time: 0m 0sec
+Stage: setup, sweep, and reports created
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+Stage: DUALPOL_XY analysis started
+PyAEDT INFO: Key Desktop/ActiveDSOConfigurations/HFSS correctly changed.
+PyAEDT INFO: Solving design setup Setup_CH9
+PyAEDT INFO: Design setup Setup_CH9 solved correctly in 0.0h 0.0m 59.0s
+PyAEDT INFO: Key Desktop/ActiveDSOConfigurations/HFSS correctly changed.
+Analyze result: True
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Desktop has been released and closed.
+Stage: AEDT settle wait 10.0s
+{
+  "candidate": "p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p2",
+  "strict_realized_min_dbi": -29.735483208588715,
+  "coverage_realized_min_dbi": -19.702655503355086,
+  "worst_active_s11_db": -7.0604841248053685
+}
+=== FOV gain candidate 29: p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p2_z0p10 ===
+Stage: starting DUALPOL_XY AEDT/project build
+PyAEDT INFO: Python version 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)].
+PyAEDT INFO: PyAEDT version 0.26.3.
+PyAEDT INFO: Initializing new Desktop session.
+PyAEDT INFO: AEDT version 2023.1.
+PyAEDT INFO: New AEDT session is starting on gRPC port 57815.
+PyAEDT INFO: Starting new AEDT gRPC session on port 57815.
+PyAEDT INFO: Launching AEDT server with gRPC transport mode: TransportMode.WNUA
+PyAEDT INFO: Electronics Desktop started on gRPC port 57815 after 6.0 seconds.
+PyAEDT INFO: AEDT installation Path D:\Program Files\AnsysEM\v231\Win64
+PyAEDT INFO: Connected to AEDT gRPC session on port 57815.
+PyAEDT INFO: Non-graphical mode detected. Disabling Desktop logs.
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY has been created.
+PyAEDT INFO: Added design 'Array4_Diamond_D44_DualPolarized_XY' of type HFSS.
+PyAEDT INFO: AEDT objects correctly read
+PyAEDT INFO: Modeler class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Materials class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Adding new material to the Project Library: RO4350B_custom_D44_Topology
+PyAEDT INFO: Material has been added in Desktop.
+Stage: substrate, ground, and isolation slots created
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: Parsing D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt.
+PyAEDT INFO: File D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.009100675582885742
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped Port P1A has been created.
+PyAEDT INFO: Boundary Lumped RLC P1B_switch_off_load has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped Port P2A has been created.
+PyAEDT INFO: Boundary Lumped RLC P2B_switch_off_load has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped Port P3A has been created.
+PyAEDT INFO: Boundary Lumped RLC P3B_switch_off_load has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped Port P4A has been created.
+PyAEDT INFO: Boundary Lumped RLC P4B_switch_off_load has been created.
+Stage: DUALPOL_XY radiators and feeds created
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+Stage: ground slots cut
+PyAEDT INFO: Boundary Perfect E DUALPOL_XY_PEC_metallization has been created.
+PyAEDT INFO: Open Region correctly created.
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+Stage: radiation region and upper-hemisphere sphere created
+PyAEDT INFO: Parsing D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt.
+PyAEDT INFO: File D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.08782553672790527
+PyAEDT INFO: Linear count sweep Sweep_CH9 has been correctly created.
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Post class has been initialized! Elapsed time: 0m 0sec
+Stage: setup, sweep, and reports created
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+Stage: DUALPOL_XY analysis started
+PyAEDT INFO: Key Desktop/ActiveDSOConfigurations/HFSS correctly changed.
+PyAEDT INFO: Solving design setup Setup_CH9
+PyAEDT INFO: Design setup Setup_CH9 solved correctly in 0.0h 1.0m 2.0s
+PyAEDT INFO: Key Desktop/ActiveDSOConfigurations/HFSS correctly changed.
+Analyze result: True
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Desktop has been released and closed.
+Stage: AEDT settle wait 10.0s
+Stage: starting DUALPOL_XY AEDT/project build
+PyAEDT INFO: Python version 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)].
+PyAEDT INFO: PyAEDT version 0.26.3.
+PyAEDT INFO: Initializing new Desktop session.
+PyAEDT INFO: AEDT version 2023.1.
+PyAEDT INFO: New AEDT session is starting on gRPC port 57976.
+PyAEDT INFO: Starting new AEDT gRPC session on port 57976.
+PyAEDT INFO: Launching AEDT server with gRPC transport mode: TransportMode.WNUA
+PyAEDT INFO: Electronics Desktop started on gRPC port 57976 after 6.1 seconds.
+PyAEDT INFO: AEDT installation Path D:\Program Files\AnsysEM\v231\Win64
+PyAEDT INFO: Connected to AEDT gRPC session on port 57976.
+PyAEDT INFO: Non-graphical mode detected. Disabling Desktop logs.
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY has been created.
+PyAEDT INFO: Added design 'Array4_Diamond_D44_DualPolarized_XY' of type HFSS.
+PyAEDT INFO: AEDT objects correctly read
+PyAEDT INFO: Modeler class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Materials class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Adding new material to the Project Library: RO4350B_custom_D44_Topology
+PyAEDT INFO: Material has been added in Desktop.
+Stage: substrate, ground, and isolation slots created
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: Parsing D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt.
+PyAEDT INFO: File D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.009216070175170898
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped RLC P1A_switch_off_load has been created.
+PyAEDT INFO: Boundary Lumped Port P1B has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped RLC P2A_switch_off_load has been created.
+PyAEDT INFO: Boundary Lumped Port P2B has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped RLC P3A_switch_off_load has been created.
+PyAEDT INFO: Boundary Lumped Port P3B has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped RLC P4A_switch_off_load has been created.
+PyAEDT INFO: Boundary Lumped Port P4B has been created.
+Stage: DUALPOL_XY radiators and feeds created
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+Stage: ground slots cut
+PyAEDT INFO: Boundary Perfect E DUALPOL_XY_PEC_metallization has been created.
+PyAEDT INFO: Open Region correctly created.
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+Stage: radiation region and upper-hemisphere sphere created
+PyAEDT INFO: Parsing D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt.
+PyAEDT INFO: File D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.08827590942382812
+PyAEDT INFO: Linear count sweep Sweep_CH9 has been correctly created.
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Post class has been initialized! Elapsed time: 0m 0sec
+Stage: setup, sweep, and reports created
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+Stage: DUALPOL_XY analysis started
+PyAEDT INFO: Key Desktop/ActiveDSOConfigurations/HFSS correctly changed.
+PyAEDT INFO: Solving design setup Setup_CH9
+PyAEDT INFO: Design setup Setup_CH9 solved correctly in 0.0h 0.0m 57.0s
+PyAEDT INFO: Key Desktop/ActiveDSOConfigurations/HFSS correctly changed.
+Analyze result: True
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Desktop has been released and closed.
+Stage: AEDT settle wait 10.0s
+{
+  "candidate": "p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p2_z0p10",
+  "strict_realized_min_dbi": -34.97745052916387,
+  "coverage_realized_min_dbi": -20.434769661956228,
+  "worst_active_s11_db": -9.580704022781424
+}
+=== FOV gain candidate 30: p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p6 ===
+Stage: starting DUALPOL_XY AEDT/project build
+PyAEDT INFO: Python version 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)].
+PyAEDT INFO: PyAEDT version 0.26.3.
+PyAEDT INFO: Initializing new Desktop session.
+PyAEDT INFO: AEDT version 2023.1.
+PyAEDT INFO: New AEDT session is starting on gRPC port 58141.
+PyAEDT INFO: Starting new AEDT gRPC session on port 58141.
+PyAEDT INFO: Launching AEDT server with gRPC transport mode: TransportMode.WNUA
+PyAEDT INFO: Electronics Desktop started on gRPC port 58141 after 6.0 seconds.
+PyAEDT INFO: AEDT installation Path D:\Program Files\AnsysEM\v231\Win64
+PyAEDT INFO: Connected to AEDT gRPC session on port 58141.
+PyAEDT INFO: Non-graphical mode detected. Disabling Desktop logs.
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY has been created.
+PyAEDT INFO: Added design 'Array4_Diamond_D44_DualPolarized_XY' of type HFSS.
+PyAEDT INFO: AEDT objects correctly read
+PyAEDT INFO: Modeler class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Materials class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Adding new material to the Project Library: RO4350B_custom_D44_Topology
+PyAEDT INFO: Material has been added in Desktop.
+Stage: substrate, ground, and isolation slots created
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: Parsing D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt.
+PyAEDT INFO: File D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.010038137435913086
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped Port P1A has been created.
+PyAEDT INFO: Boundary Lumped RLC P1B_switch_off_load has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped Port P2A has been created.
+PyAEDT INFO: Boundary Lumped RLC P2B_switch_off_load has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped Port P3A has been created.
+PyAEDT INFO: Boundary Lumped RLC P3B_switch_off_load has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped Port P4A has been created.
+PyAEDT INFO: Boundary Lumped RLC P4B_switch_off_load has been created.
+Stage: DUALPOL_XY radiators and feeds created
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+Stage: ground slots cut
+PyAEDT INFO: Boundary Perfect E DUALPOL_XY_PEC_metallization has been created.
+PyAEDT INFO: Open Region correctly created.
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+Stage: radiation region and upper-hemisphere sphere created
+PyAEDT INFO: Parsing D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt.
+PyAEDT INFO: File D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.08579564094543457
+PyAEDT INFO: Linear count sweep Sweep_CH9 has been correctly created.
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Post class has been initialized! Elapsed time: 0m 0sec
+Stage: setup, sweep, and reports created
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+Stage: DUALPOL_XY analysis started
+PyAEDT INFO: Key Desktop/ActiveDSOConfigurations/HFSS correctly changed.
+PyAEDT INFO: Solving design setup Setup_CH9
+PyAEDT INFO: Design setup Setup_CH9 solved correctly in 0.0h 0.0m 56.0s
+PyAEDT INFO: Key Desktop/ActiveDSOConfigurations/HFSS correctly changed.
+Analyze result: True
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Desktop has been released and closed.
+Stage: AEDT settle wait 10.0s
+Stage: starting DUALPOL_XY AEDT/project build
+PyAEDT INFO: Python version 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)].
+PyAEDT INFO: PyAEDT version 0.26.3.
+PyAEDT INFO: Initializing new Desktop session.
+PyAEDT INFO: AEDT version 2023.1.
+PyAEDT INFO: New AEDT session is starting on gRPC port 58299.
+PyAEDT INFO: Starting new AEDT gRPC session on port 58299.
+PyAEDT INFO: Launching AEDT server with gRPC transport mode: TransportMode.WNUA
+PyAEDT INFO: Electronics Desktop started on gRPC port 58299 after 6.0 seconds.
+PyAEDT INFO: AEDT installation Path D:\Program Files\AnsysEM\v231\Win64
+PyAEDT INFO: Connected to AEDT gRPC session on port 58299.
+PyAEDT INFO: Non-graphical mode detected. Disabling Desktop logs.
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY has been created.
+PyAEDT INFO: Added design 'Array4_Diamond_D44_DualPolarized_XY' of type HFSS.
+PyAEDT INFO: AEDT objects correctly read
+PyAEDT INFO: Modeler class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Materials class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Adding new material to the Project Library: RO4350B_custom_D44_Topology
+PyAEDT INFO: Material has been added in Desktop.
+Stage: substrate, ground, and isolation slots created
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: Parsing D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt.
+PyAEDT INFO: File D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.009749889373779297
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped RLC P1A_switch_off_load has been created.
+PyAEDT INFO: Boundary Lumped Port P1B has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped RLC P2A_switch_off_load has been created.
+PyAEDT INFO: Boundary Lumped Port P2B has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped RLC P3A_switch_off_load has been created.
+PyAEDT INFO: Boundary Lumped Port P3B has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped RLC P4A_switch_off_load has been created.
+PyAEDT INFO: Boundary Lumped Port P4B has been created.
+Stage: DUALPOL_XY radiators and feeds created
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+Stage: ground slots cut
+PyAEDT INFO: Boundary Perfect E DUALPOL_XY_PEC_metallization has been created.
+PyAEDT INFO: Open Region correctly created.
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+Stage: radiation region and upper-hemisphere sphere created
+PyAEDT INFO: Parsing D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt.
+PyAEDT INFO: File D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.09804916381835938
+PyAEDT INFO: Linear count sweep Sweep_CH9 has been correctly created.
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Post class has been initialized! Elapsed time: 0m 0sec
+Stage: setup, sweep, and reports created
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+Stage: DUALPOL_XY analysis started
+PyAEDT INFO: Key Desktop/ActiveDSOConfigurations/HFSS correctly changed.
+PyAEDT INFO: Solving design setup Setup_CH9
+PyAEDT INFO: Design setup Setup_CH9 solved correctly in 0.0h 0.0m 58.0s
+PyAEDT INFO: Key Desktop/ActiveDSOConfigurations/HFSS correctly changed.
+Analyze result: True
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Desktop has been released and closed.
+Stage: AEDT settle wait 10.0s
+{
+  "candidate": "p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p6",
+  "strict_realized_min_dbi": -30.509354721479085,
+  "coverage_realized_min_dbi": -20.001411064199818,
+  "worst_active_s11_db": -9.522030018363013
+}
+=== FOV gain candidate 31: p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p2_abc ===
+Stage: starting DUALPOL_XY AEDT/project build
+PyAEDT INFO: Python version 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)].
+PyAEDT INFO: PyAEDT version 0.26.3.
+PyAEDT INFO: Initializing new Desktop session.
+PyAEDT INFO: AEDT version 2023.1.
+PyAEDT INFO: New AEDT session is starting on gRPC port 58460.
+PyAEDT INFO: Starting new AEDT gRPC session on port 58460.
+PyAEDT INFO: Launching AEDT server with gRPC transport mode: TransportMode.WNUA
+PyAEDT INFO: Electronics Desktop started on gRPC port 58460 after 6.0 seconds.
+PyAEDT INFO: AEDT installation Path D:\Program Files\AnsysEM\v231\Win64
+PyAEDT INFO: Connected to AEDT gRPC session on port 58460.
+PyAEDT INFO: Non-graphical mode detected. Disabling Desktop logs.
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY has been created.
+PyAEDT INFO: Added design 'Array4_Diamond_D44_DualPolarized_XY' of type HFSS.
+PyAEDT INFO: AEDT objects correctly read
+PyAEDT INFO: Modeler class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Materials class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Adding new material to the Project Library: RO4350B_custom_D44_Topology
+PyAEDT INFO: Material has been added in Desktop.
+Stage: substrate, ground, and isolation slots created
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: Parsing D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt.
+PyAEDT INFO: File D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.008903264999389648
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped Port P1A has been created.
+PyAEDT INFO: Boundary Lumped RLC P1B_switch_off_load has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped Port P2A has been created.
+PyAEDT INFO: Boundary Lumped RLC P2B_switch_off_load has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped Port P3A has been created.
+PyAEDT INFO: Boundary Lumped RLC P3B_switch_off_load has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped Port P4A has been created.
+PyAEDT INFO: Boundary Lumped RLC P4B_switch_off_load has been created.
+Stage: DUALPOL_XY radiators and feeds created
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+Stage: ground slots cut
+PyAEDT INFO: Boundary Perfect E DUALPOL_XY_PEC_metallization has been created.
+PyAEDT INFO: Open Region correctly created.
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+Stage: radiation region and upper-hemisphere sphere created
+PyAEDT INFO: Parsing D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt.
+PyAEDT INFO: File D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.09542703628540039
+PyAEDT INFO: Linear count sweep Sweep_CH9 has been correctly created.
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Post class has been initialized! Elapsed time: 0m 0sec
+Stage: setup, sweep, and reports created
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+Stage: DUALPOL_XY analysis started
+PyAEDT INFO: Key Desktop/ActiveDSOConfigurations/HFSS correctly changed.
+PyAEDT INFO: Solving design setup Setup_CH9
+PyAEDT INFO: Design setup Setup_CH9 solved correctly in 0.0h 1.0m 1.0s
+PyAEDT INFO: Key Desktop/ActiveDSOConfigurations/HFSS correctly changed.
+Analyze result: True
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Desktop has been released and closed.
+Stage: AEDT settle wait 10.0s
+Stage: starting DUALPOL_XY AEDT/project build
+PyAEDT INFO: Python version 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)].
+PyAEDT INFO: PyAEDT version 0.26.3.
+PyAEDT INFO: Initializing new Desktop session.
+PyAEDT INFO: AEDT version 2023.1.
+PyAEDT INFO: New AEDT session is starting on gRPC port 58622.
+PyAEDT INFO: Starting new AEDT gRPC session on port 58622.
+PyAEDT INFO: Launching AEDT server with gRPC transport mode: TransportMode.WNUA
+PyAEDT INFO: Electronics Desktop started on gRPC port 58622 after 6.2 seconds.
+PyAEDT INFO: AEDT installation Path D:\Program Files\AnsysEM\v231\Win64
+PyAEDT INFO: Connected to AEDT gRPC session on port 58622.
+PyAEDT INFO: Non-graphical mode detected. Disabling Desktop logs.
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY has been created.
+PyAEDT INFO: Added design 'Array4_Diamond_D44_DualPolarized_XY' of type HFSS.
+PyAEDT INFO: AEDT objects correctly read
+PyAEDT INFO: Modeler class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Materials class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Adding new material to the Project Library: RO4350B_custom_D44_Topology
+PyAEDT INFO: Material has been added in Desktop.
+Stage: substrate, ground, and isolation slots created
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: Parsing D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt.
+PyAEDT INFO: File D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.009598016738891602
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped RLC P1A_switch_off_load has been created.
+PyAEDT INFO: Boundary Lumped Port P1B has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped RLC P2A_switch_off_load has been created.
+PyAEDT INFO: Boundary Lumped Port P2B has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped RLC P3A_switch_off_load has been created.
+PyAEDT INFO: Boundary Lumped Port P3B has been created.
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Boundary Lumped RLC P4A_switch_off_load has been created.
+PyAEDT INFO: Boundary Lumped Port P4B has been created.
+Stage: DUALPOL_XY radiators and feeds created
+PyAEDT INFO: Parsing design objects. This operation can take time
+PyAEDT INFO: Refreshing objects from AEDT file
+PyAEDT INFO: 3D Modeler objects parsed. Elapsed time: 0m 0sec
+Stage: ground slots cut
+PyAEDT INFO: Boundary Perfect E DUALPOL_XY_PEC_metallization has been created.
+PyAEDT INFO: Open Region correctly created.
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+Stage: radiation region and upper-hemisphere sphere created
+PyAEDT INFO: Parsing D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt.
+PyAEDT INFO: File D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.09712982177734375
+PyAEDT INFO: Linear count sweep Sweep_CH9 has been correctly created.
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Post class has been initialized! Elapsed time: 0m 0sec
+Stage: setup, sweep, and reports created
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+Stage: DUALPOL_XY analysis started
+PyAEDT INFO: Key Desktop/ActiveDSOConfigurations/HFSS correctly changed.
+PyAEDT INFO: Solving design setup Setup_CH9
+PyAEDT INFO: Design setup Setup_CH9 solved correctly in 0.0h 1.0m 14.0s
+PyAEDT INFO: Key Desktop/ActiveDSOConfigurations/HFSS correctly changed.
+Analyze result: True
+PyAEDT INFO: Project UWB_CH9_Diamond_CP_Array_D44_DUALPOL_XY Saved correctly
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: Solution Correctly parsed. Elapsed time: 0m 0sec
+PyAEDT INFO: Desktop has been released and closed.
+Stage: AEDT settle wait 10.0s
+{
+  "candidate": "p9p75_l5p6_w0p70_fw0p80_stub1p90_w1p00_off1p55_dstub0p70_step1p0_iso11p5_w0p55_i3p6_slit4p0_off0p45_neutralizer2p2_abc",
+  "strict_realized_min_dbi": -33.68894846229666,
+  "coverage_realized_min_dbi": -19.545737928997706,
+  "worst_active_s11_db": -10.163393366181943
+}
+Wrote D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_dualpol_rf_switch_fov_gain_opt\UWB_CH9_D44_DUALPOL_RF_SWITCH_FOV_GAIN_report.md
