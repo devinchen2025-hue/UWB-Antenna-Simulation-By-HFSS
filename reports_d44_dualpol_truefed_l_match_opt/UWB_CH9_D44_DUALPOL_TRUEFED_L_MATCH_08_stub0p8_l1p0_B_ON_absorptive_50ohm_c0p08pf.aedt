@@ -1,5 +1,5 @@
 $begin 'AnsoftProject'
-	Created='Sat May  9 11:27:45 2026'
+	Created='Sat May  9 11:34:19 2026'
 	Product='ElectronicsDesktop'
 	FileOwnedByWorkbench=false
 	$begin 'Desktop'
@@ -145,7 +145,7 @@ $begin 'AnsoftProject'
 				diffusivity='0.8'
 				molecular_mass='0'
 				viscosity='0'
-				ModTime=1778297273
+				ModTime=1778297667
 				Library=''
 				LibLocation='Project'
 				ModSinceLib=true
@@ -196,7 +196,7 @@ $begin 'AnsoftProject'
 		$end 'Scripts'
 		$begin 'Symbols'
 			$begin 'Array4_Diamond_D44_DualPolarized_XY'
-				ModTime=1778297265
+				ModTime=1778297659
 				Library=''
 				ModSinceLib=false
 				LibLocation='Project'
@@ -210,7 +210,7 @@ $begin 'AnsoftProject'
 			$end 'Array4_Diamond_D44_DualPolarized_XY'
 		$end 'Symbols'
 		$begin 'DefInfo'
-			Array4_Diamond_D44_DualPolarized_XY(1002, 0, 0, 0, '', 1778297265, '', 'Array4_Diamond_D44_DualPolarized_XY', '', '', '', '', '', 'Design.bmp', '', 'Project', '', '', 1778297265, '', 0, 0)
+			Array4_Diamond_D44_DualPolarized_XY(1002, 0, 0, 0, '', 1778297659, '', 'Array4_Diamond_D44_DualPolarized_XY', '', '', '', '', '', 'Design.bmp', '', 'Project', '', '', 1778297659, '', 0, 0)
 		$end 'DefInfo'
 		$begin 'Compdefs'
 			$begin 'Array4_Diamond_D44_DualPolarized_XY'
@@ -4664,12 +4664,12 @@ $begin 'AnsoftProject'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='17.7858152801713mm'
-												Y='1.2mm'
+												Y='0.8mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='17.6058152801713mm'
-												Y='1.2mm'
+												Y='0.8mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
@@ -4775,13 +4775,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.216
-															FcUVMid(17.6958152801713, 0.6, 2)
+															Area=0.144
+															FcUVMid(17.6958152801713, 0.4, 2)
 															$begin 'FcTolVts'
 																TolVt(17.6058152801713, 0, 2, 5e-07)
 																TolVt(17.7858152801713, 0, 2, 5e-07)
-																TolVt(17.7858152801713, 1.2, 2, 5e-07)
-																TolVt(17.6058152801713, 1.2, 2, 5e-07)
+																TolVt(17.7858152801713, 0.8, 2, 5e-07)
+																TolVt(17.6058152801713, 0.8, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -4828,27 +4828,27 @@ $begin 'AnsoftProject'
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
 												X='17.6958152801713mm'
-												Y='0.95mm'
+												Y='0.55mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='17.6958152801713mm'
-												Y='1.45mm'
+												Y='1.05mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='17.6958152801713mm'
-												Y='1.45mm'
+												Y='1.05mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='17.6958152801713mm'
-												Y='0.95mm'
+												Y='0.55mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='17.6958152801713mm'
-												Y='0.95mm'
+												Y='0.55mm'
 												Z='0mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
@@ -4950,12 +4950,12 @@ $begin 'AnsoftProject'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
 															Area=1
-															FcUVMid(17.6958152801713, 1.2, 1)
+															FcUVMid(17.6958152801713, 0.8, 1)
 															$begin 'FcTolVts'
-																TolVt(17.6958152801713, 0.95, 0, 5e-07)
-																TolVt(17.6958152801713, 1.45, 0, 5e-07)
-																TolVt(17.6958152801713, 1.45, 2, 5e-07)
-																TolVt(17.6958152801713, 0.95, 2, 5e-07)
+																TolVt(17.6958152801713, 0.55, 0, 5e-07)
+																TolVt(17.6958152801713, 1.05, 0, 5e-07)
+																TolVt(17.6958152801713, 1.05, 2, 5e-07)
+																TolVt(17.6958152801713, 0.55, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -7902,12 +7902,12 @@ $begin 'AnsoftProject'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='1.2mm'
+												X='0.800000000000001mm'
 												Y='17.6058152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='1.2mm'
+												X='0.800000000000001mm'
 												Y='17.7858152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
@@ -8019,12 +8019,12 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.216
-															FcUVMid(0.600000000000001, 17.6958152801713, 2)
+															Area=0.144
+															FcUVMid(0.400000000000001, 17.6958152801713, 2)
 															$begin 'FcTolVts'
 																TolVt(7.36062647800169e-16, 17.6058152801713, 2, 5e-07)
-																TolVt(1.2, 17.6058152801713, 2, 5e-07)
-																TolVt(1.2, 17.7858152801713, 2, 5e-07)
+																TolVt(0.800000000000001, 17.6058152801713, 2, 5e-07)
+																TolVt(0.800000000000001, 17.7858152801713, 2, 5e-07)
 																TolVt(6.93889390390723e-16, 17.7858152801713, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
@@ -8071,27 +8071,27 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='0.950000000000001mm'
+												X='0.550000000000001mm'
 												Y='17.6958152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='1.45mm'
+												X='1.05mm'
 												Y='17.6958152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='1.45mm'
+												X='1.05mm'
 												Y='17.6958152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.950000000000001mm'
+												X='0.550000000000001mm'
 												Y='17.6958152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.950000000000001mm'
+												X='0.550000000000001mm'
 												Y='17.6958152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
@@ -8194,12 +8194,12 @@ $begin 'AnsoftProject'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
 															Area=1
-															FcUVMid(1.2, 17.6958152801713, 1)
+															FcUVMid(0.800000000000001, 17.6958152801713, 1)
 															$begin 'FcTolVts'
-																TolVt(0.950000000000001, 17.6958152801713, 0, 5e-07)
-																TolVt(1.45, 17.6958152801713, 0, 5e-07)
-																TolVt(1.45, 17.6958152801713, 2, 5e-07)
-																TolVt(0.950000000000001, 17.6958152801713, 2, 5e-07)
+																TolVt(0.550000000000001, 17.6958152801713, 0, 5e-07)
+																TolVt(1.05, 17.6958152801713, 0, 5e-07)
+																TolVt(1.05, 17.6958152801713, 2, 5e-07)
+																TolVt(0.550000000000001, 17.6958152801713, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -11152,12 +11152,12 @@ $begin 'AnsoftProject'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-17.6058152801713mm'
-												Y='1.2mm'
+												Y='0.800000000000001mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-17.7858152801713mm'
-												Y='1.2mm'
+												Y='0.800000000000001mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
@@ -11263,13 +11263,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.216
-															FcUVMid(-17.6958152801713, 0.600000000000001, 2)
+															Area=0.144
+															FcUVMid(-17.6958152801713, 0.400000000000001, 2)
 															$begin 'FcTolVts'
 																TolVt(-17.7858152801713, 1.47212529560034e-15, 2, 5e-07)
 																TolVt(-17.6058152801713, 1.47212529560034e-15, 2, 5e-07)
-																TolVt(-17.6058152801713, 1.2, 2, 5e-07)
-																TolVt(-17.7858152801713, 1.2, 2, 5e-07)
+																TolVt(-17.6058152801713, 0.800000000000002, 2, 5e-07)
+																TolVt(-17.7858152801713, 0.800000000000002, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -11316,27 +11316,27 @@ $begin 'AnsoftProject'
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
 												X='-17.6958152801713mm'
-												Y='0.950000000000001mm'
+												Y='0.550000000000001mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-17.6958152801713mm'
-												Y='1.45mm'
+												Y='1.05mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-17.6958152801713mm'
-												Y='1.45mm'
+												Y='1.05mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-17.6958152801713mm'
-												Y='0.950000000000001mm'
+												Y='0.550000000000001mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
 												X='-17.6958152801713mm'
-												Y='0.950000000000001mm'
+												Y='0.550000000000001mm'
 												Z='0mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
@@ -11438,12 +11438,12 @@ $begin 'AnsoftProject'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
 															Area=1
-															FcUVMid(-17.6958152801713, 1.2, 1)
+															FcUVMid(-17.6958152801713, 0.800000000000002, 1)
 															$begin 'FcTolVts'
-																TolVt(-17.6958152801713, 0.950000000000001, 0, 5e-07)
-																TolVt(-17.6958152801713, 1.45, 0, 5e-07)
-																TolVt(-17.6958152801713, 1.45, 2, 5e-07)
-																TolVt(-17.6958152801713, 0.950000000000001, 2, 5e-07)
+																TolVt(-17.6958152801713, 0.550000000000001, 0, 5e-07)
+																TolVt(-17.6958152801713, 1.05, 0, 5e-07)
+																TolVt(-17.6958152801713, 1.05, 2, 5e-07)
+																TolVt(-17.6958152801713, 0.550000000000001, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -14390,12 +14390,12 @@ $begin 'AnsoftProject'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='1.2mm'
+												X='0.799999999999998mm'
 												Y='-17.7858152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='1.2mm'
+												X='0.799999999999998mm'
 												Y='-17.6058152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
@@ -14507,12 +14507,12 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.216
-															FcUVMid(0.599999999999998, -17.6958152801713, 2)
+															Area=0.144
+															FcUVMid(0.399999999999998, -17.6958152801713, 2)
 															$begin 'FcTolVts'
 																TolVt(-2.20818794340051e-15, -17.7858152801713, 2, 5e-07)
-																TolVt(1.2, -17.7858152801713, 2, 5e-07)
-																TolVt(1.2, -17.6058152801713, 2, 5e-07)
+																TolVt(0.799999999999998, -17.7858152801713, 2, 5e-07)
+																TolVt(0.799999999999998, -17.6058152801713, 2, 5e-07)
 																TolVt(-2.25514051876985e-15, -17.6058152801713, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
@@ -14559,27 +14559,27 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='0.949999999999998mm'
+												X='0.549999999999998mm'
 												Y='-17.6958152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='1.45mm'
+												X='1.05mm'
 												Y='-17.6958152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='1.45mm'
+												X='1.05mm'
 												Y='-17.6958152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.949999999999998mm'
+												X='0.549999999999998mm'
 												Y='-17.6958152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.949999999999998mm'
+												X='0.549999999999998mm'
 												Y='-17.6958152801713mm'
 												Z='0mm'
 											$end 'PLPoint'
@@ -14682,12 +14682,12 @@ $begin 'AnsoftProject'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
 															Area=1
-															FcUVMid(1.2, -17.6958152801713, 1)
+															FcUVMid(0.799999999999998, -17.6958152801713, 1)
 															$begin 'FcTolVts'
-																TolVt(0.949999999999998, -17.6958152801713, 0, 5e-07)
-																TolVt(1.45, -17.6958152801713, 0, 5e-07)
-																TolVt(1.45, -17.6958152801713, 2, 5e-07)
-																TolVt(0.949999999999998, -17.6958152801713, 2, 5e-07)
+																TolVt(0.549999999999998, -17.6958152801713, 0, 5e-07)
+																TolVt(1.05, -17.6958152801713, 0, 5e-07)
+																TolVt(1.05, -17.6958152801713, 2, 5e-07)
+																TolVt(0.549999999999998, -17.6958152801713, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -18896,10 +18896,10 @@ $begin 'AnsoftProject'
 						$begin 'EdgeGeomTopol'
 							EdgeFaces(2117)
 							$begin 'EdTolVts'
-								TolVt(17.6958152801713, 0.95, 0, 5e-07)
-								TolVt(17.6958152801713, 1.45, 0, 5e-07)
+								TolVt(17.6958152801713, 0.55, 0, 5e-07)
+								TolVt(17.6958152801713, 1.05, 0, 5e-07)
 							$end 'EdTolVts'
-							EdgeMidPoint(17.6958152801713, 1.2, 0)
+							EdgeMidPoint(17.6958152801713, 0.8, 0)
 						$end 'EdgeGeomTopol'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
@@ -18911,10 +18911,10 @@ $begin 'AnsoftProject'
 						$begin 'EdgeGeomTopol'
 							EdgeFaces(2117)
 							$begin 'EdTolVts'
-								TolVt(17.6958152801713, 1.45, 2, 5e-07)
-								TolVt(17.6958152801713, 0.95, 2, 5e-07)
+								TolVt(17.6958152801713, 1.05, 2, 5e-07)
+								TolVt(17.6958152801713, 0.55, 2, 5e-07)
 							$end 'EdTolVts'
-							EdgeMidPoint(17.6958152801713, 1.2, 2)
+							EdgeMidPoint(17.6958152801713, 0.8, 2)
 						$end 'EdgeGeomTopol'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
@@ -19016,10 +19016,10 @@ $begin 'AnsoftProject'
 						$begin 'EdgeGeomTopol'
 							EdgeFaces(2378)
 							$begin 'EdTolVts'
-								TolVt(0.950000000000001, 17.6958152801713, 0, 5e-07)
-								TolVt(1.45, 17.6958152801713, 0, 5e-07)
+								TolVt(0.550000000000001, 17.6958152801713, 0, 5e-07)
+								TolVt(1.05, 17.6958152801713, 0, 5e-07)
 							$end 'EdTolVts'
-							EdgeMidPoint(1.2, 17.6958152801713, 0)
+							EdgeMidPoint(0.800000000000001, 17.6958152801713, 0)
 						$end 'EdgeGeomTopol'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
@@ -19031,10 +19031,10 @@ $begin 'AnsoftProject'
 						$begin 'EdgeGeomTopol'
 							EdgeFaces(2378)
 							$begin 'EdTolVts'
-								TolVt(1.45, 17.6958152801713, 2, 5e-07)
-								TolVt(0.950000000000001, 17.6958152801713, 2, 5e-07)
+								TolVt(1.05, 17.6958152801713, 2, 5e-07)
+								TolVt(0.550000000000001, 17.6958152801713, 2, 5e-07)
 							$end 'EdTolVts'
-							EdgeMidPoint(1.2, 17.6958152801713, 2)
+							EdgeMidPoint(0.800000000000001, 17.6958152801713, 2)
 						$end 'EdgeGeomTopol'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
@@ -19136,10 +19136,10 @@ $begin 'AnsoftProject'
 						$begin 'EdgeGeomTopol'
 							EdgeFaces(2639)
 							$begin 'EdTolVts'
-								TolVt(-17.6958152801713, 0.950000000000001, 0, 5e-07)
-								TolVt(-17.6958152801713, 1.45, 0, 5e-07)
+								TolVt(-17.6958152801713, 0.550000000000001, 0, 5e-07)
+								TolVt(-17.6958152801713, 1.05, 0, 5e-07)
 							$end 'EdTolVts'
-							EdgeMidPoint(-17.6958152801713, 1.2, 0)
+							EdgeMidPoint(-17.6958152801713, 0.800000000000002, 0)
 						$end 'EdgeGeomTopol'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
@@ -19151,10 +19151,10 @@ $begin 'AnsoftProject'
 						$begin 'EdgeGeomTopol'
 							EdgeFaces(2639)
 							$begin 'EdTolVts'
-								TolVt(-17.6958152801713, 1.45, 2, 5e-07)
-								TolVt(-17.6958152801713, 0.950000000000001, 2, 5e-07)
+								TolVt(-17.6958152801713, 1.05, 2, 5e-07)
+								TolVt(-17.6958152801713, 0.550000000000001, 2, 5e-07)
 							$end 'EdTolVts'
-							EdgeMidPoint(-17.6958152801713, 1.2, 2)
+							EdgeMidPoint(-17.6958152801713, 0.800000000000002, 2)
 						$end 'EdgeGeomTopol'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
@@ -19256,10 +19256,10 @@ $begin 'AnsoftProject'
 						$begin 'EdgeGeomTopol'
 							EdgeFaces(2900)
 							$begin 'EdTolVts'
-								TolVt(0.949999999999998, -17.6958152801713, 0, 5e-07)
-								TolVt(1.45, -17.6958152801713, 0, 5e-07)
+								TolVt(0.549999999999998, -17.6958152801713, 0, 5e-07)
+								TolVt(1.05, -17.6958152801713, 0, 5e-07)
 							$end 'EdTolVts'
-							EdgeMidPoint(1.2, -17.6958152801713, 0)
+							EdgeMidPoint(0.799999999999998, -17.6958152801713, 0)
 						$end 'EdgeGeomTopol'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
@@ -19271,10 +19271,10 @@ $begin 'AnsoftProject'
 						$begin 'EdgeGeomTopol'
 							EdgeFaces(2900)
 							$begin 'EdTolVts'
-								TolVt(1.45, -17.6958152801713, 2, 5e-07)
-								TolVt(0.949999999999998, -17.6958152801713, 2, 5e-07)
+								TolVt(1.05, -17.6958152801713, 2, 5e-07)
+								TolVt(0.549999999999998, -17.6958152801713, 2, 5e-07)
 							$end 'EdTolVts'
-							EdgeMidPoint(1.2, -17.6958152801713, 2)
+							EdgeMidPoint(0.799999999999998, -17.6958152801713, 2)
 						$end 'EdgeGeomTopol'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
@@ -19363,7 +19363,7 @@ $begin 'AnsoftProject'
 							UParam=0
 							VParam=0
 							XPosition='17.6958152801713'
-							YPosition='1.2'
+							YPosition='0.8'
 							ZPosition='2'
 						$end 'GeometryPosition'
 						$begin 'GeometryPosition'
@@ -19376,15 +19376,15 @@ $begin 'AnsoftProject'
 							UParam=0
 							VParam=0
 							XPosition='17.6958152801713'
-							YPosition='1.2'
+							YPosition='0.8'
 							ZPosition='0'
 						$end 'GeometryPosition'
 					$end 'CurrentLine'
 					'RLC Type'='Parallel'
 					UseResist=false
-					UseInduct=false
-					UseCap=true
-					Capacitance='1.2e-13f'
+					UseInduct=true
+					Inductance='1e-09H'
+					UseCap=false
 				$end 'P1L_shunt_match_switch_off_load'
 				$begin 'P2A_switch_off_load'
 					ID=4
@@ -19443,7 +19443,7 @@ $begin 'AnsoftProject'
 							PositionType='EdgeCenter'
 							UParam=0
 							VParam=0
-							XPosition='1.2'
+							XPosition='0.800000000000001'
 							YPosition='17.6958152801713'
 							ZPosition='2'
 						$end 'GeometryPosition'
@@ -19456,16 +19456,16 @@ $begin 'AnsoftProject'
 							PositionType='EdgeCenter'
 							UParam=0
 							VParam=0
-							XPosition='1.2'
+							XPosition='0.800000000000001'
 							YPosition='17.6958152801713'
 							ZPosition='0'
 						$end 'GeometryPosition'
 					$end 'CurrentLine'
 					'RLC Type'='Parallel'
 					UseResist=false
-					UseInduct=false
-					UseCap=true
-					Capacitance='1.2e-13f'
+					UseInduct=true
+					Inductance='1e-09H'
+					UseCap=false
 				$end 'P2L_shunt_match_switch_off_load'
 				$begin 'P3A_switch_off_load'
 					ID=8
@@ -19525,7 +19525,7 @@ $begin 'AnsoftProject'
 							UParam=0
 							VParam=0
 							XPosition='-17.6958152801713'
-							YPosition='1.2'
+							YPosition='0.800000000000002'
 							ZPosition='2'
 						$end 'GeometryPosition'
 						$begin 'GeometryPosition'
@@ -19538,15 +19538,15 @@ $begin 'AnsoftProject'
 							UParam=0
 							VParam=0
 							XPosition='-17.6958152801713'
-							YPosition='1.2'
+							YPosition='0.800000000000002'
 							ZPosition='0'
 						$end 'GeometryPosition'
 					$end 'CurrentLine'
 					'RLC Type'='Parallel'
 					UseResist=false
-					UseInduct=false
-					UseCap=true
-					Capacitance='1.2e-13f'
+					UseInduct=true
+					Inductance='1e-09H'
+					UseCap=false
 				$end 'P3L_shunt_match_switch_off_load'
 				$begin 'P4A_switch_off_load'
 					ID=12
@@ -19605,7 +19605,7 @@ $begin 'AnsoftProject'
 							PositionType='EdgeCenter'
 							UParam=0
 							VParam=0
-							XPosition='1.2'
+							XPosition='0.799999999999998'
 							YPosition='-17.6958152801713'
 							ZPosition='2'
 						$end 'GeometryPosition'
@@ -19618,16 +19618,16 @@ $begin 'AnsoftProject'
 							PositionType='EdgeCenter'
 							UParam=0
 							VParam=0
-							XPosition='1.2'
+							XPosition='0.799999999999998'
 							YPosition='-17.6958152801713'
 							ZPosition='0'
 						$end 'GeometryPosition'
 					$end 'CurrentLine'
 					'RLC Type'='Parallel'
 					UseResist=false
-					UseInduct=false
-					UseCap=true
-					Capacitance='1.2e-13f'
+					UseInduct=true
+					Inductance='1e-09H'
+					UseCap=false
 				$end 'P4L_shunt_match_switch_off_load'
 				$begin 'DUALPOL_XY_PEC_metallization'
 					ID=16
@@ -20331,7 +20331,7 @@ $begin 'AnsoftProject'
 				MoveBackwards=false
 			$end 'NearFieldSetups'
 			RadFieldComputationVersion=1.8
-			RadfieldHeaderFile='RAD647B15592177829727815.tmp'
+			RadfieldHeaderFile='RAD6981888177829767215.tmp'
 			RadPowerMethod=0
 		$end 'RadField'
 		$begin 'SolutionManager'
@@ -20437,7 +20437,7 @@ $begin 'AnsoftProject'
 		Notes=$begin_cdata$ $end_cdata$
 		$begin 'AnimationSetups'
 		$end 'AnimationSetups'
-		CacheHeaderFile='HDR647B15592177829727816.tmp'
+		CacheHeaderFile='HDR6981888177829767216.tmp'
 	$end 'HFSSModel'
 	$begin 'DataInstances'
 		DesignEditor='TopLevel'
