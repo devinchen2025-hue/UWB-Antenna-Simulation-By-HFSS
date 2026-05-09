@@ -90,6 +90,49 @@ def coerce_project_map(projects: Any) -> dict[str, str]:
     return {}
 
 
+def has_true_low_elevation_feed(params: dict[str, Any]) -> bool:
+    return (
+        params.get("board_edge_fed_monopole_enabled", 0.0) >= 0.5
+        or params.get("board_edge_fed_ifa_enabled", 0.0) >= 0.5
+    )
+
+
+def low_elevation_return_terms(sparams: dict[str, Any]) -> dict[str, float]:
+    returns: dict[str, float] = {}
+    for expr, value in sparams.get("self_worst_db", {}).items():
+        try:
+            left, _ = topology_eval.parse_s_term(expr)
+        except (IndexError, ValueError):
+            continue
+        if workstate.port_pol(left) == "L":
+            returns[expr] = float(value)
+    return returns
+
+
+def include_low_elevation_s11(candidate: GainCandidate, s11_row: dict[str, Any], sparams: dict[str, Any]) -> None:
+    if not has_true_low_elevation_feed(candidate.params):
+        return
+    s11_row["selected_path_worst_return_db"] = s11_row["worst_return_db"]
+    s11_row["selected_path_worst_return_expr"] = s11_row["worst_return_expr"]
+    returns = low_elevation_return_terms(sparams)
+    s11_row["low_elevation_port_count"] = len(returns)
+    if not returns:
+        s11_row["worst_low_elevation_s11_db"] = float("nan")
+        s11_row["worst_low_elevation_s11_expr"] = "N/A"
+        s11_row["low_elevation_s11_pass"] = False
+        s11_row["s11_pass"] = False
+        return
+    worst_expr, worst_db = max(returns.items(), key=lambda item: item[1])
+    low_pass = worst_db <= RETURN_TARGET_DB
+    s11_row["worst_low_elevation_s11_db"] = worst_db
+    s11_row["worst_low_elevation_s11_expr"] = worst_expr
+    s11_row["low_elevation_s11_pass"] = low_pass
+    if worst_db > float(s11_row["worst_return_db"]):
+        s11_row["worst_return_db"] = worst_db
+        s11_row["worst_return_expr"] = worst_expr
+    s11_row["s11_pass"] = bool(s11_row["s11_pass"] and low_pass)
+
+
 def current_best_candidate() -> GainCandidate:
     best_name, params = workstate.best_candidate_params()
     return GainCandidate(best_name, params, "当前 RF switch / PDOA 工作态基线候选。")
@@ -112,6 +155,80 @@ GAIN_NAME_UPDATES: list[tuple[str, dict[str, Any]]] = [
     ("no_ab_cancel", {"slot_coupled_ab_cancel_enabled": 0.0}),
     ("no_isolation_slot", {"isolation_slot_enabled": 0.0}),
     ("ground21p9", {"ground_radius_mm": 21.9}),
+    (
+        "replacewall_fedmono_h4p8_g0p80_w0p24",
+        {
+            "slot_coupled_edge_wall_enabled": 0.0,
+            "slot_coupled_board_edge_ifa_enabled": 0.0,
+            "board_edge_fed_monopole_enabled": 1.0,
+            "board_edge_fed_ifa_enabled": 0.0,
+            "board_edge_fed_monopole_height_mm": 4.80,
+            "board_edge_fed_monopole_gap_mm": 0.80,
+            "board_edge_fed_monopole_width_mm": 0.24,
+            "board_edge_fed_monopole_offset_mm": 0.0,
+            "board_edge_fed_monopole_topload_length_mm": 0.0,
+        },
+    ),
+    (
+        "replacewall_fedmono_h4p8_g0p65_w0p20_top1p2",
+        {
+            "slot_coupled_edge_wall_enabled": 0.0,
+            "slot_coupled_board_edge_ifa_enabled": 0.0,
+            "board_edge_fed_monopole_enabled": 1.0,
+            "board_edge_fed_ifa_enabled": 0.0,
+            "board_edge_fed_monopole_height_mm": 4.80,
+            "board_edge_fed_monopole_gap_mm": 0.65,
+            "board_edge_fed_monopole_width_mm": 0.20,
+            "board_edge_fed_monopole_offset_mm": -0.60,
+            "board_edge_fed_monopole_topload_length_mm": 1.20,
+        },
+    ),
+    (
+        "replacewall_fedmono_h6p8_g0p80_w0p20_lim10",
+        {
+            "total_height_limit_mm": 10.0,
+            "slot_coupled_edge_wall_enabled": 0.0,
+            "slot_coupled_board_edge_ifa_enabled": 0.0,
+            "board_edge_fed_monopole_enabled": 1.0,
+            "board_edge_fed_ifa_enabled": 0.0,
+            "board_edge_fed_monopole_height_mm": 6.80,
+            "board_edge_fed_monopole_gap_mm": 0.80,
+            "board_edge_fed_monopole_width_mm": 0.20,
+            "board_edge_fed_monopole_offset_mm": 0.0,
+            "board_edge_fed_monopole_topload_length_mm": 0.0,
+        },
+    ),
+    (
+        "replacewall_fedifa_l3p8_h5p2_g0p60_f0p70_w0p24",
+        {
+            "slot_coupled_edge_wall_enabled": 0.0,
+            "slot_coupled_board_edge_ifa_enabled": 0.0,
+            "board_edge_fed_monopole_enabled": 0.0,
+            "board_edge_fed_ifa_enabled": 1.0,
+            "board_edge_fed_ifa_length_mm": 3.80,
+            "board_edge_fed_ifa_height_mm": 5.20,
+            "board_edge_fed_ifa_gap_mm": 0.60,
+            "board_edge_fed_ifa_feed_offset_mm": 0.70,
+            "board_edge_fed_ifa_width_mm": 0.24,
+            "board_edge_fed_ifa_offset_mm": 0.0,
+        },
+    ),
+    (
+        "replacewall_fedifa_l3p2_h6p8_g0p60_f0p65_w0p20_lim10",
+        {
+            "total_height_limit_mm": 10.0,
+            "slot_coupled_edge_wall_enabled": 0.0,
+            "slot_coupled_board_edge_ifa_enabled": 0.0,
+            "board_edge_fed_monopole_enabled": 0.0,
+            "board_edge_fed_ifa_enabled": 1.0,
+            "board_edge_fed_ifa_length_mm": 3.20,
+            "board_edge_fed_ifa_height_mm": 6.80,
+            "board_edge_fed_ifa_gap_mm": 0.60,
+            "board_edge_fed_ifa_feed_offset_mm": 0.65,
+            "board_edge_fed_ifa_width_mm": 0.20,
+            "board_edge_fed_ifa_offset_mm": 0.0,
+        },
+    ),
     (
         "patch_slit3p0",
         {
@@ -1313,6 +1430,80 @@ def candidate_pool() -> list[GainCandidate]:
             slot_coupled_edge_wall_width_mm=0.25,
             slot_coupled_edge_wall_offset_mm=0.45,
         ),
+        clone_candidate(
+            coverage_base,
+            f"{coverage_base.name}_replacewall_fedmono_h4p8_g0p80_w0p24",
+            "Replace the passive edge wall with four true board-edge-fed monopole ports P1L-P4L for selectable low-elevation coverage.",
+            slot_coupled_edge_wall_enabled=0.0,
+            slot_coupled_board_edge_ifa_enabled=0.0,
+            board_edge_fed_monopole_enabled=1.0,
+            board_edge_fed_ifa_enabled=0.0,
+            board_edge_fed_monopole_height_mm=4.80,
+            board_edge_fed_monopole_gap_mm=0.80,
+            board_edge_fed_monopole_width_mm=0.24,
+            board_edge_fed_monopole_offset_mm=0.0,
+            board_edge_fed_monopole_topload_length_mm=0.0,
+        ),
+        clone_candidate(
+            coverage_base,
+            f"{coverage_base.name}_replacewall_fedmono_h4p8_g0p65_w0p20_top1p2",
+            "Use a compact true-fed edge monopole with a short tangential top load to tune the L-port match inside the 8 mm profile.",
+            slot_coupled_edge_wall_enabled=0.0,
+            slot_coupled_board_edge_ifa_enabled=0.0,
+            board_edge_fed_monopole_enabled=1.0,
+            board_edge_fed_ifa_enabled=0.0,
+            board_edge_fed_monopole_height_mm=4.80,
+            board_edge_fed_monopole_gap_mm=0.65,
+            board_edge_fed_monopole_width_mm=0.20,
+            board_edge_fed_monopole_offset_mm=-0.60,
+            board_edge_fed_monopole_topload_length_mm=1.20,
+        ),
+        clone_candidate(
+            coverage_base,
+            f"{coverage_base.name}_replacewall_fedmono_h6p8_g0p80_w0p20_lim10",
+            "Relax the profile to 10 mm and test whether a taller true-fed edge monopole can lift the horizon floor.",
+            total_height_limit_mm=10.0,
+            slot_coupled_edge_wall_enabled=0.0,
+            slot_coupled_board_edge_ifa_enabled=0.0,
+            board_edge_fed_monopole_enabled=1.0,
+            board_edge_fed_ifa_enabled=0.0,
+            board_edge_fed_monopole_height_mm=6.80,
+            board_edge_fed_monopole_gap_mm=0.80,
+            board_edge_fed_monopole_width_mm=0.20,
+            board_edge_fed_monopole_offset_mm=0.0,
+            board_edge_fed_monopole_topload_length_mm=0.0,
+        ),
+        clone_candidate(
+            coverage_base,
+            f"{coverage_base.name}_replacewall_fedifa_l3p8_h5p2_g0p60_f0p70_w0p24",
+            "Replace the passive edge helper with a true board-edge-fed IFA tap and include P1L-P4L in both coverage and S11 checks.",
+            slot_coupled_edge_wall_enabled=0.0,
+            slot_coupled_board_edge_ifa_enabled=0.0,
+            board_edge_fed_monopole_enabled=0.0,
+            board_edge_fed_ifa_enabled=1.0,
+            board_edge_fed_ifa_length_mm=3.80,
+            board_edge_fed_ifa_height_mm=5.20,
+            board_edge_fed_ifa_gap_mm=0.60,
+            board_edge_fed_ifa_feed_offset_mm=0.70,
+            board_edge_fed_ifa_width_mm=0.24,
+            board_edge_fed_ifa_offset_mm=0.0,
+        ),
+        clone_candidate(
+            coverage_base,
+            f"{coverage_base.name}_replacewall_fedifa_l3p2_h6p8_g0p60_f0p65_w0p20_lim10",
+            "Use a taller 10 mm-profile true-fed board-edge IFA as the independent low-elevation coverage branch.",
+            total_height_limit_mm=10.0,
+            slot_coupled_edge_wall_enabled=0.0,
+            slot_coupled_board_edge_ifa_enabled=0.0,
+            board_edge_fed_monopole_enabled=0.0,
+            board_edge_fed_ifa_enabled=1.0,
+            board_edge_fed_ifa_length_mm=3.20,
+            board_edge_fed_ifa_height_mm=6.80,
+            board_edge_fed_ifa_gap_mm=0.60,
+            board_edge_fed_ifa_feed_offset_mm=0.65,
+            board_edge_fed_ifa_width_mm=0.20,
+            board_edge_fed_ifa_offset_mm=0.0,
+        ),
     ]
     for item in custom:
         if item.name not in seen:
@@ -1487,7 +1678,8 @@ def summarize_candidate(
     coverage_worst_gain = min(coverage_rows, key=lambda row: row["coverage_gain_total_min_dbi"])
     coverage_worst_realized = min(coverage_rows, key=lambda row: row["coverage_realized_gain_total_min_dbi"])
     worst_s11 = max(s11_rows, key=lambda row: row["worst_return_db"])
-    return {
+    low_s11_rows = [row for row in s11_rows if "worst_low_elevation_s11_db" in row]
+    summary = {
         "candidate_index": candidate_index,
         "candidate": candidate.name,
         "rationale": candidate.rationale,
@@ -1525,6 +1717,18 @@ def summarize_candidate(
         "all_workstate_s11_pass": all(row["s11_pass"] for row in s11_rows),
         "projects": projects,
     }
+    if low_s11_rows:
+        worst_low = max(low_s11_rows, key=lambda row: row["worst_low_elevation_s11_db"])
+        summary.update(
+            {
+                "low_elevation_port_count": max(int(row.get("low_elevation_port_count", 0)) for row in low_s11_rows),
+                "worst_low_elevation_s11_db": worst_low["worst_low_elevation_s11_db"],
+                "worst_low_elevation_s11_case": worst_low["case"],
+                "worst_low_elevation_s11_expr": worst_low["worst_low_elevation_s11_expr"],
+                "all_low_elevation_s11_pass": all(row.get("low_elevation_s11_pass", False) for row in low_s11_rows),
+            }
+        )
+    return summary
 
 
 def evaluate_candidate(
@@ -1562,6 +1766,7 @@ def evaluate_candidate(
                 REPORT_DIR / f"{STEM}_{candidate_index:02d}_{safe_slug(candidate.name, 48)}_{case.name}_s_parameters.csv",
             )
             s11_row = workstate.summarize_case(case, sparams, time.time() - case_started)
+            include_low_elevation_s11(candidate, s11_row, sparams)
             s11_row.update({"candidate_index": candidate_index, "candidate": candidate.name})
             s11_rows.append(s11_row)
 

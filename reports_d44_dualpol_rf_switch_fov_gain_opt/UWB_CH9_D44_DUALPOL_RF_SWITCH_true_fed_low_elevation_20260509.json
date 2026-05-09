@@ -1,0 +1,64 @@
+{
+  "task": "true_board_edge_fed_low_elevation_unit",
+  "date": "2026-05-09",
+  "fov": {
+    "theta_deg": [45.0, 90.0],
+    "phi_deg": [0.0, 360.0],
+    "gain_target_dbi": -5.0,
+    "return_target_db": -10.0
+  },
+  "baseline": {
+    "candidate_index": 60,
+    "structure": "passive edge wall helper",
+    "coverage_fov_realized_gain_total_min_dbi": -15.954040,
+    "coverage_fov_gain_total_min_dbi": -15.952508,
+    "worst_s11_db": -10.047787,
+    "all_workstate_s11_pass": true
+  },
+  "completed_candidates": [
+    {
+      "candidate_index": 61,
+      "structure": "true board-edge-fed monopole, height 4.8 mm, 8 mm envelope",
+      "coverage_fov_realized_gain_total_min_dbi": -0.582281,
+      "coverage_fov_gain_total_min_dbi": 1.123451,
+      "strict_fov_realized_gain_total_min_dbi": -27.607037,
+      "worst_s11_db": -4.137961,
+      "worst_low_elevation_s11_db": -4.137961,
+      "all_low_elevation_s11_pass": false,
+      "all_workstate_s11_pass": false,
+      "coverage_gain_pass": true,
+      "matching_pass": false
+    },
+    {
+      "candidate_index": 63,
+      "structure": "true board-edge-fed monopole, height 6.8 mm, 10 mm envelope",
+      "coverage_fov_realized_gain_total_min_dbi": -2.158741,
+      "coverage_fov_gain_total_min_dbi": 1.137813,
+      "strict_fov_realized_gain_total_min_dbi": -28.356716,
+      "worst_s11_db": -2.316140,
+      "worst_low_elevation_s11_db": -2.316140,
+      "all_low_elevation_s11_pass": false,
+      "all_workstate_s11_pass": false,
+      "coverage_gain_pass": true,
+      "matching_pass": false
+    }
+  ],
+  "incomplete_candidates": [
+    {
+      "candidate_index": 62,
+      "structure": "true board-edge-fed monopole with short top load",
+      "status": "A_ON project snapshot saved; B_ON post-processing stalled in AEDT/PyAEDT and was terminated"
+    },
+    {
+      "candidate_index": 64,
+      "structure": "true board-edge-fed IFA, 8 mm envelope",
+      "status": "AEDT/PyAEDT session stalled during project build and was terminated"
+    },
+    {
+      "candidate_index": 65,
+      "structure": "true board-edge-fed IFA, 10 mm envelope",
+      "status": "not run after candidate 64 session stall"
+    }
+  ],
+  "conclusion": "The independent true-fed low-elevation monopole validates the coverage direction, improving coverage realized gain from -15.95 dBi to -0.58 dBi, but the L-port match is not acceptable yet. The next optimization should focus on a dedicated P1L-P4L matching network around candidate 61."
+}

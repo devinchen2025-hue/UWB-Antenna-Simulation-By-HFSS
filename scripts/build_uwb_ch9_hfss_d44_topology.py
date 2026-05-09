@@ -142,6 +142,19 @@ BASE_PARAMS = {
     "slot_coupled_folded_edge_arm_offset_mm": 0.0,
     "slot_coupled_folded_edge_arm_gap_mm": 0.0,
     "slot_coupled_folded_edge_arm_turn_sign": 1.0,
+    "board_edge_fed_monopole_enabled": 0.0,
+    "board_edge_fed_monopole_height_mm": 4.8,
+    "board_edge_fed_monopole_width_mm": 0.24,
+    "board_edge_fed_monopole_gap_mm": 0.80,
+    "board_edge_fed_monopole_offset_mm": 0.0,
+    "board_edge_fed_monopole_topload_length_mm": 0.0,
+    "board_edge_fed_ifa_enabled": 0.0,
+    "board_edge_fed_ifa_length_mm": 3.8,
+    "board_edge_fed_ifa_height_mm": 5.2,
+    "board_edge_fed_ifa_width_mm": 0.24,
+    "board_edge_fed_ifa_gap_mm": 0.60,
+    "board_edge_fed_ifa_feed_offset_mm": 0.70,
+    "board_edge_fed_ifa_offset_mm": 0.0,
     "slot_coupled_ab_cancel_enabled": 0.0,
     "slot_coupled_ab_cancel_coupling_length_mm": 1.60,
     "slot_coupled_ab_cancel_trace_width_mm": 0.12,
@@ -1015,6 +1028,130 @@ def add_slotcoupled_edge_radiators(hfss: Hfss, tag: str, center: tuple[float, fl
     return metals
 
 
+def add_board_edge_fed_low_elevation_unit(
+    hfss: Hfss,
+    tag: str,
+    center: tuple[float, float],
+    angle_deg: float,
+    params: dict,
+) -> list[str]:
+    metals: list[str] = []
+    monopole_enabled = params.get("board_edge_fed_monopole_enabled", 0.0) >= 0.5
+    ifa_enabled = params.get("board_edge_fed_ifa_enabled", 0.0) >= 0.5
+    if not monopole_enabled and not ifa_enabled:
+        return metals
+
+    h = params["substrate_h_mm"]
+    edge = params["patch_side_mm"] / 2.0
+    axis, side = radial_edge_axis(center)
+    port_name = f"P{tag[-1]}L"
+
+    def add_port(feed_radial: float, feed_offset: float, feed_top_z: float) -> None:
+        if axis == "u":
+            metals.extend(
+                add_lumped_feed(
+                    hfss,
+                    port_name,
+                    center,
+                    angle_deg,
+                    side * feed_radial,
+                    feed_offset,
+                    feed_top_z,
+                    0.0,
+                    params,
+                    pad=False,
+                )
+            )
+        else:
+            metals.extend(
+                add_lumped_feed(
+                    hfss,
+                    port_name,
+                    center,
+                    angle_deg,
+                    feed_offset,
+                    side * feed_radial,
+                    feed_top_z,
+                    0.0,
+                    params,
+                    pad=False,
+                    port_width_axis="u",
+                )
+            )
+
+    if monopole_enabled:
+        height = params.get("board_edge_fed_monopole_height_mm", 4.8)
+        width = params.get("board_edge_fed_monopole_width_mm", 0.24)
+        gap = params.get("board_edge_fed_monopole_gap_mm", 0.80)
+        offset = params.get("board_edge_fed_monopole_offset_mm", 0.0)
+        top_load = params.get("board_edge_fed_monopole_topload_length_mm", 0.0)
+        radial = edge + gap
+        top_z = h + height
+        cross0, cross1 = offset - width / 2.0, offset + width / 2.0
+        if axis == "u":
+            wall_pts = [
+                local_to_global(*center, angle_deg, side * radial, cross0, h),
+                local_to_global(*center, angle_deg, side * radial, cross1, h),
+                local_to_global(*center, angle_deg, side * radial, cross1, top_z),
+                local_to_global(*center, angle_deg, side * radial, cross0, top_z),
+            ]
+        else:
+            wall_pts = [
+                local_to_global(*center, angle_deg, cross0, side * radial, h),
+                local_to_global(*center, angle_deg, cross1, side * radial, h),
+                local_to_global(*center, angle_deg, cross1, side * radial, top_z),
+                local_to_global(*center, angle_deg, cross0, side * radial, top_z),
+            ]
+        wall = polygon_sheet(hfss, f"{tag}_board_edge_fed_monopole_wall", wall_pts, "copper")
+        metals.append(wall.name)
+        if top_load > 1e-9:
+            tan0, tan1 = sorted([offset, offset + top_load])
+            radial0, radial1 = sorted([side * radial - width / 2.0, side * radial + width / 2.0])
+            if axis == "u":
+                pts = rectangle_points(*center, angle_deg, radial0, radial1, tan0, tan1, top_z)
+            else:
+                pts = rectangle_points(*center, angle_deg, tan0, tan1, radial0, radial1, top_z)
+            top = polygon_sheet(hfss, f"{tag}_board_edge_fed_monopole_topload", pts, "copper")
+            metals.append(top.name)
+        add_port(radial, offset, h)
+
+    if ifa_enabled:
+        length = params.get("board_edge_fed_ifa_length_mm", 3.8)
+        height = params.get("board_edge_fed_ifa_height_mm", 5.2)
+        width = params.get("board_edge_fed_ifa_width_mm", 0.24)
+        gap = params.get("board_edge_fed_ifa_gap_mm", 0.60)
+        feed_offset = params.get("board_edge_fed_ifa_feed_offset_mm", 0.70)
+        offset = params.get("board_edge_fed_ifa_offset_mm", 0.0)
+        start = edge + gap
+        stop = start + length
+        feed_radial = start + feed_offset
+        top_z = h + height
+        radial0, radial1 = sorted([side * start, side * stop])
+        cross0, cross1 = offset - width / 2.0, offset + width / 2.0
+        if axis == "u":
+            top_pts = rectangle_points(*center, angle_deg, radial0, radial1, cross0, cross1, top_z)
+            short_pts = [
+                local_to_global(*center, angle_deg, side * start, cross0, 0.0),
+                local_to_global(*center, angle_deg, side * start, cross1, 0.0),
+                local_to_global(*center, angle_deg, side * start, cross1, top_z),
+                local_to_global(*center, angle_deg, side * start, cross0, top_z),
+            ]
+        else:
+            top_pts = rectangle_points(*center, angle_deg, cross0, cross1, radial0, radial1, top_z)
+            short_pts = [
+                local_to_global(*center, angle_deg, cross0, side * start, 0.0),
+                local_to_global(*center, angle_deg, cross1, side * start, 0.0),
+                local_to_global(*center, angle_deg, cross1, side * start, top_z),
+                local_to_global(*center, angle_deg, cross0, side * start, top_z),
+            ]
+        top_arm = polygon_sheet(hfss, f"{tag}_board_edge_fed_ifa_top_arm", top_pts, "copper")
+        short_wall = polygon_sheet(hfss, f"{tag}_board_edge_fed_ifa_short_wall", short_pts, "copper")
+        metals.extend([top_arm.name, short_wall.name])
+        add_port(feed_radial, offset, top_z)
+
+    return metals
+
+
 def add_slotcoupled_ab_cancellation_network(
     hfss: Hfss,
     tag: str,
@@ -1545,6 +1682,16 @@ def validate_params(params: dict) -> None:
             top_height,
             params["substrate_h_mm"] + params.get("slot_coupled_folded_edge_arm_height_mm", 5.2) + params["copper_t_mm"],
         )
+    if params.get("board_edge_fed_monopole_enabled", 0.0) >= 0.5:
+        top_height = max(
+            top_height,
+            params["substrate_h_mm"] + params.get("board_edge_fed_monopole_height_mm", 4.8) + params["copper_t_mm"],
+        )
+    if params.get("board_edge_fed_ifa_enabled", 0.0) >= 0.5:
+        top_height = max(
+            top_height,
+            params["substrate_h_mm"] + params.get("board_edge_fed_ifa_height_mm", 5.2) + params["copper_t_mm"],
+        )
     if top_height > params["total_height_limit_mm"]:
         raise ValueError(f"Total height {top_height:.3f} mm exceeds {params['total_height_limit_mm']:.3f} mm")
     if params["ground_radius_mm"] > params["board_diameter_mm"] / 2.0:
@@ -1755,6 +1902,41 @@ def validate_params(params: dict) -> None:
                 raise ValueError("Folded edge arm tangent section must stay inside the board-edge span")
             if center_radius + half_patch + folded_gap + folded_radial_len > board_radius - 0.20:
                 raise ValueError("Folded edge arm radial section must stay inside the circular board outline")
+        monopole_enabled = params.get("board_edge_fed_monopole_enabled", 0.0) >= 0.5
+        fed_ifa_enabled = params.get("board_edge_fed_ifa_enabled", 0.0) >= 0.5
+        if monopole_enabled and fed_ifa_enabled:
+            raise ValueError("Use either the board-edge-fed monopole or board-edge-fed IFA in one candidate, not both")
+        if monopole_enabled:
+            mono_h = params.get("board_edge_fed_monopole_height_mm", 4.8)
+            mono_w = params.get("board_edge_fed_monopole_width_mm", 0.24)
+            mono_gap = params.get("board_edge_fed_monopole_gap_mm", 0.80)
+            mono_offset = params.get("board_edge_fed_monopole_offset_mm", 0.0)
+            mono_topload = params.get("board_edge_fed_monopole_topload_length_mm", 0.0)
+            if mono_h <= 0.50 or mono_w <= 0.06 or mono_w > 0.90 or mono_gap < 0.15 or mono_topload < 0.0:
+                raise ValueError("Board-edge-fed monopole dimensions must be positive and manufacturable")
+            if params["substrate_h_mm"] + mono_h + params["copper_t_mm"] > params["total_height_limit_mm"]:
+                raise ValueError("Board-edge-fed monopole exceeds the total height limit")
+            if abs(mono_offset) + mono_w / 2.0 + mono_topload > half_patch - 0.20:
+                raise ValueError("Board-edge-fed monopole top loading must stay near the element-side span")
+            if center_radius + half_patch + mono_gap > board_radius - 0.25:
+                raise ValueError("Board-edge-fed monopole feed point must stay inside the circular board outline")
+        if fed_ifa_enabled:
+            fed_ifa_l = params.get("board_edge_fed_ifa_length_mm", 3.8)
+            fed_ifa_h = params.get("board_edge_fed_ifa_height_mm", 5.2)
+            fed_ifa_w = params.get("board_edge_fed_ifa_width_mm", 0.24)
+            fed_ifa_gap = params.get("board_edge_fed_ifa_gap_mm", 0.60)
+            fed_ifa_feed = params.get("board_edge_fed_ifa_feed_offset_mm", 0.70)
+            fed_ifa_offset = params.get("board_edge_fed_ifa_offset_mm", 0.0)
+            if fed_ifa_l <= 0.80 or fed_ifa_h <= 0.50 or fed_ifa_w <= 0.06 or fed_ifa_w > 0.90 or fed_ifa_gap < 0.15:
+                raise ValueError("Board-edge-fed IFA dimensions must be positive and manufacturable")
+            if fed_ifa_feed <= 0.10 or fed_ifa_feed >= fed_ifa_l - 0.10:
+                raise ValueError("Board-edge-fed IFA feed tap must sit between the short and open end")
+            if params["substrate_h_mm"] + fed_ifa_h + params["copper_t_mm"] > params["total_height_limit_mm"]:
+                raise ValueError("Board-edge-fed IFA exceeds the total height limit")
+            if abs(fed_ifa_offset) + fed_ifa_w / 2.0 > half_patch - 0.20:
+                raise ValueError("Board-edge-fed IFA must stay near the element-side span")
+            if center_radius + half_patch + fed_ifa_gap + fed_ifa_l > board_radius - 0.20:
+                raise ValueError("Board-edge-fed IFA must stay inside the circular board outline")
         if ab_cancel_enabled:
             if ab_cancel_l <= 0.40 or ab_cancel_w <= 0.03 or ab_cancel_w > 0.30:
                 raise ValueError("Dual-polarized A/B cancellation trace dimensions must be manufacturable")
@@ -1962,6 +2144,7 @@ def build_project(
                 metals, slots = add_dualpol_slotcoupled_element(hfss, tag, (cx, cy), 0.0, params)
                 metal_names.extend(metals)
                 slot_names.extend(slots)
+                metal_names.extend(add_board_edge_fed_low_elevation_unit(hfss, tag, (cx, cy), 0.0, params))
             else:
                 metal_names.extend(add_dualfeed_element(hfss, tag, (cx, cy), 0.0, params))
         elif kind == "slotcoupled":
@@ -2067,6 +2250,16 @@ def build_project(
             total_height,
             params["substrate_h_mm"] + params.get("slot_coupled_folded_edge_arm_height_mm", 5.2) + params["copper_t_mm"],
         )
+    if params.get("board_edge_fed_monopole_enabled", 0.0) >= 0.5:
+        total_height = max(
+            total_height,
+            params["substrate_h_mm"] + params.get("board_edge_fed_monopole_height_mm", 4.8) + params["copper_t_mm"],
+        )
+    if params.get("board_edge_fed_ifa_enabled", 0.0) >= 0.5:
+        total_height = max(
+            total_height,
+            params["substrate_h_mm"] + params.get("board_edge_fed_ifa_height_mm", 5.2) + params["copper_t_mm"],
+        )
     notes = {
         "project": str(paths["project"]),
         "design": hfss.design_name,
@@ -2118,6 +2311,10 @@ def source_guidance(topology: str) -> list[str]:
             guidance.append("A parasitic board-edge IFA is enabled to add a dedicated low-elevation current path near the PCB rim.")
         if params.get("slot_coupled_folded_edge_arm_enabled", 0.0) >= 0.5:
             guidance.append("A raised folded edge arm is enabled; the candidate intentionally spends height to improve horizontal-plane coverage.")
+        if params.get("board_edge_fed_monopole_enabled", 0.0) >= 0.5:
+            guidance.append("Independent board-edge-fed monopole ports P1L-P4L are enabled as selectable low-elevation coverage elements.")
+        if params.get("board_edge_fed_ifa_enabled", 0.0) >= 0.5:
+            guidance.append("Independent board-edge-fed IFA ports P1L-P4L are enabled as selectable low-elevation coverage elements.")
         if params.get("rf_switch_equiv_enabled", 0.0) >= 0.5:
             guidance.append("RF-switch working-state modeling is enabled: the selected polarization remains a lumped port and the inactive polarization is replaced by a parallel off-state R/C/L load.")
         return guidance
