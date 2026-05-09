@@ -520,6 +520,72 @@ GAIN_NAME_UPDATES: list[tuple[str, dict[str, Any]]] = [
             "slot_coupled_folded_edge_arm_turn_sign": 1.0,
         },
     ),
+    (
+        "covifa_l3p8_h5p2_g0p30_o0p55_w0p22",
+        {
+            "slot_coupled_board_edge_ifa_enabled": 1.0,
+            "slot_coupled_board_edge_ifa_length_mm": 3.80,
+            "slot_coupled_board_edge_ifa_height_mm": 5.20,
+            "slot_coupled_board_edge_ifa_gap_mm": 0.30,
+            "slot_coupled_board_edge_ifa_offset_mm": 0.55,
+            "slot_coupled_board_edge_ifa_width_mm": 0.22,
+        },
+    ),
+    (
+        "covifa_l3p8_h5p2_g0p30_on0p55_w0p22",
+        {
+            "slot_coupled_board_edge_ifa_enabled": 1.0,
+            "slot_coupled_board_edge_ifa_length_mm": 3.80,
+            "slot_coupled_board_edge_ifa_height_mm": 5.20,
+            "slot_coupled_board_edge_ifa_gap_mm": 0.30,
+            "slot_coupled_board_edge_ifa_offset_mm": -0.55,
+            "slot_coupled_board_edge_ifa_width_mm": 0.22,
+        },
+    ),
+    (
+        "covifa_l3p0_h6p8_g0p35_o0p70_w0p20_lim10",
+        {
+            "total_height_limit_mm": 10.0,
+            "slot_coupled_board_edge_ifa_enabled": 1.0,
+            "slot_coupled_board_edge_ifa_length_mm": 3.00,
+            "slot_coupled_board_edge_ifa_height_mm": 6.80,
+            "slot_coupled_board_edge_ifa_gap_mm": 0.35,
+            "slot_coupled_board_edge_ifa_offset_mm": 0.70,
+            "slot_coupled_board_edge_ifa_width_mm": 0.20,
+        },
+    ),
+    (
+        "covfolded_t3p8_h6p8_w0p18_lim10",
+        {
+            "total_height_limit_mm": 10.0,
+            "slot_coupled_folded_edge_arm_enabled": 1.0,
+            "slot_coupled_folded_edge_arm_radial_length_mm": 1.80,
+            "slot_coupled_folded_edge_arm_tangent_length_mm": 3.80,
+            "slot_coupled_folded_edge_arm_height_mm": 6.80,
+            "slot_coupled_folded_edge_arm_width_mm": 0.18,
+            "slot_coupled_folded_edge_arm_turn_sign": 1.0,
+        },
+    ),
+    (
+        "covfolded_t3p8_h4p8_w0p20_turnneg",
+        {
+            "slot_coupled_folded_edge_arm_enabled": 1.0,
+            "slot_coupled_folded_edge_arm_radial_length_mm": 1.80,
+            "slot_coupled_folded_edge_arm_tangent_length_mm": 3.80,
+            "slot_coupled_folded_edge_arm_height_mm": 4.80,
+            "slot_coupled_folded_edge_arm_width_mm": 0.20,
+            "slot_coupled_folded_edge_arm_turn_sign": -1.0,
+        },
+    ),
+    (
+        "covwall_h3p5_w0p25_o0p45",
+        {
+            "slot_coupled_edge_wall_enabled": 1.0,
+            "slot_coupled_edge_wall_height_mm": 3.50,
+            "slot_coupled_edge_wall_width_mm": 0.25,
+            "slot_coupled_edge_wall_offset_mm": 0.45,
+        },
+    ),
 ]
 
 
@@ -527,6 +593,18 @@ def apply_gain_name_updates(candidate_name: str, params: dict[str, Any]) -> None
     for suffix, updates in GAIN_NAME_UPDATES:
         if f"_{suffix}" in candidate_name:
             params.update(updates)
+
+
+def reconstruct_gain_candidate(candidate_name: str, rationale: str) -> GainCandidate | None:
+    direct = candidate_by_name(candidate_name)
+    if direct:
+        return direct
+    for item in sorted(s11_opt.candidates(), key=lambda candidate: len(candidate.name), reverse=True):
+        if candidate_name.startswith(f"{item.name}_"):
+            params = dict(item.params)
+            apply_gain_name_updates(candidate_name, params)
+            return GainCandidate(candidate_name, params, rationale)
+    return None
 
 
 def previous_gain_best_candidate() -> GainCandidate | None:
@@ -538,15 +616,37 @@ def previous_gain_best_candidate() -> GainCandidate | None:
     best_name = str(rank_summary(rows)[0].get("candidate", ""))
     if not best_name:
         return None
-    direct = candidate_by_name(best_name)
-    if direct:
-        return direct
-    for item in sorted(s11_opt.candidates(), key=lambda candidate: len(candidate.name), reverse=True):
-        if best_name.startswith(f"{item.name}_"):
-            params = dict(item.params)
-            apply_gain_name_updates(best_name, params)
-            return GainCandidate(best_name, params, "Previous FOV gain best reconstructed from candidate suffixes.")
-    return None
+    return reconstruct_gain_candidate(best_name, "Previous FOV gain best reconstructed from candidate suffixes.")
+
+
+def previous_coverage_best_candidate() -> GainCandidate | None:
+    if not SUMMARY_CSV.exists():
+        return None
+    rows = read_csv(SUMMARY_CSV)
+    if not rows:
+        return None
+
+    def coverage_score(row: dict[str, Any]) -> float:
+        try:
+            return float(row.get("coverage_fov_realized_gain_total_min_dbi", "-inf"))
+        except (TypeError, ValueError):
+            return float("-inf")
+
+    viable = [
+        row
+        for row in rows
+        if bool_field(row.get("all_workstate_s11_pass"))
+        and row.get("coverage_fov_realized_gain_total_min_dbi")
+    ]
+    if not viable:
+        viable = [row for row in rows if row.get("coverage_fov_realized_gain_total_min_dbi")]
+    if not viable:
+        return None
+    best_name = str(max(viable, key=coverage_score).get("candidate", ""))
+    if not best_name:
+        return None
+    return reconstruct_gain_candidate(best_name, "Previous S11-passing coverage best reconstructed from candidate suffixes.")
+
 
 
 def historical_top_s11_names(limit: int = 8) -> list[str]:
@@ -582,6 +682,7 @@ def historical_top_s11_names(limit: int = 8) -> list[str]:
 def candidate_pool() -> list[GainCandidate]:
     base = current_best_candidate()
     gain_base = previous_gain_best_candidate() or base
+    coverage_base = previous_coverage_best_candidate() or gain_base
     pool: list[GainCandidate] = [base]
     seen = {base.name}
     for name in historical_top_s11_names(limit=8):
@@ -1141,6 +1242,76 @@ def candidate_pool() -> list[GainCandidate]:
             slot_coupled_folded_edge_arm_offset_mm=0.0,
             slot_coupled_folded_edge_arm_gap_mm=0.0,
             slot_coupled_folded_edge_arm_turn_sign=1.0,
+        ),
+        clone_candidate(
+            coverage_base,
+            f"{coverage_base.name}_covifa_l3p8_h5p2_g0p30_o0p55_w0p22",
+            "Add an offset board-edge IFA on the S11-passing coverage best to test a separate low-elevation branch without occupying the folded arm centerline.",
+            slot_coupled_board_edge_ifa_enabled=1.0,
+            slot_coupled_board_edge_ifa_length_mm=3.80,
+            slot_coupled_board_edge_ifa_height_mm=5.20,
+            slot_coupled_board_edge_ifa_gap_mm=0.30,
+            slot_coupled_board_edge_ifa_offset_mm=0.55,
+            slot_coupled_board_edge_ifa_width_mm=0.22,
+        ),
+        clone_candidate(
+            coverage_base,
+            f"{coverage_base.name}_covifa_l3p8_h5p2_g0p30_on0p55_w0p22",
+            "Mirror the offset IFA branch to check whether the folded-arm turn direction creates a preferred tangent-side coupling.",
+            slot_coupled_board_edge_ifa_enabled=1.0,
+            slot_coupled_board_edge_ifa_length_mm=3.80,
+            slot_coupled_board_edge_ifa_height_mm=5.20,
+            slot_coupled_board_edge_ifa_gap_mm=0.30,
+            slot_coupled_board_edge_ifa_offset_mm=-0.55,
+            slot_coupled_board_edge_ifa_width_mm=0.22,
+        ),
+        clone_candidate(
+            coverage_base,
+            f"{coverage_base.name}_covifa_l3p0_h6p8_g0p35_o0p70_w0p20_lim10",
+            "Relax the height envelope and use a taller board-edge IFA as a more independent low-elevation coverage unit.",
+            total_height_limit_mm=10.0,
+            slot_coupled_board_edge_ifa_enabled=1.0,
+            slot_coupled_board_edge_ifa_length_mm=3.00,
+            slot_coupled_board_edge_ifa_height_mm=6.80,
+            slot_coupled_board_edge_ifa_gap_mm=0.35,
+            slot_coupled_board_edge_ifa_offset_mm=0.70,
+            slot_coupled_board_edge_ifa_width_mm=0.20,
+        ),
+        clone_candidate(
+            coverage_base,
+            f"{coverage_base.name}_covfolded_t3p8_h6p8_w0p18_lim10",
+            "Raise and narrow the folded arm from the coverage best under a 10 mm envelope to isolate height as the horizon-gain lever.",
+            total_height_limit_mm=10.0,
+            slot_coupled_folded_edge_arm_enabled=1.0,
+            slot_coupled_folded_edge_arm_radial_length_mm=1.80,
+            slot_coupled_folded_edge_arm_tangent_length_mm=3.80,
+            slot_coupled_folded_edge_arm_height_mm=6.80,
+            slot_coupled_folded_edge_arm_width_mm=0.18,
+            slot_coupled_folded_edge_arm_offset_mm=0.0,
+            slot_coupled_folded_edge_arm_gap_mm=0.0,
+            slot_coupled_folded_edge_arm_turn_sign=1.0,
+        ),
+        clone_candidate(
+            coverage_base,
+            f"{coverage_base.name}_covfolded_t3p8_h4p8_w0p20_turnneg",
+            "Reverse the folded-arm tangent branch to test whether the coverage null is tied to turn direction rather than electrical length.",
+            slot_coupled_folded_edge_arm_enabled=1.0,
+            slot_coupled_folded_edge_arm_radial_length_mm=1.80,
+            slot_coupled_folded_edge_arm_tangent_length_mm=3.80,
+            slot_coupled_folded_edge_arm_height_mm=4.80,
+            slot_coupled_folded_edge_arm_width_mm=0.20,
+            slot_coupled_folded_edge_arm_offset_mm=0.0,
+            slot_coupled_folded_edge_arm_gap_mm=0.0,
+            slot_coupled_folded_edge_arm_turn_sign=-1.0,
+        ),
+        clone_candidate(
+            coverage_base,
+            f"{coverage_base.name}_covwall_h3p5_w0p25_o0p45",
+            "Add a narrow offset vertical wall beside the folded riser as a compact monopole-like helper branch for horizontal-plane current.",
+            slot_coupled_edge_wall_enabled=1.0,
+            slot_coupled_edge_wall_height_mm=3.50,
+            slot_coupled_edge_wall_width_mm=0.25,
+            slot_coupled_edge_wall_offset_mm=0.45,
         ),
     ]
     for item in custom:
