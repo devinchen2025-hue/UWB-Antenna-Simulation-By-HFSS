@@ -1,6 +1,6 @@
 {
   "return_target_db": -10.0,
-  "candidate_count": 34,
+  "candidate_count": 44,
   "summary_rows": [
     {
       "candidate_index": "1",
@@ -1089,9 +1089,53 @@
       "worst_return_db": "-6.253747",
       "worst_return_expr": "dB(S(P3L:1,P3L:1))",
       "s11_pass": "False"
+    },
+    {
+      "candidate_index": "37",
+      "candidate": "fold0p6_neck1p6_stub2p6",
+      "rationale": "Add a short radial folded open branch at the best long-stub point to increase electrical length without using more edge span.",
+      "case": "A_ON_absorptive_50ohm_c0p08pf",
+      "active_pol": "A",
+      "elapsed_s": "108.497890",
+      "selected_path_worst_return_db": "-12.463567",
+      "selected_path_worst_return_expr": "dB(S(P4A:1,P4A:1))",
+      "low_elevation_port_count": "4",
+      "worst_low_elevation_s11_db": "-10.321437",
+      "worst_low_elevation_s11_expr": "dB(S(P2L:1,P2L:1))",
+      "worst_return_db": "-10.321437",
+      "worst_return_expr": "dB(S(P2L:1,P2L:1))",
+      "s11_pass": "True"
+    },
+    {
+      "candidate_index": "37",
+      "candidate": "fold0p6_neck1p6_stub2p6",
+      "rationale": "Add a short radial folded open branch at the best long-stub point to increase electrical length without using more edge span.",
+      "case": "B_ON_absorptive_50ohm_c0p08pf",
+      "active_pol": "B",
+      "elapsed_s": "96.385171",
+      "selected_path_worst_return_db": "-13.065118",
+      "selected_path_worst_return_expr": "dB(S(P3B:1,P3B:1))",
+      "low_elevation_port_count": "4",
+      "worst_low_elevation_s11_db": "-11.136743",
+      "worst_low_elevation_s11_expr": "dB(S(P1L:1,P1L:1))",
+      "worst_return_db": "-11.136743",
+      "worst_return_expr": "dB(S(P1L:1,P1L:1))",
+      "s11_pass": "True"
     }
   ],
   "candidate_summaries": [
+    {
+      "candidate_index": "37",
+      "candidate": "fold0p6_neck1p6_stub2p6",
+      "rationale": "Add a short radial folded open branch at the best long-stub point to increase electrical length without using more edge span.",
+      "worst_return_db": -10.321437,
+      "worst_return_expr": "dB(S(P2L:1,P2L:1))",
+      "worst_return_case": "A_ON_absorptive_50ohm_c0p08pf",
+      "worst_low_elevation_s11_db": -10.321437,
+      "worst_low_elevation_s11_expr": "dB(S(P2L:1,P2L:1))",
+      "worst_low_elevation_s11_case": "A_ON_absorptive_50ohm_c0p08pf",
+      "all_s11_pass": true
+    },
     {
       "candidate_index": "29",
       "candidate": "neck1p6_w0p08_stub2p6_open",

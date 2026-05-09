@@ -159,6 +159,10 @@ BASE_PARAMS = {
     "board_edge_fed_l_match_stub_length_mm": 0.0,
     "board_edge_fed_l_match_stub_width_mm": 0.18,
     "board_edge_fed_l_match_stub_side_sign": 1.0,
+    "board_edge_fed_l_match_fold_enabled": 0.0,
+    "board_edge_fed_l_match_fold_length_mm": 0.0,
+    "board_edge_fed_l_match_fold_width_mm": 0.14,
+    "board_edge_fed_l_match_fold_radial_sign": 1.0,
     "board_edge_fed_l_match_capacitance_pf": 0.0,
     "board_edge_fed_l_match_inductance_nh": 0.0,
     "board_edge_fed_l_match_resistance_ohm": 0.0,
@@ -1063,10 +1067,15 @@ def add_board_edge_fed_low_elevation_unit(
         stub_l = params.get("board_edge_fed_l_match_stub_length_mm", 0.0)
         stub_w = params.get("board_edge_fed_l_match_stub_width_mm", 0.18)
         stub_sign = 1.0 if params.get("board_edge_fed_l_match_stub_side_sign", 1.0) >= 0.0 else -1.0
+        fold_enabled = params.get("board_edge_fed_l_match_fold_enabled", 0.0) >= 0.5
+        fold_l = params.get("board_edge_fed_l_match_fold_length_mm", 0.0)
+        fold_w = params.get("board_edge_fed_l_match_fold_width_mm", stub_w)
+        fold_sign = 1.0 if params.get("board_edge_fed_l_match_fold_radial_sign", 1.0) >= 0.0 else -1.0
         cap_pf = params.get("board_edge_fed_l_match_capacitance_pf", 0.0)
         ind_nh = params.get("board_edge_fed_l_match_inductance_nh", 0.0)
         res_ohm = params.get("board_edge_fed_l_match_resistance_ohm", 0.0)
         match_offset = feed_offset
+        match_radial = feed_radial
         if stub_l > 1e-9:
             match_offset = feed_offset + stub_sign * stub_l
             cross0, cross1 = sorted([feed_offset, match_offset])
@@ -1077,6 +1086,16 @@ def add_board_edge_fed_low_elevation_unit(
                 pts = rectangle_points(*center, angle_deg, cross0, cross1, radial0, radial1, feed_top_z)
             stub = polygon_sheet(hfss, f"{tag}_board_edge_fed_l_match_stub", pts, "copper")
             metals.append(stub.name)
+        if fold_enabled and fold_l > 1e-9:
+            match_radial = feed_radial + fold_sign * fold_l
+            cross0, cross1 = sorted([match_offset - fold_w / 2.0, match_offset + fold_w / 2.0])
+            radial0, radial1 = sorted([side * (feed_radial - fold_w / 2.0), side * match_radial])
+            if axis == "u":
+                pts = rectangle_points(*center, angle_deg, radial0, radial1, cross0, cross1, feed_top_z)
+            else:
+                pts = rectangle_points(*center, angle_deg, cross0, cross1, radial0, radial1, feed_top_z)
+            fold = polygon_sheet(hfss, f"{tag}_board_edge_fed_l_match_fold", pts, "copper")
+            metals.append(fold.name)
         if cap_pf <= 0.0 and ind_nh <= 0.0 and res_ohm <= 0.0:
             return
         match_params = dict(params)
@@ -1089,7 +1108,7 @@ def add_board_edge_fed_low_elevation_unit(
                 f"{port_name}_shunt_match",
                 center,
                 angle_deg,
-                side * feed_radial,
+                side * match_radial,
                 match_offset,
                 feed_top_z,
                 0.0,
@@ -1102,7 +1121,7 @@ def add_board_edge_fed_low_elevation_unit(
                 center,
                 angle_deg,
                 match_offset,
-                side * feed_radial,
+                side * match_radial,
                 feed_top_z,
                 0.0,
                 match_params,
@@ -1991,6 +2010,10 @@ def validate_params(params: dict) -> None:
         l_match_enabled = params.get("board_edge_fed_l_match_enabled", 0.0) >= 0.5
         l_match_stub_l = params.get("board_edge_fed_l_match_stub_length_mm", 0.0)
         l_match_stub_w = params.get("board_edge_fed_l_match_stub_width_mm", 0.18)
+        l_match_fold_enabled = params.get("board_edge_fed_l_match_fold_enabled", 0.0) >= 0.5
+        l_match_fold_l = params.get("board_edge_fed_l_match_fold_length_mm", 0.0)
+        l_match_fold_w = params.get("board_edge_fed_l_match_fold_width_mm", l_match_stub_w)
+        l_match_fold_radial_sign = 1.0 if params.get("board_edge_fed_l_match_fold_radial_sign", 1.0) >= 0.0 else -1.0
         l_match_cap = params.get("board_edge_fed_l_match_capacitance_pf", 0.0)
         l_match_ind = params.get("board_edge_fed_l_match_inductance_nh", 0.0)
         l_match_res = params.get("board_edge_fed_l_match_resistance_ohm", 0.0)
@@ -2012,6 +2035,11 @@ def validate_params(params: dict) -> None:
                 raise ValueError("Board-edge-fed L-port match RLC values must be non-negative")
             if l_match_stub_l <= 1e-9 and l_match_cap <= 0.0 and l_match_ind <= 0.0 and l_match_res <= 0.0:
                 raise ValueError("Board-edge-fed L-port match needs a stub or a non-zero RLC value")
+        if l_match_fold_enabled:
+            if not l_match_enabled or l_match_stub_l <= 1e-9:
+                raise ValueError("Board-edge-fed L-port folded match branch requires a straight match stub anchor")
+            if l_match_fold_l <= 0.0 or l_match_fold_w <= 0.04 or l_match_fold_w > 0.80:
+                raise ValueError("Board-edge-fed L-port folded match branch dimensions must be manufacturable")
         if monopole_enabled:
             mono_h = params.get("board_edge_fed_monopole_height_mm", 4.8)
             mono_w = params.get("board_edge_fed_monopole_width_mm", 0.24)
@@ -2029,6 +2057,11 @@ def validate_params(params: dict) -> None:
             l_feature_span = (l_match_stub_l if l_match_enabled else 0.0) + (l_feed_neck_l if l_feed_neck_enabled else 0.0)
             if (l_match_enabled or l_feed_neck_enabled) and abs(mono_offset) + mono_w / 2.0 + l_feature_span > half_patch - 0.20:
                 raise ValueError("Board-edge-fed monopole L-port feed neck and match stub must stay near the element-side span")
+            if l_match_fold_enabled:
+                if l_match_fold_radial_sign >= 0.0 and center_radius + half_patch + mono_gap + l_match_fold_l > board_radius - 0.20:
+                    raise ValueError("Board-edge-fed monopole folded L-port match branch must stay inside the circular board outline")
+                if l_match_fold_radial_sign < 0.0 and mono_gap - l_match_fold_l < 0.15:
+                    raise ValueError("Board-edge-fed monopole inward folded L-port match branch must stay outside the patch edge")
         if fed_ifa_enabled:
             fed_ifa_l = params.get("board_edge_fed_ifa_length_mm", 3.8)
             fed_ifa_h = params.get("board_edge_fed_ifa_height_mm", 5.2)
@@ -2049,6 +2082,11 @@ def validate_params(params: dict) -> None:
             l_feature_span = (l_match_stub_l if l_match_enabled else 0.0) + (l_feed_neck_l if l_feed_neck_enabled else 0.0)
             if (l_match_enabled or l_feed_neck_enabled) and abs(fed_ifa_offset) + fed_ifa_w / 2.0 + l_feature_span > half_patch - 0.20:
                 raise ValueError("Board-edge-fed IFA L-port feed neck and match stub must stay near the element-side span")
+            if l_match_fold_enabled:
+                if l_match_fold_radial_sign >= 0.0 and center_radius + half_patch + fed_ifa_gap + fed_ifa_feed + l_match_fold_l > board_radius - 0.20:
+                    raise ValueError("Board-edge-fed IFA folded L-port match branch must stay inside the circular board outline")
+                if l_match_fold_radial_sign < 0.0 and fed_ifa_gap + fed_ifa_feed - l_match_fold_l < 0.15:
+                    raise ValueError("Board-edge-fed IFA inward folded L-port match branch must stay outside the patch edge")
         if ab_cancel_enabled:
             if ab_cancel_l <= 0.40 or ab_cancel_w <= 0.03 or ab_cancel_w > 0.30:
                 raise ValueError("Dual-polarized A/B cancellation trace dimensions must be manufacturable")
@@ -2429,6 +2467,8 @@ def source_guidance(topology: str) -> list[str]:
             guidance.append("Independent board-edge-fed IFA ports P1L-P4L are enabled as selectable low-elevation coverage elements.")
         if params.get("board_edge_fed_l_match_enabled", 0.0) >= 0.5:
             guidance.append("A dedicated shunt matching stub is enabled on each low-elevation L port and must be co-optimized with coverage loss.")
+        if params.get("board_edge_fed_l_match_fold_enabled", 0.0) >= 0.5:
+            guidance.append("The low-elevation L-port matching stub uses a folded open branch to add electrical length without consuming more board-edge span.")
         if params.get("board_edge_fed_l_feed_neck_enabled", 0.0) >= 0.5:
             guidance.append("A series feed neck moves each low-elevation L-port feed point along the board edge before the monopole/IFA attachment.")
         if params.get("rf_switch_equiv_enabled", 0.0) >= 0.5:
