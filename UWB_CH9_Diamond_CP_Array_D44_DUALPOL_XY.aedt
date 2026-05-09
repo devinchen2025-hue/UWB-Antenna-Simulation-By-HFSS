@@ -1,5 +1,5 @@
 $begin 'AnsoftProject'
-	Created='Sat May  9 11:27:45 2026'
+	Created='Sat May  9 15:19:56 2026'
 	Product='ElectronicsDesktop'
 	FileOwnedByWorkbench=false
 	$begin 'Desktop'
@@ -145,7 +145,7 @@ $begin 'AnsoftProject'
 				diffusivity='0.8'
 				molecular_mass='0'
 				viscosity='0'
-				ModTime=1778297273
+				ModTime=1778311204
 				Library=''
 				LibLocation='Project'
 				ModSinceLib=true
@@ -196,7 +196,7 @@ $begin 'AnsoftProject'
 		$end 'Scripts'
 		$begin 'Symbols'
 			$begin 'Array4_Diamond_D44_DualPolarized_XY'
-				ModTime=1778297265
+				ModTime=1778311196
 				Library=''
 				ModSinceLib=false
 				LibLocation='Project'
@@ -210,7 +210,7 @@ $begin 'AnsoftProject'
 			$end 'Array4_Diamond_D44_DualPolarized_XY'
 		$end 'Symbols'
 		$begin 'DefInfo'
-			Array4_Diamond_D44_DualPolarized_XY(1002, 0, 0, 0, '', 1778297265, '', 'Array4_Diamond_D44_DualPolarized_XY', '', '', '', '', '', 'Design.bmp', '', 'Project', '', '', 1778297265, '', 0, 0)
+			Array4_Diamond_D44_DualPolarized_XY(1002, 0, 0, 0, '', 1778311196, '', 'Array4_Diamond_D44_DualPolarized_XY', '', '', '', '', '', 'Design.bmp', '', 'Project', '', '', 1778311196, '', 0, 0)
 		$end 'DefInfo'
 		$begin 'Compdefs'
 			$begin 'Array4_Diamond_D44_DualPolarized_XY'
@@ -300,7 +300,7 @@ $begin 'AnsoftProject'
 			WorkingCS=1
 			$begin 'GeometryCore'
 				BlockVersionID=3
-				DataVersion=13
+				DataVersion=12
 				NativeKernel='PARASOLID'
 				NativeKernelVersionID=23
 				Units='mm'
@@ -3929,7 +3929,7 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='P1A_switch_off_load_sheet'
+								Name='P1A_lumped_port_sheet'
 								Flags=''
 								Color='(230 230 230)'
 								Transparency=0.8
@@ -4103,7 +4103,7 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='P1B_lumped_port_sheet'
+								Name='P1B_switch_off_load_sheet'
 								Flags=''
 								Color='(230 230 230)'
 								Transparency=0.8
@@ -4451,16 +4451,16 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='P1L_lumped_port_sheet'
+								Name='E1_board_edge_fed_l_feed_neck'
 								Flags=''
-								Color='(230 230 230)'
-								Transparency=0.8
+								Color='(242 140 102)'
+								Transparency=0.2
 								PartCoordinateSystem=1
 								UDMId=-1
 								GroupId=-1
-								MaterialValue='"vacuum"'
+								MaterialValue='"copper"'
 								SurfaceMaterialValue='"Steel-oxidised-surface"'
-								SolveInside=true
+								SolveInside=false
 								ShellElement=false
 								ShellElementThickness='0mm'
 								ReferenceTemperature='20cel'
@@ -4479,29 +4479,29 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='17.6958152801713mm'
-												Y='-0.25mm'
-												Z='0mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='17.6958152801713mm'
-												Y='0.25mm'
-												Z='0mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='17.6958152801713mm'
-												Y='0.25mm'
+												X='17.6558152801713mm'
+												Y='0mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='17.6958152801713mm'
-												Y='-0.25mm'
+												X='17.7358152801713mm'
+												Y='0mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='17.6958152801713mm'
-												Y='-0.25mm'
-												Z='0mm'
+												X='17.7358152801713mm'
+												Y='1.6mm'
+												Z='2mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='17.6558152801713mm'
+												Y='1.6mm'
+												Z='2mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='17.6558152801713mm'
+												Y='0mm'
+												Z='2mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -4601,13 +4601,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1
-															FcUVMid(17.6958152801713, 0, 1)
+															Area=0.128000000000004
+															FcUVMid(17.6958152801713, 0.8, 2)
 															$begin 'FcTolVts'
-																TolVt(17.6958152801713, -0.25, 0, 5e-07)
-																TolVt(17.6958152801713, 0.25, 0, 5e-07)
-																TolVt(17.6958152801713, 0.25, 2, 5e-07)
-																TolVt(17.6958152801713, -0.25, 2, 5e-07)
+																TolVt(17.6558152801713, 0, 2, 5e-07)
+																TolVt(17.7358152801713, 0, 2, 5e-07)
+																TolVt(17.7358152801713, 1.6, 2, 5e-07)
+																TolVt(17.6558152801713, 1.6, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -4625,16 +4625,16 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='E1_board_edge_fed_l_match_stub'
+								Name='P1L_lumped_port_sheet'
 								Flags=''
-								Color='(242 140 102)'
-								Transparency=0.2
+								Color='(230 230 230)'
+								Transparency=0.8
 								PartCoordinateSystem=1
 								UDMId=-1
 								GroupId=-1
-								MaterialValue='"copper"'
+								MaterialValue='"vacuum"'
 								SurfaceMaterialValue='"Steel-oxidised-surface"'
-								SolveInside=false
+								SolveInside=true
 								ShellElement=false
 								ShellElementThickness='0mm'
 								ReferenceTemperature='20cel'
@@ -4653,29 +4653,29 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='17.6058152801713mm'
-												Y='0mm'
+												X='17.6958152801713mm'
+												Y='1.35mm'
+												Z='0mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='17.6958152801713mm'
+												Y='1.85mm'
+												Z='0mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='17.6958152801713mm'
+												Y='1.85mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='17.7858152801713mm'
-												Y='0mm'
+												X='17.6958152801713mm'
+												Y='1.35mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='17.7858152801713mm'
-												Y='1.2mm'
-												Z='2mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='17.6058152801713mm'
-												Y='1.2mm'
-												Z='2mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='17.6058152801713mm'
-												Y='0mm'
-												Z='2mm'
+												X='17.6958152801713mm'
+												Y='1.35mm'
+												Z='0mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -4775,13 +4775,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.216
-															FcUVMid(17.6958152801713, 0.6, 2)
+															Area=1
+															FcUVMid(17.6958152801713, 1.6, 1)
 															$begin 'FcTolVts'
-																TolVt(17.6058152801713, 0, 2, 5e-07)
-																TolVt(17.7858152801713, 0, 2, 5e-07)
-																TolVt(17.7858152801713, 1.2, 2, 5e-07)
-																TolVt(17.6058152801713, 1.2, 2, 5e-07)
+																TolVt(17.6958152801713, 1.35, 0, 5e-07)
+																TolVt(17.6958152801713, 1.85, 0, 5e-07)
+																TolVt(17.6958152801713, 1.85, 2, 5e-07)
+																TolVt(17.6958152801713, 1.35, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -4799,16 +4799,16 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='P1L_shunt_match_switch_off_load_sheet'
+								Name='E1_board_edge_fed_l_match_stub'
 								Flags=''
-								Color='(230 230 230)'
-								Transparency=0.8
+								Color='(242 140 102)'
+								Transparency=0.2
 								PartCoordinateSystem=1
 								UDMId=-1
 								GroupId=-1
-								MaterialValue='"vacuum"'
+								MaterialValue='"copper"'
 								SurfaceMaterialValue='"Steel-oxidised-surface"'
-								SolveInside=true
+								SolveInside=false
 								ShellElement=false
 								ShellElementThickness='0mm'
 								ReferenceTemperature='20cel'
@@ -4827,29 +4827,29 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='17.6958152801713mm'
-												Y='0.95mm'
-												Z='0mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='17.6958152801713mm'
-												Y='1.45mm'
-												Z='0mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='17.6958152801713mm'
-												Y='1.45mm'
+												X='17.6258152801713mm'
+												Y='1.6mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='17.6958152801713mm'
-												Y='0.95mm'
+												X='17.7658152801713mm'
+												Y='1.6mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='17.6958152801713mm'
-												Y='0.95mm'
-												Z='0mm'
+												X='17.7658152801713mm'
+												Y='4.2mm'
+												Z='2mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='17.6258152801713mm'
+												Y='4.2mm'
+												Z='2mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='17.6258152801713mm'
+												Y='1.6mm'
+												Z='2mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -4949,13 +4949,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1
-															FcUVMid(17.6958152801713, 1.2, 1)
+															Area=0.364000000000003
+															FcUVMid(17.6958152801713, 2.9, 2)
 															$begin 'FcTolVts'
-																TolVt(17.6958152801713, 0.95, 0, 5e-07)
-																TolVt(17.6958152801713, 1.45, 0, 5e-07)
-																TolVt(17.6958152801713, 1.45, 2, 5e-07)
-																TolVt(17.6958152801713, 0.95, 2, 5e-07)
+																TolVt(17.6258152801713, 1.6, 2, 5e-07)
+																TolVt(17.7658152801713, 1.6, 2, 5e-07)
+																TolVt(17.7658152801713, 4.2, 2, 5e-07)
+																TolVt(17.6258152801713, 4.2, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -7173,7 +7173,7 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='P2A_switch_off_load_sheet'
+								Name='P2A_lumped_port_sheet'
 								Flags=''
 								Color='(230 230 230)'
 								Transparency=0.8
@@ -7347,7 +7347,7 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='P2B_lumped_port_sheet'
+								Name='P2B_switch_off_load_sheet'
 								Flags=''
 								Color='(230 230 230)'
 								Transparency=0.8
@@ -7695,16 +7695,16 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='P2L_lumped_port_sheet'
+								Name='E2_board_edge_fed_l_feed_neck'
 								Flags=''
-								Color='(230 230 230)'
-								Transparency=0.8
+								Color='(242 140 102)'
+								Transparency=0.2
 								PartCoordinateSystem=1
 								UDMId=-1
 								GroupId=-1
-								MaterialValue='"vacuum"'
+								MaterialValue='"copper"'
 								SurfaceMaterialValue='"Steel-oxidised-surface"'
-								SolveInside=true
+								SolveInside=false
 								ShellElement=false
 								ShellElementThickness='0mm'
 								ReferenceTemperature='20cel'
@@ -7723,29 +7723,29 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-0.249999999999999mm'
-												Y='17.6958152801713mm'
-												Z='0mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='0.250000000000001mm'
-												Y='17.6958152801713mm'
-												Z='0mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='0.250000000000001mm'
-												Y='17.6958152801713mm'
+												X='7.36062647800169e-16mm'
+												Y='17.6558152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-0.249999999999999mm'
-												Y='17.6958152801713mm'
+												X='1.6mm'
+												Y='17.6558152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-0.249999999999999mm'
-												Y='17.6958152801713mm'
-												Z='0mm'
+												X='1.6mm'
+												Y='17.7358152801713mm'
+												Z='2mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='7.36062647800169e-16mm'
+												Y='17.7358152801713mm'
+												Z='2mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='7.36062647800169e-16mm'
+												Y='17.6558152801713mm'
+												Z='2mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -7845,13 +7845,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1
-															FcUVMid(7.37257477290143e-16, 17.6958152801713, 1)
+															Area=0.128000000000004
+															FcUVMid(0.800000000000001, 17.6958152801713, 2)
 															$begin 'FcTolVts'
-																TolVt(-0.249999999999999, 17.6958152801713, 0, 5e-07)
-																TolVt(0.250000000000001, 17.6958152801713, 0, 5e-07)
-																TolVt(0.250000000000001, 17.6958152801713, 2, 5e-07)
-																TolVt(-0.249999999999999, 17.6958152801713, 2, 5e-07)
+																TolVt(7.36062647800169e-16, 17.6558152801713, 2, 5e-07)
+																TolVt(1.6, 17.6558152801713, 2, 5e-07)
+																TolVt(1.6, 17.7358152801713, 2, 5e-07)
+																TolVt(6.93889390390723e-16, 17.7358152801713, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -7869,16 +7869,16 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='E2_board_edge_fed_l_match_stub'
+								Name='P2L_lumped_port_sheet'
 								Flags=''
-								Color='(242 140 102)'
-								Transparency=0.2
+								Color='(230 230 230)'
+								Transparency=0.8
 								PartCoordinateSystem=1
 								UDMId=-1
 								GroupId=-1
-								MaterialValue='"copper"'
+								MaterialValue='"vacuum"'
 								SurfaceMaterialValue='"Steel-oxidised-surface"'
-								SolveInside=false
+								SolveInside=true
 								ShellElement=false
 								ShellElementThickness='0mm'
 								ReferenceTemperature='20cel'
@@ -7897,29 +7897,29 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='7.36062647800169e-16mm'
-												Y='17.6058152801713mm'
+												X='1.35mm'
+												Y='17.6958152801713mm'
+												Z='0mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='1.85mm'
+												Y='17.6958152801713mm'
+												Z='0mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='1.85mm'
+												Y='17.6958152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='1.2mm'
-												Y='17.6058152801713mm'
+												X='1.35mm'
+												Y='17.6958152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='1.2mm'
-												Y='17.7858152801713mm'
-												Z='2mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='7.36062647800169e-16mm'
-												Y='17.7858152801713mm'
-												Z='2mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='7.36062647800169e-16mm'
-												Y='17.6058152801713mm'
-												Z='2mm'
+												X='1.35mm'
+												Y='17.6958152801713mm'
+												Z='0mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -8019,13 +8019,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.216
-															FcUVMid(0.600000000000001, 17.6958152801713, 2)
+															Area=1
+															FcUVMid(1.6, 17.6958152801713, 1)
 															$begin 'FcTolVts'
-																TolVt(7.36062647800169e-16, 17.6058152801713, 2, 5e-07)
-																TolVt(1.2, 17.6058152801713, 2, 5e-07)
-																TolVt(1.2, 17.7858152801713, 2, 5e-07)
-																TolVt(6.93889390390723e-16, 17.7858152801713, 2, 5e-07)
+																TolVt(1.35, 17.6958152801713, 0, 5e-07)
+																TolVt(1.85, 17.6958152801713, 0, 5e-07)
+																TolVt(1.85, 17.6958152801713, 2, 5e-07)
+																TolVt(1.35, 17.6958152801713, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -8043,16 +8043,16 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='P2L_shunt_match_switch_off_load_sheet'
+								Name='E2_board_edge_fed_l_match_stub'
 								Flags=''
-								Color='(230 230 230)'
-								Transparency=0.8
+								Color='(242 140 102)'
+								Transparency=0.2
 								PartCoordinateSystem=1
 								UDMId=-1
 								GroupId=-1
-								MaterialValue='"vacuum"'
+								MaterialValue='"copper"'
 								SurfaceMaterialValue='"Steel-oxidised-surface"'
-								SolveInside=true
+								SolveInside=false
 								ShellElement=false
 								ShellElementThickness='0mm'
 								ReferenceTemperature='20cel'
@@ -8071,29 +8071,29 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='0.950000000000001mm'
-												Y='17.6958152801713mm'
-												Z='0mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='1.45mm'
-												Y='17.6958152801713mm'
-												Z='0mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='1.45mm'
-												Y='17.6958152801713mm'
+												X='1.6mm'
+												Y='17.6258152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.950000000000001mm'
-												Y='17.6958152801713mm'
+												X='4.2mm'
+												Y='17.6258152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.950000000000001mm'
-												Y='17.6958152801713mm'
-												Z='0mm'
+												X='4.2mm'
+												Y='17.7658152801713mm'
+												Z='2mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='1.6mm'
+												Y='17.7658152801713mm'
+												Z='2mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='1.6mm'
+												Y='17.6258152801713mm'
+												Z='2mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -8193,13 +8193,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1
-															FcUVMid(1.2, 17.6958152801713, 1)
+															Area=0.364000000000003
+															FcUVMid(2.9, 17.6958152801713, 2)
 															$begin 'FcTolVts'
-																TolVt(0.950000000000001, 17.6958152801713, 0, 5e-07)
-																TolVt(1.45, 17.6958152801713, 0, 5e-07)
-																TolVt(1.45, 17.6958152801713, 2, 5e-07)
-																TolVt(0.950000000000001, 17.6958152801713, 2, 5e-07)
+																TolVt(1.6, 17.6258152801713, 2, 5e-07)
+																TolVt(4.2, 17.6258152801713, 2, 5e-07)
+																TolVt(4.2, 17.7658152801713, 2, 5e-07)
+																TolVt(1.6, 17.7658152801713, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -10417,7 +10417,7 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='P3A_switch_off_load_sheet'
+								Name='P3A_lumped_port_sheet'
 								Flags=''
 								Color='(230 230 230)'
 								Transparency=0.8
@@ -10591,7 +10591,7 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='P3B_lumped_port_sheet'
+								Name='P3B_switch_off_load_sheet'
 								Flags=''
 								Color='(230 230 230)'
 								Transparency=0.8
@@ -10939,16 +10939,16 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='P3L_lumped_port_sheet'
+								Name='E3_board_edge_fed_l_feed_neck'
 								Flags=''
-								Color='(230 230 230)'
-								Transparency=0.8
+								Color='(242 140 102)'
+								Transparency=0.2
 								PartCoordinateSystem=1
 								UDMId=-1
 								GroupId=-1
-								MaterialValue='"vacuum"'
+								MaterialValue='"copper"'
 								SurfaceMaterialValue='"Steel-oxidised-surface"'
-								SolveInside=true
+								SolveInside=false
 								ShellElement=false
 								ShellElementThickness='0mm'
 								ReferenceTemperature='20cel'
@@ -10967,29 +10967,29 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-17.6958152801713mm'
-												Y='-0.249999999999999mm'
-												Z='0mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='-17.6958152801713mm'
-												Y='0.250000000000001mm'
-												Z='0mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='-17.6958152801713mm'
-												Y='0.250000000000001mm'
+												X='-17.7358152801713mm'
+												Y='1.47212529560034e-15mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-17.6958152801713mm'
-												Y='-0.249999999999999mm'
+												X='-17.6558152801713mm'
+												Y='1.47212529560034e-15mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-17.6958152801713mm'
-												Y='-0.249999999999999mm'
-												Z='0mm'
+												X='-17.6558152801713mm'
+												Y='1.6mm'
+												Z='2mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='-17.7358152801713mm'
+												Y='1.6mm'
+												Z='2mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='-17.7358152801713mm'
+												Y='1.47212529560034e-15mm'
+												Z='2mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -11089,13 +11089,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1
-															FcUVMid(-17.6958152801713, 1.49619899803e-15, 1)
+															Area=0.128000000000004
+															FcUVMid(-17.6958152801713, 0.800000000000002, 2)
 															$begin 'FcTolVts'
-																TolVt(-17.6958152801713, -0.249999999999999, 0, 5e-07)
-																TolVt(-17.6958152801713, 0.250000000000002, 0, 5e-07)
-																TolVt(-17.6958152801713, 0.250000000000001, 2, 5e-07)
-																TolVt(-17.6958152801713, -0.249999999999999, 2, 5e-07)
+																TolVt(-17.7358152801713, 1.47212529560034e-15, 2, 5e-07)
+																TolVt(-17.6558152801713, 1.47212529560034e-15, 2, 5e-07)
+																TolVt(-17.6558152801713, 1.6, 2, 5e-07)
+																TolVt(-17.7358152801713, 1.6, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -11113,16 +11113,16 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='E3_board_edge_fed_l_match_stub'
+								Name='P3L_lumped_port_sheet'
 								Flags=''
-								Color='(242 140 102)'
-								Transparency=0.2
+								Color='(230 230 230)'
+								Transparency=0.8
 								PartCoordinateSystem=1
 								UDMId=-1
 								GroupId=-1
-								MaterialValue='"copper"'
+								MaterialValue='"vacuum"'
 								SurfaceMaterialValue='"Steel-oxidised-surface"'
-								SolveInside=false
+								SolveInside=true
 								ShellElement=false
 								ShellElementThickness='0mm'
 								ReferenceTemperature='20cel'
@@ -11141,29 +11141,29 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-17.7858152801713mm'
-												Y='1.47212529560034e-15mm'
+												X='-17.6958152801713mm'
+												Y='1.35mm'
+												Z='0mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='-17.6958152801713mm'
+												Y='1.85mm'
+												Z='0mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='-17.6958152801713mm'
+												Y='1.85mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-17.6058152801713mm'
-												Y='1.47212529560034e-15mm'
+												X='-17.6958152801713mm'
+												Y='1.35mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-17.6058152801713mm'
-												Y='1.2mm'
-												Z='2mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='-17.7858152801713mm'
-												Y='1.2mm'
-												Z='2mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='-17.7858152801713mm'
-												Y='1.47212529560034e-15mm'
-												Z='2mm'
+												X='-17.6958152801713mm'
+												Y='1.35mm'
+												Z='0mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -11263,13 +11263,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.216
-															FcUVMid(-17.6958152801713, 0.600000000000001, 2)
+															Area=1
+															FcUVMid(-17.6958152801713, 1.6, 1)
 															$begin 'FcTolVts'
-																TolVt(-17.7858152801713, 1.47212529560034e-15, 2, 5e-07)
-																TolVt(-17.6058152801713, 1.47212529560034e-15, 2, 5e-07)
-																TolVt(-17.6058152801713, 1.2, 2, 5e-07)
-																TolVt(-17.7858152801713, 1.2, 2, 5e-07)
+																TolVt(-17.6958152801713, 1.35, 0, 5e-07)
+																TolVt(-17.6958152801713, 1.85, 0, 5e-07)
+																TolVt(-17.6958152801713, 1.85, 2, 5e-07)
+																TolVt(-17.6958152801713, 1.35, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -11287,16 +11287,16 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='P3L_shunt_match_switch_off_load_sheet'
+								Name='E3_board_edge_fed_l_match_stub'
 								Flags=''
-								Color='(230 230 230)'
-								Transparency=0.8
+								Color='(242 140 102)'
+								Transparency=0.2
 								PartCoordinateSystem=1
 								UDMId=-1
 								GroupId=-1
-								MaterialValue='"vacuum"'
+								MaterialValue='"copper"'
 								SurfaceMaterialValue='"Steel-oxidised-surface"'
-								SolveInside=true
+								SolveInside=false
 								ShellElement=false
 								ShellElementThickness='0mm'
 								ReferenceTemperature='20cel'
@@ -11315,29 +11315,29 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-17.6958152801713mm'
-												Y='0.950000000000001mm'
-												Z='0mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='-17.6958152801713mm'
-												Y='1.45mm'
-												Z='0mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='-17.6958152801713mm'
-												Y='1.45mm'
+												X='-17.7658152801713mm'
+												Y='1.6mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-17.6958152801713mm'
-												Y='0.950000000000001mm'
+												X='-17.6258152801713mm'
+												Y='1.6mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-17.6958152801713mm'
-												Y='0.950000000000001mm'
-												Z='0mm'
+												X='-17.6258152801713mm'
+												Y='4.2mm'
+												Z='2mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='-17.7658152801713mm'
+												Y='4.2mm'
+												Z='2mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='-17.7658152801713mm'
+												Y='1.6mm'
+												Z='2mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -11437,13 +11437,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1
-															FcUVMid(-17.6958152801713, 1.2, 1)
+															Area=0.364000000000003
+															FcUVMid(-17.6958152801713, 2.9, 2)
 															$begin 'FcTolVts'
-																TolVt(-17.6958152801713, 0.950000000000001, 0, 5e-07)
-																TolVt(-17.6958152801713, 1.45, 0, 5e-07)
-																TolVt(-17.6958152801713, 1.45, 2, 5e-07)
-																TolVt(-17.6958152801713, 0.950000000000001, 2, 5e-07)
+																TolVt(-17.7658152801713, 1.6, 2, 5e-07)
+																TolVt(-17.6258152801713, 1.6, 2, 5e-07)
+																TolVt(-17.6258152801713, 4.2, 2, 5e-07)
+																TolVt(-17.7658152801713, 4.2, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -13661,7 +13661,7 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='P4A_switch_off_load_sheet'
+								Name='P4A_lumped_port_sheet'
 								Flags=''
 								Color='(230 230 230)'
 								Transparency=0.8
@@ -13835,7 +13835,7 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='P4B_lumped_port_sheet'
+								Name='P4B_switch_off_load_sheet'
 								Flags=''
 								Color='(230 230 230)'
 								Transparency=0.8
@@ -14183,16 +14183,16 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='P4L_lumped_port_sheet'
+								Name='E4_board_edge_fed_l_feed_neck'
 								Flags=''
-								Color='(230 230 230)'
-								Transparency=0.8
+								Color='(242 140 102)'
+								Transparency=0.2
 								PartCoordinateSystem=1
 								UDMId=-1
 								GroupId=-1
-								MaterialValue='"vacuum"'
+								MaterialValue='"copper"'
 								SurfaceMaterialValue='"Steel-oxidised-surface"'
-								SolveInside=true
+								SolveInside=false
 								ShellElement=false
 								ShellElementThickness='0mm'
 								ReferenceTemperature='20cel'
@@ -14211,29 +14211,29 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-0.250000000000002mm'
-												Y='-17.6958152801713mm'
-												Z='0mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='0.249999999999998mm'
-												Y='-17.6958152801713mm'
-												Z='0mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='0.249999999999998mm'
-												Y='-17.6958152801713mm'
+												X='-2.20818794340051e-15mm'
+												Y='-17.7358152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-0.250000000000002mm'
-												Y='-17.6958152801713mm'
+												X='1.6mm'
+												Y='-17.7358152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='-0.250000000000002mm'
-												Y='-17.6958152801713mm'
-												Z='0mm'
+												X='1.6mm'
+												Y='-17.6558152801713mm'
+												Z='2mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='-2.20818794340051e-15mm'
+												Y='-17.6558152801713mm'
+												Z='2mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='-2.20818794340051e-15mm'
+												Y='-17.7358152801713mm'
+												Z='2mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -14333,13 +14333,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1
-															FcUVMid(-2.21177243187043e-15, -17.6958152801713, 1)
+															Area=0.128000000000004
+															FcUVMid(0.799999999999998, -17.6958152801713, 2)
 															$begin 'FcTolVts'
-																TolVt(-0.250000000000002, -17.6958152801713, 0, 5e-07)
-																TolVt(0.249999999999998, -17.6958152801713, 0, 5e-07)
-																TolVt(0.249999999999998, -17.6958152801713, 2, 5e-07)
-																TolVt(-0.250000000000002, -17.6958152801713, 2, 5e-07)
+																TolVt(-2.20818794340051e-15, -17.7358152801713, 2, 5e-07)
+																TolVt(1.6, -17.7358152801713, 2, 5e-07)
+																TolVt(1.6, -17.6558152801713, 2, 5e-07)
+																TolVt(-2.08166817117217e-15, -17.6558152801713, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -14357,16 +14357,16 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='E4_board_edge_fed_l_match_stub'
+								Name='P4L_lumped_port_sheet'
 								Flags=''
-								Color='(242 140 102)'
-								Transparency=0.2
+								Color='(230 230 230)'
+								Transparency=0.8
 								PartCoordinateSystem=1
 								UDMId=-1
 								GroupId=-1
-								MaterialValue='"copper"'
+								MaterialValue='"vacuum"'
 								SurfaceMaterialValue='"Steel-oxidised-surface"'
-								SolveInside=false
+								SolveInside=true
 								ShellElement=false
 								ShellElementThickness='0mm'
 								ReferenceTemperature='20cel'
@@ -14385,29 +14385,29 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='-2.20818794340051e-15mm'
-												Y='-17.7858152801713mm'
+												X='1.35mm'
+												Y='-17.6958152801713mm'
+												Z='0mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='1.85mm'
+												Y='-17.6958152801713mm'
+												Z='0mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='1.85mm'
+												Y='-17.6958152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='1.2mm'
-												Y='-17.7858152801713mm'
+												X='1.35mm'
+												Y='-17.6958152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='1.2mm'
-												Y='-17.6058152801713mm'
-												Z='2mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='-2.20818794340051e-15mm'
-												Y='-17.6058152801713mm'
-												Z='2mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='-2.20818794340051e-15mm'
-												Y='-17.7858152801713mm'
-												Z='2mm'
+												X='1.35mm'
+												Y='-17.6958152801713mm'
+												Z='0mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -14507,13 +14507,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=0.216
-															FcUVMid(0.599999999999998, -17.6958152801713, 2)
+															Area=1
+															FcUVMid(1.6, -17.6958152801713, 1)
 															$begin 'FcTolVts'
-																TolVt(-2.20818794340051e-15, -17.7858152801713, 2, 5e-07)
-																TolVt(1.2, -17.7858152801713, 2, 5e-07)
-																TolVt(1.2, -17.6058152801713, 2, 5e-07)
-																TolVt(-2.25514051876985e-15, -17.6058152801713, 2, 5e-07)
+																TolVt(1.35, -17.6958152801713, 0, 5e-07)
+																TolVt(1.85, -17.6958152801713, 0, 5e-07)
+																TolVt(1.85, -17.6958152801713, 2, 5e-07)
+																TolVt(1.35, -17.6958152801713, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -14531,16 +14531,16 @@ $begin 'AnsoftProject'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
-								Name='P4L_shunt_match_switch_off_load_sheet'
+								Name='E4_board_edge_fed_l_match_stub'
 								Flags=''
-								Color='(230 230 230)'
-								Transparency=0.8
+								Color='(242 140 102)'
+								Transparency=0.2
 								PartCoordinateSystem=1
 								UDMId=-1
 								GroupId=-1
-								MaterialValue='"vacuum"'
+								MaterialValue='"copper"'
 								SurfaceMaterialValue='"Steel-oxidised-surface"'
-								SolveInside=true
+								SolveInside=false
 								ShellElement=false
 								ShellElementThickness='0mm'
 								ReferenceTemperature='20cel'
@@ -14559,29 +14559,29 @@ $begin 'AnsoftProject'
 										IsPolylineClosed=true
 										$begin 'PolylinePoints'
 											$begin 'PLPoint'
-												X='0.949999999999998mm'
-												Y='-17.6958152801713mm'
-												Z='0mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='1.45mm'
-												Y='-17.6958152801713mm'
-												Z='0mm'
-											$end 'PLPoint'
-											$begin 'PLPoint'
-												X='1.45mm'
-												Y='-17.6958152801713mm'
+												X='1.6mm'
+												Y='-17.7658152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.949999999999998mm'
-												Y='-17.6958152801713mm'
+												X='4.2mm'
+												Y='-17.7658152801713mm'
 												Z='2mm'
 											$end 'PLPoint'
 											$begin 'PLPoint'
-												X='0.949999999999998mm'
-												Y='-17.6958152801713mm'
-												Z='0mm'
+												X='4.2mm'
+												Y='-17.6258152801713mm'
+												Z='2mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='1.6mm'
+												Y='-17.6258152801713mm'
+												Z='2mm'
+											$end 'PLPoint'
+											$begin 'PLPoint'
+												X='1.6mm'
+												Y='-17.7658152801713mm'
+												Z='2mm'
 											$end 'PLPoint'
 										$end 'PolylinePoints'
 										$begin 'PolylineSegments'
@@ -14681,13 +14681,13 @@ $begin 'AnsoftProject'
 													$begin 'FaceGeomTopol'
 														FaceTopol(1, 4, 4, 4)
 														$begin 'FaceGeometry'
-															Area=1
-															FcUVMid(1.2, -17.6958152801713, 1)
+															Area=0.364000000000003
+															FcUVMid(2.9, -17.6958152801713, 2)
 															$begin 'FcTolVts'
-																TolVt(0.949999999999998, -17.6958152801713, 0, 5e-07)
-																TolVt(1.45, -17.6958152801713, 0, 5e-07)
-																TolVt(1.45, -17.6958152801713, 2, 5e-07)
-																TolVt(0.949999999999998, -17.6958152801713, 2, 5e-07)
+																TolVt(1.6, -17.7658152801713, 2, 5e-07)
+																TolVt(4.2, -17.7658152801713, 2, 5e-07)
+																TolVt(4.2, -17.6258152801713, 2, 5e-07)
+																TolVt(1.6, -17.6258152801713, 2, 5e-07)
 															$end 'FcTolVts'
 														$end 'FaceGeometry'
 													$end 'FaceGeomTopol'
@@ -17605,6 +17605,9 @@ $begin 'AnsoftProject'
 						$begin 'dualpol_xy_substrate'
 							dualpol_xy_substrate(-1)
 						$end 'dualpol_xy_substrate'
+						$begin 'e1_board_edge_fed_l_feed_neck'
+							e1_board_edge_fed_l_feed_neck(-1)
+						$end 'e1_board_edge_fed_l_feed_neck'
 						$begin 'e1_board_edge_fed_l_match_stub'
 							e1_board_edge_fed_l_match_stub(-1)
 						$end 'e1_board_edge_fed_l_match_stub'
@@ -17650,6 +17653,9 @@ $begin 'AnsoftProject'
 						$begin 'e1_slotcoupled_patch_decoupling_slit'
 							e1_slotcoupled_patch_decoupling_slit(-1)
 						$end 'e1_slotcoupled_patch_decoupling_slit'
+						$begin 'e2_board_edge_fed_l_feed_neck'
+							e2_board_edge_fed_l_feed_neck(-1)
+						$end 'e2_board_edge_fed_l_feed_neck'
 						$begin 'e2_board_edge_fed_l_match_stub'
 							e2_board_edge_fed_l_match_stub(-1)
 						$end 'e2_board_edge_fed_l_match_stub'
@@ -17695,6 +17701,9 @@ $begin 'AnsoftProject'
 						$begin 'e2_slotcoupled_patch_decoupling_slit'
 							e2_slotcoupled_patch_decoupling_slit(-1)
 						$end 'e2_slotcoupled_patch_decoupling_slit'
+						$begin 'e3_board_edge_fed_l_feed_neck'
+							e3_board_edge_fed_l_feed_neck(-1)
+						$end 'e3_board_edge_fed_l_feed_neck'
 						$begin 'e3_board_edge_fed_l_match_stub'
 							e3_board_edge_fed_l_match_stub(-1)
 						$end 'e3_board_edge_fed_l_match_stub'
@@ -17740,6 +17749,9 @@ $begin 'AnsoftProject'
 						$begin 'e3_slotcoupled_patch_decoupling_slit'
 							e3_slotcoupled_patch_decoupling_slit(-1)
 						$end 'e3_slotcoupled_patch_decoupling_slit'
+						$begin 'e4_board_edge_fed_l_feed_neck'
+							e4_board_edge_fed_l_feed_neck(-1)
+						$end 'e4_board_edge_fed_l_feed_neck'
 						$begin 'e4_board_edge_fed_l_match_stub'
 							e4_board_edge_fed_l_match_stub(-1)
 						$end 'e4_board_edge_fed_l_match_stub'
@@ -17794,54 +17806,42 @@ $begin 'AnsoftProject'
 						$begin 'model'
 							model(-1)
 						$end 'model'
-						$begin 'p1a_switch_off_load_sheet'
-							p1a_switch_off_load_sheet(-1)
-						$end 'p1a_switch_off_load_sheet'
-						$begin 'p1b_lumped_port_sheet'
-							p1b_lumped_port_sheet(-1)
-						$end 'p1b_lumped_port_sheet'
+						$begin 'p1a_lumped_port_sheet'
+							p1a_lumped_port_sheet(-1)
+						$end 'p1a_lumped_port_sheet'
+						$begin 'p1b_switch_off_load_sheet'
+							p1b_switch_off_load_sheet(-1)
+						$end 'p1b_switch_off_load_sheet'
 						$begin 'p1l_lumped_port_sheet'
 							p1l_lumped_port_sheet(-1)
 						$end 'p1l_lumped_port_sheet'
-						$begin 'p1l_shunt_match_switch_off_load_sheet'
-							p1l_shunt_match_switch_off_load_sheet(-1)
-						$end 'p1l_shunt_match_switch_off_load_sheet'
-						$begin 'p2a_switch_off_load_sheet'
-							p2a_switch_off_load_sheet(-1)
-						$end 'p2a_switch_off_load_sheet'
-						$begin 'p2b_lumped_port_sheet'
-							p2b_lumped_port_sheet(-1)
-						$end 'p2b_lumped_port_sheet'
+						$begin 'p2a_lumped_port_sheet'
+							p2a_lumped_port_sheet(-1)
+						$end 'p2a_lumped_port_sheet'
+						$begin 'p2b_switch_off_load_sheet'
+							p2b_switch_off_load_sheet(-1)
+						$end 'p2b_switch_off_load_sheet'
 						$begin 'p2l_lumped_port_sheet'
 							p2l_lumped_port_sheet(-1)
 						$end 'p2l_lumped_port_sheet'
-						$begin 'p2l_shunt_match_switch_off_load_sheet'
-							p2l_shunt_match_switch_off_load_sheet(-1)
-						$end 'p2l_shunt_match_switch_off_load_sheet'
-						$begin 'p3a_switch_off_load_sheet'
-							p3a_switch_off_load_sheet(-1)
-						$end 'p3a_switch_off_load_sheet'
-						$begin 'p3b_lumped_port_sheet'
-							p3b_lumped_port_sheet(-1)
-						$end 'p3b_lumped_port_sheet'
+						$begin 'p3a_lumped_port_sheet'
+							p3a_lumped_port_sheet(-1)
+						$end 'p3a_lumped_port_sheet'
+						$begin 'p3b_switch_off_load_sheet'
+							p3b_switch_off_load_sheet(-1)
+						$end 'p3b_switch_off_load_sheet'
 						$begin 'p3l_lumped_port_sheet'
 							p3l_lumped_port_sheet(-1)
 						$end 'p3l_lumped_port_sheet'
-						$begin 'p3l_shunt_match_switch_off_load_sheet'
-							p3l_shunt_match_switch_off_load_sheet(-1)
-						$end 'p3l_shunt_match_switch_off_load_sheet'
-						$begin 'p4a_switch_off_load_sheet'
-							p4a_switch_off_load_sheet(-1)
-						$end 'p4a_switch_off_load_sheet'
-						$begin 'p4b_lumped_port_sheet'
-							p4b_lumped_port_sheet(-1)
-						$end 'p4b_lumped_port_sheet'
+						$begin 'p4a_lumped_port_sheet'
+							p4a_lumped_port_sheet(-1)
+						$end 'p4a_lumped_port_sheet'
+						$begin 'p4b_switch_off_load_sheet'
+							p4b_switch_off_load_sheet(-1)
+						$end 'p4b_switch_off_load_sheet'
 						$begin 'p4l_lumped_port_sheet'
 							p4l_lumped_port_sheet(-1)
 						$end 'p4l_lumped_port_sheet'
-						$begin 'p4l_shunt_match_switch_off_load_sheet'
-							p4l_shunt_match_switch_off_load_sheet(-1)
-						$end 'p4l_shunt_match_switch_off_load_sheet'
 						$begin 'radiatingsurface'
 							radiatingsurface(-1)
 						$end 'radiatingsurface'
@@ -18859,62 +18859,32 @@ $begin 'AnsoftProject'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
 				$begin 'AssignedEdge'
-					kID=2084
+					kID=2096
 					$begin 'EdgeData'
-						ParentObjectID=2083
-						ParentFaces[1: 2093]
+						ParentObjectID=2095
+						ParentFaces[1: 2105]
 						$begin 'EdgeGeomTopol'
-							EdgeFaces(2093)
+							EdgeFaces(2105)
 							$begin 'EdTolVts'
-								TolVt(17.6958152801713, -0.25, 0, 5e-07)
-								TolVt(17.6958152801713, 0.25, 0, 5e-07)
+								TolVt(17.6958152801713, 1.35, 0, 5e-07)
+								TolVt(17.6958152801713, 1.85, 0, 5e-07)
 							$end 'EdTolVts'
-							EdgeMidPoint(17.6958152801713, 0, 0)
+							EdgeMidPoint(17.6958152801713, 1.6, 0)
 						$end 'EdgeGeomTopol'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
 				$begin 'AssignedEdge'
-					kID=2086
+					kID=2098
 					$begin 'EdgeData'
-						ParentObjectID=2083
-						ParentFaces[1: 2093]
+						ParentObjectID=2095
+						ParentFaces[1: 2105]
 						$begin 'EdgeGeomTopol'
-							EdgeFaces(2093)
+							EdgeFaces(2105)
 							$begin 'EdTolVts'
-								TolVt(17.6958152801713, 0.25, 2, 5e-07)
-								TolVt(17.6958152801713, -0.25, 2, 5e-07)
+								TolVt(17.6958152801713, 1.85, 2, 5e-07)
+								TolVt(17.6958152801713, 1.35, 2, 5e-07)
 							$end 'EdTolVts'
-							EdgeMidPoint(17.6958152801713, 0, 2)
-						$end 'EdgeGeomTopol'
-					$end 'EdgeData'
-				$end 'AssignedEdge'
-				$begin 'AssignedEdge'
-					kID=2108
-					$begin 'EdgeData'
-						ParentObjectID=2107
-						ParentFaces[1: 2117]
-						$begin 'EdgeGeomTopol'
-							EdgeFaces(2117)
-							$begin 'EdTolVts'
-								TolVt(17.6958152801713, 0.95, 0, 5e-07)
-								TolVt(17.6958152801713, 1.45, 0, 5e-07)
-							$end 'EdTolVts'
-							EdgeMidPoint(17.6958152801713, 1.2, 0)
-						$end 'EdgeGeomTopol'
-					$end 'EdgeData'
-				$end 'AssignedEdge'
-				$begin 'AssignedEdge'
-					kID=2110
-					$begin 'EdgeData'
-						ParentObjectID=2107
-						ParentFaces[1: 2117]
-						$begin 'EdgeGeomTopol'
-							EdgeFaces(2117)
-							$begin 'EdTolVts'
-								TolVt(17.6958152801713, 1.45, 2, 5e-07)
-								TolVt(17.6958152801713, 0.95, 2, 5e-07)
-							$end 'EdTolVts'
-							EdgeMidPoint(17.6958152801713, 1.2, 2)
+							EdgeMidPoint(17.6958152801713, 1.6, 2)
 						$end 'EdgeGeomTopol'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
@@ -18979,62 +18949,32 @@ $begin 'AnsoftProject'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
 				$begin 'AssignedEdge'
-					kID=2345
+					kID=2357
 					$begin 'EdgeData'
-						ParentObjectID=2344
-						ParentFaces[1: 2354]
+						ParentObjectID=2356
+						ParentFaces[1: 2366]
 						$begin 'EdgeGeomTopol'
-							EdgeFaces(2354)
+							EdgeFaces(2366)
 							$begin 'EdTolVts'
-								TolVt(-0.249999999999999, 17.6958152801713, 0, 5e-07)
-								TolVt(0.250000000000001, 17.6958152801713, 0, 5e-07)
+								TolVt(1.35, 17.6958152801713, 0, 5e-07)
+								TolVt(1.85, 17.6958152801713, 0, 5e-07)
 							$end 'EdTolVts'
-							EdgeMidPoint(7.37257477290143e-16, 17.6958152801713, 0)
+							EdgeMidPoint(1.6, 17.6958152801713, 0)
 						$end 'EdgeGeomTopol'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
 				$begin 'AssignedEdge'
-					kID=2347
+					kID=2359
 					$begin 'EdgeData'
-						ParentObjectID=2344
-						ParentFaces[1: 2354]
+						ParentObjectID=2356
+						ParentFaces[1: 2366]
 						$begin 'EdgeGeomTopol'
-							EdgeFaces(2354)
+							EdgeFaces(2366)
 							$begin 'EdTolVts'
-								TolVt(0.250000000000001, 17.6958152801713, 2, 5e-07)
-								TolVt(-0.249999999999999, 17.6958152801713, 2, 5e-07)
+								TolVt(1.85, 17.6958152801713, 2, 5e-07)
+								TolVt(1.35, 17.6958152801713, 2, 5e-07)
 							$end 'EdTolVts'
-							EdgeMidPoint(7.37257477290143e-16, 17.6958152801713, 2)
-						$end 'EdgeGeomTopol'
-					$end 'EdgeData'
-				$end 'AssignedEdge'
-				$begin 'AssignedEdge'
-					kID=2369
-					$begin 'EdgeData'
-						ParentObjectID=2368
-						ParentFaces[1: 2378]
-						$begin 'EdgeGeomTopol'
-							EdgeFaces(2378)
-							$begin 'EdTolVts'
-								TolVt(0.950000000000001, 17.6958152801713, 0, 5e-07)
-								TolVt(1.45, 17.6958152801713, 0, 5e-07)
-							$end 'EdTolVts'
-							EdgeMidPoint(1.2, 17.6958152801713, 0)
-						$end 'EdgeGeomTopol'
-					$end 'EdgeData'
-				$end 'AssignedEdge'
-				$begin 'AssignedEdge'
-					kID=2371
-					$begin 'EdgeData'
-						ParentObjectID=2368
-						ParentFaces[1: 2378]
-						$begin 'EdgeGeomTopol'
-							EdgeFaces(2378)
-							$begin 'EdTolVts'
-								TolVt(1.45, 17.6958152801713, 2, 5e-07)
-								TolVt(0.950000000000001, 17.6958152801713, 2, 5e-07)
-							$end 'EdTolVts'
-							EdgeMidPoint(1.2, 17.6958152801713, 2)
+							EdgeMidPoint(1.6, 17.6958152801713, 2)
 						$end 'EdgeGeomTopol'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
@@ -19099,62 +19039,32 @@ $begin 'AnsoftProject'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
 				$begin 'AssignedEdge'
-					kID=2606
+					kID=2618
 					$begin 'EdgeData'
-						ParentObjectID=2605
-						ParentFaces[1: 2615]
+						ParentObjectID=2617
+						ParentFaces[1: 2627]
 						$begin 'EdgeGeomTopol'
-							EdgeFaces(2615)
+							EdgeFaces(2627)
 							$begin 'EdTolVts'
-								TolVt(-17.6958152801713, -0.249999999999999, 0, 5e-07)
-								TolVt(-17.6958152801713, 0.250000000000002, 0, 5e-07)
+								TolVt(-17.6958152801713, 1.35, 0, 5e-07)
+								TolVt(-17.6958152801713, 1.85, 0, 5e-07)
 							$end 'EdTolVts'
-							EdgeMidPoint(-17.6958152801713, 1.51788304147971e-15, 0)
+							EdgeMidPoint(-17.6958152801713, 1.6, 0)
 						$end 'EdgeGeomTopol'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
 				$begin 'AssignedEdge'
-					kID=2608
+					kID=2620
 					$begin 'EdgeData'
-						ParentObjectID=2605
-						ParentFaces[1: 2615]
+						ParentObjectID=2617
+						ParentFaces[1: 2627]
 						$begin 'EdgeGeomTopol'
-							EdgeFaces(2615)
+							EdgeFaces(2627)
 							$begin 'EdTolVts'
-								TolVt(-17.6958152801713, 0.250000000000001, 2, 5e-07)
-								TolVt(-17.6958152801713, -0.249999999999999, 2, 5e-07)
+								TolVt(-17.6958152801713, 1.85, 2, 5e-07)
+								TolVt(-17.6958152801713, 1.35, 2, 5e-07)
 							$end 'EdTolVts'
-							EdgeMidPoint(-17.6958152801713, 1.47451495458029e-15, 2)
-						$end 'EdgeGeomTopol'
-					$end 'EdgeData'
-				$end 'AssignedEdge'
-				$begin 'AssignedEdge'
-					kID=2630
-					$begin 'EdgeData'
-						ParentObjectID=2629
-						ParentFaces[1: 2639]
-						$begin 'EdgeGeomTopol'
-							EdgeFaces(2639)
-							$begin 'EdTolVts'
-								TolVt(-17.6958152801713, 0.950000000000001, 0, 5e-07)
-								TolVt(-17.6958152801713, 1.45, 0, 5e-07)
-							$end 'EdTolVts'
-							EdgeMidPoint(-17.6958152801713, 1.2, 0)
-						$end 'EdgeGeomTopol'
-					$end 'EdgeData'
-				$end 'AssignedEdge'
-				$begin 'AssignedEdge'
-					kID=2632
-					$begin 'EdgeData'
-						ParentObjectID=2629
-						ParentFaces[1: 2639]
-						$begin 'EdgeGeomTopol'
-							EdgeFaces(2639)
-							$begin 'EdTolVts'
-								TolVt(-17.6958152801713, 1.45, 2, 5e-07)
-								TolVt(-17.6958152801713, 0.950000000000001, 2, 5e-07)
-							$end 'EdTolVts'
-							EdgeMidPoint(-17.6958152801713, 1.2, 2)
+							EdgeMidPoint(-17.6958152801713, 1.6, 2)
 						$end 'EdgeGeomTopol'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
@@ -19219,62 +19129,32 @@ $begin 'AnsoftProject'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
 				$begin 'AssignedEdge'
-					kID=2867
+					kID=2879
 					$begin 'EdgeData'
-						ParentObjectID=2866
-						ParentFaces[1: 2876]
+						ParentObjectID=2878
+						ParentFaces[1: 2888]
 						$begin 'EdgeGeomTopol'
-							EdgeFaces(2876)
+							EdgeFaces(2888)
 							$begin 'EdTolVts'
-								TolVt(-0.250000000000002, -17.6958152801713, 0, 5e-07)
-								TolVt(0.249999999999998, -17.6958152801713, 0, 5e-07)
+								TolVt(1.35, -17.6958152801713, 0, 5e-07)
+								TolVt(1.85, -17.6958152801713, 0, 5e-07)
 							$end 'EdTolVts'
-							EdgeMidPoint(-2.21177243187043e-15, -17.6958152801713, 0)
+							EdgeMidPoint(1.6, -17.6958152801713, 0)
 						$end 'EdgeGeomTopol'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
 				$begin 'AssignedEdge'
-					kID=2869
+					kID=2881
 					$begin 'EdgeData'
-						ParentObjectID=2866
-						ParentFaces[1: 2876]
+						ParentObjectID=2878
+						ParentFaces[1: 2888]
 						$begin 'EdgeGeomTopol'
-							EdgeFaces(2876)
+							EdgeFaces(2888)
 							$begin 'EdTolVts'
-								TolVt(0.249999999999998, -17.6958152801713, 2, 5e-07)
-								TolVt(-0.250000000000002, -17.6958152801713, 2, 5e-07)
+								TolVt(1.85, -17.6958152801713, 2, 5e-07)
+								TolVt(1.35, -17.6958152801713, 2, 5e-07)
 							$end 'EdTolVts'
-							EdgeMidPoint(-2.21177243187043e-15, -17.6958152801713, 2)
-						$end 'EdgeGeomTopol'
-					$end 'EdgeData'
-				$end 'AssignedEdge'
-				$begin 'AssignedEdge'
-					kID=2891
-					$begin 'EdgeData'
-						ParentObjectID=2890
-						ParentFaces[1: 2900]
-						$begin 'EdgeGeomTopol'
-							EdgeFaces(2900)
-							$begin 'EdTolVts'
-								TolVt(0.949999999999998, -17.6958152801713, 0, 5e-07)
-								TolVt(1.45, -17.6958152801713, 0, 5e-07)
-							$end 'EdTolVts'
-							EdgeMidPoint(1.2, -17.6958152801713, 0)
-						$end 'EdgeGeomTopol'
-					$end 'EdgeData'
-				$end 'AssignedEdge'
-				$begin 'AssignedEdge'
-					kID=2893
-					$begin 'EdgeData'
-						ParentObjectID=2890
-						ParentFaces[1: 2900]
-						$begin 'EdgeGeomTopol'
-							EdgeFaces(2900)
-							$begin 'EdTolVts'
-								TolVt(1.45, -17.6958152801713, 2, 5e-07)
-								TolVt(0.949999999999998, -17.6958152801713, 2, 5e-07)
-							$end 'EdTolVts'
-							EdgeMidPoint(1.2, -17.6958152801713, 2)
+							EdgeMidPoint(1.6, -17.6958152801713, 2)
 						$end 'EdgeGeomTopol'
 					$end 'EdgeData'
 				$end 'AssignedEdge'
@@ -19303,39 +19183,39 @@ $begin 'AnsoftProject'
 				'Thin Sources'=false
 			$end 'GlobalBoundData'
 			$begin 'Boundaries'
-				NextUniqueID=18
+				NextUniqueID=14
 				MoveBackwards=false
-				$begin 'P1A_switch_off_load'
-					ID=0
+				$begin 'P1B_switch_off_load'
+					ID=1
 					BoundType='Lumped RLC'
 					IsComponent=false
-					Objects(2047)
+					Objects(2059)
 					ParentBndID=-1
 					$begin 'CurrentLine'
 						$begin 'GeometryPosition'
 							IsAttachedToEntity=true
-							EntityID=2050
+							EntityID=2062
 							FacetedBodyTriangleIndex=-1
 							TriangleVertexIndex=-1
 							hasXYZ=true
 							PositionType='EdgeCenter'
 							UParam=0
 							VParam=0
-							XPosition='17.0208152801713'
-							YPosition='0'
+							XPosition='12.0208152801713'
+							YPosition='5'
 							ZPosition='0'
 						$end 'GeometryPosition'
 						$begin 'GeometryPosition'
 							IsAttachedToEntity=true
-							EntityID=2048
+							EntityID=2060
 							FacetedBodyTriangleIndex=-1
 							TriangleVertexIndex=-1
 							hasXYZ=true
 							PositionType='EdgeCenter'
 							UParam=0
 							VParam=0
-							XPosition='17.0208152801713'
-							YPosition='0'
+							XPosition='12.0208152801713'
+							YPosition='5'
 							ZPosition='-0.254'
 						$end 'GeometryPosition'
 					$end 'CurrentLine'
@@ -19345,78 +19225,38 @@ $begin 'AnsoftProject'
 					UseInduct=false
 					UseCap=true
 					Capacitance='8e-14f'
-				$end 'P1A_switch_off_load'
-				$begin 'P1L_shunt_match_switch_off_load'
-					ID=3
-					BoundType='Lumped RLC'
-					IsComponent=false
-					Objects(2107)
-					ParentBndID=-1
-					$begin 'CurrentLine'
-						$begin 'GeometryPosition'
-							IsAttachedToEntity=true
-							EntityID=2110
-							FacetedBodyTriangleIndex=-1
-							TriangleVertexIndex=-1
-							hasXYZ=true
-							PositionType='EdgeCenter'
-							UParam=0
-							VParam=0
-							XPosition='17.6958152801713'
-							YPosition='1.2'
-							ZPosition='2'
-						$end 'GeometryPosition'
-						$begin 'GeometryPosition'
-							IsAttachedToEntity=true
-							EntityID=2108
-							FacetedBodyTriangleIndex=-1
-							TriangleVertexIndex=-1
-							hasXYZ=true
-							PositionType='EdgeCenter'
-							UParam=0
-							VParam=0
-							XPosition='17.6958152801713'
-							YPosition='1.2'
-							ZPosition='0'
-						$end 'GeometryPosition'
-					$end 'CurrentLine'
-					'RLC Type'='Parallel'
-					UseResist=false
-					UseInduct=false
-					UseCap=true
-					Capacitance='1.2e-13f'
-				$end 'P1L_shunt_match_switch_off_load'
-				$begin 'P2A_switch_off_load'
+				$end 'P1B_switch_off_load'
+				$begin 'P2B_switch_off_load'
 					ID=4
 					BoundType='Lumped RLC'
 					IsComponent=false
-					Objects(2308)
+					Objects(2320)
 					ParentBndID=-1
 					$begin 'CurrentLine'
 						$begin 'GeometryPosition'
 							IsAttachedToEntity=true
-							EntityID=2311
+							EntityID=2323
 							FacetedBodyTriangleIndex=-1
 							TriangleVertexIndex=-1
 							hasXYZ=true
 							PositionType='EdgeCenter'
 							UParam=0
 							VParam=0
-							XPosition='5'
-							YPosition='12.0208152801713'
+							XPosition='7.37257477290143e-16'
+							YPosition='17.0208152801713'
 							ZPosition='0'
 						$end 'GeometryPosition'
 						$begin 'GeometryPosition'
 							IsAttachedToEntity=true
-							EntityID=2309
+							EntityID=2321
 							FacetedBodyTriangleIndex=-1
 							TriangleVertexIndex=-1
 							hasXYZ=true
 							PositionType='EdgeCenter'
 							UParam=0
 							VParam=0
-							XPosition='5'
-							YPosition='12.0208152801713'
+							XPosition='7.37257477290143e-16'
+							YPosition='17.0208152801713'
 							ZPosition='-0.254'
 						$end 'GeometryPosition'
 					$end 'CurrentLine'
@@ -19426,78 +19266,38 @@ $begin 'AnsoftProject'
 					UseInduct=false
 					UseCap=true
 					Capacitance='8e-14f'
-				$end 'P2A_switch_off_load'
-				$begin 'P2L_shunt_match_switch_off_load'
+				$end 'P2B_switch_off_load'
+				$begin 'P3B_switch_off_load'
 					ID=7
 					BoundType='Lumped RLC'
 					IsComponent=false
-					Objects(2368)
+					Objects(2581)
 					ParentBndID=-1
 					$begin 'CurrentLine'
 						$begin 'GeometryPosition'
 							IsAttachedToEntity=true
-							EntityID=2371
+							EntityID=2584
 							FacetedBodyTriangleIndex=-1
 							TriangleVertexIndex=-1
 							hasXYZ=true
 							PositionType='EdgeCenter'
 							UParam=0
 							VParam=0
-							XPosition='1.2'
-							YPosition='17.6958152801713'
-							ZPosition='2'
-						$end 'GeometryPosition'
-						$begin 'GeometryPosition'
-							IsAttachedToEntity=true
-							EntityID=2369
-							FacetedBodyTriangleIndex=-1
-							TriangleVertexIndex=-1
-							hasXYZ=true
-							PositionType='EdgeCenter'
-							UParam=0
-							VParam=0
-							XPosition='1.2'
-							YPosition='17.6958152801713'
-							ZPosition='0'
-						$end 'GeometryPosition'
-					$end 'CurrentLine'
-					'RLC Type'='Parallel'
-					UseResist=false
-					UseInduct=false
-					UseCap=true
-					Capacitance='1.2e-13f'
-				$end 'P2L_shunt_match_switch_off_load'
-				$begin 'P3A_switch_off_load'
-					ID=8
-					BoundType='Lumped RLC'
-					IsComponent=false
-					Objects(2569)
-					ParentBndID=-1
-					$begin 'CurrentLine'
-						$begin 'GeometryPosition'
-							IsAttachedToEntity=true
-							EntityID=2572
-							FacetedBodyTriangleIndex=-1
-							TriangleVertexIndex=-1
-							hasXYZ=true
-							PositionType='EdgeCenter'
-							UParam=0
-							VParam=0
-							XPosition='-17.0208152801713'
-							YPosition='1.47451495458029e-15'
+							XPosition='-12.0208152801713'
+							YPosition='5'
 							ZPosition='0'
 						$end 'GeometryPosition'
 						$begin 'GeometryPosition'
 							IsAttachedToEntity=true
-							EntityID=2570
+							EntityID=2582
 							FacetedBodyTriangleIndex=-1
 							TriangleVertexIndex=-1
 							hasXYZ=true
 							PositionType='EdgeCenter'
 							UParam=0
 							VParam=0
-							XPosition='-17.0208152801713'
-							YPosition='1.51788304147971e-15'
+							XPosition='-12.0208152801713'
+							YPosition='5'
 							ZPosition='-0.254'
 						$end 'GeometryPosition'
 					$end 'CurrentLine'
@@ -19507,78 +19307,38 @@ $begin 'AnsoftProject'
 					UseInduct=false
 					UseCap=true
 					Capacitance='8e-14f'
-				$end 'P3A_switch_off_load'
-				$begin 'P3L_shunt_match_switch_off_load'
-					ID=11
+				$end 'P3B_switch_off_load'
+				$begin 'P4B_switch_off_load'
+					ID=10
 					BoundType='Lumped RLC'
 					IsComponent=false
-					Objects(2629)
+					Objects(2842)
 					ParentBndID=-1
 					$begin 'CurrentLine'
 						$begin 'GeometryPosition'
 							IsAttachedToEntity=true
-							EntityID=2632
+							EntityID=2845
 							FacetedBodyTriangleIndex=-1
 							TriangleVertexIndex=-1
 							hasXYZ=true
 							PositionType='EdgeCenter'
 							UParam=0
 							VParam=0
-							XPosition='-17.6958152801713'
-							YPosition='1.2'
-							ZPosition='2'
-						$end 'GeometryPosition'
-						$begin 'GeometryPosition'
-							IsAttachedToEntity=true
-							EntityID=2630
-							FacetedBodyTriangleIndex=-1
-							TriangleVertexIndex=-1
-							hasXYZ=true
-							PositionType='EdgeCenter'
-							UParam=0
-							VParam=0
-							XPosition='-17.6958152801713'
-							YPosition='1.2'
-							ZPosition='0'
-						$end 'GeometryPosition'
-					$end 'CurrentLine'
-					'RLC Type'='Parallel'
-					UseResist=false
-					UseInduct=false
-					UseCap=true
-					Capacitance='1.2e-13f'
-				$end 'P3L_shunt_match_switch_off_load'
-				$begin 'P4A_switch_off_load'
-					ID=12
-					BoundType='Lumped RLC'
-					IsComponent=false
-					Objects(2830)
-					ParentBndID=-1
-					$begin 'CurrentLine'
-						$begin 'GeometryPosition'
-							IsAttachedToEntity=true
-							EntityID=2833
-							FacetedBodyTriangleIndex=-1
-							TriangleVertexIndex=-1
-							hasXYZ=true
-							PositionType='EdgeCenter'
-							UParam=0
-							VParam=0
-							XPosition='5'
-							YPosition='-12.0208152801713'
+							XPosition='-2.21177243187043e-15'
+							YPosition='-17.0208152801713'
 							ZPosition='0'
 						$end 'GeometryPosition'
 						$begin 'GeometryPosition'
 							IsAttachedToEntity=true
-							EntityID=2831
+							EntityID=2843
 							FacetedBodyTriangleIndex=-1
 							TriangleVertexIndex=-1
 							hasXYZ=true
 							PositionType='EdgeCenter'
 							UParam=0
 							VParam=0
-							XPosition='5'
-							YPosition='-12.0208152801713'
+							XPosition='-2.21177243187043e-15'
+							YPosition='-17.0208152801713'
 							ZPosition='-0.254'
 						$end 'GeometryPosition'
 					$end 'CurrentLine'
@@ -19588,57 +19348,17 @@ $begin 'AnsoftProject'
 					UseInduct=false
 					UseCap=true
 					Capacitance='8e-14f'
-				$end 'P4A_switch_off_load'
-				$begin 'P4L_shunt_match_switch_off_load'
-					ID=15
-					BoundType='Lumped RLC'
-					IsComponent=false
-					Objects(2890)
-					ParentBndID=-1
-					$begin 'CurrentLine'
-						$begin 'GeometryPosition'
-							IsAttachedToEntity=true
-							EntityID=2893
-							FacetedBodyTriangleIndex=-1
-							TriangleVertexIndex=-1
-							hasXYZ=true
-							PositionType='EdgeCenter'
-							UParam=0
-							VParam=0
-							XPosition='1.2'
-							YPosition='-17.6958152801713'
-							ZPosition='2'
-						$end 'GeometryPosition'
-						$begin 'GeometryPosition'
-							IsAttachedToEntity=true
-							EntityID=2891
-							FacetedBodyTriangleIndex=-1
-							TriangleVertexIndex=-1
-							hasXYZ=true
-							PositionType='EdgeCenter'
-							UParam=0
-							VParam=0
-							XPosition='1.2'
-							YPosition='-17.6958152801713'
-							ZPosition='0'
-						$end 'GeometryPosition'
-					$end 'CurrentLine'
-					'RLC Type'='Parallel'
-					UseResist=false
-					UseInduct=false
-					UseCap=true
-					Capacitance='1.2e-13f'
-				$end 'P4L_shunt_match_switch_off_load'
+				$end 'P4B_switch_off_load'
 				$begin 'DUALPOL_XY_PEC_metallization'
-					ID=16
+					ID=12
 					BoundType='Perfect E'
 					IsComponent=false
-					Objects(1550, 1858, 1891, 1903, 1915, 1951, 1963, 1975, 1987, 1999, 2011, 2023, 2035, 2071, 2095, 2119, 2152, 2164, 2176, 2212, 2224, 2236, 2248, 2260, 2272, 2284, 2296, 2332, 2356, 2380, 2413, 2425, 2437, 2473, 2485, 2497, 2509, 2521, 2533, 2545, 2557, 2593, 2617, 2641, 2674, 2686, 2698, 2734, 2746, 2758, 2770, 2782, 2794, 2806, 2818, 2854, 2878)
+					Objects(1550, 1858, 1891, 1903, 1915, 1951, 1963, 1975, 1987, 1999, 2011, 2023, 2035, 2071, 2083, 2107, 2119, 2152, 2164, 2176, 2212, 2224, 2236, 2248, 2260, 2272, 2284, 2296, 2332, 2344, 2368, 2380, 2413, 2425, 2437, 2473, 2485, 2497, 2509, 2521, 2533, 2545, 2557, 2593, 2605, 2629, 2641, 2674, 2686, 2698, 2734, 2746, 2758, 2770, 2782, 2794, 2806, 2818, 2854, 2866, 2890)
 					ParentBndID=-1
 					InfGroundPlane=false
 				$end 'DUALPOL_XY_PEC_metallization'
 				$begin 'Open1'
-					ID=17
+					ID=13
 					BoundType='Radiation'
 					IsComponent=false
 					Objects(3031)
@@ -19647,11 +19367,11 @@ $begin 'AnsoftProject'
 					IsFssReference=false
 					IsForPML=false
 				$end 'Open1'
-				$begin 'P1B'
-					ID=1
+				$begin 'P1A'
+					ID=0
 					BoundType='Lumped Port'
 					IsComponent=false
-					Objects(2059)
+					Objects(2047)
 					LumpedPortType='Modal'
 					DoDeembed=false
 					ParentBndID=-1
@@ -19662,28 +19382,28 @@ $begin 'AnsoftProject'
 							$begin 'IntLine'
 								$begin 'GeometryPosition'
 									IsAttachedToEntity=true
-									EntityID=2062
+									EntityID=2050
 									FacetedBodyTriangleIndex=-1
 									TriangleVertexIndex=-1
 									hasXYZ=true
 									PositionType='EdgeCenter'
 									UParam=0
 									VParam=0
-									XPosition='12.0208152801713'
-									YPosition='5'
+									XPosition='17.0208152801713'
+									YPosition='0'
 									ZPosition='0'
 								$end 'GeometryPosition'
 								$begin 'GeometryPosition'
 									IsAttachedToEntity=true
-									EntityID=2060
+									EntityID=2048
 									FacetedBodyTriangleIndex=-1
 									TriangleVertexIndex=-1
 									hasXYZ=true
 									PositionType='EdgeCenter'
 									UParam=0
 									VParam=0
-									XPosition='12.0208152801713'
-									YPosition='5'
+									XPosition='17.0208152801713'
+									YPosition='0'
 									ZPosition='-0.254'
 								$end 'GeometryPosition'
 							$end 'IntLine'
@@ -19694,12 +19414,12 @@ $begin 'AnsoftProject'
 					$end 'Modes'
 					LumpedPortSheetID=-1
 					Impedance='50ohm'
-				$end 'P1B'
+				$end 'P1A'
 				$begin 'P1L'
 					ID=2
 					BoundType='Lumped Port'
 					IsComponent=false
-					Objects(2083)
+					Objects(2095)
 					LumpedPortType='Modal'
 					DoDeembed=false
 					ParentBndID=-1
@@ -19710,7 +19430,7 @@ $begin 'AnsoftProject'
 							$begin 'IntLine'
 								$begin 'GeometryPosition'
 									IsAttachedToEntity=true
-									EntityID=2086
+									EntityID=2098
 									FacetedBodyTriangleIndex=-1
 									TriangleVertexIndex=-1
 									hasXYZ=true
@@ -19718,12 +19438,12 @@ $begin 'AnsoftProject'
 									UParam=0
 									VParam=0
 									XPosition='17.6958152801713'
-									YPosition='0'
+									YPosition='1.6'
 									ZPosition='2'
 								$end 'GeometryPosition'
 								$begin 'GeometryPosition'
 									IsAttachedToEntity=true
-									EntityID=2084
+									EntityID=2096
 									FacetedBodyTriangleIndex=-1
 									TriangleVertexIndex=-1
 									hasXYZ=true
@@ -19731,7 +19451,7 @@ $begin 'AnsoftProject'
 									UParam=0
 									VParam=0
 									XPosition='17.6958152801713'
-									YPosition='0'
+									YPosition='1.6'
 									ZPosition='0'
 								$end 'GeometryPosition'
 							$end 'IntLine'
@@ -19743,11 +19463,11 @@ $begin 'AnsoftProject'
 					LumpedPortSheetID=-1
 					Impedance='50ohm'
 				$end 'P1L'
-				$begin 'P2B'
-					ID=5
+				$begin 'P2A'
+					ID=3
 					BoundType='Lumped Port'
 					IsComponent=false
-					Objects(2320)
+					Objects(2308)
 					LumpedPortType='Modal'
 					DoDeembed=false
 					ParentBndID=-1
@@ -19758,28 +19478,28 @@ $begin 'AnsoftProject'
 							$begin 'IntLine'
 								$begin 'GeometryPosition'
 									IsAttachedToEntity=true
-									EntityID=2323
+									EntityID=2311
 									FacetedBodyTriangleIndex=-1
 									TriangleVertexIndex=-1
 									hasXYZ=true
 									PositionType='EdgeCenter'
 									UParam=0
 									VParam=0
-									XPosition='7.37257477290143e-16'
-									YPosition='17.0208152801713'
+									XPosition='5'
+									YPosition='12.0208152801713'
 									ZPosition='0'
 								$end 'GeometryPosition'
 								$begin 'GeometryPosition'
 									IsAttachedToEntity=true
-									EntityID=2321
+									EntityID=2309
 									FacetedBodyTriangleIndex=-1
 									TriangleVertexIndex=-1
 									hasXYZ=true
 									PositionType='EdgeCenter'
 									UParam=0
 									VParam=0
-									XPosition='7.37257477290143e-16'
-									YPosition='17.0208152801713'
+									XPosition='5'
+									YPosition='12.0208152801713'
 									ZPosition='-0.254'
 								$end 'GeometryPosition'
 							$end 'IntLine'
@@ -19790,12 +19510,12 @@ $begin 'AnsoftProject'
 					$end 'Modes'
 					LumpedPortSheetID=-1
 					Impedance='50ohm'
-				$end 'P2B'
+				$end 'P2A'
 				$begin 'P2L'
-					ID=6
+					ID=5
 					BoundType='Lumped Port'
 					IsComponent=false
-					Objects(2344)
+					Objects(2356)
 					LumpedPortType='Modal'
 					DoDeembed=false
 					ParentBndID=-1
@@ -19806,27 +19526,27 @@ $begin 'AnsoftProject'
 							$begin 'IntLine'
 								$begin 'GeometryPosition'
 									IsAttachedToEntity=true
-									EntityID=2347
+									EntityID=2359
 									FacetedBodyTriangleIndex=-1
 									TriangleVertexIndex=-1
 									hasXYZ=true
 									PositionType='EdgeCenter'
 									UParam=0
 									VParam=0
-									XPosition='7.37257477290143e-16'
+									XPosition='1.6'
 									YPosition='17.6958152801713'
 									ZPosition='2'
 								$end 'GeometryPosition'
 								$begin 'GeometryPosition'
 									IsAttachedToEntity=true
-									EntityID=2345
+									EntityID=2357
 									FacetedBodyTriangleIndex=-1
 									TriangleVertexIndex=-1
 									hasXYZ=true
 									PositionType='EdgeCenter'
 									UParam=0
 									VParam=0
-									XPosition='7.37257477290143e-16'
+									XPosition='1.6'
 									YPosition='17.6958152801713'
 									ZPosition='0'
 								$end 'GeometryPosition'
@@ -19839,11 +19559,11 @@ $begin 'AnsoftProject'
 					LumpedPortSheetID=-1
 					Impedance='50ohm'
 				$end 'P2L'
-				$begin 'P3B'
-					ID=9
+				$begin 'P3A'
+					ID=6
 					BoundType='Lumped Port'
 					IsComponent=false
-					Objects(2581)
+					Objects(2569)
 					LumpedPortType='Modal'
 					DoDeembed=false
 					ParentBndID=-1
@@ -19854,28 +19574,28 @@ $begin 'AnsoftProject'
 							$begin 'IntLine'
 								$begin 'GeometryPosition'
 									IsAttachedToEntity=true
-									EntityID=2584
+									EntityID=2572
 									FacetedBodyTriangleIndex=-1
 									TriangleVertexIndex=-1
 									hasXYZ=true
 									PositionType='EdgeCenter'
 									UParam=0
 									VParam=0
-									XPosition='-12.0208152801713'
-									YPosition='5'
+									XPosition='-17.0208152801713'
+									YPosition='1.47451495458029e-15'
 									ZPosition='0'
 								$end 'GeometryPosition'
 								$begin 'GeometryPosition'
 									IsAttachedToEntity=true
-									EntityID=2582
+									EntityID=2570
 									FacetedBodyTriangleIndex=-1
 									TriangleVertexIndex=-1
 									hasXYZ=true
 									PositionType='EdgeCenter'
 									UParam=0
 									VParam=0
-									XPosition='-12.0208152801713'
-									YPosition='5'
+									XPosition='-17.0208152801713'
+									YPosition='1.51788304147971e-15'
 									ZPosition='-0.254'
 								$end 'GeometryPosition'
 							$end 'IntLine'
@@ -19886,12 +19606,12 @@ $begin 'AnsoftProject'
 					$end 'Modes'
 					LumpedPortSheetID=-1
 					Impedance='50ohm'
-				$end 'P3B'
+				$end 'P3A'
 				$begin 'P3L'
-					ID=10
+					ID=8
 					BoundType='Lumped Port'
 					IsComponent=false
-					Objects(2605)
+					Objects(2617)
 					LumpedPortType='Modal'
 					DoDeembed=false
 					ParentBndID=-1
@@ -19902,7 +19622,7 @@ $begin 'AnsoftProject'
 							$begin 'IntLine'
 								$begin 'GeometryPosition'
 									IsAttachedToEntity=true
-									EntityID=2608
+									EntityID=2620
 									FacetedBodyTriangleIndex=-1
 									TriangleVertexIndex=-1
 									hasXYZ=true
@@ -19910,12 +19630,12 @@ $begin 'AnsoftProject'
 									UParam=0
 									VParam=0
 									XPosition='-17.6958152801713'
-									YPosition='1.47451495458029e-15'
+									YPosition='1.6'
 									ZPosition='2'
 								$end 'GeometryPosition'
 								$begin 'GeometryPosition'
 									IsAttachedToEntity=true
-									EntityID=2606
+									EntityID=2618
 									FacetedBodyTriangleIndex=-1
 									TriangleVertexIndex=-1
 									hasXYZ=true
@@ -19923,7 +19643,7 @@ $begin 'AnsoftProject'
 									UParam=0
 									VParam=0
 									XPosition='-17.6958152801713'
-									YPosition='1.51788304147971e-15'
+									YPosition='1.6'
 									ZPosition='0'
 								$end 'GeometryPosition'
 							$end 'IntLine'
@@ -19935,11 +19655,11 @@ $begin 'AnsoftProject'
 					LumpedPortSheetID=-1
 					Impedance='50ohm'
 				$end 'P3L'
-				$begin 'P4B'
-					ID=13
+				$begin 'P4A'
+					ID=9
 					BoundType='Lumped Port'
 					IsComponent=false
-					Objects(2842)
+					Objects(2830)
 					LumpedPortType='Modal'
 					DoDeembed=false
 					ParentBndID=-1
@@ -19950,28 +19670,28 @@ $begin 'AnsoftProject'
 							$begin 'IntLine'
 								$begin 'GeometryPosition'
 									IsAttachedToEntity=true
-									EntityID=2845
+									EntityID=2833
 									FacetedBodyTriangleIndex=-1
 									TriangleVertexIndex=-1
 									hasXYZ=true
 									PositionType='EdgeCenter'
 									UParam=0
 									VParam=0
-									XPosition='-2.21177243187043e-15'
-									YPosition='-17.0208152801713'
+									XPosition='5'
+									YPosition='-12.0208152801713'
 									ZPosition='0'
 								$end 'GeometryPosition'
 								$begin 'GeometryPosition'
 									IsAttachedToEntity=true
-									EntityID=2843
+									EntityID=2831
 									FacetedBodyTriangleIndex=-1
 									TriangleVertexIndex=-1
 									hasXYZ=true
 									PositionType='EdgeCenter'
 									UParam=0
 									VParam=0
-									XPosition='-2.21177243187043e-15'
-									YPosition='-17.0208152801713'
+									XPosition='5'
+									YPosition='-12.0208152801713'
 									ZPosition='-0.254'
 								$end 'GeometryPosition'
 							$end 'IntLine'
@@ -19982,12 +19702,12 @@ $begin 'AnsoftProject'
 					$end 'Modes'
 					LumpedPortSheetID=-1
 					Impedance='50ohm'
-				$end 'P4B'
+				$end 'P4A'
 				$begin 'P4L'
-					ID=14
+					ID=11
 					BoundType='Lumped Port'
 					IsComponent=false
-					Objects(2866)
+					Objects(2878)
 					LumpedPortType='Modal'
 					DoDeembed=false
 					ParentBndID=-1
@@ -19998,27 +19718,27 @@ $begin 'AnsoftProject'
 							$begin 'IntLine'
 								$begin 'GeometryPosition'
 									IsAttachedToEntity=true
-									EntityID=2869
+									EntityID=2881
 									FacetedBodyTriangleIndex=-1
 									TriangleVertexIndex=-1
 									hasXYZ=true
 									PositionType='EdgeCenter'
 									UParam=0
 									VParam=0
-									XPosition='-2.21177243187043e-15'
+									XPosition='1.6'
 									YPosition='-17.6958152801713'
 									ZPosition='2'
 								$end 'GeometryPosition'
 								$begin 'GeometryPosition'
 									IsAttachedToEntity=true
-									EntityID=2867
+									EntityID=2879
 									FacetedBodyTriangleIndex=-1
 									TriangleVertexIndex=-1
 									hasXYZ=true
 									PositionType='EdgeCenter'
 									UParam=0
 									VParam=0
-									XPosition='-2.21177243187043e-15'
+									XPosition='1.6'
 									YPosition='-17.6958152801713'
 									ZPosition='0'
 								$end 'GeometryPosition'
@@ -20161,14 +19881,14 @@ $begin 'AnsoftProject'
 			FieldType='NoIncidentWave'
 			IncludePortPostProcessing=false
 			UseSpecifiedIncidentPower=false
-			SourceEntry(ID=1, Index=0, Terminal=false, Terminated=false, Magnitude='1W', Phase='0deg')
+			SourceEntry(ID=0, Index=0, Terminal=false, Terminated=false, Magnitude='1W', Phase='0deg')
 			SourceEntry(ID=2, Index=0, Terminal=false, Terminated=false, Magnitude='0W', Phase='0deg')
+			SourceEntry(ID=3, Index=0, Terminal=false, Terminated=false, Magnitude='0W', Phase='0deg')
 			SourceEntry(ID=5, Index=0, Terminal=false, Terminated=false, Magnitude='0W', Phase='0deg')
 			SourceEntry(ID=6, Index=0, Terminal=false, Terminated=false, Magnitude='0W', Phase='0deg')
+			SourceEntry(ID=8, Index=0, Terminal=false, Terminated=false, Magnitude='0W', Phase='0deg')
 			SourceEntry(ID=9, Index=0, Terminal=false, Terminated=false, Magnitude='0W', Phase='0deg')
-			SourceEntry(ID=10, Index=0, Terminal=false, Terminated=false, Magnitude='0W', Phase='0deg')
-			SourceEntry(ID=13, Index=0, Terminal=false, Terminated=false, Magnitude='0W', Phase='0deg')
-			SourceEntry(ID=14, Index=0, Terminal=false, Terminated=false, Magnitude='0W', Phase='0deg')
+			SourceEntry(ID=11, Index=0, Terminal=false, Terminated=false, Magnitude='0W', Phase='0deg')
 			$begin 'Contexts'
 				NextUniqueID=1
 				MoveBackwards=false
@@ -20177,8 +19897,6 @@ $begin 'AnsoftProject'
 		$begin 'PortFieldDisplay'
 			$begin 'PortFieldDisplay'
 				ScaleFactor=5
-				Solution='Setup_CH9 : LastAdaptive'
-				Frequency='8GHz'
 			$end 'PortFieldDisplay'
 		$end 'PortFieldDisplay'
 		$begin 'FieldsReporter'
@@ -20192,7 +19910,7 @@ $begin 'AnsoftProject'
 				$end 'SurfaceMeshSummary'
 			$end 'FieldsCalculator'
 			$begin 'PlotDefaults'
-				Default_SolutionId=219
+				Default_SolutionId=215
 				Default_PlotFolder='Automatic'
 				Default_Phase='0deg'
 				Default_Freq='8GHz'
@@ -20331,23 +20049,23 @@ $begin 'AnsoftProject'
 				MoveBackwards=false
 			$end 'NearFieldSetups'
 			RadFieldComputationVersion=1.8
-			RadfieldHeaderFile='RAD647B15592177829727815.tmp'
+			RadfieldHeaderFile='RAD163316156177831121014.tmp'
 			RadPowerMethod=0
 		$end 'RadField'
 		$begin 'SolutionManager'
 			$begin 'SimSetup'
 				TypeName='BaseSetup'
-				ID=217
+				ID=213
 				Name='Setup_CH9'
 				$begin 'Solution'
-					ID=218
+					ID=214
 					Name='AdaptivePass'
 					$begin 'SimDataExtractor'
 						IsPortOnly=false
 					$end 'SimDataExtractor'
 				$end 'Solution'
 				$begin 'Solution'
-					ID=219
+					ID=215
 					Name='LastAdaptive'
 					$begin 'SimDataExtractor'
 						$begin 'Sweeps'
@@ -20397,7 +20115,7 @@ $begin 'AnsoftProject'
 					$end 'SimDataExtractor'
 				$end 'Solution'
 				$begin 'Solution'
-					ID=225
+					ID=221
 					Name='Sweep_CH9'
 					$begin 'SimDataExtractor'
 						IsPortOnly=false
@@ -20405,23 +20123,23 @@ $begin 'AnsoftProject'
 				$end 'Solution'
 			$end 'SimSetup'
 			$begin 'Version ID Map'
-				V=209
+				V=205
 				$begin 'Setup'
 					N='Setup_CH9'
 					V=0
 					Soln(N='AdaptivePass', V=0)
-					Soln(N='LastAdaptive', V=223)
+					Soln(N='LastAdaptive', V=219)
 					Soln(N='Sweep_CH9', V=0)
 				$end 'Setup'
-				IQM=210
+				IQM=206
 			$end 'Version ID Map'
 			$begin 'ID Map'
 				$begin 'Setup'
 					N='Setup_CH9'
-					I=217
-					Soln(N='AdaptivePass', I=218)
-					Soln(N='LastAdaptive', I=219)
-					Soln(N='Sweep_CH9', I=225)
+					I=213
+					Soln(N='AdaptivePass', I=214)
+					Soln(N='LastAdaptive', I=215)
+					Soln(N='Sweep_CH9', I=221)
 				$end 'Setup'
 			$end 'ID Map'
 			ValidationCacheHeader=''
@@ -20437,7 +20155,7 @@ $begin 'AnsoftProject'
 		Notes=$begin_cdata$ $end_cdata$
 		$begin 'AnimationSetups'
 		$end 'AnimationSetups'
-		CacheHeaderFile='HDR647B15592177829727816.tmp'
+		CacheHeaderFile='HDR163316156177831121015.tmp'
 	$end 'HFSSModel'
 	$begin 'DataInstances'
 		DesignEditor='TopLevel'
@@ -20508,7 +20226,7 @@ $begin 'ProjectPreview'
 		DesignName='Array4_Diamond_D44_DualPolarized_XY'
 		Notes=''
 		Factory='HFSS'
-		IsSolved=true
+		IsSolved=false
 		'Nominal Setups'[1: 'Setup_CH9']
 		'Nominal Setup Types'[1: '']
 		'Optimetrics Setups'[0:]
