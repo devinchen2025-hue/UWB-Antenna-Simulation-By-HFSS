@@ -1,0 +1,118 @@
+{
+  "candidate_index": 37,
+  "candidate": "fold0p6_neck1p6_stub2p6",
+  "freq_ghz": 8.0,
+  "theta_cuts_deg": [
+    45.0,
+    60.0,
+    75.0,
+    90.0
+  ],
+  "plot_theta_deg": 90.0,
+  "polarizations_deg": [
+    0.0,
+    45.0,
+    90.0,
+    135.0
+  ],
+  "phase_error_reference_pol_deg": 0.0,
+  "azimuth_error_slope_floor_deg_per_deg": 0.5,
+  "elapsed_s": 4.844078540802002,
+  "polarization_aggregate": [
+    {
+      "case": "A_ON_absorptive_50ohm_c0p08pf",
+      "linear_pol_deg": 0.0,
+      "curve_count": 24,
+      "phase_error_rms_avg_deg": 0.0,
+      "phase_error_rms_p95_deg": 0.0,
+      "phase_error_max_abs_deg": 0.0,
+      "azimuth_error_rms_avg_equiv_deg": 0.0,
+      "azimuth_error_rms_p95_equiv_deg": 0.0,
+      "azimuth_error_max_abs_equiv_deg": 0.0
+    },
+    {
+      "case": "A_ON_absorptive_50ohm_c0p08pf",
+      "linear_pol_deg": 45.0,
+      "curve_count": 24,
+      "phase_error_rms_avg_deg": 74.3453427562312,
+      "phase_error_rms_p95_deg": 104.11504282905429,
+      "phase_error_max_abs_deg": 179.8742923424333,
+      "azimuth_error_rms_avg_equiv_deg": 53.99376008313245,
+      "azimuth_error_rms_p95_equiv_deg": 108.42026473106523,
+      "azimuth_error_max_abs_equiv_deg": 299.2565155534466
+    },
+    {
+      "case": "A_ON_absorptive_50ohm_c0p08pf",
+      "linear_pol_deg": 90.0,
+      "curve_count": 24,
+      "phase_error_rms_avg_deg": 111.39108583794494,
+      "phase_error_rms_p95_deg": 153.88424537706453,
+      "phase_error_max_abs_deg": 179.96800329445574,
+      "azimuth_error_rms_avg_equiv_deg": 89.95129924474355,
+      "azimuth_error_rms_p95_equiv_deg": 140.60023945786833,
+      "azimuth_error_max_abs_equiv_deg": 340.5164997390035
+    },
+    {
+      "case": "A_ON_absorptive_50ohm_c0p08pf",
+      "linear_pol_deg": 135.0,
+      "curve_count": 24,
+      "phase_error_rms_avg_deg": 75.38988758640748,
+      "phase_error_rms_p95_deg": 115.70390345036664,
+      "phase_error_max_abs_deg": 179.4317206263184,
+      "azimuth_error_rms_avg_equiv_deg": 58.894881770028114,
+      "azimuth_error_rms_p95_equiv_deg": 86.46594266210565,
+      "azimuth_error_max_abs_equiv_deg": 310.3144240293428
+    },
+    {
+      "case": "B_ON_absorptive_50ohm_c0p08pf",
+      "linear_pol_deg": 0.0,
+      "curve_count": 24,
+      "phase_error_rms_avg_deg": 0.0,
+      "phase_error_rms_p95_deg": 0.0,
+      "phase_error_max_abs_deg": 0.0,
+      "azimuth_error_rms_avg_equiv_deg": 0.0,
+      "azimuth_error_rms_p95_equiv_deg": 0.0,
+      "azimuth_error_max_abs_equiv_deg": 0.0
+    },
+    {
+      "case": "B_ON_absorptive_50ohm_c0p08pf",
+      "linear_pol_deg": 45.0,
+      "curve_count": 24,
+      "phase_error_rms_avg_deg": 55.49629981422863,
+      "phase_error_rms_p95_deg": 97.60595714074161,
+      "phase_error_max_abs_deg": 179.00062133683434,
+      "azimuth_error_rms_avg_equiv_deg": 44.96213781510564,
+      "azimuth_error_rms_p95_equiv_deg": 89.20555617713597,
+      "azimuth_error_max_abs_equiv_deg": 260.1288436426426
+    },
+    {
+      "case": "B_ON_absorptive_50ohm_c0p08pf",
+      "linear_pol_deg": 90.0,
+      "curve_count": 24,
+      "phase_error_rms_avg_deg": 113.24115196173057,
+      "phase_error_rms_p95_deg": 146.38893215871545,
+      "phase_error_max_abs_deg": 179.79402941723765,
+      "azimuth_error_rms_avg_equiv_deg": 90.62861125574547,
+      "azimuth_error_rms_p95_equiv_deg": 168.2268689726735,
+      "azimuth_error_max_abs_equiv_deg": 342.1964377066462
+    },
+    {
+      "case": "B_ON_absorptive_50ohm_c0p08pf",
+      "linear_pol_deg": 135.0,
+      "curve_count": 24,
+      "phase_error_rms_avg_deg": 51.57012697235306,
+      "phase_error_rms_p95_deg": 78.33482818545237,
+      "phase_error_max_abs_deg": 175.19339793156217,
+      "azimuth_error_rms_avg_equiv_deg": 39.9239314145638,
+      "azimuth_error_rms_p95_equiv_deg": 81.81047393344404,
+      "azimuth_error_max_abs_equiv_deg": 220.2981715102548
+    }
+  ],
+  "phase_plot": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_truefed_l_polarization_phase\\plots\\UWB_CH9_D44_DUALPOL_TRUEFED_L_POLARIZATION_PHASE_azimuth_phase_comparison_panel.png",
+  "error_plot": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_truefed_l_polarization_phase\\plots\\UWB_CH9_D44_DUALPOL_TRUEFED_L_POLARIZATION_PHASE_azimuth_phase_error_panel.png",
+  "curves_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_truefed_l_polarization_phase\\UWB_CH9_D44_DUALPOL_TRUEFED_L_POLARIZATION_PHASE_azimuth_phase_curves.csv",
+  "summary_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_truefed_l_polarization_phase\\UWB_CH9_D44_DUALPOL_TRUEFED_L_POLARIZATION_PHASE_polarization_error_summary.csv",
+  "aggregate_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_truefed_l_polarization_phase\\UWB_CH9_D44_DUALPOL_TRUEFED_L_POLARIZATION_PHASE_polarization_aggregate.csv",
+  "manifest_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_truefed_l_polarization_phase\\UWB_CH9_D44_DUALPOL_TRUEFED_L_POLARIZATION_PHASE_field_manifest.csv",
+  "report_md": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_dualpol_truefed_l_polarization_phase\\UWB_CH9_D44_DUALPOL_TRUEFED_L_POLARIZATION_PHASE_report.md"
+}
