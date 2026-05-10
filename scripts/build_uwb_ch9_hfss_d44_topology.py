@@ -573,6 +573,17 @@ def has_dualpol_slotcoupled(params: dict) -> bool:
     return params.get("dualpol_slotcoupled_enabled", 0.0) >= 0.5
 
 
+def single_source_feed_name(params: dict) -> str:
+    if params.get("single_source_feed_enabled", 0.0) < 0.5:
+        return ""
+    return str(params.get("single_source_feed_name", "")).strip()
+
+
+def source_feed_selected(params: dict, name: str) -> bool:
+    selected = single_source_feed_name(params)
+    return not selected or selected == name
+
+
 def topology_params(topology: str) -> dict:
     params = dict(BASE_PARAMS)
     params.update(TOPOLOGIES[topology].get("params", {}))
@@ -1263,24 +1274,54 @@ def add_board_edge_fed_low_elevation_unit(
 
     def add_port(feed_radial: float, feed_offset: float, feed_top_z: float) -> None:
         port_offset = add_feed_neck(feed_radial, feed_offset, feed_top_z)
+        selected = source_feed_selected(params, port_name)
         if axis == "u":
-            metals.extend(
-                add_lumped_feed(
-                    hfss,
-                    port_name,
-                    center,
-                    angle_deg,
-                    side * feed_radial,
-                    port_offset,
-                    feed_top_z,
-                    0.0,
-                    params,
-                    pad=False,
+            if selected:
+                metals.extend(
+                    add_lumped_feed(
+                        hfss,
+                        port_name,
+                        center,
+                        angle_deg,
+                        side * feed_radial,
+                        port_offset,
+                        feed_top_z,
+                        0.0,
+                        params,
+                        pad=False,
+                    )
                 )
-            )
+            else:
+                add_lumped_switch_load(
+                    hfss,
+                    port_name,
+                    center,
+                    angle_deg,
+                    side * feed_radial,
+                    port_offset,
+                    feed_top_z,
+                    0.0,
+                    params,
+                )
         else:
-            metals.extend(
-                add_lumped_feed(
+            if selected:
+                metals.extend(
+                    add_lumped_feed(
+                        hfss,
+                        port_name,
+                        center,
+                        angle_deg,
+                        port_offset,
+                        side * feed_radial,
+                        feed_top_z,
+                        0.0,
+                        params,
+                        pad=False,
+                        port_width_axis="u",
+                    )
+                )
+            else:
+                add_lumped_switch_load(
                     hfss,
                     port_name,
                     center,
@@ -1290,10 +1331,8 @@ def add_board_edge_fed_low_elevation_unit(
                     feed_top_z,
                     0.0,
                     params,
-                    pad=False,
                     port_width_axis="u",
                 )
-            )
         add_match(feed_radial, port_offset, feed_top_z)
 
     if monopole_enabled:
@@ -1811,14 +1850,18 @@ def add_dualpol_slotcoupled_element(hfss: Hfss, tag: str, center: tuple[float, f
     add_slotcoupled_shield_vias(hfss, tag, center, angle, params)
     switch_enabled = params.get("rf_switch_equiv_enabled", 0.0) >= 0.5
     active_pol = int(round(params.get("rf_switch_active_pol", 0.0)))
-    if not switch_enabled or active_pol == 0:
-        metals += add_lumped_feed(hfss, f"P{tag[-1]}A", center, angle, u_side_sign * half_l, feedline_a_v, 0.0, feed_z_a, params, pad=False)
-    if switch_enabled and active_pol == 1:
-        add_lumped_switch_load(hfss, f"P{tag[-1]}A", center, angle, u_side_sign * half_l, feedline_a_v, 0.0, feed_z_a, params)
-    if not switch_enabled or active_pol == 1:
-        metals += add_lumped_feed(hfss, f"P{tag[-1]}B", center, angle, feedline_b_u, v_side_sign * half_l, 0.0, feed_z_b, params, pad=False, port_width_axis="u")
-    if switch_enabled and active_pol == 0:
-        add_lumped_switch_load(hfss, f"P{tag[-1]}B", center, angle, feedline_b_u, v_side_sign * half_l, 0.0, feed_z_b, params, port_width_axis="u")
+    a_name = f"P{tag[-1]}A"
+    b_name = f"P{tag[-1]}B"
+    a_is_port = (not switch_enabled or active_pol == 0) and source_feed_selected(params, a_name)
+    b_is_port = (not switch_enabled or active_pol == 1) and source_feed_selected(params, b_name)
+    if a_is_port:
+        metals += add_lumped_feed(hfss, a_name, center, angle, u_side_sign * half_l, feedline_a_v, 0.0, feed_z_a, params, pad=False)
+    else:
+        add_lumped_switch_load(hfss, a_name, center, angle, u_side_sign * half_l, feedline_a_v, 0.0, feed_z_a, params)
+    if b_is_port:
+        metals += add_lumped_feed(hfss, b_name, center, angle, feedline_b_u, v_side_sign * half_l, 0.0, feed_z_b, params, pad=False, port_width_axis="u")
+    else:
+        add_lumped_switch_load(hfss, b_name, center, angle, feedline_b_u, v_side_sign * half_l, 0.0, feed_z_b, params, port_width_axis="u")
     return metals, slots
 
 

@@ -1,0 +1,3 @@
+﻿coverage_sample_count,coverage_gain_total_min_dbi,coverage_gain_total_min_source,coverage_gain_total_min_freq_ghz,coverage_gain_total_min_theta_deg,coverage_gain_total_min_phi_deg,coverage_realized_gain_total_min_dbi,coverage_realized_gain_total_min_source,coverage_realized_gain_total_min_freq_ghz,coverage_realized_gain_total_min_theta_deg,coverage_realized_gain_total_min_phi_deg,candidate_index,candidate,case,active_pol
+190,1.518249,P2L,8.000000,45.000000,0.000000,1.433334,P4L,8.000000,45.000000,0.000000,37,fold0p6_neck1p6_stub2p6,A_ON_absorptive_50ohm_c0p08pf,A
+190,1.518249,P2L,8.000000,45.000000,0.000000,1.433334,P4L,8.000000,45.000000,0.000000,37,fold0p6_neck1p6_stub2p6,B_ON_absorptive_50ohm_c0p08pf,B
