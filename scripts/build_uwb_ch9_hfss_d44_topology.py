@@ -4,12 +4,126 @@ import argparse
 import json
 import math
 import shutil
+import subprocess
+import sys
+import time
 from pathlib import Path
 
 from ansys.aedt.core import Hfss
+from ansys.aedt.core.application.design_solutions import DesignSolution
+from ansys.aedt.core.application.variables import VariableManager
+from ansys.aedt.core.generic.constants import SolutionsHfss
+from ansys.aedt.core.modeler.cad.primitives import GeometryModeler
+from ansys.aedt.core.modules.material_lib import Material, Materials, _arg2dict, settings
 
 
 ROOT = Path(__file__).resolve().parents[1]
+AEDT_EXE = Path(r"D:\Program Files\AnsysEM\v231\Win64\ansysedt.exe")
+PYAEDT_SOLVE_HELPER = ROOT / "scripts" / "solve_uwb_ch9_d44_existing_setup.py"
+
+
+def patch_pyaedt_empty_variable_lists() -> None:
+    if getattr(VariableManager, "_d44_none_variable_guard", False):
+        variables_patched = True
+    else:
+        variables_patched = False
+
+    if not variables_patched:
+        def _get_var_list_from_aedt(self, desktop_object):
+            var_list = []
+            if self._app._is_object_oriented_enabled() and self._app.design_type not in [
+                "Maxwell Circuit",
+                "Circuit Netlist",
+            ]:
+                if self._app.design_type in [
+                    "Circuit Design",
+                    "Twin Builder",
+                    "HFSS 3D Layout Design",
+                ] and "GetDesignName" in dir(desktop_object):
+                    try:
+                        v = list(self._app.get_oo_object(desktop_object, "DefinitionParameters").GetPropNames() or [])
+                    except AttributeError:
+                        v = []
+                    var_list = v
+
+                try:
+                    v = list(self._app.get_oo_object(desktop_object, "Variables").GetPropNames() or [])
+                except AttributeError:
+                    v = []
+                var_list += v
+                if self._app._aedt_version >= "2025.2":
+                    return var_list
+
+            if "GetVariables" in desktop_object.__dir__():
+                raw_variables = desktop_object.GetVariables()
+                if raw_variables:
+                    var_list += [i for i in list(raw_variables) if i not in var_list]
+            try:
+                raw_array_variables = desktop_object.GetArrayVariables()
+                if raw_array_variables:
+                    var_list += [i for i in list(raw_array_variables) if i not in var_list]
+            except Exception:
+                self._app.logger.debug("Could not retrieve array variables.")
+            return var_list
+
+        VariableManager._get_var_list_from_aedt = _get_var_list_from_aedt
+        VariableManager._d44_none_variable_guard = True
+
+    if getattr(Materials, "_d44_none_material_guard", False):
+        return
+
+    def _aedmattolibrary(self, matname):
+        project_materials = self.odefinition_manager.GetProjectMaterialNames() or []
+        if matname not in project_materials and not (settings.remote_api or settings.remote_rpc_session):
+            matname = self._get_aedt_case_name(matname)
+        props = {}
+        _arg2dict(list(self.omaterial_manager.GetData(matname) or []), props)
+        values_view = props.values()
+        value_iterator = iter(values_view)
+        first_value = next(value_iterator)
+        newmat = Material(self, matname, first_value, material_update=False)
+        newmat._material_update = True
+        self.material_keys[matname.casefold()] = newmat
+        return self.material_keys[matname.casefold()]
+
+    Materials._aedmattolibrary = _aedmattolibrary
+    Materials._d44_none_material_guard = True
+
+    if getattr(GeometryModeler, "_d44_fast_material_guard", False):
+        return
+
+    original_check_material = GeometryModeler._check_material
+
+    def _check_material(self, material, default_material, threshold=100000):
+        material_name = material.name if isinstance(material, Material) else str(material or default_material)
+        key = material_name.casefold()
+        if key in {"copper", "pec"}:
+            return material_name, False
+        if key in {"vacuum", "air"} or key.startswith("ro4350b_custom"):
+            return material_name, True
+        return original_check_material(self, material, default_material, threshold)
+
+    GeometryModeler._check_material = _check_material
+    GeometryModeler._d44_fast_material_guard = True
+
+    if getattr(DesignSolution, "_d44_solution_type_guard", False):
+        return
+
+    original_solution_type = DesignSolution.solution_type.fget
+    original_solution_type_setter = DesignSolution.solution_type.fset
+
+    def _solution_type(self):
+        try:
+            value = original_solution_type(self)
+        except (AttributeError, TypeError):
+            value = None
+        if value in (None, "DrivenModal"):
+            value = SolutionsHfss.DrivenModal
+            self._solution_type = value
+        return value
+
+    DesignSolution.solution_type = property(_solution_type, original_solution_type_setter)
+    DesignSolution._d44_solution_type_guard = True
 
 BASE_PARAMS = {
     "freq_center_ghz": 8.0,
@@ -2175,7 +2289,24 @@ def validate_params(params: dict) -> None:
 
 
 def clean_outputs(paths: dict[str, Path]) -> None:
-    for path in [paths["results"], paths["pyaedt"], paths["project"].with_suffix(".aedt.lock")]:
+    for log_path in paths["project"].parent.glob(f"{paths['project'].stem}*_batchsolve.log"):
+        try:
+            log_path.unlink()
+        except OSError:
+            pass
+    for log_path in paths["project"].parent.glob(f"{paths['project'].stem}*_pyaedt_solve.log"):
+        try:
+            log_path.unlink()
+        except OSError:
+            pass
+    for path in [
+        paths["results"],
+        paths["pyaedt"],
+        paths["project"].with_suffix(".aedt.lock"),
+        paths["project"].with_suffix(".aedt.auto"),
+        paths["project"].with_suffix(".previous.aedt"),
+        paths["project"].with_suffix(".batchsolve.log"),
+    ]:
         if path.exists():
             if path.is_dir():
                 shutil.rmtree(path, ignore_errors=True)
@@ -2223,6 +2354,190 @@ def create_reports(hfss: Hfss, setup_name: str, sweep_name: str, plot_prefix: st
             print(f"Far-field report creation deferred for {expression}: {exc}", flush=True)
 
 
+def save_project_best_effort(hfss: Hfss, stage: str) -> None:
+    try:
+        hfss.save_project()
+    except Exception as exc:
+        print(f"Project save skipped after {stage}: {exc}", flush=True)
+
+
+def latest_hfss_profile_status(results_path: Path) -> tuple[str | None, str]:
+    profiles = sorted(results_path.rglob("*.profile"), key=lambda item: item.stat().st_mtime, reverse=True)
+    if not profiles:
+        return None, ""
+    profile = profiles[0]
+    try:
+        text = profile.read_text(errors="ignore")
+    except OSError:
+        return None, str(profile)
+    if "Status\\', \\'Normal Completion" in text or "Status', 'Normal Completion" in text:
+        return "normal", str(profile)
+    if "Status\\', \\'Failed" in text or "Status', 'Failed" in text:
+        return "failed", str(profile)
+    return None, str(profile)
+
+
+def wait_for_hfss_profile_completion(results_path: Path, timeout_s: float = 3600.0, poll_s: float = 10.0) -> bool:
+    deadline = time.time() + timeout_s
+    last_profile = ""
+    while time.time() < deadline:
+        status, profile = latest_hfss_profile_status(results_path)
+        last_profile = profile or last_profile
+        if status == "normal":
+            print(f"Stage: HFSS profile normal completion detected in {Path(profile).name}", flush=True)
+            return True
+        if status == "failed":
+            print(f"Stage: HFSS profile failure detected in {Path(profile).name}", flush=True)
+            return False
+        time.sleep(poll_s)
+    print(f"Stage: HFSS profile wait timed out; last profile={last_profile or 'none'}", flush=True)
+    return False
+
+
+def batch_solve_project(project: Path, design: str, setup_name: str, results_path: Path, timeout_s: float = 3600.0) -> bool:
+    targets = [f"{design}:Nominal:{setup_name}", f"{design}:Nominal", ""]
+    for target in targets:
+        log_suffix = "all" if not target else target.replace(":", "_")
+        log_path = project.with_name(f"{project.stem}_{log_suffix}_batchsolve.log")
+        cmd = [str(AEDT_EXE), "-ng", "-LogFile", str(log_path), "-BatchSolve"]
+        if target:
+            cmd.append(target)
+        cmd.append(str(project))
+        print(f"Stage: AEDT batch solve command: {' '.join(cmd)}", flush=True)
+        completed_returncode: int | None = None
+        try:
+            process = subprocess.Popen(cmd, cwd=str(ROOT))
+            deadline = time.time() + timeout_s
+            while time.time() < deadline:
+                completed_returncode = process.poll()
+                status, profile = latest_hfss_profile_status(results_path)
+                if status == "normal":
+                    print(f"Stage: HFSS profile normal completion detected in {Path(profile).name}", flush=True)
+                    print("Stage: AEDT batch solve profile completed; terminating batch process", flush=True)
+                    process.terminate()
+                    try:
+                        process.wait(timeout=30.0)
+                    except subprocess.TimeoutExpired:
+                        process.kill()
+                        process.wait(timeout=30.0)
+                    return True
+                if status == "failed":
+                    print(f"Stage: HFSS profile failure detected in {Path(profile).name}", flush=True)
+                    process.terminate()
+                    process.wait(timeout=30.0)
+                    break
+                if completed_returncode is not None:
+                    break
+                time.sleep(2.0)
+            if completed_returncode is None:
+                process.kill()
+                process.wait(timeout=30.0)
+                print(f"Stage: AEDT batch solve timed out for target {target or 'all'}", flush=True)
+                continue
+        except subprocess.TimeoutExpired:
+            print(f"Stage: AEDT batch solve timed out for target {target or 'all'}", flush=True)
+            continue
+        print(f"Stage: AEDT batch solve exit code {completed_returncode}", flush=True)
+        if wait_for_hfss_profile_completion(results_path, timeout_s=30.0, poll_s=2.0):
+            return True
+    return False
+
+
+def terminate_process_tree(pid: int) -> None:
+    subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+
+def remove_project_lock(project: Path) -> None:
+    for lock_path in [project.with_suffix(".aedt.lock"), project.with_suffix(".lock")]:
+        try:
+            lock_path.unlink()
+        except OSError:
+            pass
+
+
+def pyaedt_solve_project(
+    project: Path,
+    design: str,
+    setup_name: str,
+    results_path: Path,
+    cores: int,
+    tasks: int,
+    timeout_s: float = 3600.0,
+    startup_timeout_s: float = 180.0,
+) -> bool:
+    log_path = project.with_name(f"{project.stem}_{design}_{setup_name}_pyaedt_solve.log")
+    remove_project_lock(project)
+    cmd = [
+        sys.executable,
+        str(PYAEDT_SOLVE_HELPER),
+        "--project",
+        str(project),
+        "--design",
+        design,
+        "--setup",
+        setup_name,
+        "--cores",
+        str(cores),
+        "--tasks",
+        str(tasks),
+    ]
+    print(f"Stage: PyAEDT solve helper command: {' '.join(cmd)}", flush=True)
+    with log_path.open("w", encoding="utf-8", errors="ignore") as log_file:
+        process = subprocess.Popen(cmd, cwd=str(ROOT), stdout=log_file, stderr=subprocess.STDOUT)
+        deadline = time.time() + timeout_s
+        startup_deadline = time.time() + startup_timeout_s
+        helper_opened = False
+        while time.time() < deadline:
+            status, profile = latest_hfss_profile_status(results_path)
+            if status == "normal":
+                print(f"Stage: HFSS profile normal completion detected in {Path(profile).name}", flush=True)
+                time.sleep(5.0)
+                terminate_process_tree(process.pid)
+                return True
+            if status == "failed":
+                print(f"Stage: HFSS profile failure detected in {Path(profile).name}", flush=True)
+                terminate_process_tree(process.pid)
+                return False
+            if process.poll() is not None:
+                break
+            if not helper_opened:
+                try:
+                    helper_log = log_path.read_text(encoding="utf-8", errors="ignore")
+                    helper_opened = "Stage: helper project opened" in helper_log or "Stage: helper solving" in helper_log
+                except OSError:
+                    helper_log = ""
+                if time.time() >= startup_deadline and not helper_opened and status is None:
+                    print("Stage: PyAEDT solve helper startup timed out before project open", flush=True)
+                    terminate_process_tree(process.pid)
+                    return False
+            time.sleep(5.0)
+        returncode = process.poll()
+        if returncode is None:
+            print("Stage: PyAEDT solve helper timed out", flush=True)
+            terminate_process_tree(process.pid)
+            return False
+        print(f"Stage: PyAEDT solve helper exit code {returncode}", flush=True)
+    return wait_for_hfss_profile_completion(results_path, timeout_s=30.0, poll_s=2.0)
+
+
+def reopen_hfss_project(paths: dict[str, Path], design: str, non_graphical: bool) -> Hfss:
+    remove_project_lock(paths["project"])
+    print(f"Stage: reopening solved project for postprocess: {paths['project']}", flush=True)
+    hfss = Hfss(
+        project=str(paths["project"]),
+        design=design,
+        solution_type="DrivenModal",
+        version="2023.1",
+        non_graphical=non_graphical,
+        new_desktop=True,
+        close_on_exit=False,
+        remove_lock=True,
+    )
+    hfss.design_solutions._solution_type = SolutionsHfss.DrivenModal
+    print(f"Stage: solved project reopened for postprocess: {design}", flush=True)
+    return hfss
+
+
 def build_project(
     topology: str,
     analyze: bool = False,
@@ -2234,6 +2549,7 @@ def build_project(
     analysis_cores: int | None = None,
     analysis_tasks: int | None = None,
 ):
+    patch_pyaedt_empty_variable_lists()
     spec = TOPOLOGIES[topology]
     params = topology_params(topology)
     validate_params(params)
@@ -2252,12 +2568,14 @@ def build_project(
         remove_lock=True,
     )
     hfss.modeler.model_units = "mm"
+    hfss.design_solutions._solution_type = SolutionsHfss.DrivenModal
 
     substrate_material = add_ro4350b(hfss, params)
     board_radius = params["board_diameter_mm"] / 2.0
     h = params["substrate_h_mm"]
     center_radius = params["element_spacing_mm"] / math.sqrt(2.0)
     substrate = hfss.modeler.create_cylinder("Z", [0, 0, 0], board_radius, h, num_sides=128, name=f"{spec['label']}_substrate", material=substrate_material)
+    print("Stage: substrate created", flush=True)
     substrate.transparency = 0.65
     if has_dualpol_slotcoupled(params):
         feed_h = params.get("feed_substrate_h_mm", 0.254)
@@ -2275,7 +2593,9 @@ def build_project(
             material=substrate_material,
         )
         feed_substrate.transparency = 0.72
+        print("Stage: feed substrate created", flush=True)
     ground = hfss.modeler.create_circle("XY", [0, 0, 0], params["ground_radius_mm"], num_sides=128, name=f"{spec['label']}_bottom_ground", material="copper")
+    print("Stage: ground created", flush=True)
     metal_names = [ground.name]
     slot_names = add_isolation_slot_sheets(hfss, params)
     slot_names.extend(add_local_dgs_slots(hfss, params))
@@ -2283,6 +2603,7 @@ def build_project(
 
     kind = spec["kind"]
     for tag, angle in ELEMENTS:
+        print(f"Stage: creating element {tag}", flush=True)
         cx = center_radius * math.cos(math.radians(angle))
         cy = center_radius * math.sin(math.radians(angle))
         if kind == "dualfeed":
@@ -2425,14 +2746,24 @@ def build_project(
     }
     paths["params"].write_text(json.dumps(notes, indent=2), encoding="utf-8")
 
-    hfss.save_project()
+    save_project_best_effort(hfss, "setup creation")
     if analyze:
         print(f"Stage: {spec['label']} analysis started", flush=True)
+        hfss.release_desktop(close_projects=True, close_desktop=non_graphical)
+        time.sleep(15.0)
+        remove_project_lock(paths["project"])
         cores = int(analysis_cores or params.get("analysis_cores", 8))
         tasks = int(analysis_tasks or params.get("analysis_tasks", cores))
-        ok = hfss.analyze_setup(setup.name, cores=cores, tasks=tasks, blocking=True)
+        ok = pyaedt_solve_project(paths["project"], spec["design"], setup.name, paths["results"], cores, tasks)
+        if not ok:
+            ok = batch_solve_project(paths["project"], spec["design"], setup.name, paths["results"])
         print(f"Analyze result: {ok}", flush=True)
-        hfss.save_project()
+        time.sleep(10.0)
+        remove_project_lock(paths["project"])
+        if return_hfss:
+            hfss = reopen_hfss_project(paths, spec["design"], non_graphical)
+        else:
+            return paths["project"]
     if return_hfss:
         return paths["project"], hfss
     hfss.release_desktop(close_projects=False, close_desktop=non_graphical)
