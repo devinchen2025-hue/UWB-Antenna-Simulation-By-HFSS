@@ -51,6 +51,9 @@ def main():
             f.write(str(source) + "\n")
 
     s_expressions = ["dB(S({0},{0}))".format(source) for source in sources]
+    extra_s = os.environ.get("D44_AEDT_EXTRA_S_EXPRESSIONS", "").strip()
+    if extra_s:
+        s_expressions.extend([item.strip() for item in extra_s.split(";") if item.strip()])
     active_sources = [source for source in sources if str(source).endswith("A") or str(source).endswith("B")]
     for left in active_sources:
         for right in active_sources:

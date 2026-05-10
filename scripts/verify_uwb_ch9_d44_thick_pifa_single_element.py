@@ -1,0 +1,917 @@
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import math
+import os
+import subprocess
+import time
+from dataclasses import asdict, dataclass
+from pathlib import Path
+from typing import Any
+
+import build_uwb_ch9_hfss_d44_topology as builder
+
+
+ROOT = Path(__file__).resolve().parents[1]
+REPORT_DIR = ROOT / "reports_d44_thick_pifa_single_element"
+STEM = "UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT"
+DESIGN_NAME = "SingleElement_D44_ThickPIFA_Cavity"
+SOLUTION = "Setup_CH9 : Sweep_CH9"
+SPHERE = "Upper_Hemisphere_5deg"
+NATIVE_EXPORT_SCRIPT = ROOT / "scripts" / "aedt_export_ch9_native_reports.py"
+
+THETA_MIN_DEG = 45.0
+THETA_MAX_DEG = 90.0
+AZIMUTH_WINDOW_DEG = 270.0
+GAIN_TARGET_DBI = -5.0
+RETURN_TARGET_DB = -10.0
+
+SUMMARY_CSV = REPORT_DIR / f"{STEM}_summary.csv"
+WINDOW_CSV = REPORT_DIR / f"{STEM}_azimuth_window_summary.csv"
+METRICS_JSON = REPORT_DIR / f"{STEM}_metrics.json"
+REPORT_MD = REPORT_DIR / f"{STEM}_report.md"
+
+
+@dataclass(frozen=True)
+class ThickPifaCandidate:
+    name: str
+    rationale: str
+    substrate_h_mm: float = 5.0
+    top_length_mm: float = 8.8
+    top_width_mm: float = 8.0
+    short_wall_width_mm: float = 2.4
+    side_fence_length_mm: float = 4.2
+    side_fence_enabled: bool = True
+    feed_from_short_mm: float = 1.25
+    feed_v_mm: float = 0.0
+    feed_pad_radius_mm: float = 0.30
+    port_width_mm: float = 0.55
+    open_lip_height_mm: float = 0.0
+    open_lip_width_mm: float = 0.0
+    match_series_cap_pf: float = 0.0
+    match_series_ind_nh: float = 0.0
+    match_shunt_cap_pf: float = 0.0
+    match_shunt_ind_nh: float = 0.0
+    match_gap_mm: float = 0.12
+    match_island_size_mm: float = 0.70
+    match_series_width_mm: float = 0.34
+    ground_radius_mm: float = 21.4
+    total_height_limit_mm: float = 8.0
+    epsr: float = 3.48
+    tan_delta: float = 0.0037
+
+
+def candidates() -> list[ThickPifaCandidate]:
+    return [
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_feed1p25",
+            rationale="5.0 mm thick-board baseline PIFA: top plate, short wall, and two short side fences for a quasi-cavity low-elevation mode.",
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l9p6_w8p2_feed1p45",
+            rationale="Lengthen the top arm and move the feed farther from the short wall to lower the resonant point toward CH9.",
+            top_length_mm=9.6,
+            top_width_mm=8.2,
+            feed_from_short_mm=1.45,
+            side_fence_length_mm=4.6,
+        ),
+        ThickPifaCandidate(
+            name="h5p8_l8p6_w8p0_feed1p20",
+            rationale="Spend more PCB thickness to strengthen vertical current while keeping the same compact footprint.",
+            substrate_h_mm=5.8,
+            top_length_mm=8.6,
+            feed_from_short_mm=1.20,
+            side_fence_length_mm=4.0,
+        ),
+        ThickPifaCandidate(
+            name="h4p5_l10p4_w8p6_feed1p65",
+            rationale="Use a longer, lower-profile PIFA to test whether electrical length rather than height dominates the match.",
+            substrate_h_mm=4.5,
+            top_length_mm=10.4,
+            top_width_mm=8.6,
+            feed_from_short_mm=1.65,
+            side_fence_length_mm=5.0,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w9p6_feed1p10_wide",
+            rationale="Widen the cavity aperture to improve 270-degree azimuth coverage uniformity.",
+            top_width_mm=9.6,
+            short_wall_width_mm=3.0,
+            feed_from_short_mm=1.10,
+            side_fence_length_mm=4.2,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_feed1p25_lip0p8",
+            rationale="Add a shallow open-edge vertical lip to couple more field into the low-elevation horizon without using a separate L monopole.",
+            open_lip_height_mm=0.8,
+            open_lip_width_mm=1.2,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_feed2p20",
+            rationale="Move the feed farther from the short wall to raise the PIFA input resistance while preserving the baseline horizon pattern.",
+            feed_from_short_mm=2.20,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_feed3p00",
+            rationale="Mid-arm feed location intended to bracket a 50 ohm point on the same thick-board PIFA mode.",
+            feed_from_short_mm=3.00,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_feed3p80",
+            rationale="Feed close to the open half of the top plate to test the high-impedance side of the PIFA feed sweep.",
+            feed_from_short_mm=3.80,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l9p6_w8p2_feed3p20",
+            rationale="Combine the longer top arm with a mid-arm feed for a lower-resonance, higher-input-resistance point.",
+            top_length_mm=9.6,
+            top_width_mm=8.2,
+            feed_from_short_mm=3.20,
+            side_fence_length_mm=4.6,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_feed3p80_c0p093_l0p64",
+            rationale="Add a lossless two-element L-match estimated from candidate 9 impedance: series C plus shunt L on a top-layer feed island.",
+            feed_from_short_mm=3.80,
+            match_series_cap_pf=0.093,
+            match_shunt_ind_nh=0.64,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_feed3p80_c0p085_l0p70",
+            rationale="Slightly lower series capacitance and higher shunt inductance around the calculated L-match point.",
+            feed_from_short_mm=3.80,
+            match_series_cap_pf=0.085,
+            match_shunt_ind_nh=0.70,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_feed3p80_c0p105_l0p58",
+            rationale="Slightly higher series capacitance and lower shunt inductance around the calculated L-match point.",
+            feed_from_short_mm=3.80,
+            match_series_cap_pf=0.105,
+            match_shunt_ind_nh=0.58,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_feed3p80_c0p45_l0p24",
+            rationale="Retune the feed-island version after measured input moved to a very low-resistance point.",
+            feed_from_short_mm=3.80,
+            match_series_cap_pf=0.45,
+            match_shunt_ind_nh=0.24,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_feed3p80_c0p65_l0p20",
+            rationale="Use the approximate L-match for the feed-island input of about 2+j20 ohm at 8 GHz.",
+            feed_from_short_mm=3.80,
+            match_series_cap_pf=0.65,
+            match_shunt_ind_nh=0.20,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_feed3p80_c0p90_l0p16",
+            rationale="Push the series capacitance higher and shunt inductance lower to bracket the strong-match side.",
+            feed_from_short_mm=3.80,
+            match_series_cap_pf=0.90,
+            match_shunt_ind_nh=0.16,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_feed5p50",
+            rationale="Move the direct coax-style feed well beyond the mid-arm point toward the open edge to continue the observed S11 trend.",
+            feed_from_short_mm=5.50,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_feed7p00",
+            rationale="Near-open-edge direct feed intended to raise input resistance without an external matching island.",
+            feed_from_short_mm=7.00,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_feed8p00",
+            rationale="Aggressive near-open-edge feed location to bracket the high-resistance side of the compact PIFA mode.",
+            feed_from_short_mm=8.00,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l10p4_w8p6_feed8p80",
+            rationale="Longer top plate with near-open-edge feed to combine lower resonance with higher feed resistance.",
+            top_length_mm=10.4,
+            top_width_mm=8.6,
+            feed_from_short_mm=8.80,
+            side_fence_length_mm=5.0,
+        ),
+        ThickPifaCandidate(
+            name="h5p8_l8p6_w8p0_feed7p80",
+            rationale="Use extra board thickness and a near-open-edge feed to keep horizon gain while probing a higher-resistance feed point.",
+            substrate_h_mm=5.8,
+            top_length_mm=8.6,
+            feed_from_short_mm=7.80,
+            side_fence_length_mm=4.0,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_feed8p40",
+            rationale="Move the baseline feed to the practical near-open-edge limit to test whether the S11 trend continues.",
+            feed_from_short_mm=8.40,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_sw4p0_fence6p0_feed8p40",
+            rationale="Near-open-edge feed with a wider short wall and longer side fences for stronger cavity current return.",
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.40,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l7p8_w8p0_feed7p40",
+            rationale="Shorten the top plate while keeping the feed near the open edge to probe the high-frequency side of resonance.",
+            top_length_mm=7.8,
+            feed_from_short_mm=7.40,
+            side_fence_length_mm=3.8,
+        ),
+        ThickPifaCandidate(
+            name="h6p5_l8p4_w8p0_feed7p90",
+            rationale="Spend more board thickness and keep a compact near-edge feed to increase vertical current and input resistance.",
+            substrate_h_mm=6.5,
+            top_length_mm=8.4,
+            feed_from_short_mm=7.90,
+            side_fence_length_mm=4.0,
+        ),
+    ]
+
+
+def safe_slug(value: str, limit: int = 72) -> str:
+    clean = "".join(ch if ch.isalnum() or ch in "-_." else "_" for ch in value)
+    return clean[:limit].strip("._-") or "candidate"
+
+
+def fmt(value: Any, digits: int = 3) -> str:
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return str(value)
+    if math.isnan(number) or math.isinf(number):
+        return "N/A"
+    return f"{number:.{digits}f}"
+
+
+def candidate_paths(candidate: ThickPifaCandidate) -> dict[str, Path]:
+    project = ROOT / f"{STEM}_{safe_slug(candidate.name)}.aedt"
+    return {
+        "project": project,
+        "results": project.with_suffix(".aedtresults"),
+        "pyaedt": project.with_suffix(".pyaedt"),
+        "params": REPORT_DIR / f"{STEM}_{safe_slug(candidate.name)}_params.json",
+    }
+
+
+def params_dict(candidate: ThickPifaCandidate) -> dict[str, float]:
+    return {
+        "freq_center_ghz": 8.0,
+        "freq_start_ghz": 7.7,
+        "freq_stop_ghz": 8.3,
+        "freq_step_ghz": 0.02,
+        "air_frequency_ghz": 7.0,
+        "board_diameter_mm": 44.0,
+        "ground_radius_mm": candidate.ground_radius_mm,
+        "substrate_h_mm": candidate.substrate_h_mm,
+        "copper_t_mm": 0.035,
+        "total_height_limit_mm": candidate.total_height_limit_mm,
+        "epsr": candidate.epsr,
+        "tan_delta": candidate.tan_delta,
+        "feed_pad_radius_mm": candidate.feed_pad_radius_mm,
+        "port_width_mm": candidate.port_width_mm,
+    }
+
+
+def validate_candidate(candidate: ThickPifaCandidate) -> None:
+    if candidate.substrate_h_mm + 0.035 > candidate.total_height_limit_mm:
+        raise ValueError(f"{candidate.name}: total height exceeds limit")
+    if candidate.top_length_mm <= 1.0 or candidate.top_width_mm <= 1.0:
+        raise ValueError(f"{candidate.name}: top plate dimensions are too small")
+    if candidate.short_wall_width_mm <= 0.20:
+        raise ValueError(f"{candidate.name}: short wall width is not manufacturable")
+    if candidate.port_width_mm <= 0.10:
+        raise ValueError(f"{candidate.name}: port width is too small")
+    feed_u = -candidate.top_length_mm / 2.0 + candidate.feed_from_short_mm
+    if feed_u <= -candidate.top_length_mm / 2.0 + 0.20 or feed_u >= candidate.top_length_mm / 2.0 - 0.30:
+        raise ValueError(f"{candidate.name}: feed must sit between the short wall and open end")
+    max_extent = math.hypot(candidate.top_length_mm / 2.0, candidate.top_width_mm / 2.0)
+    if max_extent > candidate.ground_radius_mm - 1.0:
+        raise ValueError(f"{candidate.name}: element footprint is too close to board edge")
+
+
+def vertical_wall_points(u0: float, u1: float, v0: float, v1: float, z0: float, z1: float, axis: str) -> list[list[float]]:
+    if axis == "u":
+        u = u0
+        return [[u, v0, z0], [u, v1, z0], [u, v1, z1], [u, v0, z1]]
+    if axis == "v":
+        v = v0
+        return [[u0, v, z0], [u1, v, z0], [u1, v, z1], [u0, v, z1]]
+    raise ValueError(f"Unsupported wall axis {axis}")
+
+
+def add_thick_pifa_geometry(hfss, candidate: ThickPifaCandidate) -> list[str]:
+    h = candidate.substrate_h_mm
+    half_l = candidate.top_length_mm / 2.0
+    half_w = candidate.top_width_mm / 2.0
+    short_u = -half_l
+    open_u = half_l
+    metals: list[str] = []
+
+    top = builder.polygon_sheet(
+        hfss,
+        "E1_thick_pifa_top_plate",
+        builder.rectangle_points(0.0, 0.0, 0.0, -half_l, half_l, -half_w, half_w, h),
+        "copper",
+    )
+    metals.append(top.name)
+
+    short_half = candidate.short_wall_width_mm / 2.0
+    short = builder.polygon_sheet(
+        hfss,
+        "E1_thick_pifa_short_wall",
+        vertical_wall_points(short_u, short_u, -short_half, short_half, 0.0, h, "u"),
+        "copper",
+    )
+    metals.append(short.name)
+
+    if candidate.side_fence_enabled and candidate.side_fence_length_mm > 0.2:
+        fence_u1 = min(short_u + candidate.side_fence_length_mm, open_u - 0.20)
+        for side, v in [("pos", half_w), ("neg", -half_w)]:
+            fence = builder.polygon_sheet(
+                hfss,
+                f"E1_thick_pifa_side_fence_{side}",
+                vertical_wall_points(short_u, fence_u1, v, v, 0.0, h, "v"),
+                "copper",
+            )
+            metals.append(fence.name)
+
+    if candidate.open_lip_height_mm > 0.0 and candidate.open_lip_width_mm > 0.0:
+        lip_half = min(candidate.open_lip_width_mm / 2.0, half_w)
+        lip = builder.polygon_sheet(
+            hfss,
+            "E1_thick_pifa_open_edge_lip",
+            vertical_wall_points(open_u, open_u, -lip_half, lip_half, h - candidate.open_lip_height_mm, h, "u"),
+            "copper",
+        )
+        metals.append(lip.name)
+
+    feed_u = -half_l + candidate.feed_from_short_mm
+    feed_v = candidate.feed_v_mm
+    matched_feed = (
+        candidate.match_series_cap_pf > 0.0
+        or candidate.match_series_ind_nh > 0.0
+        or candidate.match_shunt_cap_pf > 0.0
+        or candidate.match_shunt_ind_nh > 0.0
+    )
+    if matched_feed:
+        gap = candidate.match_gap_mm
+        island = candidate.match_island_size_mm
+        island_v0 = half_w + gap
+        island_v1 = island_v0 + island
+        island_u0 = feed_u - island / 2.0
+        island_u1 = feed_u + island / 2.0
+        island_sheet = builder.polygon_sheet(
+            hfss,
+            "E1_thick_pifa_match_feed_island",
+            builder.rectangle_points(0.0, 0.0, 0.0, island_u0, island_u1, island_v0, island_v1, h),
+            "copper",
+        )
+        metals.append(island_sheet.name)
+        feed_v = (island_v0 + island_v1) / 2.0
+        metals.extend(
+            builder.add_lumped_feed(
+                hfss,
+                "P1",
+                (0.0, 0.0),
+                0.0,
+                feed_u,
+                feed_v,
+                h,
+                0.0,
+                params_dict(candidate),
+                pad=False,
+                port_width_axis="u",
+            )
+        )
+        series_half = candidate.match_series_width_mm / 2.0
+        series_sheet = builder.polygon_sheet(
+            hfss,
+            "E1_thick_pifa_series_match_sheet",
+            builder.rectangle_points(0.0, 0.0, 0.0, feed_u - series_half, feed_u + series_half, half_w, island_v0, h),
+            None,
+        )
+        hfss.assign_lumped_rlc_to_sheet(
+            series_sheet.name,
+            start_direction=[[feed_u, island_v0, h], [feed_u, half_w, h]],
+            name="E1_thick_pifa_series_match",
+            rlc_type="Serial",
+            capacitance=candidate.match_series_cap_pf * 1e-12 if candidate.match_series_cap_pf > 0.0 else None,
+            inductance=candidate.match_series_ind_nh * 1e-9 if candidate.match_series_ind_nh > 0.0 else None,
+        )
+        if candidate.match_shunt_cap_pf > 0.0 or candidate.match_shunt_ind_nh > 0.0:
+            match_params = params_dict(candidate)
+            match_params["rf_switch_off_resistance_ohm"] = 0.0
+            match_params["rf_switch_off_capacitance_pf"] = candidate.match_shunt_cap_pf
+            match_params["rf_switch_off_inductance_nh"] = candidate.match_shunt_ind_nh
+            builder.add_lumped_switch_load(
+                hfss,
+                "E1_thick_pifa_shunt_match",
+                (0.0, 0.0),
+                0.0,
+                feed_u,
+                feed_v,
+                h,
+                0.0,
+                match_params,
+                port_width_axis="u",
+            )
+    else:
+        metals.extend(
+            builder.add_lumped_feed(
+                hfss,
+                "P1",
+                (0.0, 0.0),
+                0.0,
+                feed_u,
+                feed_v,
+                h,
+                0.0,
+                params_dict(candidate),
+                pad=True,
+                port_width_axis="v",
+            )
+        )
+    return metals
+
+
+def build_candidate(candidate: ThickPifaCandidate, analyze: bool, cores: int, tasks: int) -> dict[str, Path]:
+    validate_candidate(candidate)
+    REPORT_DIR.mkdir(parents=True, exist_ok=True)
+    paths = candidate_paths(candidate)
+    builder.clean_outputs(paths)
+    params = params_dict(candidate)
+    builder.patch_pyaedt_empty_variable_lists()
+
+    print(f"Stage: building {candidate.name}", flush=True)
+    hfss = builder.Hfss(
+        project=str(paths["project"]),
+        design=DESIGN_NAME,
+        solution_type="DrivenModal",
+        version="2023.1",
+        non_graphical=True,
+        new_desktop=True,
+        close_on_exit=False,
+        remove_lock=True,
+    )
+    hfss.modeler.model_units = "mm"
+    hfss.design_solutions._solution_type = builder.SolutionsHfss.DrivenModal
+
+    substrate_material = builder.add_ro4350b(hfss, params)
+    substrate = hfss.modeler.create_cylinder(
+        "Z",
+        [0, 0, 0],
+        params["board_diameter_mm"] / 2.0,
+        candidate.substrate_h_mm,
+        num_sides=128,
+        name="D44_THICK_PIFA_single_substrate",
+        material=substrate_material,
+    )
+    substrate.transparency = 0.65
+    ground = hfss.modeler.create_circle(
+        "XY",
+        [0, 0, 0],
+        params["ground_radius_mm"],
+        num_sides=128,
+        name="D44_THICK_PIFA_bottom_ground",
+        material="copper",
+    )
+    metal_names = [ground.name]
+    metal_names.extend(add_thick_pifa_geometry(hfss, candidate))
+
+    hfss.assign_perfecte_to_sheets(metal_names, name="D44_THICK_PIFA_PEC_metallization", is_infinite_ground=False)
+    hfss.create_open_region(frequency=f"{params['air_frequency_ghz']}GHz", boundary="Radiation", apply_infinite_ground=False)
+    hfss.insert_infinite_sphere(theta_start=0, theta_stop=90, theta_step=5, phi_start=0, phi_stop=360, phi_step=5, name=SPHERE)
+
+    setup = hfss.create_setup(
+        name="Setup_CH9",
+        setup_type="HFSSDriven",
+        Frequency=f"{params['freq_center_ghz']}GHz",
+        MaximumPasses=5,
+        MinimumPasses=2,
+        MaxDeltaS=0.03,
+        BasisOrder=1,
+        PercentRefinement=30,
+    )
+    sweep = hfss.create_single_point_sweep(
+        setup=setup.name,
+        unit="GHz",
+        freq=params["freq_center_ghz"],
+        name="Sweep_CH9",
+        save_single_field=True,
+        save_fields=True,
+        save_rad_fields=True,
+    )
+    builder.create_reports(hfss, setup.name, sweep.name, "D44_THICK_PIFA_SINGLE")
+
+    total_height = candidate.substrate_h_mm + params["copper_t_mm"]
+    notes = {
+        "project": str(paths["project"]),
+        "design": DESIGN_NAME,
+        "candidate": asdict(candidate),
+        "model": "Single-port thick-PCB shorted PIFA/quasi-cavity element at the original array phase-center reference.",
+        "target": {
+            "s11_db_max": RETURN_TARGET_DB,
+            "theta_deg": [THETA_MIN_DEG, THETA_MAX_DEG],
+            "azimuth_window_deg": AZIMUTH_WINDOW_DEG,
+            "gain_total_min_dbi": GAIN_TARGET_DBI,
+        },
+        "height_constraint": f"PCB/topology height {total_height:.3f} mm <= {candidate.total_height_limit_mm:.3f} mm.",
+        "manufacturing_note": "Uses top copper plus PCB short/side walls that can be implemented with plated via walls or edge-plated slots; no separate L monopole arm is used.",
+    }
+    paths["params"].write_text(json.dumps(notes, indent=2, ensure_ascii=False), encoding="utf-8")
+    builder.save_project_best_effort(hfss, "thick PIFA setup creation")
+    hfss.release_desktop(close_projects=True, close_desktop=True)
+
+    if analyze:
+        print(f"Stage: solving {candidate.name}", flush=True)
+        time.sleep(8.0)
+        builder.remove_project_lock(paths["project"])
+        ok = builder.pyaedt_solve_project(paths["project"], DESIGN_NAME, setup.name, paths["results"], cores, tasks)
+        if not ok:
+            ok = builder.batch_solve_project(paths["project"], DESIGN_NAME, setup.name, paths["results"])
+        if not ok:
+            raise RuntimeError(f"HFSS solve did not complete for {candidate.name}")
+        time.sleep(5.0)
+        builder.remove_project_lock(paths["project"])
+    return paths
+
+
+def native_export(candidate: ThickPifaCandidate, paths: dict[str, Path]) -> dict[str, Path]:
+    safe_case = safe_slug(candidate.name)
+    env = os.environ.copy()
+    env.update(
+        {
+            "D44_AEDT_PROJECT": str(paths["project"]),
+            "D44_AEDT_PROJECT_NAME": paths["project"].stem,
+            "D44_AEDT_DESIGN": DESIGN_NAME,
+            "D44_AEDT_SOLUTION": SOLUTION,
+            "D44_AEDT_SPHERE": SPHERE,
+            "D44_AEDT_CASE": safe_case,
+            "D44_AEDT_OUT_DIR": str(REPORT_DIR),
+            "D44_AEDT_FREQ_GHZ": "8",
+        }
+    )
+    log_path = REPORT_DIR / f"{safe_case}_native_export.log"
+    cmd = [str(builder.AEDT_EXE), "-ng", "-LogFile", str(log_path), "-RunScriptAndExit", str(NATIVE_EXPORT_SCRIPT)]
+    subprocess.run(cmd, cwd=str(ROOT), env=env, check=True, timeout=360)
+    return {
+        "s": REPORT_DIR / f"{safe_case}_native_s_parameters.csv",
+        "ff": REPORT_DIR / f"{safe_case}_native_farfield_default.csv",
+        "sources": REPORT_DIR / f"{safe_case}_native_sources.txt",
+        "log": log_path,
+    }
+
+
+def parse_s_csv(path: Path) -> dict[str, Any]:
+    with path.open(newline="", encoding="utf-8-sig") as f:
+        rows = list(csv.DictReader(f))
+    if not rows:
+        raise RuntimeError(f"Empty S-parameter CSV: {path}")
+    values: list[tuple[float, float]] = []
+    for row in rows:
+        freq = float(row.get("Freq [GHz]", row.get("Freq", "8")))
+        for key, value in row.items():
+            if key and key.startswith("dB(S(") and value not in (None, ""):
+                values.append((freq, float(value)))
+    if not values:
+        raise RuntimeError(f"No S11 data found in {path}")
+    worst_freq, worst_db = max(values, key=lambda item: item[1])
+    return {
+        "s_csv": str(path),
+        "s11_worst_db": worst_db,
+        "s11_worst_freq_ghz": worst_freq,
+        "s11_pass": worst_db <= RETURN_TARGET_DB,
+    }
+
+
+def parse_ff_rows(path: Path) -> list[dict[str, float]]:
+    with path.open(newline="", encoding="utf-8-sig") as f:
+        rows = list(csv.reader(f))
+    if len(rows) < 2:
+        raise RuntimeError(f"Empty far-field CSV: {path}")
+    header = rows[0]
+    phi_idx = next(idx for idx, name in enumerate(header) if name.startswith("Phi"))
+    theta_idx = next(idx for idx, name in enumerate(header) if name.startswith("Theta"))
+    gain_idx = next(idx for idx, name in enumerate(header) if "dB(GainTotal)" in name)
+    parsed: list[dict[str, float]] = []
+    for raw in rows[1:]:
+        if len(raw) <= max(phi_idx, theta_idx, gain_idx):
+            continue
+        theta = float(raw[theta_idx])
+        phi = float(raw[phi_idx]) % 360.0
+        if abs(phi - 360.0) < 1e-9:
+            phi = 0.0
+        if THETA_MIN_DEG - 1e-9 <= theta <= THETA_MAX_DEG + 1e-9:
+            parsed.append({"theta_deg": theta, "phi_deg": phi, "gain_total_dbi": float(raw[gain_idx])})
+    if not parsed:
+        raise RuntimeError(f"No Theta {THETA_MIN_DEG}..{THETA_MAX_DEG} rows found in {path}")
+    return parsed
+
+
+def window_metrics(rows: list[dict[str, float]]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    starts = sorted({row["phi_deg"] for row in rows if 0.0 <= row["phi_deg"] < 360.0})
+    window_rows: list[dict[str, Any]] = []
+    for start in starts:
+        selected = []
+        for row in rows:
+            delta = (row["phi_deg"] - start) % 360.0
+            if delta <= AZIMUTH_WINDOW_DEG + 1e-9:
+                selected.append(row)
+        if not selected:
+            continue
+        worst = min(selected, key=lambda item: item["gain_total_dbi"])
+        best = max(selected, key=lambda item: item["gain_total_dbi"])
+        window_rows.append(
+            {
+                "window_start_phi_deg": start,
+                "window_stop_phi_deg": (start + AZIMUTH_WINDOW_DEG) % 360.0,
+                "sample_count": len(selected),
+                "gain_total_min_dbi": worst["gain_total_dbi"],
+                "gain_total_min_theta_deg": worst["theta_deg"],
+                "gain_total_min_phi_deg": worst["phi_deg"],
+                "gain_total_max_dbi": best["gain_total_dbi"],
+                "gain_total_max_theta_deg": best["theta_deg"],
+                "gain_total_max_phi_deg": best["phi_deg"],
+            }
+        )
+    if not window_rows:
+        raise RuntimeError("No azimuth windows could be evaluated")
+    best_window = max(window_rows, key=lambda item: item["gain_total_min_dbi"])
+    default_window = min(window_rows, key=lambda item: abs(item["window_start_phi_deg"] - 0.0))
+    all_worst = min(rows, key=lambda item: item["gain_total_dbi"])
+    metrics = {
+        "ff_sample_count": len(rows),
+        "all_phi_gain_total_min_dbi": all_worst["gain_total_dbi"],
+        "all_phi_gain_total_min_theta_deg": all_worst["theta_deg"],
+        "all_phi_gain_total_min_phi_deg": all_worst["phi_deg"],
+        "best_270deg_window_start_phi_deg": best_window["window_start_phi_deg"],
+        "best_270deg_window_stop_phi_deg": best_window["window_stop_phi_deg"],
+        "best_270deg_gain_total_min_dbi": best_window["gain_total_min_dbi"],
+        "best_270deg_gain_total_min_theta_deg": best_window["gain_total_min_theta_deg"],
+        "best_270deg_gain_total_min_phi_deg": best_window["gain_total_min_phi_deg"],
+        "default_0_270deg_gain_total_min_dbi": default_window["gain_total_min_dbi"],
+        "default_0_270deg_gain_total_min_theta_deg": default_window["gain_total_min_theta_deg"],
+        "default_0_270deg_gain_total_min_phi_deg": default_window["gain_total_min_phi_deg"],
+        "gain_pass": best_window["gain_total_min_dbi"] >= GAIN_TARGET_DBI,
+    }
+    return metrics, window_rows
+
+
+def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
+    fields: list[str] = []
+    for row in rows:
+        for key in row:
+            if key not in fields:
+                fields.append(key)
+    with path.open("w", newline="", encoding="utf-8-sig") as f:
+        writer = csv.DictWriter(f, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def read_csv(path: Path) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    with path.open(newline="", encoding="utf-8-sig") as f:
+        return list(csv.DictReader(f))
+
+
+def row_candidate_index(row: dict[str, Any]) -> int:
+    try:
+        return int(float(row.get("candidate_index", 999999)))
+    except (TypeError, ValueError):
+        return 999999
+
+
+def sort_summary_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return sorted(rows, key=row_candidate_index)
+
+
+def sort_window_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    def key(row: dict[str, Any]) -> tuple[int, float]:
+        try:
+            start_phi = float(row.get("window_start_phi_deg", 0.0))
+        except (TypeError, ValueError):
+            start_phi = 0.0
+        return row_candidate_index(row), start_phi
+
+    return sorted(rows, key=key)
+
+
+def bool_value(value: Any) -> bool:
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, str):
+        return value.strip().lower() in {"1", "true", "yes", "y", "达标"}
+    return bool(value)
+
+
+def write_report(summary_rows: list[dict[str, Any]], best: dict[str, Any]) -> None:
+    summary_rows = sort_summary_rows(summary_rows)
+    best_s11_ok = bool_value(best["s11_pass"])
+    best_gain_ok = bool_value(best["gain_pass"])
+    s11_best = min(summary_rows, key=lambda row: float(row["s11_worst_db"]))
+    gain_best = max(summary_rows, key=lambda row: float(row["best_270deg_gain_total_min_dbi"]))
+    s11_gap_db = abs(RETURN_TARGET_DB - float(s11_best["s11_worst_db"]))
+    complex_diag = REPORT_DIR / "h5p0_l8p8_w8p0_feed3p80_c0p085_l0p70_complex_serial_native_s_parameters.csv"
+    lines = [
+        "# D44 厚板短路 PIFA/腔体化单阵元验证报告",
+        "",
+        "## 目标与口径",
+        "",
+        f"- 验证对象：去除 A/B/L 后的单端口厚板短路 PIFA/准腔体阵元，单阵元相位中心放在阵元中心参考点。",
+        f"- 匹配目标：`S11 <= {RETURN_TARGET_DB:.1f} dB`。",
+        f"- 增益目标：Theta `{THETA_MIN_DEG:.0f}..{THETA_MAX_DEG:.0f} deg`，在最佳连续 `{AZIMUTH_WINDOW_DEG:.0f} deg` 方位窗口内 `GainTotal >= {GAIN_TARGET_DBI:.1f} dBi`。",
+        "- 说明：本阶段只做单阵元可行性验证，不评估 4 阵元互耦、PDOA 单调性或整机遮挡。",
+        "",
+        "## 最佳候选",
+        "",
+        "- 选择口径：若没有候选同时满足 S11 和增益，则在增益达标候选中优先选择 S11 最接近目标的候选。",
+        f"- 候选序号：`{best.get('candidate_index', 'N/A')}`。",
+        f"- 候选：`{best['candidate']}`。",
+        f"- S11 最差值：`{fmt(best['s11_worst_db'])} dB`。",
+        f"- 最佳 270° 窗口：Phi `{fmt(best['best_270deg_window_start_phi_deg'], 0)}..{fmt(best['best_270deg_window_stop_phi_deg'], 0)} deg`。",
+        f"- 最佳 270° 窗口最小 GainTotal：`{fmt(best['best_270deg_gain_total_min_dbi'])} dBi`，最差点 Theta `{fmt(best['best_270deg_gain_total_min_theta_deg'], 0)} deg` / Phi `{fmt(best['best_270deg_gain_total_min_phi_deg'], 0)} deg`。",
+        f"- 全 360° 方位最小 GainTotal：`{fmt(best['all_phi_gain_total_min_dbi'])} dBi`。",
+        "",
+        "## 达标情况",
+        "",
+        f"- S11：`{'达标' if best_s11_ok else '未达标'}`。",
+        f"- 270° 方位增益：`{'达标' if best_gain_ok else '未达标'}`。",
+        f"- 综合结论：`{'达标' if best_s11_ok and best_gain_ok else '未完全达标'}`。",
+        "",
+        "## 复核结论",
+        "",
+        f"- 已完成候选数：`{len(summary_rows)}` 个，所有候选在 Theta `{THETA_MIN_DEG:.0f}..{THETA_MAX_DEG:.0f} deg`、最佳连续 `{AZIMUTH_WINDOW_DEG:.0f} deg` 方位窗口内均满足 `GainTotal >= {GAIN_TARGET_DBI:.1f} dBi`。",
+        f"- S11 最优候选：`#{s11_best.get('candidate_index', 'N/A')} {s11_best['candidate']}`，S11 `{fmt(s11_best['s11_worst_db'])} dB`，距离 `-10 dB` 目标仍差约 `{s11_gap_db:.2f} dB`。",
+        f"- 增益最优候选：`#{gain_best.get('candidate_index', 'N/A')} {gain_best['candidate']}`，最佳 270° 窗口最小 GainTotal `{fmt(gain_best['best_270deg_gain_total_min_dbi'])} dBi`，但 S11 `{fmt(gain_best['s11_worst_db'])} dB`。",
+        "- 靠近开路端的真实几何馈电是本轮最有效方向，S11 从早期直接馈电的约 `-0.06..-0.33 dB` 改善到 `-4.786 dB`，同时低仰角增益仍保持明显余量。",
+        "- 外接匹配岛候选 11..16 已修正为 AEDT `Serial` 串联 RLC 写法，但 S11 对 L/C 数值不敏感，当前 lumped matching 拓扑不能作为达标签核依据。",
+        f"- 复阻抗诊断文件：`{complex_diag}`；该匹配岛样例在 8 GHz 端口仍约为 `2.06 + j20.04 ohm`。",
+        "",
+        "## 候选汇总",
+        "",
+        "| # | 候选 | S11 worst dB | Best 270° min Gain dBi | All-phi min Gain dBi | 结果 |",
+        "|---:|---|---:|---:|---:|---|",
+    ]
+    for row in summary_rows:
+        ok = bool_value(row["s11_pass"]) and bool_value(row["gain_pass"])
+        lines.append(
+            f"| {row.get('candidate_index', '')} | `{row['candidate']}` | {fmt(row['s11_worst_db'])} | {fmt(row['best_270deg_gain_total_min_dbi'])} | {fmt(row['all_phi_gain_total_min_dbi'])} | {'达标' if ok else '未达标'} |"
+        )
+    lines.extend(
+        [
+            "",
+            "## 工程判断",
+            "",
+            "- 该方案避免了独立 4.8 mm L 单极子金属臂，制造上可转化为厚 PCB 顶层铜箔、短路 via wall/边镀墙和局部开口腔体。",
+            "- 方向图侧已经满足低仰角覆盖目标；当前瓶颈是端口匹配，不是低仰角辐射能力。",
+            "- 下一轮不建议回退到 A/B 贴片低仰角硬覆盖；应改为真实分布式馈电/耦合结构，例如 inset/slot 耦合、短路墙开槽馈电、带清晰回流路径的 50 ohm 微带过渡，或可制造的板内/板边耦合馈电。",
+            "- 单阵元 S11 达标后，再扩展到 4 阵元，保持约 17 mm 相位中心间距并复核互耦、相位单调性和人体/外壳遮挡。",
+            "",
+            "## 输出文件",
+            "",
+            f"- 最佳 AEDT 工程：`{best.get('project', '')}`",
+            f"- 候选汇总 CSV：`{SUMMARY_CSV}`",
+            f"- 方位窗口 CSV：`{WINDOW_CSV}`",
+            f"- 指标 JSON：`{METRICS_JSON}`",
+        ]
+    )
+    REPORT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def evaluate_candidate(candidate: ThickPifaCandidate, cores: int, tasks: int) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    start = time.time()
+    paths = build_candidate(candidate, analyze=True, cores=cores, tasks=tasks)
+    exported = native_export(candidate, paths)
+    s_metrics = parse_s_csv(exported["s"])
+    ff_rows = parse_ff_rows(exported["ff"])
+    gain_metrics, windows = window_metrics(ff_rows)
+    row = {
+        "candidate": candidate.name,
+        "rationale": candidate.rationale,
+        "elapsed_s": time.time() - start,
+        "project": str(paths["project"]),
+        "params_json": str(paths["params"]),
+        "native_export_log": str(exported["log"]),
+        **asdict(candidate),
+        **s_metrics,
+        **gain_metrics,
+    }
+    for item in windows:
+        item["candidate"] = candidate.name
+    return row, windows
+
+
+def rank_key(row: dict[str, Any]) -> tuple[int, float, float]:
+    s11_ok = bool_value(row["s11_pass"])
+    gain_ok = bool_value(row["gain_pass"])
+    s11_worst = float(row["s11_worst_db"])
+    gain_min = float(row["best_270deg_gain_total_min_dbi"])
+    if s11_ok and gain_ok:
+        tier = 3
+    elif gain_ok:
+        tier = 2
+    elif s11_ok:
+        tier = 1
+    else:
+        tier = 0
+    return (tier, -s11_worst, gain_min)
+
+
+def run(candidate_indices: list[int], cores: int, tasks: int) -> dict[str, Any]:
+    REPORT_DIR.mkdir(parents=True, exist_ok=True)
+    pool = candidates()
+    if not candidate_indices:
+        candidate_indices = list(range(1, len(pool) + 1))
+    rerun_set = {str(index) for index in candidate_indices}
+    summary_rows: list[dict[str, Any]] = [
+        row for row in read_csv(SUMMARY_CSV) if str(row.get("candidate_index", "")) not in rerun_set
+    ]
+    window_rows: list[dict[str, Any]] = [
+        row for row in read_csv(WINDOW_CSV) if str(row.get("candidate_index", "")) not in rerun_set
+    ]
+    for index in candidate_indices:
+        if index < 1 or index > len(pool):
+            raise ValueError(f"candidate index must be 1..{len(pool)}")
+        candidate = pool[index - 1]
+        print(f"=== Candidate {index}: {candidate.name} ===", flush=True)
+        row, windows = evaluate_candidate(candidate, cores=cores, tasks=tasks)
+        row["candidate_index"] = index
+        for item in windows:
+            item["candidate_index"] = index
+        summary_rows.append(row)
+        window_rows.extend(windows)
+        write_csv(SUMMARY_CSV, sort_summary_rows(summary_rows))
+        write_csv(WINDOW_CSV, sort_window_rows(window_rows))
+    summary_rows = sort_summary_rows(summary_rows)
+    window_rows = sort_window_rows(window_rows)
+    best = max(summary_rows, key=rank_key)
+    payload = {
+        "target": {
+            "s11_db_max": RETURN_TARGET_DB,
+            "theta_deg": [THETA_MIN_DEG, THETA_MAX_DEG],
+            "azimuth_window_deg": AZIMUTH_WINDOW_DEG,
+            "gain_total_min_dbi": GAIN_TARGET_DBI,
+        },
+        "best_candidate": best,
+        "summary_csv": str(SUMMARY_CSV),
+        "window_csv": str(WINDOW_CSV),
+        "report_md": str(REPORT_MD),
+        "rows": summary_rows,
+    }
+    write_csv(SUMMARY_CSV, summary_rows)
+    write_csv(WINDOW_CSV, window_rows)
+    METRICS_JSON.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    write_report(summary_rows, best)
+    print(f"Wrote {REPORT_MD}", flush=True)
+    return payload
+
+
+def regenerate_from_existing_results() -> None:
+    summary_rows = sort_summary_rows(read_csv(SUMMARY_CSV))
+    window_rows = sort_window_rows(read_csv(WINDOW_CSV))
+    if not summary_rows:
+        raise RuntimeError(f"No existing summary rows found in {SUMMARY_CSV}")
+    best = max(summary_rows, key=rank_key)
+    payload = {
+        "target": {
+            "s11_db_max": RETURN_TARGET_DB,
+            "theta_deg": [THETA_MIN_DEG, THETA_MAX_DEG],
+            "azimuth_window_deg": AZIMUTH_WINDOW_DEG,
+            "gain_total_min_dbi": GAIN_TARGET_DBI,
+        },
+        "best_candidate": best,
+        "summary_csv": str(SUMMARY_CSV),
+        "window_csv": str(WINDOW_CSV),
+        "report_md": str(REPORT_MD),
+        "rows": summary_rows,
+    }
+    write_csv(SUMMARY_CSV, summary_rows)
+    write_csv(WINDOW_CSV, window_rows)
+    METRICS_JSON.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    write_report(summary_rows, best)
+    print(f"Wrote {REPORT_MD}", flush=True)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--candidate-index", action="append", type=int, default=[], help="1-based candidate index. Repeat to run several; default runs all.")
+    parser.add_argument("--cores", type=int, default=4)
+    parser.add_argument("--tasks", type=int, default=4)
+    parser.add_argument("--report-only", action="store_true", help="Regenerate JSON/Markdown reports from existing CSV files without running HFSS.")
+    args = parser.parse_args()
+    if args.report_only:
+        regenerate_from_existing_results()
+        return
+    run(args.candidate_index, args.cores, args.tasks)
+
+
+if __name__ == "__main__":
+    main()

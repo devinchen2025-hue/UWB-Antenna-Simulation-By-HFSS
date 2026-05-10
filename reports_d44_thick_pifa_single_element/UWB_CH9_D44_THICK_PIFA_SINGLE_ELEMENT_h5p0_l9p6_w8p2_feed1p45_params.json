@@ -1,0 +1,43 @@
+{
+  "project": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h5p0_l9p6_w8p2_feed1p45.aedt",
+  "design": "SingleElement_D44_ThickPIFA_Cavity",
+  "candidate": {
+    "name": "h5p0_l9p6_w8p2_feed1p45",
+    "rationale": "Lengthen the top arm and move the feed farther from the short wall to lower the resonant point toward CH9.",
+    "substrate_h_mm": 5.0,
+    "top_length_mm": 9.6,
+    "top_width_mm": 8.2,
+    "short_wall_width_mm": 2.4,
+    "side_fence_length_mm": 4.6,
+    "side_fence_enabled": true,
+    "feed_from_short_mm": 1.45,
+    "feed_v_mm": 0.0,
+    "feed_pad_radius_mm": 0.3,
+    "port_width_mm": 0.55,
+    "open_lip_height_mm": 0.0,
+    "open_lip_width_mm": 0.0,
+    "match_series_cap_pf": 0.0,
+    "match_series_ind_nh": 0.0,
+    "match_shunt_cap_pf": 0.0,
+    "match_shunt_ind_nh": 0.0,
+    "match_gap_mm": 0.12,
+    "match_island_size_mm": 0.7,
+    "match_series_width_mm": 0.34,
+    "ground_radius_mm": 21.4,
+    "total_height_limit_mm": 8.0,
+    "epsr": 3.48,
+    "tan_delta": 0.0037
+  },
+  "model": "Single-port thick-PCB shorted PIFA/quasi-cavity element at the original array phase-center reference.",
+  "target": {
+    "s11_db_max": -10.0,
+    "theta_deg": [
+      45.0,
+      90.0
+    ],
+    "azimuth_window_deg": 270.0,
+    "gain_total_min_dbi": -5.0
+  },
+  "height_constraint": "PCB/topology height 5.035 mm <= 8.000 mm.",
+  "manufacturing_note": "Uses top copper plus PCB short/side walls that can be implemented with plated via walls or edge-plated slots; no separate L monopole arm is used."
+}
