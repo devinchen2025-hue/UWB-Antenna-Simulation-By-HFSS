@@ -1,0 +1,3 @@
+﻿candidate_index,candidate,case,active_pol,worst_active_s11_expr,worst_active_s11_db,worst_low_s11_expr,worst_low_s11_db,coupling_worst_db,active_s11_pass,low_s11_pass
+37,fold0p6_neck1p6_stub2p6,A_ON_absorptive_50ohm_c0p08pf,A,"dB(S(P3A,P3A))",-15.125366,"dB(S(P2L,P2L))",-12.976476,-44.945641,True,True
+37,fold0p6_neck1p6_stub2p6,B_ON_absorptive_50ohm_c0p08pf,B,"dB(S(P4B,P4B))",-17.440238,"dB(S(P1L,P1L))",-13.732974,-45.188201,True,True

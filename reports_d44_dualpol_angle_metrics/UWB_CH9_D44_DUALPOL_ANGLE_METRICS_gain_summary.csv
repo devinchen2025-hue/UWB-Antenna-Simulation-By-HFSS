@@ -1,0 +1,5 @@
+﻿scope,assignment,phi_start_deg,phi_width_deg,sample_count,gain_target_dbi,gain_total_min_dbi,gain_total_p5_dbi,gain_total_median_dbi,realized_gain_total_min_dbi,realized_gain_total_p5_dbi,realized_gain_total_median_dbi,gain_total_target_pass,realized_gain_total_target_pass,worst_gain_source,worst_gain_theta_deg,worst_gain_phi_deg,worst_realized_source,worst_realized_theta_deg,worst_realized_phi_deg
+full360,A_H__B_V,0.000000,360.000000,5760,-5.000000,-26.591237,-18.095070,-11.221838,-26.915130,-18.348955,-11.415332,False,False,P4A,70.000000,105.000000,P4A,70.000000,105.000000
+full360,A_V__B_H,0.000000,360.000000,5760,-5.000000,-26.591237,-18.095070,-11.221838,-26.915130,-18.348955,-11.415332,False,False,P4A,70.000000,105.000000,P4A,70.000000,105.000000
+best270,A_H__B_V,135.000000,270.000000,4400,-5.000000,-23.910952,-17.066415,-10.438348,-24.120734,-17.259568,-10.670393,False,False,P3A,90.000000,265.000000,P3A,90.000000,265.000000
+best270,A_V__B_H,135.000000,270.000000,4400,-5.000000,-23.910952,-17.066415,-10.438348,-24.120734,-17.259568,-10.670393,False,False,P3A,90.000000,265.000000,P3A,90.000000,265.000000
