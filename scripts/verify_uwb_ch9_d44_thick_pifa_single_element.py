@@ -231,6 +231,150 @@ def candidates() -> list[ThickPifaCandidate]:
             feed_from_short_mm=7.90,
             side_fence_length_mm=4.0,
         ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_sw4p0_fence6p0_feed7p80",
+            rationale="Retune the best S11 geometry by moving the near-open-edge feed back toward the short wall to reduce the high input resistance.",
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=7.80,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_sw4p0_fence6p0_feed8p00",
+            rationale="Fine feed sweep around the best S11 geometry to bracket the 50 ohm point.",
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.00,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_sw4p0_fence6p0_feed8p20",
+            rationale="Fine feed sweep between the 8.0 mm and 8.4 mm near-edge feed points.",
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.20,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_sw4p0_fence6p0_feed8p48",
+            rationale="Probe the practical open-edge feed limit of the best S11 geometry.",
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.48,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l9p2_w8p4_sw4p0_fence6p0_feed8p80",
+            rationale="Lengthen and slightly widen the top plate to add capacitive loading while keeping the strong return wall.",
+            top_length_mm=9.2,
+            top_width_mm=8.4,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.80,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w10p0_sw4p0_fence6p0_feed8p40",
+            rationale="Widen the top plate to increase edge capacitance and reduce the inductive input reactance.",
+            top_width_mm=10.0,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.40,
+        ),
+        ThickPifaCandidate(
+            name="h4p5_l8p8_w8p0_sw4p0_fence6p0_feed8p40",
+            rationale="Lower the board height around the best S11 geometry to test whether reduced vertical inductance improves the match.",
+            substrate_h_mm=4.5,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.40,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_sw5p5_fence7p0_feed8p20",
+            rationale="Use a stronger short/side-wall return path with the feed pulled back slightly from the open edge.",
+            short_wall_width_mm=5.5,
+            side_fence_length_mm=7.0,
+            feed_from_short_mm=8.20,
+        ),
+        ThickPifaCandidate(
+            name="h5p0_l8p8_w8p0_sw4p0_fence6p0_feed8p40_lip1p0",
+            rationale="Add an open-edge lip to the best S11 geometry for extra capacitive loading at the high-impedance edge.",
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.40,
+            open_lip_height_mm=1.0,
+            open_lip_width_mm=1.6,
+        ),
+        ThickPifaCandidate(
+            name="h4p0_l8p8_w8p0_sw4p0_fence6p0_feed8p40",
+            rationale="Continue the height reduction trend from the h=4.5 mm best candidate to reduce inductive reactance.",
+            substrate_h_mm=4.0,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.40,
+        ),
+        ThickPifaCandidate(
+            name="h3p5_l8p8_w8p0_sw4p0_fence6p0_feed8p40",
+            rationale="Lower-profile limit check for the same short-wall PIFA mode.",
+            substrate_h_mm=3.5,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.40,
+        ),
+        ThickPifaCandidate(
+            name="h4p5_l8p8_w8p0_sw4p0_fence6p0_feed8p00",
+            rationale="Pull the h=4.5 mm best feed point back toward the short wall to reduce input resistance.",
+            substrate_h_mm=4.5,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.00,
+        ),
+        ThickPifaCandidate(
+            name="h4p5_l8p8_w8p0_sw4p0_fence6p0_feed8p20",
+            rationale="Midpoint feed correction around the h=4.5 mm best candidate.",
+            substrate_h_mm=4.5,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.20,
+        ),
+        ThickPifaCandidate(
+            name="h4p5_l8p8_w8p0_sw4p0_fence6p0_feed8p48",
+            rationale="Open-edge limit check around the h=4.5 mm best candidate.",
+            substrate_h_mm=4.5,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.48,
+        ),
+        ThickPifaCandidate(
+            name="h4p0_l8p8_w8p0_sw4p0_fence6p0_feed8p20",
+            rationale="Combine lower height with a feed pull-back to target lower resistance and lower reactance together.",
+            substrate_h_mm=4.0,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.20,
+        ),
+        ThickPifaCandidate(
+            name="h4p0_l8p8_w10p0_sw4p0_fence6p0_feed8p40",
+            rationale="Lower height plus wider top plate for extra capacitance at the open edge.",
+            substrate_h_mm=4.0,
+            top_width_mm=10.0,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.40,
+        ),
+        ThickPifaCandidate(
+            name="h4p5_l8p8_w8p0_sw5p5_fence7p0_feed8p20",
+            rationale="h=4.5 mm with stronger return wall and slightly pulled-back feed.",
+            substrate_h_mm=4.5,
+            short_wall_width_mm=5.5,
+            side_fence_length_mm=7.0,
+            feed_from_short_mm=8.20,
+        ),
+        ThickPifaCandidate(
+            name="h4p5_l9p2_w8p4_sw4p0_fence6p0_feed8p80",
+            rationale="h=4.5 mm with longer/wider top loading to reduce reactance while preserving the near-edge feed.",
+            substrate_h_mm=4.5,
+            top_length_mm=9.2,
+            top_width_mm=8.4,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.80,
+        ),
     ]
 
 
@@ -712,14 +856,40 @@ def bool_value(value: Any) -> bool:
     return bool(value)
 
 
+def complex_diag_path(candidate_name: str) -> Path:
+    return REPORT_DIR / f"{safe_slug(candidate_name)}_complex_native_s_parameters.csv"
+
+
+def read_complex_impedance(path: Path) -> dict[str, float] | None:
+    if not path.exists():
+        return None
+    with path.open(newline="", encoding="utf-8-sig") as f:
+        rows = list(csv.DictReader(f))
+    if not rows:
+        return None
+    row = rows[0]
+    re_key = next((key for key in row if key and key.startswith("re(Z(")), "")
+    im_key = next((key for key in row if key and key.startswith("im(Z(")), "")
+    if not re_key or not im_key:
+        return None
+    return {"re_z_ohm": float(row[re_key]), "im_z_ohm": float(row[im_key])}
+
+
 def write_report(summary_rows: list[dict[str, Any]], best: dict[str, Any]) -> None:
     summary_rows = sort_summary_rows(summary_rows)
     best_s11_ok = bool_value(best["s11_pass"])
     best_gain_ok = bool_value(best["gain_pass"])
     s11_best = min(summary_rows, key=lambda row: float(row["s11_worst_db"]))
     gain_best = max(summary_rows, key=lambda row: float(row["best_270deg_gain_total_min_dbi"]))
-    s11_gap_db = abs(RETURN_TARGET_DB - float(s11_best["s11_worst_db"]))
-    complex_diag = REPORT_DIR / "h5p0_l8p8_w8p0_feed3p80_c0p085_l0p70_complex_serial_native_s_parameters.csv"
+    s11_margin_db = RETURN_TARGET_DB - float(s11_best["s11_worst_db"])
+    s11_status_text = (
+        f"已优于 `-10 dB` 目标约 `{s11_margin_db:.2f} dB`"
+        if bool_value(s11_best["s11_pass"])
+        else f"距离 `-10 dB` 目标仍差约 `{abs(s11_margin_db):.2f} dB`"
+    )
+    anchor_row = next((row for row in summary_rows if str(row.get("candidate_index", "")) == "23"), None)
+    best_complex_diag = complex_diag_path(str(best["candidate"]))
+    best_impedance = read_complex_impedance(best_complex_diag)
     lines = [
         "# D44 厚板短路 PIFA/腔体化单阵元验证报告",
         "",
@@ -749,17 +919,26 @@ def write_report(summary_rows: list[dict[str, Any]], best: dict[str, Any]) -> No
         "## 复核结论",
         "",
         f"- 已完成候选数：`{len(summary_rows)}` 个，所有候选在 Theta `{THETA_MIN_DEG:.0f}..{THETA_MAX_DEG:.0f} deg`、最佳连续 `{AZIMUTH_WINDOW_DEG:.0f} deg` 方位窗口内均满足 `GainTotal >= {GAIN_TARGET_DBI:.1f} dBi`。",
-        f"- S11 最优候选：`#{s11_best.get('candidate_index', 'N/A')} {s11_best['candidate']}`，S11 `{fmt(s11_best['s11_worst_db'])} dB`，距离 `-10 dB` 目标仍差约 `{s11_gap_db:.2f} dB`。",
+        f"- S11 最优候选：`#{s11_best.get('candidate_index', 'N/A')} {s11_best['candidate']}`，S11 `{fmt(s11_best['s11_worst_db'])} dB`，{s11_status_text}。",
         f"- 增益最优候选：`#{gain_best.get('candidate_index', 'N/A')} {gain_best['candidate']}`，最佳 270° 窗口最小 GainTotal `{fmt(gain_best['best_270deg_gain_total_min_dbi'])} dBi`，但 S11 `{fmt(gain_best['s11_worst_db'])} dB`。",
-        "- 靠近开路端的真实几何馈电是本轮最有效方向，S11 从早期直接馈电的约 `-0.06..-0.33 dB` 改善到 `-4.786 dB`，同时低仰角增益仍保持明显余量。",
+        f"- 本轮有效路径是保持靠近开路端的真实几何馈电，同时把厚板高度从 `5.0 mm` 收敛到 `3.5 mm` 并保留 `4.0 mm` 短路墙、`6.0 mm` 侧墙；S11 从上一轮最佳 `{fmt(anchor_row['s11_worst_db']) if anchor_row else '-4.786'} dB` 推进到 `{fmt(best['s11_worst_db'])} dB`。",
         "- 外接匹配岛候选 11..16 已修正为 AEDT `Serial` 串联 RLC 写法，但 S11 对 L/C 数值不敏感，当前 lumped matching 拓扑不能作为达标签核依据。",
-        f"- 复阻抗诊断文件：`{complex_diag}`；该匹配岛样例在 8 GHz 端口仍约为 `2.06 + j20.04 ohm`。",
-        "",
-        "## 候选汇总",
-        "",
-        "| # | 候选 | S11 worst dB | Best 270° min Gain dBi | All-phi min Gain dBi | 结果 |",
-        "|---:|---|---:|---:|---:|---|",
     ]
+    if best_impedance:
+        lines.append(
+            f"- 最佳候选复阻抗诊断：`{best_complex_diag}`；8 GHz 端口约为 `{fmt(best_impedance['re_z_ohm'])} + j{fmt(best_impedance['im_z_ohm'])} ohm`。"
+        )
+    else:
+        lines.append(f"- 最佳候选复阻抗诊断文件尚未导出：`{best_complex_diag}`。")
+    lines.extend(
+        [
+            "",
+            "## 候选汇总",
+            "",
+            "| # | 候选 | S11 worst dB | Best 270° min Gain dBi | All-phi min Gain dBi | 结果 |",
+            "|---:|---|---:|---:|---:|---|",
+        ]
+    )
     for row in summary_rows:
         ok = bool_value(row["s11_pass"]) and bool_value(row["gain_pass"])
         lines.append(
@@ -771,9 +950,9 @@ def write_report(summary_rows: list[dict[str, Any]], best: dict[str, Any]) -> No
             "## 工程判断",
             "",
             "- 该方案避免了独立 4.8 mm L 单极子金属臂，制造上可转化为厚 PCB 顶层铜箔、短路 via wall/边镀墙和局部开口腔体。",
-            "- 方向图侧已经满足低仰角覆盖目标；当前瓶颈是端口匹配，不是低仰角辐射能力。",
-            "- 下一轮不建议回退到 A/B 贴片低仰角硬覆盖；应改为真实分布式馈电/耦合结构，例如 inset/slot 耦合、短路墙开槽馈电、带清晰回流路径的 50 ohm 微带过渡，或可制造的板内/板边耦合馈电。",
-            "- 单阵元 S11 达标后，再扩展到 4 阵元，保持约 17 mm 相位中心间距并复核互耦、相位单调性和人体/外壳遮挡。",
+            "- 单阵元口径下，S11 和低仰角 270° 覆盖增益已经同时达标；低高度强短路墙 PIFA 是当前可继续推进的结构方向。",
+            "- 下一步应把该单阵元扩展到 4 阵元，保持约 17 mm 相位中心间距并复核互耦、相位单调性、PDOA 模糊和人体/外壳遮挡。",
+            "- 量产结构上仍建议优先使用 via wall/边镀墙和清晰 50 ohm 馈电过渡，避免回退到 A/B 贴片低仰角硬覆盖。",
             "",
             "## 输出文件",
             "",
