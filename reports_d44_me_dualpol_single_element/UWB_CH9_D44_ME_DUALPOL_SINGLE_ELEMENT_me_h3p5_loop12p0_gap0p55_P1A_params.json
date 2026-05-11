@@ -1,0 +1,27 @@
+{
+  "project": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\UWB_CH9_D44_ME_DUALPOL_SINGLE_ELEMENT_me_h3p5_loop12p0_gap0p55_P1A.aedt",
+  "design": "SingleElement_D44_ME_DualPol",
+  "active_source": "P1A",
+  "candidate": {
+    "name": "me_h3p5_loop12p0_gap0p55",
+    "rationale": "加大水平磁环周长以提高H=Ephi通道辐射电阻和低仰角增益。",
+    "substrate_h_mm": 3.5,
+    "pifa_length_mm": 8.8,
+    "pifa_width_mm": 8.0,
+    "pifa_short_wall_width_mm": 4.0,
+    "pifa_side_fence_length_mm": 6.0,
+    "pifa_feed_from_short_mm": 8.4,
+    "loop_side_mm": 12.0,
+    "loop_trace_width_mm": 0.35,
+    "loop_gap_mm": 0.55,
+    "loop_air_gap_mm": 0.45,
+    "ground_radius_mm": 21.4,
+    "board_diameter_mm": 44.0,
+    "total_height_limit_mm": 8.0,
+    "feed_pad_radius_mm": 0.3,
+    "port_width_mm": 0.55,
+    "epsr": 3.48,
+    "tan_delta": 0.0037
+  },
+  "model": "Single-element co-located electric/magnetic dual-mode radiator. P1A is a horizontal loop magnetic-dipole approximation; P1B is a shorted thick-PIFA electric-dipole approximation."
+}

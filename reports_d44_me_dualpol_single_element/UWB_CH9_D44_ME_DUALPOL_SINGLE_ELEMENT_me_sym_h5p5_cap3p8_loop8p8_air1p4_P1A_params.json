@@ -1,0 +1,29 @@
+{
+  "project": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\UWB_CH9_D44_ME_DUALPOL_SINGLE_ELEMENT_me_sym_h5p5_cap3p8_loop8p8_air1p4_P1A.aedt",
+  "design": "SingleElement_D44_ME_DualPol",
+  "active_source": "P1A",
+  "candidate": {
+    "name": "me_sym_h5p5_cap3p8_loop8p8_air1p4",
+    "rationale": "将B通道改为中心顶加载单极子以提高V极化方位对称性，同时抬高并缩小A环以接近z向磁偶极。",
+    "b_radiator": "tophat",
+    "substrate_h_mm": 5.5,
+    "pifa_length_mm": 8.8,
+    "pifa_width_mm": 8.0,
+    "pifa_short_wall_width_mm": 4.0,
+    "pifa_side_fence_length_mm": 6.0,
+    "pifa_feed_from_short_mm": 8.4,
+    "monopole_cap_radius_mm": 3.8,
+    "loop_side_mm": 8.8,
+    "loop_trace_width_mm": 0.22,
+    "loop_gap_mm": 0.35,
+    "loop_air_gap_mm": 1.4,
+    "ground_radius_mm": 21.4,
+    "board_diameter_mm": 44.0,
+    "total_height_limit_mm": 8.0,
+    "feed_pad_radius_mm": 0.3,
+    "port_width_mm": 0.55,
+    "epsr": 3.48,
+    "tan_delta": 0.0037
+  },
+  "model": "Single-element co-located electric/magnetic dual-mode radiator. P1A is a horizontal loop magnetic-dipole approximation; P1B is a shorted thick-PIFA or symmetric top-loaded electric-dipole approximation."
+}
