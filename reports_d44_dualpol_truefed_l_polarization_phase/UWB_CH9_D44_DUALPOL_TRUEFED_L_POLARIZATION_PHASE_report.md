@@ -21,6 +21,17 @@
 | `B_ON_absorptive_50ohm_c0p08pf` | 90 deg | 24 | 113.241 deg | 146.389 deg | 179.794 deg | 90.629 deg | 168.227 deg | 342.196 deg |
 | `B_ON_absorptive_50ohm_c0p08pf` | 135 deg | 24 | 51.570 deg | 78.335 deg | 175.193 deg | 39.924 deg | 81.810 deg | 220.298 deg |
 
+## 交叉极化抑制比目标
+
+- 目标：Theta `45..90 deg` 内，按 `0 deg/Etheta` 为主极化、`90 deg/Ephi` 为交叉极化，最小 XPD 需 `>= 25.0 dB`。
+- 定义：`XPD = 20log10(|Eco|/|Ecross|)`；当前统计按逐源复数远场计算。
+
+| 范围 | 样本数 | 最小XPD | P5 XPD | 中位XPD | 平均XPD | 最差Theta | 最差Phi | 是否达标 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| `ALL_CASES` | 5840 | -39.340 dB | -8.177 dB | 2.757 dB | 2.783 dB | 85 deg | 295 deg | 否 |
+| `A_ON_absorptive_50ohm_c0p08pf` | 2920 | -39.340 dB | -10.947 dB | 0.694 dB | 0.994 dB | 85 deg | 295 deg | 否 |
+| `B_ON_absorptive_50ohm_c0p08pf` | 2920 | -10.177 dB | -5.279 dB | 4.746 dB | 4.571 dB | 70 deg | 205 deg | 否 |
+
 ## 结论
 
 - 相对 `0 deg` 极化，最大相位偏差来自 `A_ON_absorptive_50ohm_c0p08pf` / `90 deg` 极化，最大绝对相位误差 `179.968 deg`。
@@ -37,5 +48,6 @@
 - 曲线 CSV：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_dualpol_truefed_l_polarization_phase\UWB_CH9_D44_DUALPOL_TRUEFED_L_POLARIZATION_PHASE_azimuth_phase_curves.csv`
 - 极化误差汇总 CSV：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_dualpol_truefed_l_polarization_phase\UWB_CH9_D44_DUALPOL_TRUEFED_L_POLARIZATION_PHASE_polarization_error_summary.csv`
 - 极化误差聚合 CSV：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_dualpol_truefed_l_polarization_phase\UWB_CH9_D44_DUALPOL_TRUEFED_L_POLARIZATION_PHASE_polarization_aggregate.csv`
+- XPD 目标统计 CSV：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_dualpol_truefed_l_polarization_phase\UWB_CH9_D44_DUALPOL_TRUEFED_L_POLARIZATION_PHASE_xpd_summary.csv`
 - 指标 JSON：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_dualpol_truefed_l_polarization_phase\UWB_CH9_D44_DUALPOL_TRUEFED_L_POLARIZATION_PHASE_metrics.json`
 - 字段导出清单：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_dualpol_truefed_l_polarization_phase\UWB_CH9_D44_DUALPOL_TRUEFED_L_POLARIZATION_PHASE_field_manifest.csv`

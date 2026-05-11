@@ -35,10 +35,13 @@ FIELDS_MANIFEST_CSV = REPORT_DIR / f"{STEM}_field_manifest.csv"
 CURVES_CSV = REPORT_DIR / f"{STEM}_azimuth_phase_curves.csv"
 SUMMARY_CSV = REPORT_DIR / f"{STEM}_polarization_error_summary.csv"
 AGGREGATE_CSV = REPORT_DIR / f"{STEM}_polarization_aggregate.csv"
+XPD_SUMMARY_CSV = REPORT_DIR / f"{STEM}_xpd_summary.csv"
 METRICS_JSON = REPORT_DIR / f"{STEM}_metrics.json"
 REPORT_MD = REPORT_DIR / f"{STEM}_report.md"
 
 FREQ_GHZ = 8.0
+THETA_MIN_DEG = 45.0
+THETA_MAX_DEG = 90.0
 THETA_CUTS_DEG = [45.0, 60.0, 75.0, 90.0]
 PLOT_THETA_DEG = 90.0
 POLARIZATIONS_DEG = [0.0, 45.0, 90.0, 135.0]
@@ -46,6 +49,9 @@ BASELINES = [("E1", "E3"), ("E2", "E4"), ("E1", "E2"), ("E2", "E3"), ("E3", "E4"
 PLOT_BASELINES = [("E1", "E3"), ("E2", "E4")]
 MAG_VALID_FLOOR_REL_DB = -35.0
 AZ_ERROR_SLOPE_FLOOR = 0.5
+XPD_TARGET_DB = 25.0
+XPD_CO_POL_DEG = 0.0
+XPD_CROSS_POL_DEG = 90.0
 
 
 @dataclass(frozen=True)
@@ -248,6 +254,46 @@ def rel_db(value: float, reference: float) -> float:
     return 20.0 * math.log10(value / reference)
 
 
+def xpd_db(point: FieldPoint, co_pol_deg: float = XPD_CO_POL_DEG) -> float:
+    co = abs(linear_projection(point, co_pol_deg))
+    cross = abs(linear_projection(point, co_pol_deg + 90.0))
+    if co <= 0.0 or cross <= 0.0:
+        return float("nan")
+    return 20.0 * math.log10(co / cross)
+
+
+def summarize_xpd_values(values: list[dict[str, Any]], prefix: str = "xpd") -> dict[str, Any]:
+    valid = [row for row in values if not math.isnan(float(row["xpd_db"]))]
+    ordered = sorted(float(row["xpd_db"]) for row in valid)
+    if not ordered:
+        return {
+            f"{prefix}_sample_count": 0,
+            f"{prefix}_min_db": float("nan"),
+            f"{prefix}_p5_db": float("nan"),
+            f"{prefix}_median_db": float("nan"),
+            f"{prefix}_avg_db": float("nan"),
+            f"{prefix}_max_db": float("nan"),
+            f"{prefix}_target_db": XPD_TARGET_DB,
+            f"{prefix}_margin_to_target_db": float("nan"),
+            f"{prefix}_target_pass": False,
+        }
+    worst = min(valid, key=lambda row: float(row["xpd_db"]))
+    min_db = ordered[0]
+    return {
+        f"{prefix}_sample_count": len(ordered),
+        f"{prefix}_min_db": min_db,
+        f"{prefix}_p5_db": percentile(ordered, 5.0),
+        f"{prefix}_median_db": ordered[len(ordered) // 2],
+        f"{prefix}_avg_db": fmean(ordered),
+        f"{prefix}_max_db": ordered[-1],
+        f"{prefix}_target_db": XPD_TARGET_DB,
+        f"{prefix}_margin_to_target_db": min_db - XPD_TARGET_DB,
+        f"{prefix}_target_pass": min_db >= XPD_TARGET_DB,
+        f"{prefix}_worst_theta_deg": worst["theta_deg"],
+        f"{prefix}_worst_phi_deg": worst["phi_deg"],
+    }
+
+
 def local_slopes(phi_values: list[float], y_values: list[float]) -> dict[float, float]:
     slopes: dict[float, float] = {}
     for idx, phi in enumerate(phi_values):
@@ -399,6 +445,68 @@ def aggregate_summary(summary_rows: list[dict[str, Any]]) -> list[dict[str, Any]
     return rows
 
 
+def evaluate_xpd_case(case: workstate.SwitchCase, fields_by_source: dict[str, dict[tuple[float, float], FieldPoint]]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    summary_rows: list[dict[str, Any]] = []
+    sample_rows: list[dict[str, Any]] = []
+    for source, field_points in sorted(fields_by_source.items()):
+        source_samples: list[dict[str, Any]] = []
+        for point in field_points.values():
+            if point.theta_deg < THETA_MIN_DEG or point.theta_deg > THETA_MAX_DEG:
+                continue
+            value = xpd_db(point)
+            sample = {
+                "case": case.name,
+                "active_pol": case.active_pol,
+                "source": source,
+                "freq_ghz": FREQ_GHZ,
+                "theta_deg": point.theta_deg,
+                "phi_deg": point.phi_deg,
+                "co_pol_deg": XPD_CO_POL_DEG,
+                "cross_pol_deg": XPD_CROSS_POL_DEG,
+                "xpd_db": value,
+            }
+            source_samples.append(sample)
+            sample_rows.append(sample)
+        row = {
+            "level": "source",
+            "case": case.name,
+            "active_pol": case.active_pol,
+            "source": source,
+            "freq_ghz": FREQ_GHZ,
+            "theta_min_deg": THETA_MIN_DEG,
+            "theta_max_deg": THETA_MAX_DEG,
+            "co_pol_deg": XPD_CO_POL_DEG,
+            "cross_pol_deg": XPD_CROSS_POL_DEG,
+        }
+        row.update(summarize_xpd_values(source_samples))
+        summary_rows.append(row)
+    return summary_rows, sample_rows
+
+
+def aggregate_xpd_samples(sample_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in sample_rows:
+        grouped[row["case"]].append(row)
+        grouped["ALL_CASES"].append(row)
+    rows: list[dict[str, Any]] = []
+    for case, samples in sorted(grouped.items()):
+        active_pols = sorted({str(row["active_pol"]) for row in samples})
+        row = {
+            "level": "aggregate",
+            "case": case,
+            "active_pol": "/".join(active_pols),
+            "source": "ALL",
+            "freq_ghz": FREQ_GHZ,
+            "theta_min_deg": THETA_MIN_DEG,
+            "theta_max_deg": THETA_MAX_DEG,
+            "co_pol_deg": XPD_CO_POL_DEG,
+            "cross_pol_deg": XPD_CROSS_POL_DEG,
+        }
+        row.update(summarize_xpd_values(samples))
+        rows.append(row)
+    return rows
+
+
 def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
     if not rows:
         return
@@ -517,6 +625,28 @@ def write_report(metrics: dict[str, Any], phase_plot: Path, error_plot: Path) ->
             f"{fmt(row['phase_error_max_abs_deg'])} deg | {fmt(row['azimuth_error_rms_avg_equiv_deg'])} deg | "
             f"{fmt(row['azimuth_error_rms_p95_equiv_deg'])} deg | {fmt(row['azimuth_error_max_abs_equiv_deg'])} deg |"
         )
+    xpd_aggregate_rows = metrics.get("xpd_aggregate", [])
+    if xpd_aggregate_rows:
+        lines.extend(
+            [
+                "",
+                "## 交叉极化抑制比目标",
+                "",
+                f"- 目标：Theta `{THETA_MIN_DEG:.0f}..{THETA_MAX_DEG:.0f} deg` 内，按 `{XPD_CO_POL_DEG:.0f} deg/Etheta` 为主极化、`{XPD_CROSS_POL_DEG:.0f} deg/Ephi` 为交叉极化，最小 XPD 需 `>= {XPD_TARGET_DB:.1f} dB`。",
+                "- 定义：`XPD = 20log10(|Eco|/|Ecross|)`；当前统计按逐源复数远场计算。",
+                "",
+                "| 范围 | 样本数 | 最小XPD | P5 XPD | 中位XPD | 平均XPD | 最差Theta | 最差Phi | 是否达标 |",
+                "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
+            ]
+        )
+        for row in xpd_aggregate_rows:
+            lines.append(
+                f"| `{row['case']}` | {int(row['xpd_sample_count'])} | {fmt(row['xpd_min_db'])} dB | "
+                f"{fmt(row['xpd_p5_db'])} dB | {fmt(row['xpd_median_db'])} dB | {fmt(row['xpd_avg_db'])} dB | "
+                f"{fmt(row.get('xpd_worst_theta_deg', float('nan')), 0)} deg | "
+                f"{fmt(row.get('xpd_worst_phi_deg', float('nan')), 0)} deg | "
+                f"{'是' if row['xpd_target_pass'] else '否'} |"
+            )
     worst_phase = max(aggregate_rows, key=lambda row: row["phase_error_max_abs_deg"])
     worst_az = max(aggregate_rows, key=lambda row: row["azimuth_error_max_abs_equiv_deg"])
     lines.extend(
@@ -538,6 +668,7 @@ def write_report(metrics: dict[str, Any], phase_plot: Path, error_plot: Path) ->
             f"- 曲线 CSV：`{CURVES_CSV}`",
             f"- 极化误差汇总 CSV：`{SUMMARY_CSV}`",
             f"- 极化误差聚合 CSV：`{AGGREGATE_CSV}`",
+            f"- XPD 目标统计 CSV：`{XPD_SUMMARY_CSV}`",
             f"- 指标 JSON：`{METRICS_JSON}`",
             f"- 字段导出清单：`{FIELDS_MANIFEST_CSV}`",
         ]
@@ -553,6 +684,8 @@ def run(cores: int, tasks: int, resume: bool, restore_project: bool) -> dict[str
     manifest_rows: list[dict[str, Any]] = []
     all_curve_rows: list[dict[str, Any]] = []
     all_summary_rows: list[dict[str, Any]] = []
+    all_xpd_summary_rows: list[dict[str, Any]] = []
+    all_xpd_sample_rows: list[dict[str, Any]] = []
     started = time.time()
 
     try:
@@ -585,18 +718,24 @@ def run(cores: int, tasks: int, resume: bool, restore_project: bool) -> dict[str
                 )
                 write_csv(FIELDS_MANIFEST_CSV, manifest_rows)
             curve_rows, summary_rows = evaluate_case(case, fields_by_source)
+            xpd_summary_rows, xpd_sample_rows = evaluate_xpd_case(case, fields_by_source)
             all_curve_rows.extend(curve_rows)
             all_summary_rows.extend(summary_rows)
+            all_xpd_summary_rows.extend(xpd_summary_rows)
+            all_xpd_sample_rows.extend(xpd_sample_rows)
             write_csv(CURVES_CSV, all_curve_rows)
             write_csv(SUMMARY_CSV, all_summary_rows)
+            write_csv(XPD_SUMMARY_CSV, all_xpd_summary_rows)
     finally:
         if restore_project:
             print("=== Restoring full B_ON project ===", flush=True)
             restore_full_project(candidate, cases[1])
 
     aggregate_rows = aggregate_summary(all_summary_rows)
+    xpd_aggregate_rows = aggregate_xpd_samples(all_xpd_sample_rows)
     write_csv(SUMMARY_CSV, all_summary_rows)
     write_csv(AGGREGATE_CSV, aggregate_rows)
+    write_csv(XPD_SUMMARY_CSV, all_xpd_summary_rows + xpd_aggregate_rows)
     phase_plot = plot_phase_panel(all_curve_rows, cases)
     error_plot = plot_error_panel(all_curve_rows, cases)
     metrics = {
@@ -608,13 +747,19 @@ def run(cores: int, tasks: int, resume: bool, restore_project: bool) -> dict[str
         "polarizations_deg": POLARIZATIONS_DEG,
         "phase_error_reference_pol_deg": 0.0,
         "azimuth_error_slope_floor_deg_per_deg": AZ_ERROR_SLOPE_FLOOR,
+        "xpd_target_db": XPD_TARGET_DB,
+        "xpd_co_pol_deg": XPD_CO_POL_DEG,
+        "xpd_cross_pol_deg": XPD_CROSS_POL_DEG,
         "elapsed_s": time.time() - started,
         "polarization_aggregate": aggregate_rows,
+        "xpd_summary": all_xpd_summary_rows,
+        "xpd_aggregate": xpd_aggregate_rows,
         "phase_plot": str(phase_plot),
         "error_plot": str(error_plot),
         "curves_csv": str(CURVES_CSV),
         "summary_csv": str(SUMMARY_CSV),
         "aggregate_csv": str(AGGREGATE_CSV),
+        "xpd_summary_csv": str(XPD_SUMMARY_CSV),
         "manifest_csv": str(FIELDS_MANIFEST_CSV),
         "report_md": str(REPORT_MD),
     }
