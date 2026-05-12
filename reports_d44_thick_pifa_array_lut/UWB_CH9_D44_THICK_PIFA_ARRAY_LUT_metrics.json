@@ -1,0 +1,266 @@
+{
+  "baseline": {
+    "candidate": "h3p5_l8p8_w8p0_sw4p0_fence6p0_feed8p40",
+    "rationale": "Lower-profile limit check for the same short-wall PIFA mode.",
+    "elapsed_s": "111.59016060829163",
+    "project": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h3p5_l8p8_w8p0_sw4p0_fence6p0_feed8p40.aedt",
+    "params_json": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h3p5_l8p8_w8p0_sw4p0_fence6p0_feed8p40_params.json",
+    "native_export_log": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h3p5_l8p8_w8p0_sw4p0_fence6p0_feed8p40_native_export.log",
+    "name": "h3p5_l8p8_w8p0_sw4p0_fence6p0_feed8p40",
+    "substrate_h_mm": "3.5",
+    "top_length_mm": "8.8",
+    "top_width_mm": "8.0",
+    "short_wall_width_mm": "4.0",
+    "side_fence_length_mm": "6.0",
+    "side_fence_enabled": "True",
+    "feed_from_short_mm": "8.4",
+    "feed_v_mm": "0.0",
+    "feed_pad_radius_mm": "0.3",
+    "port_width_mm": "0.55",
+    "open_lip_height_mm": "0.0",
+    "open_lip_width_mm": "0.0",
+    "ground_radius_mm": "21.4",
+    "total_height_limit_mm": "8.0",
+    "epsr": "3.48",
+    "tan_delta": "0.0037",
+    "s_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h3p5_l8p8_w8p0_sw4p0_fence6p0_feed8p40_native_s_parameters.csv",
+    "s11_worst_db": "-10.9704456097873",
+    "s11_worst_freq_ghz": "8.0",
+    "s11_pass": "True",
+    "ff_sample_count": "190",
+    "all_phi_gain_total_min_dbi": "-3.32636061598275",
+    "all_phi_gain_total_min_theta_deg": "90.0",
+    "all_phi_gain_total_min_phi_deg": "90.0",
+    "best_270deg_window_start_phi_deg": "0.0",
+    "best_270deg_window_stop_phi_deg": "270.0",
+    "best_270deg_gain_total_min_dbi": "-3.32636061598275",
+    "best_270deg_gain_total_min_theta_deg": "90.0",
+    "best_270deg_gain_total_min_phi_deg": "90.0",
+    "default_0_270deg_gain_total_min_dbi": "-3.32636061598275",
+    "default_0_270deg_gain_total_min_theta_deg": "90.0",
+    "default_0_270deg_gain_total_min_phi_deg": "90.0",
+    "gain_pass": "True",
+    "candidate_index": "36",
+    "match_series_cap_pf": "0.0",
+    "match_series_ind_nh": "0.0",
+    "match_shunt_cap_pf": "0.0",
+    "match_shunt_ind_nh": "0.0",
+    "match_gap_mm": "0.12",
+    "match_island_size_mm": "0.7",
+    "match_series_width_mm": "0.34"
+  },
+  "baseline_reparsed_physical_best_270deg": {
+    "window_start_phi_deg": 260,
+    "window_stop_phi_deg": 170,
+    "gain_total_min_dbi": -8.57341024907654,
+    "realized_gain_total_min_dbi": -8.9354149970827,
+    "gain_total_min_theta_deg": 45,
+    "gain_total_min_phi_deg": 260,
+    "gain_pass": false,
+    "realized_gain_pass": false
+  },
+  "selected_farfield_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h3p5_l8p8_w8p0_sw4p0_fence6p0_feed8p40_native_farfield_default.csv",
+  "selected_physical_candidate": {
+    "candidate": "h3p5_l8p8_w8p0_sw4p0_fence6p0_feed8p40",
+    "candidate_index": "36",
+    "farfield_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h3p5_l8p8_w8p0_sw4p0_fence6p0_feed8p40_native_farfield_default.csv",
+    "s11_worst_db": -10.9704456097873,
+    "s11_pass": true,
+    "best_270deg_window_start_phi_deg": 260,
+    "best_270deg_window_stop_phi_deg": 170,
+    "corrected_best_270deg_gain_total_min_dbi": -8.57341024907654,
+    "corrected_best_270deg_realized_gain_total_min_dbi": -8.9354149970827,
+    "corrected_best_270deg_gain_total_min_theta_deg": 45,
+    "corrected_best_270deg_gain_total_min_phi_deg": 260,
+    "gain_pass": false,
+    "realized_gain_pass": false,
+    "overall_pass": false,
+    "axis_note": "auto-corrected: native export labels column 0 as Phi and column 2 as Theta, but ranges show column 0 is 0..90 theta and column 2 is 0..360 phi"
+  },
+  "farfield_axes": {
+    "theta_column_idx": 0,
+    "phi_column_idx": 2,
+    "theta_values": [
+      0,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90
+    ],
+    "phi_values_count": 72,
+    "phi_values_first": [
+      0,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45
+    ],
+    "phi_values_last": [
+      310,
+      315,
+      320,
+      325,
+      330,
+      335,
+      340,
+      345,
+      350,
+      355
+    ],
+    "axis_note": "auto-corrected: native export labels column 0 as Phi and column 2 as Theta, but ranges show column 0 is 0..90 theta and column 2 is 0..360 phi"
+  },
+  "targets": {
+    "s11_db_lt": -10.0,
+    "gain_total_min_dbi_ge": -5.0,
+    "theta_min_deg": 45,
+    "theta_max_deg": 90,
+    "phi_window_deg": 270,
+    "lut_rms_deg_le": 10.0,
+    "lut_p95_deg_le": 10.0,
+    "phase_vector_slope_p5_deg_per_deg_ge": 0.5,
+    "phase_vector_separation_min_deg_ge": 3.0
+  },
+  "geometry": {
+    "freq_ghz": 8.0,
+    "wavelength_mm": 37.47405725,
+    "board_diameter_mm": 44.0,
+    "ground_radius_mm": 21.4,
+    "element_spacing_mm": 17.0,
+    "center_radius_mm": 12.020815280171307,
+    "elements": [
+      {
+        "name": "E1",
+        "x_mm": 12.020815280171307,
+        "y_mm": 0.0,
+        "orientation_deg": 0.0
+      },
+      {
+        "name": "E2",
+        "x_mm": 0.0,
+        "y_mm": 12.020815280171307,
+        "orientation_deg": 90.0
+      },
+      {
+        "name": "E3",
+        "x_mm": -12.020815280171307,
+        "y_mm": 0.0,
+        "orientation_deg": 180.0
+      },
+      {
+        "name": "E4",
+        "x_mm": 0.0,
+        "y_mm": -12.020815280171307,
+        "orientation_deg": 270.0
+      }
+    ],
+    "baselines": [
+      [
+        "E1",
+        "E3"
+      ],
+      [
+        "E2",
+        "E4"
+      ],
+      [
+        "E1",
+        "E2"
+      ],
+      [
+        "E2",
+        "E3"
+      ],
+      [
+        "E3",
+        "E4"
+      ],
+      [
+        "E4",
+        "E1"
+      ]
+    ]
+  },
+  "best_by_scenario": {
+    "co_oriented": {
+      "scenario": "co_oriented",
+      "phi_window_start_deg": 260,
+      "phi_window_stop_deg": 170,
+      "phi_window_width_deg": 270,
+      "strict_gain_total_min_dbi": -8.57341024907654,
+      "coverage_gain_total_min_dbi": -8.57341024907654,
+      "strict_realized_gain_total_min_dbi": -8.9354149970827,
+      "coverage_realized_gain_total_min_dbi": -8.9354149970827,
+      "lut_holdout_rms_deg": 5.0,
+      "lut_holdout_p95_deg": 5.0,
+      "lut_holdout_max_deg": 5.0,
+      "vector_slope_p5_deg_per_deg": 2.014861791727223,
+      "min_phase_vector_separation_deg": 16.43561966886338,
+      "gain_pass": false,
+      "lut_pass": true,
+      "separation_pass": true,
+      "overall_pass": false
+    },
+    "radial_oriented": {
+      "scenario": "radial_oriented",
+      "phi_window_start_deg": 320,
+      "phi_window_stop_deg": 230,
+      "phi_window_width_deg": 270,
+      "strict_gain_total_min_dbi": -13.4411675595049,
+      "coverage_gain_total_min_dbi": 0.951315893370913,
+      "strict_realized_gain_total_min_dbi": -13.8031723075111,
+      "coverage_realized_gain_total_min_dbi": 0.58931114536476,
+      "lut_holdout_rms_deg": 5.0,
+      "lut_holdout_p95_deg": 5.0,
+      "lut_holdout_max_deg": 5.0,
+      "vector_slope_p5_deg_per_deg": 2.014861791727224,
+      "min_phase_vector_separation_deg": 16.43561966886341,
+      "gain_pass": false,
+      "lut_pass": true,
+      "separation_pass": true,
+      "overall_pass": false
+    }
+  },
+  "overall_best": {
+    "scenario": "co_oriented",
+    "phi_window_start_deg": 260,
+    "phi_window_stop_deg": 170,
+    "phi_window_width_deg": 270,
+    "strict_gain_total_min_dbi": -8.57341024907654,
+    "coverage_gain_total_min_dbi": -8.57341024907654,
+    "strict_realized_gain_total_min_dbi": -8.9354149970827,
+    "coverage_realized_gain_total_min_dbi": -8.9354149970827,
+    "lut_holdout_rms_deg": 5.0,
+    "lut_holdout_p95_deg": 5.0,
+    "lut_holdout_max_deg": 5.0,
+    "vector_slope_p5_deg_per_deg": 2.014861791727223,
+    "min_phase_vector_separation_deg": 16.43561966886338,
+    "gain_pass": false,
+    "lut_pass": true,
+    "separation_pass": true,
+    "overall_pass": false
+  },
+  "model_limitations": [
+    "Uses the passing single-port thick PIFA total-gain pattern as a scalar low-elevation element pattern.",
+    "Does not include mutual coupling, feed network phase, installed-machine environment, or vector Etheta/Ephi polarization response.",
+    "Polarization LUT and XPD must be re-evaluated with vector complex far-field from the real multi-port array HFSS model."
+  ]
+}
