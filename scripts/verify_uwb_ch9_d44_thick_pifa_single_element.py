@@ -375,6 +375,224 @@ def candidates() -> list[ThickPifaCandidate]:
             side_fence_length_mm=6.0,
             feed_from_short_mm=8.80,
         ),
+        ThickPifaCandidate(
+            name="h6p5_l8p4_w8p0_sw4p0_fence6p0_feed7p90_lowcost",
+            rationale="Low-cost PCB edge/via-wall variant: keep the high-gain h=6.5 mm PIFA height and add stronger short/side walls to pull S11 toward 50 ohm without external metal parts.",
+            substrate_h_mm=6.5,
+            top_length_mm=8.4,
+            top_width_mm=8.0,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=7.90,
+        ),
+        ThickPifaCandidate(
+            name="h6p5_l8p4_w8p0_sw4p0_fence6p0_feed8p05_lowcost",
+            rationale="Feed retune around the low-cost h=6.5 mm reinforced-wall PIFA to bracket the match near the open edge.",
+            substrate_h_mm=6.5,
+            top_length_mm=8.4,
+            top_width_mm=8.0,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.05,
+        ),
+        ThickPifaCandidate(
+            name="h6p5_l9p2_w8p4_sw3p5_fence5p5_feed8p50_lowcost",
+            rationale="Slightly longer capacitive top plate on the low-cost h=6.5 mm PIFA to improve match while preserving vertical low-elevation current.",
+            substrate_h_mm=6.5,
+            top_length_mm=9.2,
+            top_width_mm=8.4,
+            short_wall_width_mm=3.5,
+            side_fence_length_mm=5.5,
+            feed_from_short_mm=8.50,
+        ),
+        ThickPifaCandidate(
+            name="h6p5_l8p4_w9p6_feed7p90_lowcost",
+            rationale="Widen the h=6.5 mm high-gain PIFA aperture with standard PCB copper to reduce the corrected 270-degree gain hole.",
+            substrate_h_mm=6.5,
+            top_length_mm=8.4,
+            top_width_mm=9.6,
+            feed_from_short_mm=7.90,
+            side_fence_length_mm=4.0,
+        ),
+        ThickPifaCandidate(
+            name="h7p2_l8p2_w8p0_feed7p80_lim10_lowcost",
+            rationale="Use a 7.2 mm plated-edge/via-wall PIFA inside a 10 mm envelope to test the height lever without a separate stamped metal radiator.",
+            substrate_h_mm=7.2,
+            top_length_mm=8.2,
+            top_width_mm=8.0,
+            feed_from_short_mm=7.80,
+            side_fence_length_mm=4.0,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h7p2_l8p2_w8p0_sw4p0_fence6p0_feed7p75_lim10_lowcost",
+            rationale="Reinforced-wall version of the 7.2 mm low-cost PIFA, keeping fabrication to copper, via wall, and edge plating.",
+            substrate_h_mm=7.2,
+            top_length_mm=8.2,
+            top_width_mm=8.0,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=7.75,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l8p0_w8p0_feed7p60_lim10_lowcost",
+            rationale="Upper low-cost envelope check: 8.0 mm thick-board/edge-plated PIFA with no discrete vertical metal arm.",
+            substrate_h_mm=8.0,
+            top_length_mm=8.0,
+            top_width_mm=8.0,
+            feed_from_short_mm=7.60,
+            side_fence_length_mm=4.0,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l8p0_w8p0_sw4p0_fence6p0_feed7p55_lim10_lowcost",
+            rationale="Reinforced return wall on the 8.0 mm low-cost PIFA to recover S11 while testing maximum PCB-only low-elevation gain.",
+            substrate_h_mm=8.0,
+            top_length_mm=8.0,
+            top_width_mm=8.0,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=7.55,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l8p0_w8p0_sw4p0_fence6p0_feed7p55_lim10_lowcost_c0p05",
+            rationale="Add a very small series capacitor to the best low-cost 8 mm PIFA to see whether a light PCB matching island can recover S11 without hurting low-angle gain.",
+            substrate_h_mm=8.0,
+            top_length_mm=8.0,
+            top_width_mm=8.0,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=7.55,
+            match_series_cap_pf=0.05,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l8p0_w8p0_sw4p0_fence6p0_feed7p55_lim10_lowcost_c0p09_l10p7",
+            rationale="Derived 8 GHz L-match sweep: slightly smaller series capacitor with the shunt inductor held near the impedance-solved value.",
+            substrate_h_mm=8.0,
+            top_length_mm=8.0,
+            top_width_mm=8.0,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=7.55,
+            match_series_cap_pf=0.09,
+            match_shunt_ind_nh=10.7,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l8p0_w8p0_sw4p0_fence6p0_feed7p55_lim10_lowcost_c0p11_l10p7",
+            rationale="Center the low-cost match on the solved 8 GHz series-C/shunt-L point from the exported port impedance.",
+            substrate_h_mm=8.0,
+            top_length_mm=8.0,
+            top_width_mm=8.0,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=7.55,
+            match_series_cap_pf=0.11,
+            match_shunt_ind_nh=10.7,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l8p0_w8p0_sw4p0_fence6p0_feed7p55_lim10_lowcost_c0p13_l10p7",
+            rationale="Push the series capacitor slightly higher while keeping the shunt inductor fixed to see whether the 8 GHz match is under- or over-corrected.",
+            substrate_h_mm=8.0,
+            top_length_mm=8.0,
+            top_width_mm=8.0,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=7.55,
+            match_series_cap_pf=0.13,
+            match_shunt_ind_nh=10.7,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l8p0_w8p0_sw4p0_fence6p0_feed7p55_lim10_lowcost_c0p11_l9p0",
+            rationale="Hold the series capacitor near the solved point but lower the shunt inductance to bracket the transformed resistance side.",
+            substrate_h_mm=8.0,
+            top_length_mm=8.0,
+            top_width_mm=8.0,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=7.55,
+            match_series_cap_pf=0.11,
+            match_shunt_ind_nh=9.0,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l8p0_w8p0_sw4p0_fence6p0_feed7p55_lim10_lowcost_c0p11_l12p5",
+            rationale="Hold the series capacitor near the solved point but raise the shunt inductance to bracket the weaker-coupling side.",
+            substrate_h_mm=8.0,
+            top_length_mm=8.0,
+            top_width_mm=8.0,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=7.55,
+            match_series_cap_pf=0.11,
+            match_shunt_ind_nh=12.5,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h4p5_l9p2_w8p4_sw4p0_fence6p0_feed8p80_c0p25_l5p6",
+            rationale="Low-cost L-match sweep around the candidate-43 impedance: slightly lighter series capacitor with the shunt inductor held near the solved 5.6 nH point.",
+            substrate_h_mm=4.5,
+            top_length_mm=9.2,
+            top_width_mm=8.4,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.80,
+            match_series_cap_pf=0.25,
+            match_shunt_ind_nh=5.6,
+        ),
+        ThickPifaCandidate(
+            name="h4p5_l9p2_w8p4_sw4p0_fence6p0_feed8p80_c0p32_l5p6",
+            rationale="Center the low-cost match on the solved candidate-43 8 GHz series-C/shunt-L point from the exported port impedance.",
+            substrate_h_mm=4.5,
+            top_length_mm=9.2,
+            top_width_mm=8.4,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.80,
+            match_series_cap_pf=0.32,
+            match_shunt_ind_nh=5.6,
+        ),
+        ThickPifaCandidate(
+            name="h4p5_l9p2_w8p4_sw4p0_fence6p0_feed8p80_c0p40_l5p6",
+            rationale="Push the series capacitor higher while keeping the shunt inductor fixed to see whether the 8 GHz match is under- or over-corrected.",
+            substrate_h_mm=4.5,
+            top_length_mm=9.2,
+            top_width_mm=8.4,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.80,
+            match_series_cap_pf=0.40,
+            match_shunt_ind_nh=5.6,
+        ),
+        ThickPifaCandidate(
+            name="h4p5_l9p2_w8p4_sw4p0_fence6p0_feed8p80_c0p32_l4p7",
+            rationale="Hold the series capacitor near the solved point but lower the shunt inductance to bracket the transformed resistance side.",
+            substrate_h_mm=4.5,
+            top_length_mm=9.2,
+            top_width_mm=8.4,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.80,
+            match_series_cap_pf=0.32,
+            match_shunt_ind_nh=4.7,
+        ),
+        ThickPifaCandidate(
+            name="h4p5_l9p2_w8p4_sw4p0_fence6p0_feed8p80_c0p32_l6p6",
+            rationale="Hold the series capacitor near the solved point but raise the shunt inductance to bracket the weaker-coupling side.",
+            substrate_h_mm=4.5,
+            top_length_mm=9.2,
+            top_width_mm=8.4,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.0,
+            feed_from_short_mm=8.80,
+            match_series_cap_pf=0.32,
+            match_shunt_ind_nh=6.6,
+        ),
     ]
 
 
@@ -740,11 +958,24 @@ def parse_ff_rows(path: Path) -> list[dict[str, float]]:
     if len(rows) < 2:
         raise RuntimeError(f"Empty far-field CSV: {path}")
     header = rows[0]
-    phi_idx = next(idx for idx, name in enumerate(header) if name.startswith("Phi"))
-    theta_idx = next(idx for idx, name in enumerate(header) if name.startswith("Theta"))
+    phi_header_idx = next(idx for idx, name in enumerate(header) if name.startswith("Phi"))
+    theta_header_idx = next(idx for idx, name in enumerate(header) if name.startswith("Theta"))
     gain_idx = next(idx for idx, name in enumerate(header) if "dB(GainTotal)" in name)
+    data_rows = [row for row in rows[1:] if len(row) > max(phi_header_idx, theta_header_idx, gain_idx)]
+    if not data_rows:
+        raise RuntimeError(f"Empty far-field CSV: {path}")
+    phi_values = [float(row[phi_header_idx]) for row in data_rows]
+    theta_values = [float(row[theta_header_idx]) for row in data_rows]
+    # Some AEDT native exports in this project swap the Phi/Theta labels.  Use
+    # the value ranges so future optimization rows use the physical axes.
+    if max(phi_values) <= 90.0 + 1e-9 and max(theta_values) > 180.0:
+        theta_idx = phi_header_idx
+        phi_idx = theta_header_idx
+    else:
+        phi_idx = phi_header_idx
+        theta_idx = theta_header_idx
     parsed: list[dict[str, float]] = []
-    for raw in rows[1:]:
+    for raw in data_rows:
         if len(raw) <= max(phi_idx, theta_idx, gain_idx):
             continue
         theta = float(raw[theta_idx])
@@ -875,7 +1106,7 @@ def read_complex_impedance(path: Path) -> dict[str, float] | None:
     return {"re_z_ohm": float(row[re_key]), "im_z_ohm": float(row[im_key])}
 
 
-def write_report(summary_rows: list[dict[str, Any]], best: dict[str, Any]) -> None:
+def write_report_legacy(summary_rows: list[dict[str, Any]], best: dict[str, Any]) -> None:
     summary_rows = sort_summary_rows(summary_rows)
     best_s11_ok = bool_value(best["s11_pass"])
     best_gain_ok = bool_value(best["gain_pass"])
@@ -957,6 +1188,90 @@ def write_report(summary_rows: list[dict[str, Any]], best: dict[str, Any]) -> No
             "## 输出文件",
             "",
             f"- 最佳 AEDT 工程：`{best.get('project', '')}`",
+            f"- 候选汇总 CSV：`{SUMMARY_CSV}`",
+            f"- 方位窗口 CSV：`{WINDOW_CSV}`",
+            f"- 指标 JSON：`{METRICS_JSON}`",
+        ]
+    )
+    REPORT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def float_value(row: dict[str, Any], key: str, default: float = float("nan")) -> float:
+    try:
+        return float(row.get(key, default))
+    except (TypeError, ValueError):
+        return default
+
+
+def pass_label(row: dict[str, Any]) -> str:
+    return "达标" if bool_value(row.get("s11_pass")) and bool_value(row.get("gain_pass")) else "未达标"
+
+
+def write_report(summary_rows: list[dict[str, Any]], best: dict[str, Any]) -> None:
+    summary_rows = sort_summary_rows(summary_rows)
+    s11_pass_count = sum(1 for row in summary_rows if bool_value(row.get("s11_pass")))
+    gain_pass_count = sum(1 for row in summary_rows if bool_value(row.get("gain_pass")))
+    both_pass_rows = [
+        row for row in summary_rows if bool_value(row.get("s11_pass")) and bool_value(row.get("gain_pass"))
+    ]
+    s11_best = min(summary_rows, key=lambda row: float_value(row, "s11_worst_db", 999.0))
+    gain_best = max(summary_rows, key=lambda row: float_value(row, "best_270deg_gain_total_min_dbi", -999.0))
+    row_by_index = {str(row.get("candidate_index", "")): row for row in summary_rows}
+    highlight_rows = [
+        row_by_index[index]
+        for index in ("43", "51", "53", "58")
+        if index in row_by_index
+    ]
+    refreshed_count = sum(1 for row in summary_rows if row.get("refresh_status") == "refreshed")
+    conclusion = (
+        "本轮已找到双指标同时达标候选。"
+        if both_pass_rows
+        else "本轮低成本厚板 PIFA/匹配岛扫描尚未找到 S11 与低仰角覆盖增益同时达标点。"
+    )
+    lines = [
+        "# D44 厚板短路 PIFA 低成本优化复核报告",
+        "",
+        "## 目标口径",
+        "",
+        f"- 结构方向：厚 PCB 顶层铜、短路 via wall/边镀墙、局部匹配岛；不使用独立 L 单极子金属臂。",
+        f"- S11 目标：`S11 <= {RETURN_TARGET_DB:.1f} dB`。",
+        f"- 增益目标：Theta `{THETA_MIN_DEG:.0f}..{THETA_MAX_DEG:.0f} deg`，最佳连续 `{AZIMUTH_WINDOW_DEG:.0f} deg` 方位窗口内 `GainTotal >= {GAIN_TARGET_DBI:.1f} dBi`。",
+        "",
+        "## 结论",
+        "",
+        f"- 综合结论：{conclusion}",
+        f"- 已复核候选：`{len(summary_rows)}` 个；S11 达标 `{s11_pass_count}` 个，增益达标 `{gain_pass_count}` 个，双指标同时达标 `{len(both_pass_rows)}` 个。",
+        f"- 当前排序候选：`#{best.get('candidate_index', 'N/A')} {best['candidate']}`，S11 `{fmt(best['s11_worst_db'])} dB`，最佳 270° 窗口最小 GainTotal `{fmt(best['best_270deg_gain_total_min_dbi'])} dBi`，结果 `{pass_label(best)}`。",
+        f"- S11 最优候选：`#{s11_best.get('candidate_index', 'N/A')} {s11_best['candidate']}`，S11 `{fmt(s11_best['s11_worst_db'])} dB`，最佳 270° 窗口最小 GainTotal `{fmt(s11_best['best_270deg_gain_total_min_dbi'])} dBi`。",
+        f"- 增益最优候选：`#{gain_best.get('candidate_index', 'N/A')} {gain_best['candidate']}`，最佳 270° 窗口最小 GainTotal `{fmt(gain_best['best_270deg_gain_total_min_dbi'])} dBi`，S11 `{fmt(gain_best['s11_worst_db'])} dB`。",
+        "",
+        "## 数据复核",
+        "",
+        f"- 已从现有 native CSV 重新解析 `{refreshed_count}` 行，统一使用修正后的 Phi/Theta 轴判断。",
+        "- 旧阶段部分行曾按 AEDT 导出标签直接读取，可能把 Phi/Theta 互换后的数据误判为低仰角覆盖；本报告以重新解析后的 CSV 为准。",
+        "- 新增阻抗诊断：8 mm 高增益底座约 `111 + j257 ohm`，4.5 mm 候选 43 约 `78.9 + j62.6 ohm`。",
+        "",
+        "## 关键候选",
+        "",
+        "| # | 候选 | S11 worst dB | Best 270° min Gain dBi | All-phi min Gain dBi | 结果 |",
+        "|---:|---|---:|---:|---:|---|",
+    ]
+    for row in highlight_rows:
+        lines.append(
+            f"| {row.get('candidate_index', '')} | `{row['candidate']}` | {fmt(row['s11_worst_db'])} | {fmt(row['best_270deg_gain_total_min_dbi'])} | {fmt(row['all_phi_gain_total_min_dbi'])} | {pass_label(row)} |"
+        )
+    lines.extend(
+        [
+            "",
+            "## 工程判断",
+            "",
+            "- 8 mm PCB-only PIFA 能把最佳 270° 低仰角增益推到门限附近，但端口阻抗过高且强感性，L/C 匹配岛未能把 S11 拉进目标。",
+            "- 候选 43 的阻抗更容易匹配；候选 58 已把 S11 推到接近 `-10 dB`，但低仰角覆盖增益明显塌陷，说明纯匹配网络会改变有效辐射电流，不是最终解。",
+            "- 低成本方向仍应保留，但下一轮应优先改几何电流路径：边镀/过孔墙位置、开口槽、腔体边缘耦合与馈点位置联动，而不是继续只放大 L/C 匹配值。",
+            "",
+            "## 输出文件",
+            "",
+            f"- 当前候选 AEDT 工程：`{best.get('project', '')}`",
             f"- 候选汇总 CSV：`{SUMMARY_CSV}`",
             f"- 方位窗口 CSV：`{WINDOW_CSV}`",
             f"- 指标 JSON：`{METRICS_JSON}`",
@@ -1053,6 +1368,62 @@ def run(candidate_indices: list[int], cores: int, tasks: int) -> dict[str, Any]:
     return payload
 
 
+def refresh_existing_results() -> None:
+    summary_rows = sort_summary_rows(read_csv(SUMMARY_CSV))
+    existing_windows = sort_window_rows(read_csv(WINDOW_CSV))
+    if not summary_rows:
+        raise RuntimeError(f"No existing summary rows found in {SUMMARY_CSV}")
+    windows_by_index: dict[str, list[dict[str, Any]]] = {}
+    for item in existing_windows:
+        windows_by_index.setdefault(str(item.get("candidate_index", "")), []).append(item)
+    refreshed_rows: list[dict[str, Any]] = []
+    refreshed_windows: list[dict[str, Any]] = []
+    for row in summary_rows:
+        name = str(row.get("candidate", "") or row.get("name", ""))
+        index = str(row.get("candidate_index", ""))
+        safe_case = safe_slug(name)
+        s_path = REPORT_DIR / f"{safe_case}_native_s_parameters.csv"
+        ff_path = REPORT_DIR / f"{safe_case}_native_farfield_default.csv"
+        if s_path.exists() and ff_path.exists():
+            try:
+                row.update(parse_s_csv(s_path))
+                gain_metrics, windows = window_metrics(parse_ff_rows(ff_path))
+                row.update(gain_metrics)
+                row["refresh_status"] = "refreshed"
+                for item in windows:
+                    item["candidate"] = name
+                    item["candidate_index"] = index
+                refreshed_windows.extend(windows)
+            except Exception as exc:
+                row["refresh_status"] = f"refresh_failed:{exc}"
+                refreshed_windows.extend(windows_by_index.get(index, []))
+        else:
+            row["refresh_status"] = "missing_native_csv"
+            refreshed_windows.extend(windows_by_index.get(index, []))
+        refreshed_rows.append(row)
+    refreshed_rows = sort_summary_rows(refreshed_rows)
+    refreshed_windows = sort_window_rows(refreshed_windows)
+    best = max(refreshed_rows, key=rank_key)
+    payload = {
+        "target": {
+            "s11_db_max": RETURN_TARGET_DB,
+            "theta_deg": [THETA_MIN_DEG, THETA_MAX_DEG],
+            "azimuth_window_deg": AZIMUTH_WINDOW_DEG,
+            "gain_total_min_dbi": GAIN_TARGET_DBI,
+        },
+        "best_candidate": best,
+        "summary_csv": str(SUMMARY_CSV),
+        "window_csv": str(WINDOW_CSV),
+        "report_md": str(REPORT_MD),
+        "rows": refreshed_rows,
+    }
+    write_csv(SUMMARY_CSV, refreshed_rows)
+    write_csv(WINDOW_CSV, refreshed_windows)
+    METRICS_JSON.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    write_report(refreshed_rows, best)
+    print(f"Wrote refreshed {REPORT_MD}", flush=True)
+
+
 def regenerate_from_existing_results() -> None:
     summary_rows = sort_summary_rows(read_csv(SUMMARY_CSV))
     window_rows = sort_window_rows(read_csv(WINDOW_CSV))
@@ -1085,7 +1456,11 @@ def main() -> None:
     parser.add_argument("--cores", type=int, default=4)
     parser.add_argument("--tasks", type=int, default=4)
     parser.add_argument("--report-only", action="store_true", help="Regenerate JSON/Markdown reports from existing CSV files without running HFSS.")
+    parser.add_argument("--refresh-existing", action="store_true", help="Reparse existing native S-parameter and far-field CSV files with the current metric logic.")
     args = parser.parse_args()
+    if args.refresh_existing:
+        refresh_existing_results()
+        return
     if args.report_only:
         regenerate_from_existing_results()
         return
