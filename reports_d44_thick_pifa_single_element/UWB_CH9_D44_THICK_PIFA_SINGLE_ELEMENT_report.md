@@ -9,10 +9,10 @@
 ## 结论
 
 - 综合结论：本轮低成本厚板 PIFA/匹配岛扫描尚未找到 S11 与低仰角覆盖增益同时达标点。
-- 已复核候选：`58` 个；S11 达标 `1` 个，增益达标 `3` 个，双指标同时达标 `0` 个。
-- 当前排序候选：`#48 h7p2_l8p2_w8p0_feed7p80_lim10_lowcost`，S11 `-1.768 dB`，最佳 270° 窗口最小 GainTotal `-4.863 dBi`，结果 `未达标`。
+- 已复核候选：`83` 个；S11 达标 `1` 个，增益达标 `15` 个，双指标同时达标 `0` 个。
+- 当前排序候选：`#78 h7p2_l9p6_w9p6_sw4p0_fence6p8_feed8p80_match_l2p5_c0p22_loadside`，S11 `-2.652 dB`，最佳 270° 窗口最小 GainTotal `-4.346 dBi`，结果 `未达标`。
 - S11 最优候选：`#36 h3p5_l8p8_w8p0_sw4p0_fence6p0_feed8p40`，S11 `-10.970 dB`，最佳 270° 窗口最小 GainTotal `-8.573 dBi`。
-- 增益最优候选：`#51 h8p0_l8p0_w8p0_sw4p0_fence6p0_feed7p55_lim10_lowcost`，最佳 270° 窗口最小 GainTotal `-4.762 dBi`，S11 `-1.202 dB`。
+- 增益最优候选：`#86 h8p0_l12p0_w10p0_sw4p0_fence8p0_feed11p30_lip2p4_w6p0_match_l2p8_c0p22_gap0p08_loadside`，最佳 270° 窗口最小 GainTotal `-3.201 dBi`，S11 `-1.644 dB`。
 
 ## 数据复核
 
@@ -37,7 +37,7 @@
 
 ## 输出文件
 
-- 当前候选 AEDT 工程：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h7p2_l8p2_w8p0_feed7p80_lim10_lowcost.aedt`
+- 当前候选 AEDT 工程：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h7p2_l9p6_w9p6_sw4p0_fence6p8_feed8p80_match_l2p5_c0p22_loadside.aedt`
 - 候选汇总 CSV：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_thick_pifa_single_element\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_summary.csv`
 - 方位窗口 CSV：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_thick_pifa_single_element\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_azimuth_window_summary.csv`
 - 指标 JSON：`D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_thick_pifa_single_element\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_metrics.json`
