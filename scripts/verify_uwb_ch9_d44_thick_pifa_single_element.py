@@ -43,6 +43,7 @@ class ThickPifaCandidate:
     top_width_mm: float = 8.0
     short_wall_width_mm: float = 2.4
     side_fence_length_mm: float = 4.2
+    side_fence_start_from_short_mm: float = 0.0
     side_fence_enabled: bool = True
     feed_from_short_mm: float = 1.25
     feed_v_mm: float = 0.0
@@ -50,6 +51,15 @@ class ThickPifaCandidate:
     port_width_mm: float = 0.55
     open_lip_height_mm: float = 0.0
     open_lip_width_mm: float = 0.0
+    open_edge_coupler_length_mm: float = 0.0
+    open_edge_coupler_height_mm: float = 0.0
+    top_slot_start_from_short_mm: float = 0.0
+    top_slot_length_mm: float = 0.0
+    top_slot_width_mm: float = 0.0
+    top_slot_v_offset_mm: float = 0.0
+    edge_slot_start_from_short_mm: float = 0.0
+    edge_slot_length_mm: float = 0.0
+    edge_slot_depth_mm: float = 0.0
     match_series_cap_pf: float = 0.0
     match_series_ind_nh: float = 0.0
     match_shunt_cap_pf: float = 0.0
@@ -921,6 +931,565 @@ def candidates() -> list[ThickPifaCandidate]:
             match_series_width_mm=0.24,
             total_height_limit_mm=10.0,
         ),
+        ThickPifaCandidate(
+            name="h8p0_l12p0_w10p0_sw4p0_fence6p2_start0p8_feed11p05_lip2p0_w6p0_edgec2p8_h4p8_slot7p2x2p8",
+            rationale="Move the side via walls off the short wall, add open-edge side coupling, and cut a narrow top slot to lengthen the high-current path without a separate arm.",
+            substrate_h_mm=8.0,
+            top_length_mm=12.0,
+            top_width_mm=10.0,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.2,
+            side_fence_start_from_short_mm=0.8,
+            feed_from_short_mm=11.05,
+            open_lip_height_mm=2.0,
+            open_lip_width_mm=6.0,
+            open_edge_coupler_length_mm=2.8,
+            open_edge_coupler_height_mm=4.8,
+            top_slot_start_from_short_mm=7.2,
+            top_slot_length_mm=2.8,
+            top_slot_width_mm=0.42,
+            edge_slot_start_from_short_mm=7.8,
+            edge_slot_length_mm=2.4,
+            edge_slot_depth_mm=0.65,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l12p0_w10p0_sw4p0_fence6p2_start0p8_feed11p15_lip2p0_edgec3p2_h5p6_slot_match_l2p8_c0p22",
+            rationale="Keep the same geometry-current path as the first slot/coupler case, then retune the load-side L match around the shifted feed point.",
+            substrate_h_mm=8.0,
+            top_length_mm=12.0,
+            top_width_mm=10.0,
+            short_wall_width_mm=4.0,
+            side_fence_length_mm=6.2,
+            side_fence_start_from_short_mm=0.8,
+            feed_from_short_mm=11.15,
+            open_lip_height_mm=2.0,
+            open_lip_width_mm=6.0,
+            open_edge_coupler_length_mm=3.2,
+            open_edge_coupler_height_mm=5.6,
+            top_slot_start_from_short_mm=7.0,
+            top_slot_length_mm=3.2,
+            top_slot_width_mm=0.46,
+            edge_slot_start_from_short_mm=7.6,
+            edge_slot_length_mm=2.8,
+            edge_slot_depth_mm=0.75,
+            match_series_ind_nh=2.8,
+            match_shunt_cap_pf=0.22,
+            match_shunt_on_load_side=True,
+            match_gap_mm=0.08,
+            match_island_size_mm=0.60,
+            match_series_width_mm=0.24,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l12p0_w10p5_sw5p2_fence5p4_start1p6_feed10p85_lip1p6_edgec3p8_h6p0_edgeslot",
+            rationale="Use a stronger short wall with shorter displaced side fences and deeper edge slots to pull the cavity mode toward the feed while preserving low-elevation radiation.",
+            substrate_h_mm=8.0,
+            top_length_mm=12.0,
+            top_width_mm=10.5,
+            short_wall_width_mm=5.2,
+            side_fence_length_mm=5.4,
+            side_fence_start_from_short_mm=1.6,
+            feed_from_short_mm=10.85,
+            open_lip_height_mm=1.6,
+            open_lip_width_mm=6.4,
+            open_edge_coupler_length_mm=3.8,
+            open_edge_coupler_height_mm=6.0,
+            top_slot_start_from_short_mm=6.6,
+            top_slot_length_mm=3.8,
+            top_slot_width_mm=0.50,
+            edge_slot_start_from_short_mm=6.8,
+            edge_slot_length_mm=3.6,
+            edge_slot_depth_mm=0.95,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l12p0_w10p5_sw5p2_fence5p4_start1p6_feed10p95_lip1p6_edgec4p0_h6p2_match_l3p0_c0p24",
+            rationale="Add a moderate load-side L match to the stronger short-wall/edge-slot case, testing whether the geometry path can recover return loss before gain collapses.",
+            substrate_h_mm=8.0,
+            top_length_mm=12.0,
+            top_width_mm=10.5,
+            short_wall_width_mm=5.2,
+            side_fence_length_mm=5.4,
+            side_fence_start_from_short_mm=1.6,
+            feed_from_short_mm=10.95,
+            open_lip_height_mm=1.6,
+            open_lip_width_mm=6.4,
+            open_edge_coupler_length_mm=4.0,
+            open_edge_coupler_height_mm=6.2,
+            top_slot_start_from_short_mm=6.6,
+            top_slot_length_mm=3.8,
+            top_slot_width_mm=0.50,
+            edge_slot_start_from_short_mm=6.8,
+            edge_slot_length_mm=3.6,
+            edge_slot_depth_mm=0.95,
+            match_series_ind_nh=3.0,
+            match_shunt_cap_pf=0.24,
+            match_shunt_on_load_side=True,
+            match_gap_mm=0.08,
+            match_island_size_mm=0.60,
+            match_series_width_mm=0.24,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l11p4_w11p2_sw5p8_fence4p8_start2p0_feed10p35_lip1p2_edgec4p2_h6p8_slot6p2x4p4",
+            rationale="Compact the length but widen the cavity aperture; displaced fences and a longer central slot push the current around the side edges for a low-cost meandered PIFA.",
+            substrate_h_mm=8.0,
+            top_length_mm=11.4,
+            top_width_mm=11.2,
+            short_wall_width_mm=5.8,
+            side_fence_length_mm=4.8,
+            side_fence_start_from_short_mm=2.0,
+            feed_from_short_mm=10.35,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=7.0,
+            open_edge_coupler_length_mm=4.2,
+            open_edge_coupler_height_mm=6.8,
+            top_slot_start_from_short_mm=6.2,
+            top_slot_length_mm=4.4,
+            top_slot_width_mm=0.55,
+            edge_slot_start_from_short_mm=6.4,
+            edge_slot_length_mm=3.8,
+            edge_slot_depth_mm=1.05,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l11p4_w11p2_sw5p8_fence4p8_start2p0_feed10p45_lip1p2_edgec4p2_h6p8_match_l3p2_c0p26",
+            rationale="Matched version of the widened aperture slot case, keeping all added features manufacturable as plated via-wall and etched top-copper details.",
+            substrate_h_mm=8.0,
+            top_length_mm=11.4,
+            top_width_mm=11.2,
+            short_wall_width_mm=5.8,
+            side_fence_length_mm=4.8,
+            side_fence_start_from_short_mm=2.0,
+            feed_from_short_mm=10.45,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=7.0,
+            open_edge_coupler_length_mm=4.2,
+            open_edge_coupler_height_mm=6.8,
+            top_slot_start_from_short_mm=6.2,
+            top_slot_length_mm=4.4,
+            top_slot_width_mm=0.55,
+            edge_slot_start_from_short_mm=6.4,
+            edge_slot_length_mm=3.8,
+            edge_slot_depth_mm=1.05,
+            match_series_ind_nh=3.2,
+            match_shunt_cap_pf=0.26,
+            match_shunt_on_load_side=True,
+            match_gap_mm=0.08,
+            match_island_size_mm=0.60,
+            match_series_width_mm=0.24,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_w11p2_f1085_slot",
+            rationale="Move the feed closer to the open edge on the best gain-pass wide aperture geometry to pull the impedance toward resonance without adding discrete matching loss.",
+            substrate_h_mm=8.0,
+            top_length_mm=11.4,
+            top_width_mm=11.2,
+            short_wall_width_mm=5.8,
+            side_fence_length_mm=4.8,
+            side_fence_start_from_short_mm=2.0,
+            feed_from_short_mm=10.85,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=7.0,
+            open_edge_coupler_length_mm=4.2,
+            open_edge_coupler_height_mm=6.8,
+            top_slot_start_from_short_mm=6.2,
+            top_slot_length_mm=4.4,
+            top_slot_width_mm=0.55,
+            edge_slot_start_from_short_mm=6.4,
+            edge_slot_length_mm=3.8,
+            edge_slot_depth_mm=1.05,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_w11p2_f1105_slot",
+            rationale="Push the feed farther toward the open edge on the same wide aperture geometry, looking for a better impedance point while keeping the low-angle coverage structure intact.",
+            substrate_h_mm=8.0,
+            top_length_mm=11.4,
+            top_width_mm=11.2,
+            short_wall_width_mm=5.8,
+            side_fence_length_mm=4.8,
+            side_fence_start_from_short_mm=2.0,
+            feed_from_short_mm=11.05,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=7.0,
+            open_edge_coupler_length_mm=4.2,
+            open_edge_coupler_height_mm=6.8,
+            top_slot_start_from_short_mm=6.2,
+            top_slot_length_mm=4.4,
+            top_slot_width_mm=0.55,
+            edge_slot_start_from_short_mm=6.4,
+            edge_slot_length_mm=3.8,
+            edge_slot_depth_mm=1.05,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_w11p2_f1085_m228",
+            rationale="Same feed shift as the previous case, but with a lighter load-side match to see if the impedance can be pulled down without giving away too much gain.",
+            substrate_h_mm=8.0,
+            top_length_mm=11.4,
+            top_width_mm=11.2,
+            short_wall_width_mm=5.8,
+            side_fence_length_mm=4.8,
+            side_fence_start_from_short_mm=2.0,
+            feed_from_short_mm=10.85,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=7.0,
+            open_edge_coupler_length_mm=4.2,
+            open_edge_coupler_height_mm=6.8,
+            top_slot_start_from_short_mm=6.2,
+            top_slot_length_mm=4.4,
+            top_slot_width_mm=0.55,
+            edge_slot_start_from_short_mm=6.4,
+            edge_slot_length_mm=3.8,
+            edge_slot_depth_mm=1.05,
+            match_series_ind_nh=2.8,
+            match_shunt_cap_pf=0.22,
+            match_shunt_on_load_side=True,
+            match_gap_mm=0.08,
+            match_island_size_mm=0.60,
+            match_series_width_mm=0.24,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_w11p2_f1105_m3024",
+            rationale="Load-side match on the farther-open feed point, targeting the same wide aperture geometry with a slightly stronger impedance pull.",
+            substrate_h_mm=8.0,
+            top_length_mm=11.4,
+            top_width_mm=11.2,
+            short_wall_width_mm=5.8,
+            side_fence_length_mm=4.8,
+            side_fence_start_from_short_mm=2.0,
+            feed_from_short_mm=11.05,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=7.0,
+            open_edge_coupler_length_mm=4.2,
+            open_edge_coupler_height_mm=6.8,
+            top_slot_start_from_short_mm=6.2,
+            top_slot_length_mm=4.4,
+            top_slot_width_mm=0.55,
+            edge_slot_start_from_short_mm=6.4,
+            edge_slot_length_mm=3.8,
+            edge_slot_depth_mm=1.05,
+            match_series_ind_nh=3.0,
+            match_shunt_cap_pf=0.24,
+            match_shunt_on_load_side=True,
+            match_gap_mm=0.08,
+            match_island_size_mm=0.60,
+            match_series_width_mm=0.24,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_w11p2_f1105_m5625",
+            rationale="Apply the stronger L/C pair that previously helped the lower-height geometry, but keep the best gain-pass wide aperture and the same feed point.",
+            substrate_h_mm=8.0,
+            top_length_mm=11.4,
+            top_width_mm=11.2,
+            short_wall_width_mm=5.8,
+            side_fence_length_mm=4.8,
+            side_fence_start_from_short_mm=2.0,
+            feed_from_short_mm=11.05,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=7.0,
+            open_edge_coupler_length_mm=4.2,
+            open_edge_coupler_height_mm=6.8,
+            top_slot_start_from_short_mm=6.2,
+            top_slot_length_mm=4.4,
+            top_slot_width_mm=0.55,
+            edge_slot_start_from_short_mm=6.4,
+            edge_slot_length_mm=3.8,
+            edge_slot_depth_mm=1.05,
+            match_series_ind_nh=5.6,
+            match_shunt_cap_pf=0.25,
+            match_shunt_on_load_side=True,
+            match_gap_mm=0.08,
+            match_island_size_mm=0.60,
+            match_series_width_mm=0.24,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_w11p2_f1105_m6028",
+            rationale="Bracket the stronger L/C match with a slightly heavier series inductance and shunt capacitance to see if the wide aperture can be pulled onto resonance without killing horizon gain.",
+            substrate_h_mm=8.0,
+            top_length_mm=11.4,
+            top_width_mm=11.2,
+            short_wall_width_mm=5.8,
+            side_fence_length_mm=4.8,
+            side_fence_start_from_short_mm=2.0,
+            feed_from_short_mm=11.05,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=7.0,
+            open_edge_coupler_length_mm=4.2,
+            open_edge_coupler_height_mm=6.8,
+            top_slot_start_from_short_mm=6.2,
+            top_slot_length_mm=4.4,
+            top_slot_width_mm=0.55,
+            edge_slot_start_from_short_mm=6.4,
+            edge_slot_length_mm=3.8,
+            edge_slot_depth_mm=1.05,
+            match_series_ind_nh=6.0,
+            match_shunt_cap_pf=0.28,
+            match_shunt_on_load_side=True,
+            match_gap_mm=0.08,
+            match_island_size_mm=0.60,
+            match_series_width_mm=0.24,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l14p0_w11p2_f1355_slot",
+            rationale="Extend the current path length while keeping the same low-cost wide aperture and open-edge coupler, aiming to move the resonance down without losing the low-angle gain lift.",
+            substrate_h_mm=8.0,
+            top_length_mm=14.0,
+            top_width_mm=11.2,
+            short_wall_width_mm=5.8,
+            side_fence_length_mm=6.0,
+            side_fence_start_from_short_mm=2.0,
+            feed_from_short_mm=13.55,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=7.0,
+            open_edge_coupler_length_mm=4.8,
+            open_edge_coupler_height_mm=6.8,
+            top_slot_start_from_short_mm=7.6,
+            top_slot_length_mm=5.0,
+            top_slot_width_mm=0.55,
+            edge_slot_start_from_short_mm=8.0,
+            edge_slot_length_mm=4.2,
+            edge_slot_depth_mm=1.05,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l14p0_w11p2_f1355_m5625",
+            rationale="Apply the stronger L/C pair to the extended path version, checking whether the longer arm can recover S11 while the wide aperture still keeps the horizon gain within spec.",
+            substrate_h_mm=8.0,
+            top_length_mm=14.0,
+            top_width_mm=11.2,
+            short_wall_width_mm=5.8,
+            side_fence_length_mm=6.0,
+            side_fence_start_from_short_mm=2.0,
+            feed_from_short_mm=13.55,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=7.0,
+            open_edge_coupler_length_mm=4.8,
+            open_edge_coupler_height_mm=6.8,
+            top_slot_start_from_short_mm=7.6,
+            top_slot_length_mm=5.0,
+            top_slot_width_mm=0.55,
+            edge_slot_start_from_short_mm=8.0,
+            edge_slot_length_mm=4.2,
+            edge_slot_depth_mm=1.05,
+            match_series_ind_nh=5.6,
+            match_shunt_cap_pf=0.25,
+            match_shunt_on_load_side=True,
+            match_gap_mm=0.08,
+            match_island_size_mm=0.60,
+            match_series_width_mm=0.24,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l16p0_w12p5_f1555_slot",
+            rationale="Stretch the current path and aperture again so the impedance point moves closer to 8 GHz while the wide cavity keeps the low-angle gain from collapsing.",
+            substrate_h_mm=8.0,
+            top_length_mm=16.0,
+            top_width_mm=12.5,
+            short_wall_width_mm=5.8,
+            side_fence_length_mm=6.2,
+            side_fence_start_from_short_mm=2.0,
+            feed_from_short_mm=15.55,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=7.4,
+            open_edge_coupler_length_mm=5.2,
+            open_edge_coupler_height_mm=6.8,
+            top_slot_start_from_short_mm=8.8,
+            top_slot_length_mm=5.6,
+            top_slot_width_mm=0.60,
+            edge_slot_start_from_short_mm=9.0,
+            edge_slot_length_mm=4.8,
+            edge_slot_depth_mm=1.10,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l16p0_w12p5_f1555_m5625",
+            rationale="Add the stronger load-side match to the stretched 16 mm aperture path, trying to keep the low-angle gain while finally pulling S11 toward the limit.",
+            substrate_h_mm=8.0,
+            top_length_mm=16.0,
+            top_width_mm=12.5,
+            short_wall_width_mm=5.8,
+            side_fence_length_mm=6.2,
+            side_fence_start_from_short_mm=2.0,
+            feed_from_short_mm=15.55,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=7.4,
+            open_edge_coupler_length_mm=5.2,
+            open_edge_coupler_height_mm=6.8,
+            top_slot_start_from_short_mm=8.8,
+            top_slot_length_mm=5.6,
+            top_slot_width_mm=0.60,
+            edge_slot_start_from_short_mm=9.0,
+            edge_slot_length_mm=4.8,
+            edge_slot_depth_mm=1.10,
+            match_series_ind_nh=5.6,
+            match_shunt_cap_pf=0.25,
+            match_shunt_on_load_side=True,
+            match_gap_mm=0.08,
+            match_island_size_mm=0.60,
+            match_series_width_mm=0.24,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h3p5_l9p2_w8p6_sw4p4_fence6p4_feed8p70_lip0p8_edgec2p6_slot",
+            rationale="Start from the only S11-pass low-height family, then add a manufacturable lip, side-edge coupling, and etched slots to recover low-angle current without losing the shorted-cavity match.",
+            substrate_h_mm=3.5,
+            top_length_mm=9.2,
+            top_width_mm=8.6,
+            short_wall_width_mm=4.4,
+            side_fence_length_mm=6.4,
+            feed_from_short_mm=8.70,
+            open_lip_height_mm=0.8,
+            open_lip_width_mm=5.6,
+            open_edge_coupler_length_mm=2.6,
+            open_edge_coupler_height_mm=3.1,
+            top_slot_start_from_short_mm=4.6,
+            top_slot_length_mm=2.8,
+            top_slot_width_mm=0.40,
+            edge_slot_start_from_short_mm=5.0,
+            edge_slot_length_mm=2.4,
+            edge_slot_depth_mm=0.55,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h4p0_l9p2_w8p8_sw4p4_fence6p6_start0p4_feed8p70_lip0p9_edgec2p8_slot",
+            rationale="Use a slightly taller cavity than the S11-pass baseline and move the via walls off the short edge to trade a small return-loss margin for more horizon current.",
+            substrate_h_mm=4.0,
+            top_length_mm=9.2,
+            top_width_mm=8.8,
+            short_wall_width_mm=4.4,
+            side_fence_length_mm=6.6,
+            side_fence_start_from_short_mm=0.4,
+            feed_from_short_mm=8.70,
+            open_lip_height_mm=0.9,
+            open_lip_width_mm=5.8,
+            open_edge_coupler_length_mm=2.8,
+            open_edge_coupler_height_mm=3.6,
+            top_slot_start_from_short_mm=4.8,
+            top_slot_length_mm=3.0,
+            top_slot_width_mm=0.42,
+            edge_slot_start_from_short_mm=5.0,
+            edge_slot_length_mm=2.6,
+            edge_slot_depth_mm=0.62,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h4p5_l9p6_w9p2_sw4p8_fence6p8_start0p8_feed8p95_lip1p0_edgec3p2_slot",
+            rationale="Revisit the near-S11-pass 4.5 mm geometry with displaced side walls and open-edge capacitive coupling instead of relying on the L/C island.",
+            substrate_h_mm=4.5,
+            top_length_mm=9.6,
+            top_width_mm=9.2,
+            short_wall_width_mm=4.8,
+            side_fence_length_mm=6.8,
+            side_fence_start_from_short_mm=0.8,
+            feed_from_short_mm=8.95,
+            open_lip_height_mm=1.0,
+            open_lip_width_mm=6.0,
+            open_edge_coupler_length_mm=3.2,
+            open_edge_coupler_height_mm=4.2,
+            top_slot_start_from_short_mm=5.0,
+            top_slot_length_mm=3.2,
+            top_slot_width_mm=0.45,
+            edge_slot_start_from_short_mm=5.2,
+            edge_slot_length_mm=2.8,
+            edge_slot_depth_mm=0.72,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h5p2_l9p8_w9p4_sw4p8_fence6p8_start1p0_feed9p15_lip1p2_edgec3p4_slot",
+            rationale="Middle-height geometry-current candidate intended to find the crossover between the matched-but-weak 4.5 mm case and the gain-pass 7.2 mm case.",
+            substrate_h_mm=5.2,
+            top_length_mm=9.8,
+            top_width_mm=9.4,
+            short_wall_width_mm=4.8,
+            side_fence_length_mm=6.8,
+            side_fence_start_from_short_mm=1.0,
+            feed_from_short_mm=9.15,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=6.2,
+            open_edge_coupler_length_mm=3.4,
+            open_edge_coupler_height_mm=4.8,
+            top_slot_start_from_short_mm=5.2,
+            top_slot_length_mm=3.4,
+            top_slot_width_mm=0.48,
+            edge_slot_start_from_short_mm=5.4,
+            edge_slot_length_mm=3.0,
+            edge_slot_depth_mm=0.80,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h6p2_l9p8_w9p4_sw4p8_fence6p8_start1p0_feed9p15_lip1p4_edgec3p6_slot",
+            rationale="Raise the same crossover geometry to strengthen the vertical current path, checking whether edge slots and couplers can keep S11 from collapsing like the 8 mm family.",
+            substrate_h_mm=6.2,
+            top_length_mm=9.8,
+            top_width_mm=9.4,
+            short_wall_width_mm=4.8,
+            side_fence_length_mm=6.8,
+            side_fence_start_from_short_mm=1.0,
+            feed_from_short_mm=9.15,
+            open_lip_height_mm=1.4,
+            open_lip_width_mm=6.2,
+            open_edge_coupler_length_mm=3.6,
+            open_edge_coupler_height_mm=5.4,
+            top_slot_start_from_short_mm=5.2,
+            top_slot_length_mm=3.4,
+            top_slot_width_mm=0.48,
+            edge_slot_start_from_short_mm=5.4,
+            edge_slot_length_mm=3.0,
+            edge_slot_depth_mm=0.85,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h6p8_l10p4_w10p0_sw5p2_fence7p2_start1p2_feed9p80_lip1p4_edgec3p8_slot",
+            rationale="Use the best low-cost manufacturing features on a 6.8 mm cavity, aiming for gain pass with less impedance penalty than the 7.2/8.0 mm wide-aperture cases.",
+            substrate_h_mm=6.8,
+            top_length_mm=10.4,
+            top_width_mm=10.0,
+            short_wall_width_mm=5.2,
+            side_fence_length_mm=7.2,
+            side_fence_start_from_short_mm=1.2,
+            feed_from_short_mm=9.80,
+            open_lip_height_mm=1.4,
+            open_lip_width_mm=6.6,
+            open_edge_coupler_length_mm=3.8,
+            open_edge_coupler_height_mm=6.0,
+            top_slot_start_from_short_mm=5.6,
+            top_slot_length_mm=3.8,
+            top_slot_width_mm=0.50,
+            edge_slot_start_from_short_mm=5.8,
+            edge_slot_length_mm=3.4,
+            edge_slot_depth_mm=0.95,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h7p2_l10p0_w10p8_sw5p6_fence6p0_start2p0_feed9p45_lip1p2_edgec4p8_slot",
+            rationale="Keep the gain-pass height but shorten the current path and move the side fences farther from the short wall to lower the feed impedance without sacrificing the wide low-angle aperture.",
+            substrate_h_mm=7.2,
+            top_length_mm=10.0,
+            top_width_mm=10.8,
+            short_wall_width_mm=5.6,
+            side_fence_length_mm=6.0,
+            side_fence_start_from_short_mm=2.0,
+            feed_from_short_mm=9.45,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=6.8,
+            open_edge_coupler_length_mm=4.8,
+            open_edge_coupler_height_mm=6.2,
+            top_slot_start_from_short_mm=5.4,
+            top_slot_length_mm=3.8,
+            top_slot_width_mm=0.52,
+            edge_slot_start_from_short_mm=5.6,
+            edge_slot_length_mm=3.6,
+            edge_slot_depth_mm=1.00,
+            total_height_limit_mm=10.0,
+        ),
     ]
 
 
@@ -975,6 +1544,8 @@ def validate_candidate(candidate: ThickPifaCandidate) -> None:
         raise ValueError(f"{candidate.name}: top plate dimensions are too small")
     if candidate.short_wall_width_mm <= 0.20:
         raise ValueError(f"{candidate.name}: short wall width is not manufacturable")
+    if candidate.side_fence_start_from_short_mm < 0.0:
+        raise ValueError(f"{candidate.name}: side fence start must not be negative")
     if candidate.port_width_mm <= 0.10:
         raise ValueError(f"{candidate.name}: port width is too small")
     feed_u = -candidate.top_length_mm / 2.0 + candidate.feed_from_short_mm
@@ -983,6 +1554,22 @@ def validate_candidate(candidate: ThickPifaCandidate) -> None:
     max_extent = math.hypot(candidate.top_length_mm / 2.0, candidate.top_width_mm / 2.0)
     if max_extent > candidate.ground_radius_mm - 1.0:
         raise ValueError(f"{candidate.name}: element footprint is too close to board edge")
+    for label, value in [
+        ("open edge coupler length", candidate.open_edge_coupler_length_mm),
+        ("open edge coupler height", candidate.open_edge_coupler_height_mm),
+        ("top slot start", candidate.top_slot_start_from_short_mm),
+        ("top slot length", candidate.top_slot_length_mm),
+        ("top slot width", candidate.top_slot_width_mm),
+        ("edge slot start", candidate.edge_slot_start_from_short_mm),
+        ("edge slot length", candidate.edge_slot_length_mm),
+        ("edge slot depth", candidate.edge_slot_depth_mm),
+    ]:
+        if value < 0.0:
+            raise ValueError(f"{candidate.name}: {label} must not be negative")
+    if candidate.top_slot_length_mm > 0.0 and candidate.top_slot_width_mm > candidate.top_width_mm - 0.8:
+        raise ValueError(f"{candidate.name}: top slot would over-cut the plate width")
+    if candidate.edge_slot_depth_mm > candidate.top_width_mm / 2.0 - 0.4:
+        raise ValueError(f"{candidate.name}: edge slot depth would over-cut the plate")
 
 
 def vertical_wall_points(u0: float, u1: float, v0: float, v1: float, z0: float, z1: float, axis: str) -> list[list[float]]:
@@ -1011,6 +1598,42 @@ def add_thick_pifa_geometry(hfss, candidate: ThickPifaCandidate) -> list[str]:
     )
     metals.append(top.name)
 
+    slot_names: list[str] = []
+    if candidate.top_slot_length_mm > 0.0 and candidate.top_slot_width_mm > 0.0:
+        slot_u0 = max(short_u + candidate.top_slot_start_from_short_mm, short_u + 0.25)
+        slot_u1 = min(slot_u0 + candidate.top_slot_length_mm, open_u - 0.25)
+        slot_half_w = min(candidate.top_slot_width_mm / 2.0, half_w - 0.35)
+        slot_v0 = max(candidate.top_slot_v_offset_mm - slot_half_w, -half_w + 0.25)
+        slot_v1 = min(candidate.top_slot_v_offset_mm + slot_half_w, half_w - 0.25)
+        if slot_u1 > slot_u0 + 0.20 and slot_v1 > slot_v0 + 0.10:
+            top_slot = builder.polygon_sheet(
+                hfss,
+                "E1_thick_pifa_top_current_path_slot",
+                builder.rectangle_points(0.0, 0.0, 0.0, slot_u0, slot_u1, slot_v0, slot_v1, h),
+                "vacuum",
+            )
+            slot_names.append(top_slot.name)
+
+    if candidate.edge_slot_length_mm > 0.0 and candidate.edge_slot_depth_mm > 0.0:
+        edge_u0 = max(short_u + candidate.edge_slot_start_from_short_mm, short_u + 0.25)
+        edge_u1 = min(edge_u0 + candidate.edge_slot_length_mm, open_u - 0.20)
+        depth = min(candidate.edge_slot_depth_mm, half_w - 0.35)
+        if edge_u1 > edge_u0 + 0.20 and depth > 0.10:
+            for side, v0, v1 in [
+                ("pos", half_w - depth, half_w),
+                ("neg", -half_w, -half_w + depth),
+            ]:
+                edge_slot = builder.polygon_sheet(
+                    hfss,
+                    f"E1_thick_pifa_edge_current_path_slot_{side}",
+                    builder.rectangle_points(0.0, 0.0, 0.0, edge_u0, edge_u1, v0, v1, h),
+                    "vacuum",
+                )
+                slot_names.append(edge_slot.name)
+
+    if slot_names:
+        hfss.modeler.subtract(top.name, slot_names, keep_originals=False)
+
     short_half = candidate.short_wall_width_mm / 2.0
     short = builder.polygon_sheet(
         hfss,
@@ -1021,15 +1644,17 @@ def add_thick_pifa_geometry(hfss, candidate: ThickPifaCandidate) -> list[str]:
     metals.append(short.name)
 
     if candidate.side_fence_enabled and candidate.side_fence_length_mm > 0.2:
-        fence_u1 = min(short_u + candidate.side_fence_length_mm, open_u - 0.20)
+        fence_u0 = min(short_u + candidate.side_fence_start_from_short_mm, open_u - 0.45)
+        fence_u1 = min(fence_u0 + candidate.side_fence_length_mm, open_u - 0.20)
         for side, v in [("pos", half_w), ("neg", -half_w)]:
-            fence = builder.polygon_sheet(
-                hfss,
-                f"E1_thick_pifa_side_fence_{side}",
-                vertical_wall_points(short_u, fence_u1, v, v, 0.0, h, "v"),
-                "copper",
-            )
-            metals.append(fence.name)
+            if fence_u1 > fence_u0 + 0.20:
+                fence = builder.polygon_sheet(
+                    hfss,
+                    f"E1_thick_pifa_side_fence_{side}",
+                    vertical_wall_points(fence_u0, fence_u1, v, v, 0.0, h, "v"),
+                    "copper",
+                )
+                metals.append(fence.name)
 
     if candidate.open_lip_height_mm > 0.0 and candidate.open_lip_width_mm > 0.0:
         lip_half = min(candidate.open_lip_width_mm / 2.0, half_w)
@@ -1040,6 +1665,18 @@ def add_thick_pifa_geometry(hfss, candidate: ThickPifaCandidate) -> list[str]:
             "copper",
         )
         metals.append(lip.name)
+
+    if candidate.open_edge_coupler_length_mm > 0.2 and candidate.open_edge_coupler_height_mm > 0.2:
+        coupler_u0 = max(open_u - candidate.open_edge_coupler_length_mm, short_u + 0.30)
+        coupler_z0 = max(0.0, h - candidate.open_edge_coupler_height_mm)
+        for side, v in [("pos", half_w), ("neg", -half_w)]:
+            coupler = builder.polygon_sheet(
+                hfss,
+                f"E1_thick_pifa_open_edge_coupler_{side}",
+                vertical_wall_points(coupler_u0, open_u, v, v, coupler_z0, h, "v"),
+                "copper",
+            )
+            metals.append(coupler.name)
 
     feed_u = -half_l + candidate.feed_from_short_mm
     feed_v = candidate.feed_v_mm
@@ -1213,7 +1850,7 @@ def build_candidate(candidate: ThickPifaCandidate, analyze: bool, cores: int, ta
             "gain_total_min_dbi": GAIN_TARGET_DBI,
         },
         "height_constraint": f"PCB/topology height {total_height:.3f} mm <= {candidate.total_height_limit_mm:.3f} mm.",
-        "manufacturing_note": "Uses top copper plus PCB short/side walls that can be implemented with plated via walls or edge-plated slots; no separate L monopole arm is used.",
+        "manufacturing_note": "Uses top copper, etched current-path slots, and PCB short/side/open-edge walls that can be implemented with plated via walls or edge-plated slots; no separate L monopole arm is used.",
     }
     paths["params"].write_text(json.dumps(notes, indent=2, ensure_ascii=False), encoding="utf-8")
     builder.save_project_best_effort(hfss, "thick PIFA setup creation")
@@ -1545,24 +2182,29 @@ def write_report(summary_rows: list[dict[str, Any]], best: dict[str, Any]) -> No
     ]
     s11_best = min(summary_rows, key=lambda row: float_value(row, "s11_worst_db", 999.0))
     gain_best = max(summary_rows, key=lambda row: float_value(row, "best_270deg_gain_total_min_dbi", -999.0))
-    row_by_index = {str(row.get("candidate_index", "")): row for row in summary_rows}
-    highlight_rows = [
-        row_by_index[index]
-        for index in ("43", "51", "53", "58")
-        if index in row_by_index
-    ]
+    ranked_rows = sorted(summary_rows, key=rank_key, reverse=True)
+    highlight_rows: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for row in [best, s11_best, gain_best] + ranked_rows[:10]:
+        key = str(row.get("candidate_index", row.get("candidate", "")))
+        if key not in seen:
+            seen.add(key)
+            highlight_rows.append(row)
     refreshed_count = sum(1 for row in summary_rows if row.get("refresh_status") == "refreshed")
+    best_s11_gap = float_value(best, "s11_worst_db") - RETURN_TARGET_DB
+    s11_best_gain_gap = GAIN_TARGET_DBI - float_value(s11_best, "best_270deg_gain_total_min_dbi")
+    gain_best_s11_gap = float_value(gain_best, "s11_worst_db") - RETURN_TARGET_DB
     conclusion = (
         "本轮已找到双指标同时达标候选。"
         if both_pass_rows
-        else "本轮低成本厚板 PIFA/匹配岛扫描尚未找到 S11 与低仰角覆盖增益同时达标点。"
+        else "本轮低成本厚板 PIFA/边镀腔体电流路径扫描尚未找到 S11 与低仰角覆盖增益同时达标点。"
     )
     lines = [
         "# D44 厚板短路 PIFA 低成本优化复核报告",
         "",
         "## 目标口径",
         "",
-        f"- 结构方向：厚 PCB 顶层铜、短路 via wall/边镀墙、局部匹配岛；不使用独立 L 单极子金属臂。",
+        f"- 结构方向：厚 PCB 顶层铜、短路 via wall/边镀墙、开口槽、腔体边缘耦合与馈点联动；不使用独立 L 单极子金属臂。",
         f"- S11 目标：`S11 <= {RETURN_TARGET_DB:.1f} dB`。",
         f"- 增益目标：Theta `{THETA_MIN_DEG:.0f}..{THETA_MAX_DEG:.0f} deg`，最佳连续 `{AZIMUTH_WINDOW_DEG:.0f} deg` 方位窗口内 `GainTotal >= {GAIN_TARGET_DBI:.1f} dBi`。",
         "",
@@ -1571,14 +2213,17 @@ def write_report(summary_rows: list[dict[str, Any]], best: dict[str, Any]) -> No
         f"- 综合结论：{conclusion}",
         f"- 已复核候选：`{len(summary_rows)}` 个；S11 达标 `{s11_pass_count}` 个，增益达标 `{gain_pass_count}` 个，双指标同时达标 `{len(both_pass_rows)}` 个。",
         f"- 当前排序候选：`#{best.get('candidate_index', 'N/A')} {best['candidate']}`，S11 `{fmt(best['s11_worst_db'])} dB`，最佳 270° 窗口最小 GainTotal `{fmt(best['best_270deg_gain_total_min_dbi'])} dBi`，结果 `{pass_label(best)}`。",
+        f"- 当前排序候选距离 S11 目标仍差约 `{fmt(best_s11_gap)} dB`；说明高低仰角覆盖增益可以达标，但端口匹配仍是主瓶颈。",
         f"- S11 最优候选：`#{s11_best.get('candidate_index', 'N/A')} {s11_best['candidate']}`，S11 `{fmt(s11_best['s11_worst_db'])} dB`，最佳 270° 窗口最小 GainTotal `{fmt(s11_best['best_270deg_gain_total_min_dbi'])} dBi`。",
+        f"- S11 最优候选距离增益目标仍差约 `{fmt(s11_best_gain_gap)} dB`；说明低高度强短路腔体容易匹配，但低仰角辐射不足。",
         f"- 增益最优候选：`#{gain_best.get('candidate_index', 'N/A')} {gain_best['candidate']}`，最佳 270° 窗口最小 GainTotal `{fmt(gain_best['best_270deg_gain_total_min_dbi'])} dBi`，S11 `{fmt(gain_best['s11_worst_db'])} dB`。",
+        f"- 增益最优候选距离 S11 目标仍差约 `{fmt(gain_best_s11_gap)} dB`；说明继续单纯抬高/放宽口径会迅速牺牲匹配。",
         "",
         "## 数据复核",
         "",
         f"- 已从现有 native CSV 重新解析 `{refreshed_count}` 行，统一使用修正后的 Phi/Theta 轴判断。",
         "- 旧阶段部分行曾按 AEDT 导出标签直接读取，可能把 Phi/Theta 互换后的数据误判为低仰角覆盖；本报告以重新解析后的 CSV 为准。",
-        "- 新增阻抗诊断：8 mm 高增益底座约 `111 + j257 ohm`，4.5 mm 候选 43 约 `78.9 + j62.6 ohm`。",
+        "- 新增几何自由度覆盖：侧向 via wall/边镀墙起点、开路端耦合壁高度与长度、顶层中心槽、板边开口槽、开路端下翻 lip、馈点到短路墙距离。",
         "",
         "## 关键候选",
         "",
@@ -1595,8 +2240,9 @@ def write_report(summary_rows: list[dict[str, Any]], best: dict[str, Any]) -> No
             "## 工程判断",
             "",
             "- 8 mm PCB-only PIFA 能把最佳 270° 低仰角增益推到门限附近，但端口阻抗过高且强感性，L/C 匹配岛未能把 S11 拉进目标。",
-            "- 候选 43 的阻抗更容易匹配；候选 58 已把 S11 推到接近 `-10 dB`，但低仰角覆盖增益明显塌陷，说明纯匹配网络会改变有效辐射电流，不是最终解。",
-            "- 低成本方向仍应保留，但下一轮应优先改几何电流路径：边镀/过孔墙位置、开口槽、腔体边缘耦合与馈点位置联动，而不是继续只放大 L/C 匹配值。",
+            "- 3.5..4.5 mm 低高度族更容易满足或接近 S11，但最佳 270° 窗口增益明显低于目标，说明低仰角覆盖需要更强竖向/边缘电流。",
+            "- 7.2..8.0 mm 高度族能满足低仰角 270° 覆盖增益，但 S11 远离 `-10 dB`，说明当前同相位中心厚板 PIFA 存在明确的匹配/覆盖折中。",
+            "- 本轮新增几何路径仍保持低成本加工方式：顶层蚀刻槽、侧向 via wall 或边镀墙、开口端局部耦合壁，不引入独立折弯金属臂。",
             "",
             "## 输出文件",
             "",
