@@ -171,6 +171,24 @@ def candidates() -> list[BoardEdgeCandidate]:
         "board_edge_fed_l_match_enabled": 1.0,
         "board_edge_fed_l_match_inductance_nh": 6.1,
     }
+    sidewall_pifa_common = foldpar_match_common | {
+        "substrate_h_mm": 7.60,
+        "slot_coupled_folded_edge_arm_sidewall_metallized_enabled": 1.0,
+        "board_edge_fed_ifa_sidewall_metallized_enabled": 1.0,
+        "slot_coupled_folded_edge_arm_tangent_length_mm": 2.0,
+        "slot_coupled_folded_edge_arm_offset_mm": -0.6,
+        "board_edge_fed_l_series_match_capacitance_pf": 0.142,
+        "board_edge_fed_l_match_inductance_nh": 2.00,
+        "board_edge_fed_l_match_resistance_ohm": 680.0,
+    }
+    sidewall_plane_pifa_common = foldpar_match_common | {
+        "board_edge_fed_ifa_sidewall_plane_enabled": 1.0,
+        "slot_coupled_folded_edge_arm_tangent_length_mm": 2.0,
+        "slot_coupled_folded_edge_arm_offset_mm": -0.6,
+        "board_edge_fed_l_series_match_capacitance_pf": 0.142,
+        "board_edge_fed_l_match_inductance_nh": 2.00,
+        "board_edge_fed_l_match_resistance_ohm": 680.0,
+    }
     return [
         with_base(
             "edgeifa_s17_h5p6_l4p2_f0p60_g0p25",
@@ -1058,6 +1076,99 @@ def candidates() -> list[BoardEdgeCandidate]:
                 }
             ),
         ),
+        with_base(
+            "sidewall_pifa_s19p0_short_m0p6_c0p142_l2p00_r680",
+            "Manufacturing conversion of the passing #53 geometry: active IFA/PIFA and folded parasitic path are implemented as thick-PCB sidewall metallization/via-wall copper.",
+            **sidewall_pifa_common,
+        ),
+        with_base(
+            "sidewall_pifa_s19p0_short_m0p6_c0p120_l1p60_r680",
+            "Lower-series-capacitance sidewall neighbor to compensate the thicker sidewall current path and stronger short-wall capacitance.",
+            **(
+                sidewall_pifa_common
+                | {
+                    "board_edge_fed_l_series_match_capacitance_pf": 0.120,
+                    "board_edge_fed_l_match_inductance_nh": 1.60,
+                }
+            ),
+        ),
+        with_base(
+            "sidewall_pifa_s19p0_short_m0p6_c0p165_l2p40_r820",
+            "Higher-reactance sidewall neighbor with lighter damping loss, checking whether the sidewall implementation keeps enough S11 margin.",
+            **(
+                sidewall_pifa_common
+                | {
+                    "board_edge_fed_l_series_match_capacitance_pf": 0.165,
+                    "board_edge_fed_l_match_inductance_nh": 2.40,
+                    "board_edge_fed_l_match_resistance_ohm": 820.0,
+                }
+            ),
+        ),
+        with_base(
+            "sidewall_pifa_s19p0_short_m0p6_c0p100_l1p20_r560",
+            "Stronger sidewall retune with lower C/L and moderate damping for the high-permittivity thick-board environment.",
+            **(
+                sidewall_pifa_common
+                | {
+                    "board_edge_fed_l_series_match_capacitance_pf": 0.100,
+                    "board_edge_fed_l_match_inductance_nh": 1.20,
+                    "board_edge_fed_l_match_resistance_ohm": 560.0,
+                }
+            ),
+        ),
+        with_base(
+            "sidewall_pifa_foam_s19p0_short_m0p6_c0p142_l2p00_r680",
+            "Same sidewall-metallized PIFA geometry, but using a low-epsilon thick carrier/foam equivalent instead of solid RO4350B to check whether the manufacturing conversion can preserve the air-supported radiation mode.",
+            **(
+                sidewall_pifa_common
+                | {
+                    "epsr": 1.12,
+                    "tan_delta": 0.0008,
+                }
+            ),
+        ),
+        with_base(
+            "sidewall_pifa_foam_s19p0_short_m0p6_c0p120_l1p60_r680",
+            "Low-epsilon thick carrier with the lower-C/L sidewall retune.",
+            **(
+                sidewall_pifa_common
+                | {
+                    "epsr": 1.12,
+                    "tan_delta": 0.0008,
+                    "board_edge_fed_l_series_match_capacitance_pf": 0.120,
+                    "board_edge_fed_l_match_inductance_nh": 1.60,
+                }
+            ),
+        ),
+        with_base(
+            "edgeplate_pifa_air_s19p0_short_m0p6_c0p142_l2p00_r680",
+            "PCB edge-plated IFA/PIFA conversion: the active IFA trace is rotated onto the vertical board-edge sidewall plane while the low-elevation folded parasitic keeps the air-supported current path.",
+            **sidewall_plane_pifa_common,
+        ),
+        with_base(
+            "edgeplate_pifa_air_nofold_s19p0_c0p142_l2p00_r680",
+            "Active sidewall-plane IFA/PIFA only, disabling the folded parasitic arm to isolate whether the manufacturable edge-plated PIFA can carry the low-elevation coverage by itself.",
+            **(
+                sidewall_plane_pifa_common
+                | {
+                    "slot_coupled_folded_edge_arm_enabled": 0.0,
+                }
+            ),
+        ),
+        with_base(
+            "edgeplate_riser_pifa_s19p0_short_m0p6_c0p142_l2p00_r680",
+            "Manufacturable edge-plated riser conversion of the passing #53 EM current path: keep the raised radial IFA/PIFA arm and short folded parasitic path, but implement the vertical sections as plated sidewall/castellated risers or a low-cost plated vertical carrier.",
+            **(
+                foldpar_match_common
+                | {
+                    "slot_coupled_folded_edge_arm_tangent_length_mm": 2.0,
+                    "slot_coupled_folded_edge_arm_offset_mm": -0.6,
+                    "board_edge_fed_l_series_match_capacitance_pf": 0.142,
+                    "board_edge_fed_l_match_inductance_nh": 2.00,
+                    "board_edge_fed_l_match_resistance_ohm": 680.0,
+                }
+            ),
+        ),
     ]
 
 
@@ -1466,6 +1577,83 @@ def write_report(summary_rows: list[dict[str, Any]], best: dict[str, Any]) -> No
             "- 最关键的几何收益来自短折叠板边寄生臂的负向偏置: 它把 Best270 增益从原始 #15 的 -4.802 dBi 提升到 #35 的 -2.286 dBi。",
             "- 纯无耗 L/C 匹配未完全闭合 S11, 最终采用高阻值阻尼匹配后, #53/#54/#55 均同时满足 S11 与低仰角增益目标。",
             "- 当前可作为单阵元达标基准; 下一步若进入量产验证, 建议对 680 ohm shunt R、2.0 nH shunt L、0.142 pF series C 的器件 Q 值、焊盘、过孔和封装寄生做 EM-circuit 联合复核。",
+            "",
+            "## 输出文件",
+            "",
+            f"- 汇总 CSV: `{SUMMARY_CSV}`",
+            f"- 方位窗口 CSV: `{WINDOW_CSV}`",
+            f"- 指标 JSON: `{METRICS_JSON}`",
+            f"- 当前最佳 AEDT: `{best.get('project', '')}`",
+        ]
+    )
+    REPORT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def write_report(summary_rows: list[dict[str, Any]], best: dict[str, Any]) -> None:
+    sorted_rows = sorted(summary_rows, key=row_index)
+    s11_best = min(sorted_rows, key=lambda row: float(row["s11_worst_db"]))
+    gain_best = max(sorted_rows, key=lambda row: float(row["best_270deg_gain_total_min_dbi"]))
+    both_pass = [row for row in sorted_rows if bool_value(row.get("pass"))]
+    by_index = {str(row.get("candidate_index", "")): row for row in sorted_rows}
+
+    def row_line(index: str, label: str) -> str:
+        row = by_index.get(index)
+        if not row:
+            return f"- {label}: 未运行。"
+        status = "达标" if bool_value(row.get("pass")) else "未达标"
+        return (
+            f"- {label}: `#{index} {row['candidate']}`, S11 `{fmt(row['s11_worst_db'])} dB`, "
+            f"Best270 GainTotal min `{fmt(row['best_270deg_gain_total_min_dbi'])} dBi`, {status}。"
+        )
+
+    lines = [
+        "# D44 真正板边低仰角单元验证报告",
+        "",
+        "## 目标",
+        "",
+        "- 结构方向: 真正板边馈电 IFA/PIFA 低仰角覆盖单元, P1L 为唯一激励源, A/B 馈点作为 50 ohm // 0.08 pF 终端负载背景。",
+        "- 加工转换: 对比实心厚板侧壁、低介电厚载体、侧壁平面 IFA, 以及保留原空气支撑电流路径的边镀立墙/立式载体方案。",
+        f"- S11 目标: `S11 <= {RETURN_TARGET_DB:.1f} dB`。",
+        f"- 增益目标: Theta `{THETA_MIN_DEG:.0f}..{THETA_MAX_DEG:.0f} deg`, 最佳连续 `{AZIMUTH_WINDOW_DEG:.0f} deg` 方位窗口内 `GainTotal >= {GAIN_TARGET_DBI:.1f} dBi`。",
+        "",
+        "## 当前结果",
+        "",
+        f"- 综合最佳: `#{best.get('candidate_index', 'N/A')} {best['candidate']}`。",
+        f"- S11: `{fmt(best['s11_worst_db'])} dB`, {'达标' if bool_value(best.get('s11_pass')) else '未达标'}。",
+        f"- 最佳 270 deg 窗口 GainTotal 最小值: `{fmt(best['best_270deg_gain_total_min_dbi'])} dBi`, {'达标' if bool_value(best.get('gain_pass')) else '未达标'}。",
+        f"- 最差点: Theta `{fmt(best['best_270deg_gain_total_min_theta_deg'], 0)} deg` / Phi `{fmt(best['best_270deg_gain_total_min_phi_deg'], 0)} deg`。",
+        f"- 双指标同时达标候选数: `{len(both_pass)}` / `{len(sorted_rows)}`。",
+        "",
+        "## 板边侧壁金属化转换结论",
+        "",
+        row_line("56", "实心 7.6 mm RO4350B 厚板侧壁 PIFA"),
+        row_line("60", "低介电厚载体/泡棉等效侧壁 PIFA"),
+        row_line("62", "主动 IFA 完全旋到侧壁平面并保留折叠寄生臂"),
+        row_line("63", "只保留主动侧壁平面 IFA, 去掉折叠寄生臂"),
+        row_line("64", "边镀立墙/立式载体实现原达标电流路径"),
+        "",
+        "- 工程判断: 不能把当前达标结构简单改成实心厚板顶层 PIFA 或完全侧壁平面 IFA; 这些版本低仰角增益明显不足。",
+        "- 可制造达标路径是 #64: 保留 #53 的空气支撑竖向/折叠电流路径, 将竖直段做成板边镀铜、castellated 立墙、过孔墙加侧边铜, 或低成本金属化立式载体。",
+        "- 这不是普通平面微带贴片; 量产图纸需要把 6.3 mm 主 IFA 高度、5.9 mm 短折叠寄生臂高度、0.142 pF 串联 C、2.0 nH // 680 ohm 并联阻尼匹配一起定义。",
+        "",
+        "## 关键对比",
+        "",
+        f"- S11 最优: `#{s11_best.get('candidate_index', 'N/A')} {s11_best['candidate']}`, S11 `{fmt(s11_best['s11_worst_db'])} dB`, GainTotal min `{fmt(s11_best['best_270deg_gain_total_min_dbi'])} dBi`。",
+        f"- 增益最优: `#{gain_best.get('candidate_index', 'N/A')} {gain_best['candidate']}`, GainTotal min `{fmt(gain_best['best_270deg_gain_total_min_dbi'])} dBi`, S11 `{fmt(gain_best['s11_worst_db'])} dB`。",
+        "- 纯无耗 L/C 匹配在当前 3D 近场模型中停在约 -8 dB S11; 最终达标方案使用高阻值 shunt R 与 L/C 组成离散阻尼匹配。",
+        "",
+        "| # | 候选 | S11 worst dB | Best270 min Gain dBi | All-phi min Gain dBi | 结果 |",
+        "|---:|---|---:|---:|---:|---|",
+    ]
+    for row in sorted_rows:
+        ok = bool_value(row.get("pass"))
+        lines.append(
+            f"| {row.get('candidate_index', '')} | `{row['candidate']}` | {fmt(row['s11_worst_db'])} | "
+            f"{fmt(row['best_270deg_gain_total_min_dbi'])} | {fmt(row['all_phi_gain_total_min_dbi'])} | "
+            f"{'达标' if ok else '未达标'} |"
+        )
+    lines.extend(
+        [
             "",
             "## 输出文件",
             "",

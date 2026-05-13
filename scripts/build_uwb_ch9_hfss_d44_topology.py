@@ -256,6 +256,7 @@ BASE_PARAMS = {
     "slot_coupled_folded_edge_arm_offset_mm": 0.0,
     "slot_coupled_folded_edge_arm_gap_mm": 0.0,
     "slot_coupled_folded_edge_arm_turn_sign": 1.0,
+    "slot_coupled_folded_edge_arm_sidewall_metallized_enabled": 0.0,
     "board_edge_fed_monopole_enabled": 0.0,
     "board_edge_fed_monopole_height_mm": 4.8,
     "board_edge_fed_monopole_width_mm": 0.24,
@@ -269,6 +270,8 @@ BASE_PARAMS = {
     "board_edge_fed_ifa_gap_mm": 0.60,
     "board_edge_fed_ifa_feed_offset_mm": 0.70,
     "board_edge_fed_ifa_offset_mm": 0.0,
+    "board_edge_fed_ifa_sidewall_metallized_enabled": 0.0,
+    "board_edge_fed_ifa_sidewall_plane_enabled": 0.0,
     "board_edge_fed_l_match_enabled": 0.0,
     "board_edge_fed_l_match_stub_length_mm": 0.0,
     "board_edge_fed_l_match_stub_width_mm": 0.18,
@@ -1137,7 +1140,9 @@ def add_slotcoupled_edge_radiators(hfss: Hfss, tag: str, center: tuple[float, fl
         offset = params.get("slot_coupled_folded_edge_arm_offset_mm", 0.0)
         gap = params.get("slot_coupled_folded_edge_arm_gap_mm", 0.0)
         turn_sign = 1.0 if params.get("slot_coupled_folded_edge_arm_turn_sign", 1.0) >= 0.0 else -1.0
-        top_z = h + height
+        sidewall_metallized = params.get("slot_coupled_folded_edge_arm_sidewall_metallized_enabled", 0.0) >= 0.5
+        top_z = h if sidewall_metallized else h + height
+        riser_bottom_z = max(0.0, top_z - height) if sidewall_metallized else h
         overlap = 0.06 if gap <= 1e-9 else 0.0
         start = side * (edge + gap - overlap)
         elbow = side * (edge + gap + radial_len)
@@ -1149,8 +1154,8 @@ def add_slotcoupled_edge_radiators(hfss: Hfss, tag: str, center: tuple[float, fl
         elbow0, elbow1 = sorted([elbow - side * width / 2.0, elbow + side * width / 2.0])
         if axis == "u":
             riser_pts = [
-                local_to_global(*center, angle_deg, start, cross0, h),
-                local_to_global(*center, angle_deg, start, cross1, h),
+                local_to_global(*center, angle_deg, start, cross0, riser_bottom_z),
+                local_to_global(*center, angle_deg, start, cross1, riser_bottom_z),
                 local_to_global(*center, angle_deg, start, cross1, top_z),
                 local_to_global(*center, angle_deg, start, cross0, top_z),
             ]
@@ -1158,8 +1163,8 @@ def add_slotcoupled_edge_radiators(hfss: Hfss, tag: str, center: tuple[float, fl
             tangent_pts = rectangle_points(*center, angle_deg, elbow0, elbow1, tan0, tan1, top_z)
         else:
             riser_pts = [
-                local_to_global(*center, angle_deg, cross0, start, h),
-                local_to_global(*center, angle_deg, cross1, start, h),
+                local_to_global(*center, angle_deg, cross0, start, riser_bottom_z),
+                local_to_global(*center, angle_deg, cross1, start, riser_bottom_z),
                 local_to_global(*center, angle_deg, cross1, start, top_z),
                 local_to_global(*center, angle_deg, cross0, start, top_z),
             ]
@@ -1485,12 +1490,52 @@ def add_board_edge_fed_low_elevation_unit(
         gap = params.get("board_edge_fed_ifa_gap_mm", 0.60)
         feed_offset = params.get("board_edge_fed_ifa_feed_offset_mm", 0.70)
         offset = params.get("board_edge_fed_ifa_offset_mm", 0.0)
+        sidewall_metallized = params.get("board_edge_fed_ifa_sidewall_metallized_enabled", 0.0) >= 0.5
+        sidewall_plane = params.get("board_edge_fed_ifa_sidewall_plane_enabled", 0.0) >= 0.5
         start = edge + gap
         stop = start + length
         feed_radial = start + feed_offset
-        top_z = h + height
+        top_z = h if (sidewall_metallized and not sidewall_plane) else h + height
         radial0, radial1 = sorted([side * start, side * stop])
         cross0, cross1 = offset - width / 2.0, offset + width / 2.0
+        if sidewall_plane:
+            wall_radial = stop
+            tan_start = offset - length / 2.0
+            tan_stop = offset + length / 2.0
+            feed_tangent = tan_start + feed_offset
+            short0, short1 = tan_start, tan_start + width
+            if axis == "u":
+                top_pts = [
+                    local_to_global(*center, angle_deg, side * wall_radial, tan_start, top_z - width),
+                    local_to_global(*center, angle_deg, side * wall_radial, tan_stop, top_z - width),
+                    local_to_global(*center, angle_deg, side * wall_radial, tan_stop, top_z),
+                    local_to_global(*center, angle_deg, side * wall_radial, tan_start, top_z),
+                ]
+                short_pts = [
+                    local_to_global(*center, angle_deg, side * wall_radial, short0, 0.0),
+                    local_to_global(*center, angle_deg, side * wall_radial, short1, 0.0),
+                    local_to_global(*center, angle_deg, side * wall_radial, short1, top_z),
+                    local_to_global(*center, angle_deg, side * wall_radial, short0, top_z),
+                ]
+            else:
+                top_pts = [
+                    local_to_global(*center, angle_deg, tan_start, side * wall_radial, top_z - width),
+                    local_to_global(*center, angle_deg, tan_stop, side * wall_radial, top_z - width),
+                    local_to_global(*center, angle_deg, tan_stop, side * wall_radial, top_z),
+                    local_to_global(*center, angle_deg, tan_start, side * wall_radial, top_z),
+                ]
+                short_pts = [
+                    local_to_global(*center, angle_deg, short0, side * wall_radial, 0.0),
+                    local_to_global(*center, angle_deg, short1, side * wall_radial, 0.0),
+                    local_to_global(*center, angle_deg, short1, side * wall_radial, top_z),
+                    local_to_global(*center, angle_deg, short0, side * wall_radial, top_z),
+                ]
+            top_arm = polygon_sheet(hfss, f"{tag}_board_edge_fed_ifa_sidewall_top_arm", top_pts, "copper")
+            short_wall = polygon_sheet(hfss, f"{tag}_board_edge_fed_ifa_sidewall_short_wall", short_pts, "copper")
+            metals.extend([top_arm.name, short_wall.name])
+            add_port(wall_radial, feed_tangent, top_z)
+            return metals
+
         if axis == "u":
             top_pts = rectangle_points(*center, angle_deg, radial0, radial1, cross0, cross1, top_z)
             short_pts = [
@@ -2045,20 +2090,29 @@ def validate_params(params: dict) -> None:
             params["substrate_h_mm"] + params.get("slot_coupled_board_edge_ifa_height_mm", 3.8) + params["copper_t_mm"],
         )
     if params.get("slot_coupled_folded_edge_arm_enabled", 0.0) >= 0.5:
-        top_height = max(
-            top_height,
-            params["substrate_h_mm"] + params.get("slot_coupled_folded_edge_arm_height_mm", 5.2) + params["copper_t_mm"],
-        )
+        if params.get("slot_coupled_folded_edge_arm_sidewall_metallized_enabled", 0.0) >= 0.5:
+            top_height = max(top_height, params["substrate_h_mm"] + params["copper_t_mm"])
+        else:
+            top_height = max(
+                top_height,
+                params["substrate_h_mm"] + params.get("slot_coupled_folded_edge_arm_height_mm", 5.2) + params["copper_t_mm"],
+            )
     if params.get("board_edge_fed_monopole_enabled", 0.0) >= 0.5:
         top_height = max(
             top_height,
             params["substrate_h_mm"] + params.get("board_edge_fed_monopole_height_mm", 4.8) + params["copper_t_mm"],
         )
     if params.get("board_edge_fed_ifa_enabled", 0.0) >= 0.5:
-        top_height = max(
-            top_height,
-            params["substrate_h_mm"] + params.get("board_edge_fed_ifa_height_mm", 5.2) + params["copper_t_mm"],
-        )
+        if (
+            params.get("board_edge_fed_ifa_sidewall_metallized_enabled", 0.0) >= 0.5
+            and params.get("board_edge_fed_ifa_sidewall_plane_enabled", 0.0) < 0.5
+        ):
+            top_height = max(top_height, params["substrate_h_mm"] + params["copper_t_mm"])
+        else:
+            top_height = max(
+                top_height,
+                params["substrate_h_mm"] + params.get("board_edge_fed_ifa_height_mm", 5.2) + params["copper_t_mm"],
+            )
     if top_height > params["total_height_limit_mm"]:
         raise ValueError(f"Total height {top_height:.3f} mm exceeds {params['total_height_limit_mm']:.3f} mm")
     if params["ground_radius_mm"] > params["board_diameter_mm"] / 2.0:
@@ -2136,6 +2190,7 @@ def validate_params(params: dict) -> None:
         folded_h = params.get("slot_coupled_folded_edge_arm_height_mm", 5.2)
         folded_offset = params.get("slot_coupled_folded_edge_arm_offset_mm", 0.0)
         folded_gap = params.get("slot_coupled_folded_edge_arm_gap_mm", 0.0)
+        folded_sidewall = params.get("slot_coupled_folded_edge_arm_sidewall_metallized_enabled", 0.0) >= 0.5
         ab_cancel_enabled = params.get("slot_coupled_ab_cancel_enabled", 0.0) >= 0.5
         ab_cancel_l = params.get("slot_coupled_ab_cancel_coupling_length_mm", 1.60)
         ab_cancel_w = params.get("slot_coupled_ab_cancel_trace_width_mm", 0.12)
@@ -2261,7 +2316,9 @@ def validate_params(params: dict) -> None:
                 raise ValueError("Folded edge arm height must be positive")
             if folded_gap < 0.0:
                 raise ValueError("Folded edge arm gap must be non-negative")
-            if params["substrate_h_mm"] + folded_h + params["copper_t_mm"] > params["total_height_limit_mm"]:
+            if folded_sidewall and params["substrate_h_mm"] < max(4.0, folded_h):
+                raise ValueError("Sidewall-metallized folded edge arm needs enough PCB thickness for the requested current path")
+            if (not folded_sidewall) and params["substrate_h_mm"] + folded_h + params["copper_t_mm"] > params["total_height_limit_mm"]:
                 raise ValueError("Folded edge arm exceeds the total height limit")
             if abs(folded_offset) + folded_w / 2.0 > half_patch - 0.35:
                 raise ValueError("Folded edge arm riser must attach within the patch edge span")
@@ -2271,6 +2328,8 @@ def validate_params(params: dict) -> None:
                 raise ValueError("Folded edge arm radial section must stay inside the circular board outline")
         monopole_enabled = params.get("board_edge_fed_monopole_enabled", 0.0) >= 0.5
         fed_ifa_enabled = params.get("board_edge_fed_ifa_enabled", 0.0) >= 0.5
+        fed_ifa_sidewall = params.get("board_edge_fed_ifa_sidewall_metallized_enabled", 0.0) >= 0.5
+        fed_ifa_sidewall_plane = params.get("board_edge_fed_ifa_sidewall_plane_enabled", 0.0) >= 0.5
         l_match_enabled = params.get("board_edge_fed_l_match_enabled", 0.0) >= 0.5
         l_match_stub_l = params.get("board_edge_fed_l_match_stub_length_mm", 0.0)
         l_match_stub_w = params.get("board_edge_fed_l_match_stub_width_mm", 0.18)
@@ -2351,10 +2410,14 @@ def validate_params(params: dict) -> None:
                 raise ValueError("Board-edge-fed IFA dimensions must be positive and manufacturable")
             if fed_ifa_feed <= 0.10 or fed_ifa_feed >= fed_ifa_l - 0.10:
                 raise ValueError("Board-edge-fed IFA feed tap must sit between the short and open end")
-            if params["substrate_h_mm"] + fed_ifa_h + params["copper_t_mm"] > params["total_height_limit_mm"]:
+            if fed_ifa_sidewall and not fed_ifa_sidewall_plane and params["substrate_h_mm"] < max(4.0, fed_ifa_h):
+                raise ValueError("Sidewall-metallized board-edge-fed IFA needs enough PCB thickness for the requested current path")
+            if (not fed_ifa_sidewall or fed_ifa_sidewall_plane) and params["substrate_h_mm"] + fed_ifa_h + params["copper_t_mm"] > params["total_height_limit_mm"]:
                 raise ValueError("Board-edge-fed IFA exceeds the total height limit")
             if abs(fed_ifa_offset) + fed_ifa_w / 2.0 > half_patch - 0.20:
                 raise ValueError("Board-edge-fed IFA must stay near the element-side span")
+            if fed_ifa_sidewall_plane and abs(fed_ifa_offset) + fed_ifa_l / 2.0 > half_patch - 0.20:
+                raise ValueError("Sidewall-plane board-edge-fed IFA tangent trace must stay near the element-side span")
             if center_radius + half_patch + fed_ifa_gap + fed_ifa_l > board_radius - 0.20:
                 raise ValueError("Board-edge-fed IFA must stay inside the circular board outline")
             l_feature_span = (l_match_stub_l if l_match_enabled else 0.0) + (l_feed_neck_l if (l_feed_neck_enabled or l_series_enabled) else 0.0)
@@ -2881,20 +2944,29 @@ def build_project(
             params["substrate_h_mm"] + params.get("slot_coupled_board_edge_ifa_height_mm", 3.8) + params["copper_t_mm"],
         )
     if params.get("slot_coupled_folded_edge_arm_enabled", 0.0) >= 0.5:
-        total_height = max(
-            total_height,
-            params["substrate_h_mm"] + params.get("slot_coupled_folded_edge_arm_height_mm", 5.2) + params["copper_t_mm"],
-        )
+        if params.get("slot_coupled_folded_edge_arm_sidewall_metallized_enabled", 0.0) >= 0.5:
+            total_height = max(total_height, params["substrate_h_mm"] + params["copper_t_mm"])
+        else:
+            total_height = max(
+                total_height,
+                params["substrate_h_mm"] + params.get("slot_coupled_folded_edge_arm_height_mm", 5.2) + params["copper_t_mm"],
+            )
     if params.get("board_edge_fed_monopole_enabled", 0.0) >= 0.5:
         total_height = max(
             total_height,
             params["substrate_h_mm"] + params.get("board_edge_fed_monopole_height_mm", 4.8) + params["copper_t_mm"],
         )
     if params.get("board_edge_fed_ifa_enabled", 0.0) >= 0.5:
-        total_height = max(
-            total_height,
-            params["substrate_h_mm"] + params.get("board_edge_fed_ifa_height_mm", 5.2) + params["copper_t_mm"],
-        )
+        if (
+            params.get("board_edge_fed_ifa_sidewall_metallized_enabled", 0.0) >= 0.5
+            and params.get("board_edge_fed_ifa_sidewall_plane_enabled", 0.0) < 0.5
+        ):
+            total_height = max(total_height, params["substrate_h_mm"] + params["copper_t_mm"])
+        else:
+            total_height = max(
+                total_height,
+                params["substrate_h_mm"] + params.get("board_edge_fed_ifa_height_mm", 5.2) + params["copper_t_mm"],
+            )
     notes = {
         "project": str(paths["project"]),
         "design": hfss.design_name,
@@ -2956,10 +3028,16 @@ def source_guidance(topology: str) -> list[str]:
             guidance.append("A parasitic board-edge IFA is enabled to add a dedicated low-elevation current path near the PCB rim.")
         if params.get("slot_coupled_folded_edge_arm_enabled", 0.0) >= 0.5:
             guidance.append("A raised folded edge arm is enabled; the candidate intentionally spends height to improve horizontal-plane coverage.")
+        if params.get("slot_coupled_folded_edge_arm_sidewall_metallized_enabled", 0.0) >= 0.5:
+            guidance.append("The folded low-elevation current path is converted to a PCB sidewall-metallized/via-wall implementation on the thick board.")
         if params.get("board_edge_fed_monopole_enabled", 0.0) >= 0.5:
             guidance.append("Independent board-edge-fed monopole ports P1L-P4L are enabled as selectable low-elevation coverage elements.")
         if params.get("board_edge_fed_ifa_enabled", 0.0) >= 0.5:
             guidance.append("Independent board-edge-fed IFA ports P1L-P4L are enabled as selectable low-elevation coverage elements.")
+        if params.get("board_edge_fed_ifa_sidewall_metallized_enabled", 0.0) >= 0.5:
+            guidance.append("The active L-port IFA/PIFA is implemented as a top-edge trace with a sidewall/via-wall short on the thick PCB.")
+        if params.get("board_edge_fed_ifa_sidewall_plane_enabled", 0.0) >= 0.5:
+            guidance.append("The active L-port IFA/PIFA trace is rotated onto the PCB edge sidewall plane while preserving an air-supported low-elevation current path.")
         if params.get("board_edge_fed_l_match_enabled", 0.0) >= 0.5:
             guidance.append("A dedicated shunt matching stub is enabled on each low-elevation L port and must be co-optimized with coverage loss.")
         if params.get("board_edge_fed_l_series_match_enabled", 0.0) >= 0.5:

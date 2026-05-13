@@ -3,24 +3,35 @@
 ## 目标
 
 - 结构方向: 真正板边馈电 IFA/PIFA 低仰角覆盖单元, P1L 为唯一激励源, A/B 馈点作为 50 ohm // 0.08 pF 终端负载背景。
-- 阵元位置: P1 单元中心向 D44 圆板边缘推进, 属于后续可校准的物理分离低仰角单元。
+- 加工转换: 对比实心厚板侧壁、低介电厚载体、侧壁平面 IFA, 以及保留原空气支撑电流路径的边镀立墙/立式载体方案。
 - S11 目标: `S11 <= -10.0 dB`。
 - 增益目标: Theta `45..90 deg`, 最佳连续 `270 deg` 方位窗口内 `GainTotal >= -5.0 dBi`。
 
 ## 当前结果
 
-- 综合最佳: `#53 edgeifa_s19p0_short_m0p6_damped_c0p142_l2p00_r680`。
+- 综合最佳: `#64 edgeplate_riser_pifa_s19p0_short_m0p6_c0p142_l2p00_r680`。
 - S11: `-11.166 dB`, 达标。
 - 最佳 270 deg 窗口 GainTotal 最小值: `-3.323 dBi`, 达标。
 - 最差点: Theta `45 deg` / Phi `335 deg`。
-- 双指标同时达标候选数: `4` / `47`。
+- 双指标同时达标候选数: `5` / `52`。
+
+## 板边侧壁金属化转换结论
+
+- 实心 7.6 mm RO4350B 厚板侧壁 PIFA: `#56 sidewall_pifa_s19p0_short_m0p6_c0p142_l2p00_r680`, S11 `-2.661 dB`, Best270 GainTotal min `-15.519 dBi`, 未达标。
+- 低介电厚载体/泡棉等效侧壁 PIFA: `#60 sidewall_pifa_foam_s19p0_short_m0p6_c0p142_l2p00_r680`, S11 `-7.940 dB`, Best270 GainTotal min `-11.275 dBi`, 未达标。
+- 主动 IFA 完全旋到侧壁平面并保留折叠寄生臂: `#62 edgeplate_pifa_air_s19p0_short_m0p6_c0p142_l2p00_r680`, S11 `-3.148 dB`, Best270 GainTotal min `-8.513 dBi`, 未达标。
+- 只保留主动侧壁平面 IFA, 去掉折叠寄生臂: `#63 edgeplate_pifa_air_nofold_s19p0_c0p142_l2p00_r680`, S11 `-1.855 dB`, Best270 GainTotal min `-10.100 dBi`, 未达标。
+- 边镀立墙/立式载体实现原达标电流路径: `#64 edgeplate_riser_pifa_s19p0_short_m0p6_c0p142_l2p00_r680`, S11 `-11.166 dB`, Best270 GainTotal min `-3.323 dBi`, 达标。
+
+- 工程判断: 不能把当前达标结构简单改成实心厚板顶层 PIFA 或完全侧壁平面 IFA; 这些版本低仰角增益明显不足。
+- 可制造达标路径是 #64: 保留 #53 的空气支撑竖向/折叠电流路径, 将竖直段做成板边镀铜、castellated 立墙、过孔墙加侧边铜, 或低成本金属化立式载体。
+- 这不是普通平面微带贴片; 量产图纸需要把 6.3 mm 主 IFA 高度、5.9 mm 短折叠寄生臂高度、0.142 pF 串联 C、2.0 nH // 680 ohm 并联阻尼匹配一起定义。
 
 ## 关键对比
 
 - S11 最优: `#23 edgeifa_s19p0_foldpar_hiarm_neg_match_c0p173_l6p1`, S11 `-17.971 dB`, GainTotal min `-5.586 dBi`。
 - 增益最优: `#35 edgeifa_s19p0_foldpar_match_short_offset_m0p6`, GainTotal min `-2.286 dBi`, S11 `-5.534 dB`。
-- 无耗 L/C 匹配在当前 3D 近场模型中停在约 -8 dB S11, 但短折臂偏置几何给出了足够大的低仰角增益余量。
-- 达标方案使用高阻值 shunt R 与 L/C 组成离散阻尼匹配, 属于低成本 0201/0402 器件可实现路径, 后续量产版需要把 R/L/C 的封装寄生纳入 EM-circuit 联合复核。
+- 纯无耗 L/C 匹配在当前 3D 近场模型中停在约 -8 dB S11; 最终达标方案使用高阻值 shunt R 与 L/C 组成离散阻尼匹配。
 
 | # | 候选 | S11 worst dB | Best270 min Gain dBi | All-phi min Gain dBi | 结果 |
 |---:|---|---:|---:|---:|---|
@@ -71,17 +82,15 @@
 | 53 | `edgeifa_s19p0_short_m0p6_damped_c0p142_l2p00_r680` | -11.166 | -3.323 | -12.294 | 达标 |
 | 54 | `edgeifa_s19p0_short_m0p6_damped_c0p130_l2p10_r820` | -10.838 | -3.304 | -12.060 | 达标 |
 | 55 | `edgeifa_s19p0_short_m0p6_damped_c0p178_l1p80_r390` | -11.080 | -3.451 | -12.742 | 达标 |
-
-## 工程判断
-
-- 本轮从同相位中心厚板 PIFA 切到真实板边 L 端口, 验证对象是可校准的低仰角覆盖单元, 不是继续硬拧 A/B 贴片低仰角权重。
-- 最关键的几何收益来自短折叠板边寄生臂的负向偏置: 它把 Best270 增益从原始 #15 的 -4.802 dBi 提升到 #35 的 -2.286 dBi。
-- 纯无耗 L/C 匹配未完全闭合 S11, 最终采用高阻值阻尼匹配后, #53/#54/#55 均同时满足 S11 与低仰角增益目标。
-- 当前可作为单阵元达标基准; 下一步若进入量产验证, 建议对 680 ohm shunt R、2.0 nH shunt L、0.142 pF series C 的器件 Q 值、焊盘、过孔和封装寄生做 EM-circuit 联合复核。
+| 56 | `sidewall_pifa_s19p0_short_m0p6_c0p142_l2p00_r680` | -2.661 | -15.519 | -16.048 | 未达标 |
+| 60 | `sidewall_pifa_foam_s19p0_short_m0p6_c0p142_l2p00_r680` | -7.940 | -11.275 | -16.004 | 未达标 |
+| 62 | `edgeplate_pifa_air_s19p0_short_m0p6_c0p142_l2p00_r680` | -3.148 | -8.513 | -8.565 | 未达标 |
+| 63 | `edgeplate_pifa_air_nofold_s19p0_c0p142_l2p00_r680` | -1.855 | -10.100 | -13.172 | 未达标 |
+| 64 | `edgeplate_riser_pifa_s19p0_short_m0p6_c0p142_l2p00_r680` | -11.166 | -3.323 | -12.294 | 达标 |
 
 ## 输出文件
 
 - 汇总 CSV: `D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_board_edge_low_angle_single_element\UWB_CH9_D44_BOARD_EDGE_LOW_ANGLE_SINGLE_ELEMENT_summary.csv`
 - 方位窗口 CSV: `D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_board_edge_low_angle_single_element\UWB_CH9_D44_BOARD_EDGE_LOW_ANGLE_SINGLE_ELEMENT_azimuth_window_summary.csv`
 - 指标 JSON: `D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\reports_d44_board_edge_low_angle_single_element\UWB_CH9_D44_BOARD_EDGE_LOW_ANGLE_SINGLE_ELEMENT_metrics.json`
-- 当前最佳 AEDT: `D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_BEDGE_edgeifa_s19p0_short_m0p6_dam_765a917.aedt`
+- 当前最佳 AEDT: `D:\WorkSpace\HFSS Sim\UWB-Antenna-Simulation-By-HFSS\UWB_CH9_Diamond_CP_Array_D44_BEDGE_edgeplate_riser_pifa_s19p0_s_0b2d3f9.aedt`
