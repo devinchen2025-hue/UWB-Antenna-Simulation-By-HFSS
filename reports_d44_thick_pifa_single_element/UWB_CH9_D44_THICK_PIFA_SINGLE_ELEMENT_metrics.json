@@ -68,7 +68,10 @@
     "top_slot_v_offset_mm": "0.0",
     "edge_slot_start_from_short_mm": "8.0",
     "edge_slot_length_mm": "4.2",
-    "edge_slot_depth_mm": "1.05"
+    "edge_slot_depth_mm": "1.05",
+    "substrate_stackup": "",
+    "substrate_layers": "",
+    "substrate_stackup_label": ""
   },
   "summary_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_summary.csv",
   "window_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_azimuth_window_summary.csv",
@@ -134,7 +137,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l9p6_w8p2_feed1p45",
@@ -196,7 +202,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p8_l8p6_w8p0_feed1p20",
@@ -258,7 +267,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h4p5_l10p4_w8p6_feed1p65",
@@ -320,7 +332,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w9p6_feed1p10_wide",
@@ -382,7 +397,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_feed1p25_lip0p8",
@@ -444,7 +462,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_feed2p20",
@@ -506,7 +527,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_feed3p00",
@@ -568,7 +592,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_feed3p80",
@@ -630,7 +657,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l9p6_w8p2_feed3p20",
@@ -692,7 +722,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_feed3p80_c0p093_l0p64",
@@ -754,7 +787,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_feed3p80_c0p085_l0p70",
@@ -816,7 +852,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_feed3p80_c0p105_l0p58",
@@ -878,7 +917,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_feed3p80_c0p45_l0p24",
@@ -940,7 +982,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_feed3p80_c0p65_l0p20",
@@ -1002,7 +1047,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_feed3p80_c0p90_l0p16",
@@ -1064,7 +1112,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_feed5p50",
@@ -1126,7 +1177,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_feed7p00",
@@ -1188,7 +1242,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_feed8p00",
@@ -1250,7 +1307,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l10p4_w8p6_feed8p80",
@@ -1312,7 +1372,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p8_l8p6_w8p0_feed7p80",
@@ -1374,7 +1437,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_feed8p40",
@@ -1436,7 +1502,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_sw4p0_fence6p0_feed8p40",
@@ -1498,7 +1567,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l7p8_w8p0_feed7p40",
@@ -1560,7 +1632,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h6p5_l8p4_w8p0_feed7p90",
@@ -1622,7 +1697,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_sw4p0_fence6p0_feed7p80",
@@ -1684,7 +1762,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_sw4p0_fence6p0_feed8p00",
@@ -1746,7 +1827,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_sw4p0_fence6p0_feed8p20",
@@ -1808,7 +1892,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_sw4p0_fence6p0_feed8p48",
@@ -1870,7 +1957,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l9p2_w8p4_sw4p0_fence6p0_feed8p80",
@@ -1932,7 +2022,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w10p0_sw4p0_fence6p0_feed8p40",
@@ -1994,7 +2087,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h4p5_l8p8_w8p0_sw4p0_fence6p0_feed8p40",
@@ -2056,7 +2152,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_sw5p5_fence7p0_feed8p20",
@@ -2118,7 +2217,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p0_l8p8_w8p0_sw4p0_fence6p0_feed8p40_lip1p0",
@@ -2180,7 +2282,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h4p0_l8p8_w8p0_sw4p0_fence6p0_feed8p40",
@@ -2242,7 +2347,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h3p5_l8p8_w8p0_sw4p0_fence6p0_feed8p40",
@@ -2304,7 +2412,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h4p5_l8p8_w8p0_sw4p0_fence6p0_feed8p00",
@@ -2366,7 +2477,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h4p5_l8p8_w8p0_sw4p0_fence6p0_feed8p20",
@@ -2428,7 +2542,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h4p5_l8p8_w8p0_sw4p0_fence6p0_feed8p48",
@@ -2490,7 +2607,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h4p0_l8p8_w8p0_sw4p0_fence6p0_feed8p20",
@@ -2552,7 +2672,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h4p0_l8p8_w10p0_sw4p0_fence6p0_feed8p40",
@@ -2614,7 +2737,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h4p5_l8p8_w8p0_sw5p5_fence7p0_feed8p20",
@@ -2676,7 +2802,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h4p5_l9p2_w8p4_sw4p0_fence6p0_feed8p80",
@@ -2738,7 +2867,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h6p5_l8p4_w8p0_sw4p0_fence6p0_feed7p90_lowcost",
@@ -2800,7 +2932,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h6p5_l8p4_w8p0_sw4p0_fence6p0_feed8p05_lowcost",
@@ -2862,7 +2997,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h6p5_l9p2_w8p4_sw3p5_fence5p5_feed8p50_lowcost",
@@ -2924,7 +3062,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h6p5_l8p4_w9p6_feed7p90_lowcost",
@@ -2986,7 +3127,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h7p2_l8p2_w8p0_feed7p80_lim10_lowcost",
@@ -3048,7 +3192,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h7p2_l8p2_w8p0_sw4p0_fence6p0_feed7p75_lim10_lowcost",
@@ -3110,7 +3257,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l8p0_w8p0_feed7p60_lim10_lowcost",
@@ -3172,7 +3322,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l8p0_w8p0_sw4p0_fence6p0_feed7p55_lim10_lowcost",
@@ -3234,7 +3387,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l8p0_w8p0_sw4p0_fence6p0_feed7p55_lim10_lowcost_c0p05",
@@ -3296,7 +3452,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l8p0_w8p0_sw4p0_fence6p0_feed7p55_lim10_lowcost_c0p09_l10p7",
@@ -3358,7 +3517,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l8p0_w8p0_sw4p0_fence6p0_feed7p55_lim10_lowcost_c0p11_l10p7",
@@ -3420,7 +3582,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l8p0_w8p0_sw4p0_fence6p0_feed7p55_lim10_lowcost_c0p13_l10p7",
@@ -3482,7 +3647,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l8p0_w8p0_sw4p0_fence6p0_feed7p55_lim10_lowcost_c0p11_l9p0",
@@ -3544,7 +3712,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l8p0_w8p0_sw4p0_fence6p0_feed7p55_lim10_lowcost_c0p11_l12p5",
@@ -3606,7 +3777,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h4p5_l9p2_w8p4_sw4p0_fence6p0_feed8p80_c0p25_l5p6",
@@ -3668,7 +3842,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l9p6_w9p6_feed9p10_lim10_lowcost",
@@ -3730,7 +3907,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l9p6_w9p6_sw4p0_fence6p8_feed9p05_lim10_lowcost",
@@ -3792,7 +3972,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l10p8_w10p0_feed10p20_lim10_lowcost",
@@ -3854,7 +4037,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l10p8_w10p0_sw4p0_fence7p2_feed10p15_lim10_lowcost",
@@ -3916,7 +4102,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h7p2_l10p8_w10p0_sw4p0_fence7p2_feed10p20_lim10_lowcost",
@@ -3978,7 +4167,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l10p0_w11p5_sw5p5_fence7p5_feed9p50_lip1p2_lim10_lowcost",
@@ -4040,7 +4232,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l12p0_w10p0_sw4p0_fence8p0_feed11p30_lim10_lowcost",
@@ -4102,7 +4297,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l9p6_w9p6_sw4p0_fence6p8_feed9p05_lim10_lowcost_match_c0p14_l8p0_loadside",
@@ -4164,7 +4362,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l9p6_w9p6_sw4p0_fence6p8_feed9p05_lim10_lowcost_match_l2p9_c0p19_loadside",
@@ -4226,7 +4427,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l9p6_w9p6_sw4p0_fence6p8_feed8p40_lim10_lowcost",
@@ -4288,7 +4492,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l9p6_w9p6_sw4p0_fence6p8_feed8p60_lim10_lowcost",
@@ -4350,7 +4557,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l9p6_w9p6_sw4p0_fence6p8_feed8p80_lim10_lowcost",
@@ -4412,7 +4622,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h7p2_l9p6_w9p6_sw4p0_fence6p8_feed8p60_lim10_lowcost",
@@ -4474,7 +4687,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h7p2_l9p6_w9p6_sw4p0_fence6p8_feed8p80_lim10_lowcost",
@@ -4536,7 +4752,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h7p2_l9p6_w9p6_sw4p0_fence6p8_feed8p80_match_c0p157_l7p3_loadside",
@@ -4598,7 +4817,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h7p2_l9p6_w9p6_sw4p0_fence6p8_feed8p80_match_l2p5_c0p22_loadside",
@@ -4660,7 +4882,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l12p0_w10p0_sw4p0_fence8p0_feed11p10_lim10_lowcost",
@@ -4722,7 +4947,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l12p0_w10p0_sw4p0_fence8p0_feed11p30_match_l2p9_c0p24_gap0p08_loadside",
@@ -4784,7 +5012,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l12p0_w10p0_sw4p0_fence8p0_feed11p30_match_l3p4_c0p28_gap0p08_loadside",
@@ -4846,7 +5077,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l12p0_w10p0_sw4p0_fence8p0_feed11p30_match_l3p0_c0p26_gap0p10_loadside",
@@ -4908,7 +5142,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l12p0_w10p0_sw4p0_fence8p0_feed11p30_lip1p6_w5p0_lim10_lowcost",
@@ -4970,7 +5207,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l12p0_w10p0_sw4p0_fence8p0_feed11p30_lip2p4_w6p0_lim10_lowcost",
@@ -5032,7 +5272,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l12p0_w10p0_sw6p0_fence9p0_feed11p20_lip2p0_w6p0_lim10_lowcost",
@@ -5094,7 +5337,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l12p0_w10p0_sw4p0_fence8p0_feed11p30_lip2p4_w6p0_match_l2p8_c0p22_gap0p08_loadside",
@@ -5156,7 +5402,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l12p0_w10p0_sw4p0_fence8p0_feed11p30_lip2p4_w6p0_match_l3p2_c0p24_gap0p08_loadside",
@@ -5218,7 +5467,10 @@
       "top_slot_v_offset_mm": "",
       "edge_slot_start_from_short_mm": "",
       "edge_slot_length_mm": "",
-      "edge_slot_depth_mm": ""
+      "edge_slot_depth_mm": "",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l12p0_w10p0_sw4p0_fence6p2_start0p8_feed11p05_lip2p0_w6p0_edgec2p8_h4p8_slot7p2x2p8",
@@ -5280,7 +5532,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "7.8",
       "edge_slot_length_mm": "2.4",
-      "edge_slot_depth_mm": "0.65"
+      "edge_slot_depth_mm": "0.65",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l12p0_w10p0_sw4p0_fence6p2_start0p8_feed11p15_lip2p0_edgec3p2_h5p6_slot_match_l2p8_c0p22",
@@ -5342,7 +5597,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "7.6",
       "edge_slot_length_mm": "2.8",
-      "edge_slot_depth_mm": "0.75"
+      "edge_slot_depth_mm": "0.75",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l12p0_w10p5_sw5p2_fence5p4_start1p6_feed10p85_lip1p6_edgec3p8_h6p0_edgeslot",
@@ -5404,7 +5662,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "6.8",
       "edge_slot_length_mm": "3.6",
-      "edge_slot_depth_mm": "0.95"
+      "edge_slot_depth_mm": "0.95",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l12p0_w10p5_sw5p2_fence5p4_start1p6_feed10p95_lip1p6_edgec4p0_h6p2_match_l3p0_c0p24",
@@ -5466,7 +5727,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "6.8",
       "edge_slot_length_mm": "3.6",
-      "edge_slot_depth_mm": "0.95"
+      "edge_slot_depth_mm": "0.95",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l11p4_w11p2_sw5p8_fence4p8_start2p0_feed10p35_lip1p2_edgec4p2_h6p8_slot6p2x4p4",
@@ -5528,7 +5792,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "6.4",
       "edge_slot_length_mm": "3.8",
-      "edge_slot_depth_mm": "1.05"
+      "edge_slot_depth_mm": "1.05",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l11p4_w11p2_sw5p8_fence4p8_start2p0_feed10p45_lip1p2_edgec4p2_h6p8_match_l3p2_c0p26",
@@ -5590,7 +5857,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "6.4",
       "edge_slot_length_mm": "3.8",
-      "edge_slot_depth_mm": "1.05"
+      "edge_slot_depth_mm": "1.05",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_w11p2_f1085_slot",
@@ -5652,7 +5922,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "6.4",
       "edge_slot_length_mm": "3.8",
-      "edge_slot_depth_mm": "1.05"
+      "edge_slot_depth_mm": "1.05",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_w11p2_f1105_slot",
@@ -5714,7 +5987,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "6.4",
       "edge_slot_length_mm": "3.8",
-      "edge_slot_depth_mm": "1.05"
+      "edge_slot_depth_mm": "1.05",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_w11p2_f1085_m228",
@@ -5776,7 +6052,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "6.4",
       "edge_slot_length_mm": "3.8",
-      "edge_slot_depth_mm": "1.05"
+      "edge_slot_depth_mm": "1.05",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_w11p2_f1105_m3024",
@@ -5838,7 +6117,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "6.4",
       "edge_slot_length_mm": "3.8",
-      "edge_slot_depth_mm": "1.05"
+      "edge_slot_depth_mm": "1.05",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_w11p2_f1105_m5625",
@@ -5900,7 +6182,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "6.4",
       "edge_slot_length_mm": "3.8",
-      "edge_slot_depth_mm": "1.05"
+      "edge_slot_depth_mm": "1.05",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_w11p2_f1105_m6028",
@@ -5962,7 +6247,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "6.4",
       "edge_slot_length_mm": "3.8",
-      "edge_slot_depth_mm": "1.05"
+      "edge_slot_depth_mm": "1.05",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l14p0_w11p2_f1355_slot",
@@ -6024,7 +6312,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "8.0",
       "edge_slot_length_mm": "4.2",
-      "edge_slot_depth_mm": "1.05"
+      "edge_slot_depth_mm": "1.05",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l14p0_w11p2_f1355_m5625",
@@ -6086,7 +6377,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "8.0",
       "edge_slot_length_mm": "4.2",
-      "edge_slot_depth_mm": "1.05"
+      "edge_slot_depth_mm": "1.05",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l16p0_w12p5_f1555_slot",
@@ -6148,7 +6442,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "9.0",
       "edge_slot_length_mm": "4.8",
-      "edge_slot_depth_mm": "1.1"
+      "edge_slot_depth_mm": "1.1",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h8p0_l16p0_w12p5_f1555_m5625",
@@ -6210,7 +6507,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "9.0",
       "edge_slot_length_mm": "4.8",
-      "edge_slot_depth_mm": "1.1"
+      "edge_slot_depth_mm": "1.1",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h3p5_l9p2_w8p6_sw4p4_fence6p4_feed8p70_lip0p8_edgec2p6_slot",
@@ -6272,7 +6572,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "5.0",
       "edge_slot_length_mm": "2.4",
-      "edge_slot_depth_mm": "0.55"
+      "edge_slot_depth_mm": "0.55",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h4p0_l9p2_w8p8_sw4p4_fence6p6_start0p4_feed8p70_lip0p9_edgec2p8_slot",
@@ -6334,7 +6637,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "5.0",
       "edge_slot_length_mm": "2.6",
-      "edge_slot_depth_mm": "0.62"
+      "edge_slot_depth_mm": "0.62",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h4p5_l9p6_w9p2_sw4p8_fence6p8_start0p8_feed8p95_lip1p0_edgec3p2_slot",
@@ -6396,7 +6702,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "5.2",
       "edge_slot_length_mm": "2.8",
-      "edge_slot_depth_mm": "0.72"
+      "edge_slot_depth_mm": "0.72",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p2_l9p8_w9p4_sw4p8_fence6p8_start1p0_feed9p15_lip1p2_edgec3p4_slot",
@@ -6458,7 +6767,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "5.4",
       "edge_slot_length_mm": "3.0",
-      "edge_slot_depth_mm": "0.8"
+      "edge_slot_depth_mm": "0.8",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h6p2_l9p8_w9p4_sw4p8_fence6p8_start1p0_feed9p15_lip1p4_edgec3p6_slot",
@@ -6520,7 +6832,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "5.4",
       "edge_slot_length_mm": "3.0",
-      "edge_slot_depth_mm": "0.85"
+      "edge_slot_depth_mm": "0.85",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h6p8_l10p4_w10p0_sw5p2_fence7p2_start1p2_feed9p80_lip1p4_edgec3p8_slot",
@@ -6582,7 +6897,10 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "5.8",
       "edge_slot_length_mm": "3.4",
-      "edge_slot_depth_mm": "0.95"
+      "edge_slot_depth_mm": "0.95",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h7p2_l10p0_w10p8_sw5p6_fence6p0_start2p0_feed9p45_lip1p2_edgec4p8_slot",
@@ -6644,343 +6962,575 @@
       "top_slot_v_offset_mm": "0.0",
       "edge_slot_start_from_short_mm": "5.6",
       "edge_slot_length_mm": "3.6",
-      "edge_slot_depth_mm": "1.0"
+      "edge_slot_depth_mm": "1.0",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h4p0_l9p2_w8p8_sw4p4_fence6p6_start0p4_feed8p70_lip0p9_edgec2p8_slot",
       "rationale": "Use a slightly taller cavity than the S11-pass baseline and move the via walls off the short edge to trade a small return-loss margin for more horizon current.",
-      "elapsed_s": 108.80613470077515,
+      "elapsed_s": "108.80613470077515",
       "project": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h4p0_l9p2_w8p8_sw4p4_fence6p6_start0p4_feed8p70_lip0p9_edgec2p8_slot.aedt",
       "params_json": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h4p0_l9p2_w8p8_sw4p4_fence6p6_start0p4_feed8p70_lip0p9_edgec2p8_slot_params.json",
       "native_export_log": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h4p0_l9p2_w8p8_sw4p4_fence6p6_start0p4_feed8p70_lip0p9_edgec2p8_slot_native_export.log",
       "name": "h4p0_l9p2_w8p8_sw4p4_fence6p6_start0p4_feed8p70_lip0p9_edgec2p8_slot",
-      "substrate_h_mm": 4.0,
-      "top_length_mm": 9.2,
-      "top_width_mm": 8.8,
-      "short_wall_width_mm": 4.4,
-      "side_fence_length_mm": 6.6,
-      "side_fence_start_from_short_mm": 0.4,
-      "side_fence_enabled": true,
-      "feed_from_short_mm": 8.7,
-      "feed_v_mm": 0.0,
-      "feed_pad_radius_mm": 0.3,
-      "port_width_mm": 0.55,
-      "open_lip_height_mm": 0.9,
-      "open_lip_width_mm": 5.8,
-      "open_edge_coupler_length_mm": 2.8,
-      "open_edge_coupler_height_mm": 3.6,
-      "top_slot_start_from_short_mm": 4.8,
-      "top_slot_length_mm": 3.0,
-      "top_slot_width_mm": 0.42,
-      "top_slot_v_offset_mm": 0.0,
-      "edge_slot_start_from_short_mm": 5.0,
-      "edge_slot_length_mm": 2.6,
-      "edge_slot_depth_mm": 0.62,
-      "match_series_cap_pf": 0.0,
-      "match_series_ind_nh": 0.0,
-      "match_shunt_cap_pf": 0.0,
-      "match_shunt_ind_nh": 0.0,
-      "match_shunt_on_load_side": false,
-      "match_gap_mm": 0.12,
-      "match_island_size_mm": 0.7,
-      "match_series_width_mm": 0.34,
-      "ground_radius_mm": 21.4,
-      "total_height_limit_mm": 10.0,
-      "epsr": 3.48,
-      "tan_delta": 0.0037,
+      "substrate_h_mm": "4.0",
+      "top_length_mm": "9.2",
+      "top_width_mm": "8.8",
+      "short_wall_width_mm": "4.4",
+      "side_fence_length_mm": "6.6",
+      "side_fence_enabled": "True",
+      "feed_from_short_mm": "8.7",
+      "feed_v_mm": "0.0",
+      "feed_pad_radius_mm": "0.3",
+      "port_width_mm": "0.55",
+      "open_lip_height_mm": "0.9",
+      "open_lip_width_mm": "5.8",
+      "ground_radius_mm": "21.4",
+      "total_height_limit_mm": "10.0",
+      "epsr": "3.48",
+      "tan_delta": "0.0037",
       "s_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h4p0_l9p2_w8p8_sw4p4_fence6p6_start0p4_feed8p70_lip0p9_edgec2p8_slot_native_s_parameters.csv",
-      "s11_worst_db": -4.63218880692336,
-      "s11_worst_freq_ghz": 8.0,
-      "s11_pass": false,
-      "ff_sample_count": 730,
-      "all_phi_gain_total_min_dbi": -12.5419891861533,
-      "all_phi_gain_total_min_theta_deg": 45.0,
-      "all_phi_gain_total_min_phi_deg": 180.0,
-      "best_270deg_window_start_phi_deg": 265.0,
-      "best_270deg_window_stop_phi_deg": 175.0,
-      "best_270deg_gain_total_min_dbi": -9.79697012362018,
-      "best_270deg_gain_total_min_theta_deg": 90.0,
-      "best_270deg_gain_total_min_phi_deg": 175.0,
-      "default_0_270deg_gain_total_min_dbi": -12.5419891861533,
-      "default_0_270deg_gain_total_min_theta_deg": 45.0,
-      "default_0_270deg_gain_total_min_phi_deg": 180.0,
-      "gain_pass": false,
-      "candidate_index": 111
+      "s11_worst_db": "-4.63218880692336",
+      "s11_worst_freq_ghz": "8.0",
+      "s11_pass": "False",
+      "ff_sample_count": "730",
+      "all_phi_gain_total_min_dbi": "-12.5419891861533",
+      "all_phi_gain_total_min_theta_deg": "45.0",
+      "all_phi_gain_total_min_phi_deg": "180.0",
+      "best_270deg_window_start_phi_deg": "265.0",
+      "best_270deg_window_stop_phi_deg": "175.0",
+      "best_270deg_gain_total_min_dbi": "-9.79697012362018",
+      "best_270deg_gain_total_min_theta_deg": "90.0",
+      "best_270deg_gain_total_min_phi_deg": "175.0",
+      "default_0_270deg_gain_total_min_dbi": "-12.5419891861533",
+      "default_0_270deg_gain_total_min_theta_deg": "45.0",
+      "default_0_270deg_gain_total_min_phi_deg": "180.0",
+      "gain_pass": "False",
+      "candidate_index": "111",
+      "match_series_cap_pf": "0.0",
+      "match_series_ind_nh": "0.0",
+      "match_shunt_cap_pf": "0.0",
+      "match_shunt_ind_nh": "0.0",
+      "match_gap_mm": "0.12",
+      "match_island_size_mm": "0.7",
+      "match_series_width_mm": "0.34",
+      "refresh_status": "",
+      "match_shunt_on_load_side": "False",
+      "side_fence_start_from_short_mm": "0.4",
+      "open_edge_coupler_length_mm": "2.8",
+      "open_edge_coupler_height_mm": "3.6",
+      "top_slot_start_from_short_mm": "4.8",
+      "top_slot_length_mm": "3.0",
+      "top_slot_width_mm": "0.42",
+      "top_slot_v_offset_mm": "0.0",
+      "edge_slot_start_from_short_mm": "5.0",
+      "edge_slot_length_mm": "2.6",
+      "edge_slot_depth_mm": "0.62",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h4p5_l9p6_w9p2_sw4p8_fence6p8_start0p8_feed8p95_lip1p0_edgec3p2_slot",
       "rationale": "Revisit the near-S11-pass 4.5 mm geometry with displaced side walls and open-edge capacitive coupling instead of relying on the L/C island.",
-      "elapsed_s": 106.3662326335907,
+      "elapsed_s": "106.3662326335907",
       "project": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h4p5_l9p6_w9p2_sw4p8_fence6p8_start0p8_feed8p95_lip1p0_edgec3p2_slot.aedt",
       "params_json": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h4p5_l9p6_w9p2_sw4p8_fence6p8_start0p8_feed8p95_lip1p0_edgec3p2_slot_params.json",
       "native_export_log": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h4p5_l9p6_w9p2_sw4p8_fence6p8_start0p8_feed8p95_lip1p0_edgec3p2_slot_native_export.log",
       "name": "h4p5_l9p6_w9p2_sw4p8_fence6p8_start0p8_feed8p95_lip1p0_edgec3p2_slot",
-      "substrate_h_mm": 4.5,
-      "top_length_mm": 9.6,
-      "top_width_mm": 9.2,
-      "short_wall_width_mm": 4.8,
-      "side_fence_length_mm": 6.8,
-      "side_fence_start_from_short_mm": 0.8,
-      "side_fence_enabled": true,
-      "feed_from_short_mm": 8.95,
-      "feed_v_mm": 0.0,
-      "feed_pad_radius_mm": 0.3,
-      "port_width_mm": 0.55,
-      "open_lip_height_mm": 1.0,
-      "open_lip_width_mm": 6.0,
-      "open_edge_coupler_length_mm": 3.2,
-      "open_edge_coupler_height_mm": 4.2,
-      "top_slot_start_from_short_mm": 5.0,
-      "top_slot_length_mm": 3.2,
-      "top_slot_width_mm": 0.45,
-      "top_slot_v_offset_mm": 0.0,
-      "edge_slot_start_from_short_mm": 5.2,
-      "edge_slot_length_mm": 2.8,
-      "edge_slot_depth_mm": 0.72,
-      "match_series_cap_pf": 0.0,
-      "match_series_ind_nh": 0.0,
-      "match_shunt_cap_pf": 0.0,
-      "match_shunt_ind_nh": 0.0,
-      "match_shunt_on_load_side": false,
-      "match_gap_mm": 0.12,
-      "match_island_size_mm": 0.7,
-      "match_series_width_mm": 0.34,
-      "ground_radius_mm": 21.4,
-      "total_height_limit_mm": 10.0,
-      "epsr": 3.48,
-      "tan_delta": 0.0037,
+      "substrate_h_mm": "4.5",
+      "top_length_mm": "9.6",
+      "top_width_mm": "9.2",
+      "short_wall_width_mm": "4.8",
+      "side_fence_length_mm": "6.8",
+      "side_fence_enabled": "True",
+      "feed_from_short_mm": "8.95",
+      "feed_v_mm": "0.0",
+      "feed_pad_radius_mm": "0.3",
+      "port_width_mm": "0.55",
+      "open_lip_height_mm": "1.0",
+      "open_lip_width_mm": "6.0",
+      "ground_radius_mm": "21.4",
+      "total_height_limit_mm": "10.0",
+      "epsr": "3.48",
+      "tan_delta": "0.0037",
       "s_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h4p5_l9p6_w9p2_sw4p8_fence6p8_start0p8_feed8p95_lip1p0_edgec3p2_slot_native_s_parameters.csv",
-      "s11_worst_db": -4.09441542478349,
-      "s11_worst_freq_ghz": 8.0,
-      "s11_pass": false,
-      "ff_sample_count": 730,
-      "all_phi_gain_total_min_dbi": -12.9643288666629,
-      "all_phi_gain_total_min_theta_deg": 45.0,
-      "all_phi_gain_total_min_phi_deg": 185.0,
-      "best_270deg_window_start_phi_deg": 265.0,
-      "best_270deg_window_stop_phi_deg": 175.0,
-      "best_270deg_gain_total_min_dbi": -10.201962269362,
-      "best_270deg_gain_total_min_theta_deg": 90.0,
-      "best_270deg_gain_total_min_phi_deg": 175.0,
-      "default_0_270deg_gain_total_min_dbi": -12.9643288666629,
-      "default_0_270deg_gain_total_min_theta_deg": 45.0,
-      "default_0_270deg_gain_total_min_phi_deg": 185.0,
-      "gain_pass": false,
-      "candidate_index": 112
+      "s11_worst_db": "-4.09441542478349",
+      "s11_worst_freq_ghz": "8.0",
+      "s11_pass": "False",
+      "ff_sample_count": "730",
+      "all_phi_gain_total_min_dbi": "-12.9643288666629",
+      "all_phi_gain_total_min_theta_deg": "45.0",
+      "all_phi_gain_total_min_phi_deg": "185.0",
+      "best_270deg_window_start_phi_deg": "265.0",
+      "best_270deg_window_stop_phi_deg": "175.0",
+      "best_270deg_gain_total_min_dbi": "-10.201962269362",
+      "best_270deg_gain_total_min_theta_deg": "90.0",
+      "best_270deg_gain_total_min_phi_deg": "175.0",
+      "default_0_270deg_gain_total_min_dbi": "-12.9643288666629",
+      "default_0_270deg_gain_total_min_theta_deg": "45.0",
+      "default_0_270deg_gain_total_min_phi_deg": "185.0",
+      "gain_pass": "False",
+      "candidate_index": "112",
+      "match_series_cap_pf": "0.0",
+      "match_series_ind_nh": "0.0",
+      "match_shunt_cap_pf": "0.0",
+      "match_shunt_ind_nh": "0.0",
+      "match_gap_mm": "0.12",
+      "match_island_size_mm": "0.7",
+      "match_series_width_mm": "0.34",
+      "refresh_status": "",
+      "match_shunt_on_load_side": "False",
+      "side_fence_start_from_short_mm": "0.8",
+      "open_edge_coupler_length_mm": "3.2",
+      "open_edge_coupler_height_mm": "4.2",
+      "top_slot_start_from_short_mm": "5.0",
+      "top_slot_length_mm": "3.2",
+      "top_slot_width_mm": "0.45",
+      "top_slot_v_offset_mm": "0.0",
+      "edge_slot_start_from_short_mm": "5.2",
+      "edge_slot_length_mm": "2.8",
+      "edge_slot_depth_mm": "0.72",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h5p2_l9p8_w9p4_sw4p8_fence6p8_start1p0_feed9p15_lip1p2_edgec3p4_slot",
       "rationale": "Middle-height geometry-current candidate intended to find the crossover between the matched-but-weak 4.5 mm case and the gain-pass 7.2 mm case.",
-      "elapsed_s": 96.55302453041077,
+      "elapsed_s": "96.55302453041077",
       "project": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h5p2_l9p8_w9p4_sw4p8_fence6p8_start1p0_feed9p15_lip1p2_edgec3p4_slot.aedt",
       "params_json": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h5p2_l9p8_w9p4_sw4p8_fence6p8_start1p0_feed9p15_lip1p2_edgec3p4_slot_params.json",
       "native_export_log": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h5p2_l9p8_w9p4_sw4p8_fence6p8_start1p0_feed9p15_lip1p2_edgec3p4_slot_native_export.log",
       "name": "h5p2_l9p8_w9p4_sw4p8_fence6p8_start1p0_feed9p15_lip1p2_edgec3p4_slot",
-      "substrate_h_mm": 5.2,
-      "top_length_mm": 9.8,
-      "top_width_mm": 9.4,
-      "short_wall_width_mm": 4.8,
-      "side_fence_length_mm": 6.8,
-      "side_fence_start_from_short_mm": 1.0,
-      "side_fence_enabled": true,
-      "feed_from_short_mm": 9.15,
-      "feed_v_mm": 0.0,
-      "feed_pad_radius_mm": 0.3,
-      "port_width_mm": 0.55,
-      "open_lip_height_mm": 1.2,
-      "open_lip_width_mm": 6.2,
-      "open_edge_coupler_length_mm": 3.4,
-      "open_edge_coupler_height_mm": 4.8,
-      "top_slot_start_from_short_mm": 5.2,
-      "top_slot_length_mm": 3.4,
-      "top_slot_width_mm": 0.48,
-      "top_slot_v_offset_mm": 0.0,
-      "edge_slot_start_from_short_mm": 5.4,
-      "edge_slot_length_mm": 3.0,
-      "edge_slot_depth_mm": 0.8,
-      "match_series_cap_pf": 0.0,
-      "match_series_ind_nh": 0.0,
-      "match_shunt_cap_pf": 0.0,
-      "match_shunt_ind_nh": 0.0,
-      "match_shunt_on_load_side": false,
-      "match_gap_mm": 0.12,
-      "match_island_size_mm": 0.7,
-      "match_series_width_mm": 0.34,
-      "ground_radius_mm": 21.4,
-      "total_height_limit_mm": 10.0,
-      "epsr": 3.48,
-      "tan_delta": 0.0037,
+      "substrate_h_mm": "5.2",
+      "top_length_mm": "9.8",
+      "top_width_mm": "9.4",
+      "short_wall_width_mm": "4.8",
+      "side_fence_length_mm": "6.8",
+      "side_fence_enabled": "True",
+      "feed_from_short_mm": "9.15",
+      "feed_v_mm": "0.0",
+      "feed_pad_radius_mm": "0.3",
+      "port_width_mm": "0.55",
+      "open_lip_height_mm": "1.2",
+      "open_lip_width_mm": "6.2",
+      "ground_radius_mm": "21.4",
+      "total_height_limit_mm": "10.0",
+      "epsr": "3.48",
+      "tan_delta": "0.0037",
       "s_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h5p2_l9p8_w9p4_sw4p8_fence6p8_start1p0_feed9p15_lip1p2_edgec3p4_slot_native_s_parameters.csv",
-      "s11_worst_db": -3.90328230343056,
-      "s11_worst_freq_ghz": 8.0,
-      "s11_pass": false,
-      "ff_sample_count": 730,
-      "all_phi_gain_total_min_dbi": -10.4992057706253,
-      "all_phi_gain_total_min_theta_deg": 45.0,
-      "all_phi_gain_total_min_phi_deg": 190.0,
-      "best_270deg_window_start_phi_deg": 270.0,
-      "best_270deg_window_stop_phi_deg": 180.0,
-      "best_270deg_gain_total_min_dbi": -7.29187249535821,
-      "best_270deg_gain_total_min_theta_deg": 75.0,
-      "best_270deg_gain_total_min_phi_deg": 115.0,
-      "default_0_270deg_gain_total_min_dbi": -10.4992057706253,
-      "default_0_270deg_gain_total_min_theta_deg": 45.0,
-      "default_0_270deg_gain_total_min_phi_deg": 190.0,
-      "gain_pass": false,
-      "candidate_index": 113
+      "s11_worst_db": "-3.90328230343056",
+      "s11_worst_freq_ghz": "8.0",
+      "s11_pass": "False",
+      "ff_sample_count": "730",
+      "all_phi_gain_total_min_dbi": "-10.4992057706253",
+      "all_phi_gain_total_min_theta_deg": "45.0",
+      "all_phi_gain_total_min_phi_deg": "190.0",
+      "best_270deg_window_start_phi_deg": "270.0",
+      "best_270deg_window_stop_phi_deg": "180.0",
+      "best_270deg_gain_total_min_dbi": "-7.29187249535821",
+      "best_270deg_gain_total_min_theta_deg": "75.0",
+      "best_270deg_gain_total_min_phi_deg": "115.0",
+      "default_0_270deg_gain_total_min_dbi": "-10.4992057706253",
+      "default_0_270deg_gain_total_min_theta_deg": "45.0",
+      "default_0_270deg_gain_total_min_phi_deg": "190.0",
+      "gain_pass": "False",
+      "candidate_index": "113",
+      "match_series_cap_pf": "0.0",
+      "match_series_ind_nh": "0.0",
+      "match_shunt_cap_pf": "0.0",
+      "match_shunt_ind_nh": "0.0",
+      "match_gap_mm": "0.12",
+      "match_island_size_mm": "0.7",
+      "match_series_width_mm": "0.34",
+      "refresh_status": "",
+      "match_shunt_on_load_side": "False",
+      "side_fence_start_from_short_mm": "1.0",
+      "open_edge_coupler_length_mm": "3.4",
+      "open_edge_coupler_height_mm": "4.8",
+      "top_slot_start_from_short_mm": "5.2",
+      "top_slot_length_mm": "3.4",
+      "top_slot_width_mm": "0.48",
+      "top_slot_v_offset_mm": "0.0",
+      "edge_slot_start_from_short_mm": "5.4",
+      "edge_slot_length_mm": "3.0",
+      "edge_slot_depth_mm": "0.8",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h6p2_l9p8_w9p4_sw4p8_fence6p8_start1p0_feed9p15_lip1p4_edgec3p6_slot",
       "rationale": "Raise the same crossover geometry to strengthen the vertical current path, checking whether edge slots and couplers can keep S11 from collapsing like the 8 mm family.",
-      "elapsed_s": 106.22623324394226,
+      "elapsed_s": "106.22623324394226",
       "project": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h6p2_l9p8_w9p4_sw4p8_fence6p8_start1p0_feed9p15_lip1p4_edgec3p6_slot.aedt",
       "params_json": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h6p2_l9p8_w9p4_sw4p8_fence6p8_start1p0_feed9p15_lip1p4_edgec3p6_slot_params.json",
       "native_export_log": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h6p2_l9p8_w9p4_sw4p8_fence6p8_start1p0_feed9p15_lip1p4_edgec3p6_slot_native_export.log",
       "name": "h6p2_l9p8_w9p4_sw4p8_fence6p8_start1p0_feed9p15_lip1p4_edgec3p6_slot",
-      "substrate_h_mm": 6.2,
-      "top_length_mm": 9.8,
-      "top_width_mm": 9.4,
-      "short_wall_width_mm": 4.8,
-      "side_fence_length_mm": 6.8,
-      "side_fence_start_from_short_mm": 1.0,
-      "side_fence_enabled": true,
-      "feed_from_short_mm": 9.15,
-      "feed_v_mm": 0.0,
-      "feed_pad_radius_mm": 0.3,
-      "port_width_mm": 0.55,
-      "open_lip_height_mm": 1.4,
-      "open_lip_width_mm": 6.2,
-      "open_edge_coupler_length_mm": 3.6,
-      "open_edge_coupler_height_mm": 5.4,
-      "top_slot_start_from_short_mm": 5.2,
-      "top_slot_length_mm": 3.4,
-      "top_slot_width_mm": 0.48,
-      "top_slot_v_offset_mm": 0.0,
-      "edge_slot_start_from_short_mm": 5.4,
-      "edge_slot_length_mm": 3.0,
-      "edge_slot_depth_mm": 0.85,
-      "match_series_cap_pf": 0.0,
-      "match_series_ind_nh": 0.0,
-      "match_shunt_cap_pf": 0.0,
-      "match_shunt_ind_nh": 0.0,
-      "match_shunt_on_load_side": false,
-      "match_gap_mm": 0.12,
-      "match_island_size_mm": 0.7,
-      "match_series_width_mm": 0.34,
-      "ground_radius_mm": 21.4,
-      "total_height_limit_mm": 10.0,
-      "epsr": 3.48,
-      "tan_delta": 0.0037,
+      "substrate_h_mm": "6.2",
+      "top_length_mm": "9.8",
+      "top_width_mm": "9.4",
+      "short_wall_width_mm": "4.8",
+      "side_fence_length_mm": "6.8",
+      "side_fence_enabled": "True",
+      "feed_from_short_mm": "9.15",
+      "feed_v_mm": "0.0",
+      "feed_pad_radius_mm": "0.3",
+      "port_width_mm": "0.55",
+      "open_lip_height_mm": "1.4",
+      "open_lip_width_mm": "6.2",
+      "ground_radius_mm": "21.4",
+      "total_height_limit_mm": "10.0",
+      "epsr": "3.48",
+      "tan_delta": "0.0037",
       "s_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h6p2_l9p8_w9p4_sw4p8_fence6p8_start1p0_feed9p15_lip1p4_edgec3p6_slot_native_s_parameters.csv",
-      "s11_worst_db": -2.66863617208404,
-      "s11_worst_freq_ghz": 8.0,
-      "s11_pass": false,
-      "ff_sample_count": 730,
-      "all_phi_gain_total_min_dbi": -6.69495974860266,
-      "all_phi_gain_total_min_theta_deg": 45.0,
-      "all_phi_gain_total_min_phi_deg": 195.0,
-      "best_270deg_window_start_phi_deg": 200.0,
-      "best_270deg_window_stop_phi_deg": 110.0,
-      "best_270deg_gain_total_min_dbi": -6.08844435362242,
-      "best_270deg_gain_total_min_theta_deg": 45.0,
-      "best_270deg_gain_total_min_phi_deg": 265.0,
-      "default_0_270deg_gain_total_min_dbi": -6.69495974860266,
-      "default_0_270deg_gain_total_min_theta_deg": 45.0,
-      "default_0_270deg_gain_total_min_phi_deg": 195.0,
-      "gain_pass": false,
-      "candidate_index": 114
+      "s11_worst_db": "-2.66863617208404",
+      "s11_worst_freq_ghz": "8.0",
+      "s11_pass": "False",
+      "ff_sample_count": "730",
+      "all_phi_gain_total_min_dbi": "-6.69495974860266",
+      "all_phi_gain_total_min_theta_deg": "45.0",
+      "all_phi_gain_total_min_phi_deg": "195.0",
+      "best_270deg_window_start_phi_deg": "200.0",
+      "best_270deg_window_stop_phi_deg": "110.0",
+      "best_270deg_gain_total_min_dbi": "-6.08844435362242",
+      "best_270deg_gain_total_min_theta_deg": "45.0",
+      "best_270deg_gain_total_min_phi_deg": "265.0",
+      "default_0_270deg_gain_total_min_dbi": "-6.69495974860266",
+      "default_0_270deg_gain_total_min_theta_deg": "45.0",
+      "default_0_270deg_gain_total_min_phi_deg": "195.0",
+      "gain_pass": "False",
+      "candidate_index": "114",
+      "match_series_cap_pf": "0.0",
+      "match_series_ind_nh": "0.0",
+      "match_shunt_cap_pf": "0.0",
+      "match_shunt_ind_nh": "0.0",
+      "match_gap_mm": "0.12",
+      "match_island_size_mm": "0.7",
+      "match_series_width_mm": "0.34",
+      "refresh_status": "",
+      "match_shunt_on_load_side": "False",
+      "side_fence_start_from_short_mm": "1.0",
+      "open_edge_coupler_length_mm": "3.6",
+      "open_edge_coupler_height_mm": "5.4",
+      "top_slot_start_from_short_mm": "5.2",
+      "top_slot_length_mm": "3.4",
+      "top_slot_width_mm": "0.48",
+      "top_slot_v_offset_mm": "0.0",
+      "edge_slot_start_from_short_mm": "5.4",
+      "edge_slot_length_mm": "3.0",
+      "edge_slot_depth_mm": "0.85",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h6p8_l10p4_w10p0_sw5p2_fence7p2_start1p2_feed9p80_lip1p4_edgec3p8_slot",
       "rationale": "Use the best low-cost manufacturing features on a 6.8 mm cavity, aiming for gain pass with less impedance penalty than the 7.2/8.0 mm wide-aperture cases.",
-      "elapsed_s": 107.34053778648376,
+      "elapsed_s": "107.34053778648376",
       "project": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h6p8_l10p4_w10p0_sw5p2_fence7p2_start1p2_feed9p80_lip1p4_edgec3p8_slot.aedt",
       "params_json": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h6p8_l10p4_w10p0_sw5p2_fence7p2_start1p2_feed9p80_lip1p4_edgec3p8_slot_params.json",
       "native_export_log": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h6p8_l10p4_w10p0_sw5p2_fence7p2_start1p2_feed9p80_lip1p4_edgec3p8_slot_native_export.log",
       "name": "h6p8_l10p4_w10p0_sw5p2_fence7p2_start1p2_feed9p80_lip1p4_edgec3p8_slot",
-      "substrate_h_mm": 6.8,
-      "top_length_mm": 10.4,
-      "top_width_mm": 10.0,
-      "short_wall_width_mm": 5.2,
-      "side_fence_length_mm": 7.2,
-      "side_fence_start_from_short_mm": 1.2,
-      "side_fence_enabled": true,
-      "feed_from_short_mm": 9.8,
-      "feed_v_mm": 0.0,
-      "feed_pad_radius_mm": 0.3,
-      "port_width_mm": 0.55,
-      "open_lip_height_mm": 1.4,
-      "open_lip_width_mm": 6.6,
-      "open_edge_coupler_length_mm": 3.8,
-      "open_edge_coupler_height_mm": 6.0,
-      "top_slot_start_from_short_mm": 5.6,
-      "top_slot_length_mm": 3.8,
-      "top_slot_width_mm": 0.5,
-      "top_slot_v_offset_mm": 0.0,
-      "edge_slot_start_from_short_mm": 5.8,
-      "edge_slot_length_mm": 3.4,
-      "edge_slot_depth_mm": 0.95,
-      "match_series_cap_pf": 0.0,
-      "match_series_ind_nh": 0.0,
-      "match_shunt_cap_pf": 0.0,
-      "match_shunt_ind_nh": 0.0,
-      "match_shunt_on_load_side": false,
-      "match_gap_mm": 0.12,
-      "match_island_size_mm": 0.7,
-      "match_series_width_mm": 0.34,
-      "ground_radius_mm": 21.4,
-      "total_height_limit_mm": 10.0,
-      "epsr": 3.48,
-      "tan_delta": 0.0037,
+      "substrate_h_mm": "6.8",
+      "top_length_mm": "10.4",
+      "top_width_mm": "10.0",
+      "short_wall_width_mm": "5.2",
+      "side_fence_length_mm": "7.2",
+      "side_fence_enabled": "True",
+      "feed_from_short_mm": "9.8",
+      "feed_v_mm": "0.0",
+      "feed_pad_radius_mm": "0.3",
+      "port_width_mm": "0.55",
+      "open_lip_height_mm": "1.4",
+      "open_lip_width_mm": "6.6",
+      "ground_radius_mm": "21.4",
+      "total_height_limit_mm": "10.0",
+      "epsr": "3.48",
+      "tan_delta": "0.0037",
       "s_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h6p8_l10p4_w10p0_sw5p2_fence7p2_start1p2_feed9p80_lip1p4_edgec3p8_slot_native_s_parameters.csv",
-      "s11_worst_db": -2.83655866127329,
-      "s11_worst_freq_ghz": 8.0,
-      "s11_pass": false,
-      "ff_sample_count": 730,
-      "all_phi_gain_total_min_dbi": -6.40923890482487,
-      "all_phi_gain_total_min_theta_deg": 65.0,
-      "all_phi_gain_total_min_phi_deg": 255.0,
-      "best_270deg_window_start_phi_deg": 270.0,
-      "best_270deg_window_stop_phi_deg": 180.0,
-      "best_270deg_gain_total_min_dbi": -5.85983107611035,
-      "best_270deg_gain_total_min_theta_deg": 90.0,
-      "best_270deg_gain_total_min_phi_deg": 115.0,
-      "default_0_270deg_gain_total_min_dbi": -6.40923890482487,
-      "default_0_270deg_gain_total_min_theta_deg": 65.0,
-      "default_0_270deg_gain_total_min_phi_deg": 255.0,
-      "gain_pass": false,
-      "candidate_index": 115
+      "s11_worst_db": "-2.83655866127329",
+      "s11_worst_freq_ghz": "8.0",
+      "s11_pass": "False",
+      "ff_sample_count": "730",
+      "all_phi_gain_total_min_dbi": "-6.40923890482487",
+      "all_phi_gain_total_min_theta_deg": "65.0",
+      "all_phi_gain_total_min_phi_deg": "255.0",
+      "best_270deg_window_start_phi_deg": "270.0",
+      "best_270deg_window_stop_phi_deg": "180.0",
+      "best_270deg_gain_total_min_dbi": "-5.85983107611035",
+      "best_270deg_gain_total_min_theta_deg": "90.0",
+      "best_270deg_gain_total_min_phi_deg": "115.0",
+      "default_0_270deg_gain_total_min_dbi": "-6.40923890482487",
+      "default_0_270deg_gain_total_min_theta_deg": "65.0",
+      "default_0_270deg_gain_total_min_phi_deg": "255.0",
+      "gain_pass": "False",
+      "candidate_index": "115",
+      "match_series_cap_pf": "0.0",
+      "match_series_ind_nh": "0.0",
+      "match_shunt_cap_pf": "0.0",
+      "match_shunt_ind_nh": "0.0",
+      "match_gap_mm": "0.12",
+      "match_island_size_mm": "0.7",
+      "match_series_width_mm": "0.34",
+      "refresh_status": "",
+      "match_shunt_on_load_side": "False",
+      "side_fence_start_from_short_mm": "1.2",
+      "open_edge_coupler_length_mm": "3.8",
+      "open_edge_coupler_height_mm": "6.0",
+      "top_slot_start_from_short_mm": "5.6",
+      "top_slot_length_mm": "3.8",
+      "top_slot_width_mm": "0.5",
+      "top_slot_v_offset_mm": "0.0",
+      "edge_slot_start_from_short_mm": "5.8",
+      "edge_slot_length_mm": "3.4",
+      "edge_slot_depth_mm": "0.95",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
     },
     {
       "candidate": "h7p2_l10p0_w10p8_sw5p6_fence6p0_start2p0_feed9p45_lip1p2_edgec4p8_slot",
       "rationale": "Keep the gain-pass height but shorten the current path and move the side fences farther from the short wall to lower the feed impedance without sacrificing the wide low-angle aperture.",
-      "elapsed_s": 106.1764543056488,
+      "elapsed_s": "106.1764543056488",
       "project": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h7p2_l10p0_w10p8_sw5p6_fence6p0_start2p0_feed9p45_lip1p2_edgec4p8_slot.aedt",
       "params_json": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h7p2_l10p0_w10p8_sw5p6_fence6p0_start2p0_feed9p45_lip1p2_edgec4p8_slot_params.json",
       "native_export_log": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h7p2_l10p0_w10p8_sw5p6_fence6p0_start2p0_feed9p45_lip1p2_edgec4p8_slot_native_export.log",
       "name": "h7p2_l10p0_w10p8_sw5p6_fence6p0_start2p0_feed9p45_lip1p2_edgec4p8_slot",
-      "substrate_h_mm": 7.2,
-      "top_length_mm": 10.0,
-      "top_width_mm": 10.8,
-      "short_wall_width_mm": 5.6,
+      "substrate_h_mm": "7.2",
+      "top_length_mm": "10.0",
+      "top_width_mm": "10.8",
+      "short_wall_width_mm": "5.6",
+      "side_fence_length_mm": "6.0",
+      "side_fence_enabled": "True",
+      "feed_from_short_mm": "9.45",
+      "feed_v_mm": "0.0",
+      "feed_pad_radius_mm": "0.3",
+      "port_width_mm": "0.55",
+      "open_lip_height_mm": "1.2",
+      "open_lip_width_mm": "6.8",
+      "ground_radius_mm": "21.4",
+      "total_height_limit_mm": "10.0",
+      "epsr": "3.48",
+      "tan_delta": "0.0037",
+      "s_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h7p2_l10p0_w10p8_sw5p6_fence6p0_start2p0_feed9p45_lip1p2_edgec4p8_slot_native_s_parameters.csv",
+      "s11_worst_db": "-2.9968022235564",
+      "s11_worst_freq_ghz": "8.0",
+      "s11_pass": "False",
+      "ff_sample_count": "730",
+      "all_phi_gain_total_min_dbi": "-6.1516879462813",
+      "all_phi_gain_total_min_theta_deg": "65.0",
+      "all_phi_gain_total_min_phi_deg": "255.0",
+      "best_270deg_window_start_phi_deg": "275.0",
+      "best_270deg_window_stop_phi_deg": "185.0",
+      "best_270deg_gain_total_min_dbi": "-5.64330075833943",
+      "best_270deg_gain_total_min_theta_deg": "90.0",
+      "best_270deg_gain_total_min_phi_deg": "115.0",
+      "default_0_270deg_gain_total_min_dbi": "-6.1516879462813",
+      "default_0_270deg_gain_total_min_theta_deg": "65.0",
+      "default_0_270deg_gain_total_min_phi_deg": "255.0",
+      "gain_pass": "False",
+      "candidate_index": "116",
+      "match_series_cap_pf": "0.0",
+      "match_series_ind_nh": "0.0",
+      "match_shunt_cap_pf": "0.0",
+      "match_shunt_ind_nh": "0.0",
+      "match_gap_mm": "0.12",
+      "match_island_size_mm": "0.7",
+      "match_series_width_mm": "0.34",
+      "refresh_status": "",
+      "match_shunt_on_load_side": "False",
+      "side_fence_start_from_short_mm": "2.0",
+      "open_edge_coupler_length_mm": "4.8",
+      "open_edge_coupler_height_mm": "6.2",
+      "top_slot_start_from_short_mm": "5.4",
+      "top_slot_length_mm": "3.8",
+      "top_slot_width_mm": "0.52",
+      "top_slot_v_offset_mm": "0.0",
+      "edge_slot_start_from_short_mm": "5.6",
+      "edge_slot_length_mm": "3.6",
+      "edge_slot_depth_mm": "1.0",
+      "substrate_stackup": "",
+      "substrate_layers": "",
+      "substrate_stackup_label": ""
+    },
+    {
+      "candidate": "h8p0_l14p0_w11p2_f1355_slot_ml6p0_2p0foam",
+      "rationale": "Keep the 14 mm high-gain aperture but split the 8 mm board into a 6 mm RO4350B core plus a 2 mm low-epsilon cap to test equivalent thickening by multilayer stacking.",
+      "elapsed_s": "119.49396443367004",
+      "project": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h8p0_l14p0_w11p2_f1355_slot_ml6p0_2p0foam.aedt",
+      "params_json": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h8p0_l14p0_w11p2_f1355_slot_ml6p0_2p0foam_params.json",
+      "native_export_log": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h8p0_l14p0_w11p2_f1355_slot_ml6p0_2p0foam_native_export.log",
+      "name": "h8p0_l14p0_w11p2_f1355_slot_ml6p0_2p0foam",
+      "substrate_h_mm": "8.0",
+      "top_length_mm": "14.0",
+      "top_width_mm": "11.2",
+      "short_wall_width_mm": "5.8",
+      "side_fence_length_mm": "6.0",
+      "side_fence_enabled": "True",
+      "feed_from_short_mm": "13.55",
+      "feed_v_mm": "0.0",
+      "feed_pad_radius_mm": "0.3",
+      "port_width_mm": "0.55",
+      "open_lip_height_mm": "1.2",
+      "open_lip_width_mm": "7.0",
+      "ground_radius_mm": "21.4",
+      "total_height_limit_mm": "10.0",
+      "epsr": "3.48",
+      "tan_delta": "0.0037",
+      "s_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h8p0_l14p0_w11p2_f1355_slot_ml6p0_2p0foam_native_s_parameters.csv",
+      "s11_worst_db": "-1.58346178337589",
+      "s11_worst_freq_ghz": "8.0",
+      "s11_pass": "False",
+      "ff_sample_count": "730",
+      "all_phi_gain_total_min_dbi": "-9.78722167003354",
+      "all_phi_gain_total_min_theta_deg": "50.0",
+      "all_phi_gain_total_min_phi_deg": "270.0",
+      "best_270deg_window_start_phi_deg": "330.0",
+      "best_270deg_window_stop_phi_deg": "240.0",
+      "best_270deg_gain_total_min_dbi": "-6.6749173307948",
+      "best_270deg_gain_total_min_theta_deg": "45.0",
+      "best_270deg_gain_total_min_phi_deg": "240.0",
+      "default_0_270deg_gain_total_min_dbi": "-9.78722167003354",
+      "default_0_270deg_gain_total_min_theta_deg": "50.0",
+      "default_0_270deg_gain_total_min_phi_deg": "270.0",
+      "gain_pass": "False",
+      "candidate_index": "117",
+      "match_series_cap_pf": "0.0",
+      "match_series_ind_nh": "0.0",
+      "match_shunt_cap_pf": "0.0",
+      "match_shunt_ind_nh": "0.0",
+      "match_gap_mm": "0.12",
+      "match_island_size_mm": "0.7",
+      "match_series_width_mm": "0.34",
+      "refresh_status": "",
+      "match_shunt_on_load_side": "False",
+      "side_fence_start_from_short_mm": "2.0",
+      "open_edge_coupler_length_mm": "4.8",
+      "open_edge_coupler_height_mm": "6.8",
+      "top_slot_start_from_short_mm": "7.6",
+      "top_slot_length_mm": "5.0",
+      "top_slot_width_mm": "0.55",
+      "top_slot_v_offset_mm": "0.0",
+      "edge_slot_start_from_short_mm": "8.0",
+      "edge_slot_length_mm": "4.2",
+      "edge_slot_depth_mm": "1.05",
+      "substrate_stackup": "6.0 mm RO4350B core + 2.0 mm epsr 1.20 cap",
+      "substrate_layers": "((6.0, 3.48, 0.0037), (2.0, 1.2, 0.0005))",
+      "substrate_stackup_label": "6.0 mm RO4350B core + 2.0 mm epsr 1.20 cap"
+    },
+    {
+      "candidate": "h8p0_l14p0_w11p2_f1355_slot_ml4p0_4p0foam",
+      "rationale": "Use a stronger equivalent-thickening split with a 4 mm RO4350B core and 4 mm low-epsilon cap to see whether the gain hole closes further at the same 8 mm total thickness.",
+      "elapsed_s": "106.73543405532837",
+      "project": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h8p0_l14p0_w11p2_f1355_slot_ml4p0_4p0foam.aedt",
+      "params_json": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h8p0_l14p0_w11p2_f1355_slot_ml4p0_4p0foam_params.json",
+      "native_export_log": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h8p0_l14p0_w11p2_f1355_slot_ml4p0_4p0foam_native_export.log",
+      "name": "h8p0_l14p0_w11p2_f1355_slot_ml4p0_4p0foam",
+      "substrate_h_mm": "8.0",
+      "top_length_mm": "14.0",
+      "top_width_mm": "11.2",
+      "short_wall_width_mm": "5.8",
+      "side_fence_length_mm": "6.0",
+      "side_fence_enabled": "True",
+      "feed_from_short_mm": "13.55",
+      "feed_v_mm": "0.0",
+      "feed_pad_radius_mm": "0.3",
+      "port_width_mm": "0.55",
+      "open_lip_height_mm": "1.2",
+      "open_lip_width_mm": "7.0",
+      "ground_radius_mm": "21.4",
+      "total_height_limit_mm": "10.0",
+      "epsr": "3.48",
+      "tan_delta": "0.0037",
+      "s_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h8p0_l14p0_w11p2_f1355_slot_ml4p0_4p0foam_native_s_parameters.csv",
+      "s11_worst_db": "-0.562955375327655",
+      "s11_worst_freq_ghz": "8.0",
+      "s11_pass": "False",
+      "ff_sample_count": "730",
+      "all_phi_gain_total_min_dbi": "-9.05293811035622",
+      "all_phi_gain_total_min_theta_deg": "50.0",
+      "all_phi_gain_total_min_phi_deg": "265.0",
+      "best_270deg_window_start_phi_deg": "305.0",
+      "best_270deg_window_stop_phi_deg": "215.0",
+      "best_270deg_gain_total_min_dbi": "-5.81039977241863",
+      "best_270deg_gain_total_min_theta_deg": "45.0",
+      "best_270deg_gain_total_min_phi_deg": "305.0",
+      "default_0_270deg_gain_total_min_dbi": "-9.05293811035622",
+      "default_0_270deg_gain_total_min_theta_deg": "50.0",
+      "default_0_270deg_gain_total_min_phi_deg": "265.0",
+      "gain_pass": "False",
+      "candidate_index": "118",
+      "match_series_cap_pf": "0.0",
+      "match_series_ind_nh": "0.0",
+      "match_shunt_cap_pf": "0.0",
+      "match_shunt_ind_nh": "0.0",
+      "match_gap_mm": "0.12",
+      "match_island_size_mm": "0.7",
+      "match_series_width_mm": "0.34",
+      "refresh_status": "",
+      "match_shunt_on_load_side": "False",
+      "side_fence_start_from_short_mm": "2.0",
+      "open_edge_coupler_length_mm": "4.8",
+      "open_edge_coupler_height_mm": "6.8",
+      "top_slot_start_from_short_mm": "7.6",
+      "top_slot_length_mm": "5.0",
+      "top_slot_width_mm": "0.55",
+      "top_slot_v_offset_mm": "0.0",
+      "edge_slot_start_from_short_mm": "8.0",
+      "edge_slot_length_mm": "4.2",
+      "edge_slot_depth_mm": "1.05",
+      "substrate_stackup": "4.0 mm RO4350B core + 4.0 mm epsr 1.20 cap",
+      "substrate_layers": "((4.0, 3.48, 0.0037), (4.0, 1.2, 0.0005))",
+      "substrate_stackup_label": "4.0 mm RO4350B core + 4.0 mm epsr 1.20 cap"
+    },
+    {
+      "candidate": "h8p0_l14p0_w11p2_f1355_slot_ml7p0_1p0foam",
+      "rationale": "Try a much thinner low-epsilon cap so the multilayer stack only nudges the effective height instead of strongly detuning the already-high-gain 14 mm aperture.",
+      "substrate_stackup": "7.0 mm RO4350B core + 1.0 mm epsr 1.20 cap",
+      "elapsed_s": 117.64686822891235,
+      "project": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h8p0_l14p0_w11p2_f1355_slot_ml7p0_1p0foam.aedt",
+      "params_json": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\UWB_CH9_D44_THICK_PIFA_SINGLE_ELEMENT_h8p0_l14p0_w11p2_f1355_slot_ml7p0_1p0foam_params.json",
+      "native_export_log": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h8p0_l14p0_w11p2_f1355_slot_ml7p0_1p0foam_native_export.log",
+      "name": "h8p0_l14p0_w11p2_f1355_slot_ml7p0_1p0foam",
+      "substrate_h_mm": 8.0,
+      "substrate_layers": [
+        [
+          7.0,
+          3.48,
+          0.0037
+        ],
+        [
+          1.0,
+          1.2,
+          0.0005
+        ]
+      ],
+      "substrate_stackup_label": "7.0 mm RO4350B core + 1.0 mm epsr 1.20 cap",
+      "top_length_mm": 14.0,
+      "top_width_mm": 11.2,
+      "short_wall_width_mm": 5.8,
       "side_fence_length_mm": 6.0,
       "side_fence_start_from_short_mm": 2.0,
       "side_fence_enabled": true,
-      "feed_from_short_mm": 9.45,
+      "feed_from_short_mm": 13.55,
       "feed_v_mm": 0.0,
       "feed_pad_radius_mm": 0.3,
       "port_width_mm": 0.55,
       "open_lip_height_mm": 1.2,
-      "open_lip_width_mm": 6.8,
+      "open_lip_width_mm": 7.0,
       "open_edge_coupler_length_mm": 4.8,
-      "open_edge_coupler_height_mm": 6.2,
-      "top_slot_start_from_short_mm": 5.4,
-      "top_slot_length_mm": 3.8,
-      "top_slot_width_mm": 0.52,
+      "open_edge_coupler_height_mm": 6.8,
+      "top_slot_start_from_short_mm": 7.6,
+      "top_slot_length_mm": 5.0,
+      "top_slot_width_mm": 0.55,
       "top_slot_v_offset_mm": 0.0,
-      "edge_slot_start_from_short_mm": 5.6,
-      "edge_slot_length_mm": 3.6,
-      "edge_slot_depth_mm": 1.0,
+      "edge_slot_start_from_short_mm": 8.0,
+      "edge_slot_length_mm": 4.2,
+      "edge_slot_depth_mm": 1.05,
       "match_series_cap_pf": 0.0,
       "match_series_ind_nh": 0.0,
       "match_shunt_cap_pf": 0.0,
@@ -6993,24 +7543,24 @@
       "total_height_limit_mm": 10.0,
       "epsr": 3.48,
       "tan_delta": 0.0037,
-      "s_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h7p2_l10p0_w10p8_sw5p6_fence6p0_start2p0_feed9p45_lip1p2_edgec4p8_slot_native_s_parameters.csv",
-      "s11_worst_db": -2.9968022235564,
+      "s_csv": "D:\\WorkSpace\\HFSS Sim\\UWB-Antenna-Simulation-By-HFSS\\reports_d44_thick_pifa_single_element\\h8p0_l14p0_w11p2_f1355_slot_ml7p0_1p0foam_native_s_parameters.csv",
+      "s11_worst_db": -2.86481308544466,
       "s11_worst_freq_ghz": 8.0,
       "s11_pass": false,
       "ff_sample_count": 730,
-      "all_phi_gain_total_min_dbi": -6.1516879462813,
-      "all_phi_gain_total_min_theta_deg": 65.0,
-      "all_phi_gain_total_min_phi_deg": 255.0,
-      "best_270deg_window_start_phi_deg": 275.0,
-      "best_270deg_window_stop_phi_deg": 185.0,
-      "best_270deg_gain_total_min_dbi": -5.64330075833943,
-      "best_270deg_gain_total_min_theta_deg": 90.0,
-      "best_270deg_gain_total_min_phi_deg": 115.0,
-      "default_0_270deg_gain_total_min_dbi": -6.1516879462813,
-      "default_0_270deg_gain_total_min_theta_deg": 65.0,
-      "default_0_270deg_gain_total_min_phi_deg": 255.0,
+      "all_phi_gain_total_min_dbi": -14.0144696518354,
+      "all_phi_gain_total_min_theta_deg": 45.0,
+      "all_phi_gain_total_min_phi_deg": 180.0,
+      "best_270deg_window_start_phi_deg": 190.0,
+      "best_270deg_window_stop_phi_deg": 100.0,
+      "best_270deg_gain_total_min_dbi": -10.0642037706723,
+      "best_270deg_gain_total_min_theta_deg": 45.0,
+      "best_270deg_gain_total_min_phi_deg": 305.0,
+      "default_0_270deg_gain_total_min_dbi": -14.0144696518354,
+      "default_0_270deg_gain_total_min_theta_deg": 45.0,
+      "default_0_270deg_gain_total_min_phi_deg": 180.0,
       "gain_pass": false,
-      "candidate_index": 116
+      "candidate_index": 119
     }
   ]
 }

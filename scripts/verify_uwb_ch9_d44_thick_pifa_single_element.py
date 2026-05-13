@@ -39,6 +39,8 @@ class ThickPifaCandidate:
     name: str
     rationale: str
     substrate_h_mm: float = 5.0
+    substrate_layers: tuple[tuple[float, float, float], ...] = ()
+    substrate_stackup_label: str = ""
     top_length_mm: float = 8.8
     top_width_mm: float = 8.0
     short_wall_width_mm: float = 2.4
@@ -1558,6 +1560,78 @@ def candidates() -> list[ThickPifaCandidate]:
             edge_slot_depth_mm=1.00,
             total_height_limit_mm=10.0,
         ),
+        ThickPifaCandidate(
+            name="h8p0_l14p0_w11p2_f1355_slot_ml6p0_2p0foam",
+            rationale="Keep the 14 mm high-gain aperture but split the 8 mm board into a 6 mm RO4350B core plus a 2 mm low-epsilon cap to test equivalent thickening by multilayer stacking.",
+            substrate_h_mm=8.0,
+            substrate_layers=((6.0, 3.48, 0.0037), (2.0, 1.20, 0.0005)),
+            substrate_stackup_label="6.0 mm RO4350B core + 2.0 mm epsr 1.20 cap",
+            top_length_mm=14.0,
+            top_width_mm=11.2,
+            short_wall_width_mm=5.8,
+            side_fence_length_mm=6.0,
+            side_fence_start_from_short_mm=2.0,
+            feed_from_short_mm=13.55,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=7.0,
+            open_edge_coupler_length_mm=4.8,
+            open_edge_coupler_height_mm=6.8,
+            top_slot_start_from_short_mm=7.6,
+            top_slot_length_mm=5.0,
+            top_slot_width_mm=0.55,
+            edge_slot_start_from_short_mm=8.0,
+            edge_slot_length_mm=4.2,
+            edge_slot_depth_mm=1.05,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l14p0_w11p2_f1355_slot_ml4p0_4p0foam",
+            rationale="Use a stronger equivalent-thickening split with a 4 mm RO4350B core and 4 mm low-epsilon cap to see whether the gain hole closes further at the same 8 mm total thickness.",
+            substrate_h_mm=8.0,
+            substrate_layers=((4.0, 3.48, 0.0037), (4.0, 1.20, 0.0005)),
+            substrate_stackup_label="4.0 mm RO4350B core + 4.0 mm epsr 1.20 cap",
+            top_length_mm=14.0,
+            top_width_mm=11.2,
+            short_wall_width_mm=5.8,
+            side_fence_length_mm=6.0,
+            side_fence_start_from_short_mm=2.0,
+            feed_from_short_mm=13.55,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=7.0,
+            open_edge_coupler_length_mm=4.8,
+            open_edge_coupler_height_mm=6.8,
+            top_slot_start_from_short_mm=7.6,
+            top_slot_length_mm=5.0,
+            top_slot_width_mm=0.55,
+            edge_slot_start_from_short_mm=8.0,
+            edge_slot_length_mm=4.2,
+            edge_slot_depth_mm=1.05,
+            total_height_limit_mm=10.0,
+        ),
+        ThickPifaCandidate(
+            name="h8p0_l14p0_w11p2_f1355_slot_ml7p0_1p0foam",
+            rationale="Try a much thinner low-epsilon cap so the multilayer stack only nudges the effective height instead of strongly detuning the already-high-gain 14 mm aperture.",
+            substrate_h_mm=8.0,
+            substrate_layers=((7.0, 3.48, 0.0037), (1.0, 1.20, 0.0005)),
+            substrate_stackup_label="7.0 mm RO4350B core + 1.0 mm epsr 1.20 cap",
+            top_length_mm=14.0,
+            top_width_mm=11.2,
+            short_wall_width_mm=5.8,
+            side_fence_length_mm=6.0,
+            side_fence_start_from_short_mm=2.0,
+            feed_from_short_mm=13.55,
+            open_lip_height_mm=1.2,
+            open_lip_width_mm=7.0,
+            open_edge_coupler_length_mm=4.8,
+            open_edge_coupler_height_mm=6.8,
+            top_slot_start_from_short_mm=7.6,
+            top_slot_length_mm=5.0,
+            top_slot_width_mm=0.55,
+            edge_slot_start_from_short_mm=8.0,
+            edge_slot_length_mm=4.2,
+            edge_slot_depth_mm=1.05,
+            total_height_limit_mm=10.0,
+        ),
     ]
 
 
@@ -1605,9 +1679,80 @@ def params_dict(candidate: ThickPifaCandidate) -> dict[str, float]:
     }
 
 
+def stackup_description(candidate: ThickPifaCandidate) -> str:
+    if candidate.substrate_stackup_label:
+        return candidate.substrate_stackup_label
+    if not candidate.substrate_layers:
+        return f"single-layer {candidate.substrate_h_mm:.1f} mm RO4350B"
+    parts = []
+    for idx, (thickness_mm, epsr, tan_delta) in enumerate(candidate.substrate_layers, start=1):
+        parts.append(f"L{idx}:{thickness_mm:.1f}mm epsr={epsr:.2f} tan={tan_delta:.4f}")
+    return " + ".join(parts)
+
+
+def add_dielectric_material(hfss, name: str, epsr: float, tan_delta: float) -> str:
+    if name not in hfss.materials.material_keys:
+        mat = hfss.materials.add_material(name)
+        mat.permittivity = epsr
+        mat.dielectric_loss_tangent = tan_delta
+    return name
+
+
+def build_substrate_stack(hfss, candidate: ThickPifaCandidate, params: dict[str, float]) -> list[str]:
+    board_radius = params["board_diameter_mm"] / 2.0
+    if candidate.substrate_layers:
+        z0 = 0.0
+        layer_names: list[str] = []
+        total_layer_h = 0.0
+        for index, (thickness_mm, epsr, tan_delta) in enumerate(candidate.substrate_layers, start=1):
+            if thickness_mm <= 0.0:
+                raise ValueError(f"{candidate.name}: substrate layer {index} thickness must be positive")
+            total_layer_h += thickness_mm
+            material_name = add_dielectric_material(
+                hfss,
+                f"RO4350B_custom_D44_Topology_layer{index}",
+                epsr,
+                tan_delta,
+            )
+            solid = hfss.modeler.create_cylinder(
+                "Z",
+                [0.0, 0.0, z0],
+                board_radius,
+                thickness_mm,
+                num_sides=128,
+                name=f"D44_THICK_PIFA_substrate_layer{index}",
+                material=material_name,
+            )
+            solid.transparency = 0.70
+            layer_names.append(solid.name)
+            z0 += thickness_mm
+        if abs(total_layer_h - candidate.substrate_h_mm) > 1e-6:
+            raise ValueError(
+                f"{candidate.name}: layered substrate height {total_layer_h:.3f} mm does not match substrate_h_mm={candidate.substrate_h_mm:.3f} mm"
+            )
+        return layer_names
+
+    substrate_material = builder.add_ro4350b(hfss, params)
+    substrate = hfss.modeler.create_cylinder(
+        "Z",
+        [0, 0, 0],
+        board_radius,
+        candidate.substrate_h_mm,
+        num_sides=128,
+        name="D44_THICK_PIFA_single_substrate",
+        material=substrate_material,
+    )
+    substrate.transparency = 0.65
+    return [substrate.name]
+
+
 def validate_candidate(candidate: ThickPifaCandidate) -> None:
     if candidate.substrate_h_mm + 0.035 > candidate.total_height_limit_mm:
         raise ValueError(f"{candidate.name}: total height exceeds limit")
+    if candidate.substrate_layers:
+        layer_total = sum(layer[0] for layer in candidate.substrate_layers)
+        if abs(layer_total - candidate.substrate_h_mm) > 1e-6:
+            raise ValueError(f"{candidate.name}: layered substrate height does not match substrate_h_mm")
     if candidate.top_length_mm <= 1.0 or candidate.top_width_mm <= 1.0:
         raise ValueError(f"{candidate.name}: top plate dimensions are too small")
     if candidate.short_wall_width_mm <= 0.20:
@@ -1858,17 +2003,7 @@ def build_candidate(candidate: ThickPifaCandidate, analyze: bool, cores: int, ta
     hfss.modeler.model_units = "mm"
     hfss.design_solutions._solution_type = builder.SolutionsHfss.DrivenModal
 
-    substrate_material = builder.add_ro4350b(hfss, params)
-    substrate = hfss.modeler.create_cylinder(
-        "Z",
-        [0, 0, 0],
-        params["board_diameter_mm"] / 2.0,
-        candidate.substrate_h_mm,
-        num_sides=128,
-        name="D44_THICK_PIFA_single_substrate",
-        material=substrate_material,
-    )
-    substrate.transparency = 0.65
+    build_substrate_stack(hfss, candidate, params)
     ground = hfss.modeler.create_circle(
         "XY",
         [0, 0, 0],
@@ -2333,6 +2468,7 @@ def evaluate_candidate(candidate: ThickPifaCandidate, cores: int, tasks: int) ->
     row = {
         "candidate": candidate.name,
         "rationale": candidate.rationale,
+        "substrate_stackup": stackup_description(candidate),
         "elapsed_s": time.time() - start,
         "project": str(paths["project"]),
         "params_json": str(paths["params"]),
