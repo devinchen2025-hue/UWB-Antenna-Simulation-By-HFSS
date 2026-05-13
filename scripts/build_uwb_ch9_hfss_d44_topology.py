@@ -280,6 +280,11 @@ BASE_PARAMS = {
     "board_edge_fed_l_match_capacitance_pf": 0.0,
     "board_edge_fed_l_match_inductance_nh": 0.0,
     "board_edge_fed_l_match_resistance_ohm": 0.0,
+    "board_edge_fed_l_series_match_enabled": 0.0,
+    "board_edge_fed_l_series_match_width_mm": 0.14,
+    "board_edge_fed_l_series_match_capacitance_pf": 0.0,
+    "board_edge_fed_l_series_match_inductance_nh": 0.0,
+    "board_edge_fed_l_series_match_resistance_ohm": 0.0,
     "board_edge_fed_l_feed_neck_enabled": 0.0,
     "board_edge_fed_l_feed_neck_length_mm": 0.0,
     "board_edge_fed_l_feed_neck_width_mm": 0.14,
@@ -1272,7 +1277,109 @@ def add_board_edge_fed_low_elevation_unit(
         metals.append(neck.name)
         return port_offset
 
+    def add_series_match(feed_radial: float, feed_offset: float, feed_top_z: float) -> float | None:
+        if params.get("board_edge_fed_l_series_match_enabled", 0.0) < 0.5:
+            return None
+        neck_l = params.get("board_edge_fed_l_feed_neck_length_mm", 0.0)
+        if neck_l <= 1e-9:
+            return None
+        neck_sign = 1.0 if params.get("board_edge_fed_l_feed_neck_side_sign", 1.0) >= 0.0 else -1.0
+        port_offset = feed_offset + neck_sign * neck_l
+        series_w = params.get("board_edge_fed_l_series_match_width_mm", params.get("board_edge_fed_l_feed_neck_width_mm", 0.14))
+        cross0, cross1 = sorted([feed_offset, port_offset])
+        radial0, radial1 = sorted([side * feed_radial - series_w / 2.0, side * feed_radial + series_w / 2.0])
+        if axis == "u":
+            pts = rectangle_points(*center, angle_deg, radial0, radial1, cross0, cross1, feed_top_z)
+            source = local_to_global(*center, angle_deg, side * feed_radial, port_offset, feed_top_z)
+            load = local_to_global(*center, angle_deg, side * feed_radial, feed_offset, feed_top_z)
+        else:
+            pts = rectangle_points(*center, angle_deg, cross0, cross1, radial0, radial1, feed_top_z)
+            source = local_to_global(*center, angle_deg, port_offset, side * feed_radial, feed_top_z)
+            load = local_to_global(*center, angle_deg, feed_offset, side * feed_radial, feed_top_z)
+        series_sheet = polygon_sheet(hfss, f"{tag}_board_edge_fed_l_series_match", pts, None)
+        hfss.assign_lumped_rlc_to_sheet(
+            series_sheet.name,
+            start_direction=[source, load],
+            name=f"{tag}_board_edge_fed_l_series_match",
+            rlc_type="Serial",
+            resistance=params.get("board_edge_fed_l_series_match_resistance_ohm", 0.0)
+            if params.get("board_edge_fed_l_series_match_resistance_ohm", 0.0) > 0.0
+            else None,
+            capacitance=params.get("board_edge_fed_l_series_match_capacitance_pf", 0.0) * 1e-12
+            if params.get("board_edge_fed_l_series_match_capacitance_pf", 0.0) > 0.0
+            else None,
+            inductance=params.get("board_edge_fed_l_series_match_inductance_nh", 0.0) * 1e-9
+            if params.get("board_edge_fed_l_series_match_inductance_nh", 0.0) > 0.0
+            else None,
+        )
+        return port_offset
+
     def add_port(feed_radial: float, feed_offset: float, feed_top_z: float) -> None:
+        series_port_offset = add_series_match(feed_radial, feed_offset, feed_top_z)
+        if series_port_offset is not None:
+            port_offset = series_port_offset
+            selected = source_feed_selected(params, port_name)
+            if axis == "u":
+                if selected:
+                    metals.extend(
+                        add_lumped_feed(
+                            hfss,
+                            port_name,
+                            center,
+                            angle_deg,
+                            side * feed_radial,
+                            port_offset,
+                            feed_top_z,
+                            0.0,
+                            params,
+                            pad=True,
+                        )
+                    )
+                else:
+                    add_lumped_switch_load(
+                        hfss,
+                        port_name,
+                        center,
+                        angle_deg,
+                        side * feed_radial,
+                        port_offset,
+                        feed_top_z,
+                        0.0,
+                        params,
+                    )
+            else:
+                if selected:
+                    metals.extend(
+                        add_lumped_feed(
+                            hfss,
+                            port_name,
+                            center,
+                            angle_deg,
+                            port_offset,
+                            side * feed_radial,
+                            feed_top_z,
+                            0.0,
+                            params,
+                            pad=True,
+                            port_width_axis="u",
+                        )
+                    )
+                else:
+                    add_lumped_switch_load(
+                        hfss,
+                        port_name,
+                        center,
+                        angle_deg,
+                        port_offset,
+                        side * feed_radial,
+                        feed_top_z,
+                        0.0,
+                        params,
+                        port_width_axis="u",
+                    )
+            add_match(feed_radial, feed_offset, feed_top_z)
+            return
+
         port_offset = add_feed_neck(feed_radial, feed_offset, feed_top_z)
         selected = source_feed_selected(params, port_name)
         if axis == "u":
@@ -2174,12 +2281,17 @@ def validate_params(params: dict) -> None:
         l_match_cap = params.get("board_edge_fed_l_match_capacitance_pf", 0.0)
         l_match_ind = params.get("board_edge_fed_l_match_inductance_nh", 0.0)
         l_match_res = params.get("board_edge_fed_l_match_resistance_ohm", 0.0)
+        l_series_enabled = params.get("board_edge_fed_l_series_match_enabled", 0.0) >= 0.5
+        l_series_w = params.get("board_edge_fed_l_series_match_width_mm", 0.14)
+        l_series_cap = params.get("board_edge_fed_l_series_match_capacitance_pf", 0.0)
+        l_series_ind = params.get("board_edge_fed_l_series_match_inductance_nh", 0.0)
+        l_series_res = params.get("board_edge_fed_l_series_match_resistance_ohm", 0.0)
         l_feed_neck_enabled = params.get("board_edge_fed_l_feed_neck_enabled", 0.0) >= 0.5
         l_feed_neck_l = params.get("board_edge_fed_l_feed_neck_length_mm", 0.0)
         l_feed_neck_w = params.get("board_edge_fed_l_feed_neck_width_mm", 0.14)
         if monopole_enabled and fed_ifa_enabled:
             raise ValueError("Use either the board-edge-fed monopole or board-edge-fed IFA in one candidate, not both")
-        if l_match_enabled or l_feed_neck_enabled:
+        if l_match_enabled or l_feed_neck_enabled or l_series_enabled:
             if not monopole_enabled and not fed_ifa_enabled:
                 raise ValueError("Board-edge-fed L-port matching features require a true low-elevation feed")
         if l_feed_neck_enabled:
@@ -2192,6 +2304,15 @@ def validate_params(params: dict) -> None:
                 raise ValueError("Board-edge-fed L-port match RLC values must be non-negative")
             if l_match_stub_l <= 1e-9 and l_match_cap <= 0.0 and l_match_ind <= 0.0 and l_match_res <= 0.0:
                 raise ValueError("Board-edge-fed L-port match needs a stub or a non-zero RLC value")
+        if l_series_enabled:
+            if l_feed_neck_l <= 0.0:
+                raise ValueError("Board-edge-fed L-port series match requires a positive source-island offset")
+            if l_series_w <= 0.04 or l_series_w > 0.80:
+                raise ValueError("Board-edge-fed L-port series match width must be manufacturable")
+            if l_series_cap < 0.0 or l_series_ind < 0.0 or l_series_res < 0.0:
+                raise ValueError("Board-edge-fed L-port series match RLC values must be non-negative")
+            if l_series_cap <= 0.0 and l_series_ind <= 0.0 and l_series_res <= 0.0:
+                raise ValueError("Board-edge-fed L-port series match needs a non-zero RLC value")
         if l_match_fold_enabled:
             if not l_match_enabled or l_match_stub_l <= 1e-9:
                 raise ValueError("Board-edge-fed L-port folded match branch requires a straight match stub anchor")
@@ -2211,8 +2332,8 @@ def validate_params(params: dict) -> None:
                 raise ValueError("Board-edge-fed monopole top loading must stay near the element-side span")
             if center_radius + half_patch + mono_gap > board_radius - 0.25:
                 raise ValueError("Board-edge-fed monopole feed point must stay inside the circular board outline")
-            l_feature_span = (l_match_stub_l if l_match_enabled else 0.0) + (l_feed_neck_l if l_feed_neck_enabled else 0.0)
-            if (l_match_enabled or l_feed_neck_enabled) and abs(mono_offset) + mono_w / 2.0 + l_feature_span > half_patch - 0.20:
+            l_feature_span = (l_match_stub_l if l_match_enabled else 0.0) + (l_feed_neck_l if (l_feed_neck_enabled or l_series_enabled) else 0.0)
+            if (l_match_enabled or l_feed_neck_enabled or l_series_enabled) and abs(mono_offset) + mono_w / 2.0 + l_feature_span > half_patch - 0.20:
                 raise ValueError("Board-edge-fed monopole L-port feed neck and match stub must stay near the element-side span")
             if l_match_fold_enabled:
                 if l_match_fold_radial_sign >= 0.0 and center_radius + half_patch + mono_gap + l_match_fold_l > board_radius - 0.20:
@@ -2236,8 +2357,8 @@ def validate_params(params: dict) -> None:
                 raise ValueError("Board-edge-fed IFA must stay near the element-side span")
             if center_radius + half_patch + fed_ifa_gap + fed_ifa_l > board_radius - 0.20:
                 raise ValueError("Board-edge-fed IFA must stay inside the circular board outline")
-            l_feature_span = (l_match_stub_l if l_match_enabled else 0.0) + (l_feed_neck_l if l_feed_neck_enabled else 0.0)
-            if (l_match_enabled or l_feed_neck_enabled) and abs(fed_ifa_offset) + fed_ifa_w / 2.0 + l_feature_span > half_patch - 0.20:
+            l_feature_span = (l_match_stub_l if l_match_enabled else 0.0) + (l_feed_neck_l if (l_feed_neck_enabled or l_series_enabled) else 0.0)
+            if (l_match_enabled or l_feed_neck_enabled or l_series_enabled) and abs(fed_ifa_offset) + fed_ifa_w / 2.0 + l_feature_span > half_patch - 0.20:
                 raise ValueError("Board-edge-fed IFA L-port feed neck and match stub must stay near the element-side span")
             if l_match_fold_enabled:
                 if l_match_fold_radial_sign >= 0.0 and center_radius + half_patch + fed_ifa_gap + fed_ifa_feed + l_match_fold_l > board_radius - 0.20:
@@ -2841,6 +2962,8 @@ def source_guidance(topology: str) -> list[str]:
             guidance.append("Independent board-edge-fed IFA ports P1L-P4L are enabled as selectable low-elevation coverage elements.")
         if params.get("board_edge_fed_l_match_enabled", 0.0) >= 0.5:
             guidance.append("A dedicated shunt matching stub is enabled on each low-elevation L port and must be co-optimized with coverage loss.")
+        if params.get("board_edge_fed_l_series_match_enabled", 0.0) >= 0.5:
+            guidance.append("A dedicated series lumped RLC element is enabled between the low-elevation L-port source island and the board-edge radiator.")
         if params.get("board_edge_fed_l_match_fold_enabled", 0.0) >= 0.5:
             guidance.append("The low-elevation L-port matching stub uses a folded open branch to add electrical length without consuming more board-edge span.")
         if params.get("board_edge_fed_l_feed_neck_enabled", 0.0) >= 0.5:
